@@ -34,7 +34,6 @@ menu:
 
 # Build settings
 markdown: kramdown
-theme: jekyll-theme-hydejack
 
 # Pagination configuration (used by the `blog` layout)
 paginate: 5
@@ -179,8 +178,8 @@ plugins:
 # Theme
 # ---------------------------------------------------------------------------------------
 
-# theme: jekyll-theme-hydejack
-# remote_theme: qwtel/hydejack@gem
+theme: jekyll-theme-hydejack
+remote_theme: qwtel/hydejack@gem
 
 # SEO Tag
 # ---------------------------------------------------------------------------------------
