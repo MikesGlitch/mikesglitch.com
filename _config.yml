@@ -13,6 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
+lang: en
 title: Michael Clark
 email: mclarkgb@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
@@ -21,7 +22,8 @@ url: https://coderevver.github.io
 # twitter_username: jekyllrb
 github_username:  coderevver
 
-# Config example - https://github.com/qwtel/hydejack/blob/master/_config.yml
+# Format of the permalinks
+permalink:             /:categories/:year-:month-:day-:title/
 
 # Add links to the sidebar.
 menu:
@@ -29,6 +31,8 @@ menu:
     url: /about-me/
   - title: Blog
     url: /
+  # - title: Blog
+  #   url: /blog/
   - title: Hire Me
     url: /hire-me/
 
@@ -179,7 +183,7 @@ plugins:
 # ---------------------------------------------------------------------------------------
 
 theme: jekyll-theme-hydejack
-remote_theme: qwtel/hydejack@gem
+remote_theme: qwtel/hydejack@v8.4.0
 
 # SEO Tag
 # ---------------------------------------------------------------------------------------
