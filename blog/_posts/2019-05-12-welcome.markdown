@@ -1,7 +1,0 @@
----
-layout: post
-title:  "Welcome to to my Blog!"
-date:   2019-05-12 17:58:09 +0100
-categories: misc
----
-Welcome to my blog!

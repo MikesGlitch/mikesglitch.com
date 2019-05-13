@@ -17,13 +17,13 @@ lang: en
 title: Michael Clark
 email: mclarkgb@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  I'm a .NET Developer, JavaScript enthusiast, Android user and experimental cook.
+  I'm a .NET & JavaScript developer focused on the delivery of highly performant and tested web apps.
 url: https://coderevver.github.io
 # twitter_username: jekyllrb
 github_username:  coderevver
 
 # Format of the permalinks
-permalink:             /:categories/:year-:month-:day-:title/
+permalink: /:categories/:year-:month-:day-:title/
 
 # Add links to the sidebar.
 menu:
@@ -31,8 +31,6 @@ menu:
     url: /about-me/
   - title: Blog
     url: /
-  # - title: Blog
-  #   url: /blog/
   - title: Hire Me
     url: /hire-me/
 
