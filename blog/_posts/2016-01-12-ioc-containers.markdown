@@ -4,8 +4,6 @@ title:  "What IoC Containers are and what they aren't"
 date:   2016-01-12 17:58:09 +0100
 categories: misc
 ---
-
-## What is IoC?
 The term IoC or "Inversion of Control" is used to describe a design in which custom-written portions of a computer program receive the *FLOW OF CONTROL * (Add link to a post about it) from a generic, reusable library.
 
 A software application with this design inverts control as opposed to the traditional “Procedural Programming”.  With Procedural Programming the custom code that expresses the purpose of the program calls into reusable libraries to take care of generic tasks, but with Inversion of Control, it is the reusable code that calls into the custom/task specific code.
