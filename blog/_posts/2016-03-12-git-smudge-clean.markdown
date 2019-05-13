@@ -4,8 +4,6 @@ title:  "Updating Configuration Files"
 date:   2016-03-12 17:58:09 +0100
 categories: misc
 ---
-
-## Overview
 When working in a team of developers in a Source Controlled environment it is very common to see Smudge and Clean filters in use.  They are used to blank out values in .config files in order to make sure that one persons setting do not interfere with another persons.  For example, take the following:
 
 ````
