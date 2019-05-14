@@ -31,13 +31,15 @@ menu:
     url: /about-me/
   - title: Blog
     url: /
+  - title: Projects
+    url: /projects/
   - title: Hire Me
     url: /hire-me/
 
 # Build settings
 markdown: kramdown
-accent_color: rgb(48, 48, 8)
-theme_color: rgb(25,55,71)
+accent_color: rgb(38,139,210)
+theme_color: rgb(49,49,49)
 
 # Pagination configuration (used by the `blog` layout)
 paginate: 5

@@ -2,14 +2,14 @@
 layout: post
 title:  "What IoC Containers are and what they aren't"
 date:   2016-01-12 17:58:09 +0100
-categories: misc
+categories: old-blog
 ---
 The term IoC or "Inversion of Control" is used to describe a design in which custom-written portions of a computer program receive the *FLOW OF CONTROL* from a generic, reusable library.
 
 A software application with this design inverts control as opposed to the traditional “Procedural Programming”.  With Procedural Programming the custom code that expresses the purpose of the program calls into reusable libraries to take care of generic tasks, but with Inversion of Control, it is the reusable code that calls into the custom/task specific code.
 
 ### Procedural Example (C#)
-````
+```csharp
 public class WebUserContext : IUserContext
 {
     public WebUserContext( )
@@ -19,10 +19,10 @@ public class WebUserContext : IUserContext
 
     private readonly IUserAccountService _userAccountService;
 }
-````
+```
 
 ### IoC Example (C#)
-````
+```csharp
 public class WebUserContext : IUserContext
 {
     public WebUserContext(IUserAccountService userAccountService)
@@ -32,7 +32,7 @@ public class WebUserContext : IUserContext
 
     private readonly IUserAccountService _userAccountService;
 }
-````
+```
 
 ## Dependency Injection != Using an IoC container
 - It is possible to use dependency injection without the need for an IoC container.
@@ -54,7 +54,7 @@ Another major point is when dependencies change for a class where the Service Lo
 If the programmer is willing to overlook the problems with the Service Locator pattern  then perhaps it is worth considering.  As with everything, we need to understand the pros and cons of each tool we use so that we can make informed choices.
 
 ### Service Location example
-````
+```csharp
 public class WebUserContext : IUserContext
 {
     public WebUserContext( )
@@ -64,7 +64,7 @@ public class WebUserContext : IUserContext
 
     private readonly IUserAccountService _userAccountService;
 }
-````
+```
 
 ## Dynamic component resolution
 A common requirement is to be able to create an object based on data that can only be known at run-time.  A slight variation of this is that if you have a component that is expensive to create, so you may want to delay the instantiation of this object until it is required.  Both of these scenarios can be easily handled without resorting to accessing the container deep within your code.   The answer is factories, which I will explain in a later post.

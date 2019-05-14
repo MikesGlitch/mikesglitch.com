@@ -2,11 +2,11 @@
 layout: post
 title:  "Updating Configuration Files"
 date:   2016-03-12 17:58:09 +0100
-categories: misc
+categories: old-blog
 ---
 When working in a team of developers in a Source Controlled environment it is very common to see Smudge and Clean filters in use.  They are used to blank out values in .config files in order to make sure that one persons setting do not interfere with another persons.  For example, take the following:
 
-````
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
   <connectionStrings>
@@ -16,7 +16,7 @@ When working in a team of developers in a Source Controlled environment it is ve
       <add key="CommandsQueue" value=" "/>
   </appSettings>
 </configuration>
-````
+```
 
 The app setting "CommandsQueue" is an Amazon SQS queue that holds Command messages for a single tenant sent from the Web UI to the Command Receiver.  The Commands Queue MUST be separated by tenant to ensure scalability and so is different for every developer and cannot/should not be pushed up to GitHub as a common setting.
 

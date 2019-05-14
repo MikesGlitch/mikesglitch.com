@@ -2,7 +2,7 @@
 layout: post
 title:  "Git Smudge and Clean Filters"
 date:   2016-02-12 17:58:09 +0100
-categories: misc
+categories: old-blog
 ---
 The **Smudge** is the equivalent to “Run this code whenever you check anything out”.
 
