@@ -41,7 +41,7 @@ Behind the scenes, ServiceStack is built on top of Raw ASP.Net IHttpHandler’s.
 ## Service Architecture
 ServiceStack’s architecture is purposefully kept simple and introduces no new concepts or constructs and can all be captured in the diagram below:
 
-![architecture](//assets/servicestack/architecture.png)
+![architecture](/assets/servicestack/architecture.png)
 
 ## Client Architecture
 ServiceStack's Message-based design allows the easy support of typed, generic and re-usable Service Clients for all popular formats.
