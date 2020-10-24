@@ -2,7 +2,10 @@
   <div class="cv">
     <div class="cv__header">
       <div class="cv__header-personal-info">
-        <h5>Personal Details</h5>
+        <div class="cv__section-header">
+          <img height="20" width="20" src="/information.svg">
+          <h4>Personal Details</h4>
+        </div>
 
         <table class="bordered">
           <tr>
@@ -17,7 +20,10 @@
         </table>
       </div>
       <div class="cv__header-education">
-        <h5>Education</h5>
+        <div class="cv__section-header">
+          <img height="20" width="20" src="/information.svg">
+          <h4>Education</h4>
+        </div>
         <table class="bordered">
           <tr>
             <td>University</td><td>University of West of Scotland</td>
@@ -33,7 +39,10 @@
     </div>
     <div class="cv__experience">
       <div class="cv__experience">
-        <h5>Experience</h5>
+        <div class="cv__section-header">
+          <img height="20" width="20" src="/information.svg">
+          <h4>Experience</h4>
+        </div>
         <table class="work-experience">
           <tr>
             <td class="work-experience__employer">
@@ -146,13 +155,19 @@
     </div>
     <div class="cv__footer">
       <div class="cv__footer-profile">
-        <h5>Profile</h5>
+        <div class="cv__section-header">
+          <img height="20" width="20" src="/information.svg">
+          <h4>Profile</h4>
+        </div>
         <p>Hello! I'm Michael, a software developer available for contract work in Glasgow, Scotland.</p>
         <br>
         <p>I take pride in coding within consistently high standards and focus on the delivery of highly scalable, performant applications. I believe that the delivery of high-quality software is what clients pay me for and I strive to deliver those results on time and within scope.</p>
       </div>
       <div class="cv__footer-skills">
-        <h5>Technical fluencies</h5>
+        <div class="cv__section-header">
+          <img height="20" width="20" src="/information.svg">
+          <h4>Technical fluencies</h4>
+        </div>
         <p>
           Microsoft Web Stack: Web API, MVC, EF, SignalR <br>
           UI/UX Development: React + Redux, Angular, TypeScript <br>
@@ -173,6 +188,8 @@ export default Vue.extend({})
 
 <style lang="scss">
 .cv {
+  $sectionHeaderColor: #43a1de;
+
   margin: 0 auto;
   min-height: 100vh;
   display: flex;
@@ -198,6 +215,20 @@ export default Vue.extend({})
       td {
         vertical-align: top;
       }
+    }
+  }
+
+  &__section-header {
+    display: flex;
+    text-transform: uppercase;
+    color: $sectionHeaderColor;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    h4 {
+      margin-left: 1em;
+      display: flex;
+      align-self: center;
     }
   }
 
