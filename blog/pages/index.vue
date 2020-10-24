@@ -9,6 +9,8 @@
         <nuxt-link to="/test">
           Test page
         </nuxt-link>
+
+        <small>V1</small>
       </div>
     </div>
   </div>
