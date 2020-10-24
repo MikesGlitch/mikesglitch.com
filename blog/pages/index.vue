@@ -3,7 +3,7 @@
     <div>
       <Logo />
       <h1 class="title">
-        blog
+        blog - now on gh-pages branch
       </h1>
       <div class="links">
         <nuxt-link to="/test">
