@@ -7,7 +7,7 @@
           <h4>Personal Details</h4>
         </div>
 
-        <table class="bordered">
+        <table class="summary-info">
           <tr>
             <td>Name</td><td>Michael Clark</td>
           </tr>
@@ -24,7 +24,7 @@
           <img height="20" width="20" src="/mortarboard.svg">
           <h4>Education</h4>
         </div>
-        <table class="bordered">
+        <table class="summary-info">
           <tr>
             <td>University</td><td>University of West of Scotland</td>
           </tr>
@@ -195,6 +195,13 @@ export default Vue.extend({})
 </script>
 
 <style lang="scss">
+@page {
+    margin-top: 0in;
+    margin-bottom: 0in;
+    margin-left: 0in;
+    margin-right: 0in;
+}
+
 .cv {
   $sectionHeaderColor: #43a1de;
 
@@ -204,10 +211,19 @@ export default Vue.extend({})
   flex-direction: column;
 
   /* A4 Width and height */
-  width:794px;
-  height:1122px;
+  width: 210mm;
+  height: 297mm;
 
-  table.bordered {
+  @media screen {
+    /* Not applied on print */
+    border: 1px solid #888888;
+    // padding: 10px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  table.summary-info {
     $border-color: #bbbdbc;
     border-collapse: collapse;
 
@@ -232,7 +248,7 @@ export default Vue.extend({})
     display: flex;
     text-transform: uppercase;
     color: $sectionHeaderColor;
-    padding-top: 5px;
+    padding-top: 10px;
     padding-bottom: 5px;
 
     h4 {
@@ -253,6 +269,9 @@ export default Vue.extend({})
 
   &__experience {
     margin-top: 5px;
+    flex-grow: 1;
+    padding-left: 30px;
+    padding-right: 30px;
 
     .work-experience {
       td {
@@ -265,7 +284,7 @@ export default Vue.extend({})
       }
 
       &__employer {
-        width: 250px;
+        width: 210px;
       }
     }
   }
@@ -279,24 +298,28 @@ export default Vue.extend({})
       display: flex;
       flex-direction: column;
       width: 100%;
+      height: calc(100% + 1px); // 1px is because of table border bottom - not rendering well in chrome
       overflow: hidden;
 
       border-top: solid;
       border-top-width: 6px;
       border-top-color: #a29acb;
       margin-right: 15px;
+      padding-left: 30px;
     }
 
     &-education {
       display: flex;
       flex-direction: column;
       width: 100%;
+      height: calc(100% + 1px); // 1px is because of table border bottom - not rendering well in chrome
       overflow: hidden;
 
       border-top: solid;
       border-top-width: 6px;
       border-top-color: #d07979;
       margin-left: 15px;
+      padding-right: 30px;
     }
   }
 
@@ -316,6 +339,7 @@ export default Vue.extend({})
       border-bottom-width: 6px;
       border-bottom-color: #a6d4a4;
       margin-right: 15px;
+      padding-left: 30px;
     }
 
     &-content {
@@ -333,6 +357,7 @@ export default Vue.extend({})
       border-bottom-width: 6px;
       border-bottom-color: #70cde0;
       margin-left: 15px;
+      padding-right: 30px;
     }
   }
 }
