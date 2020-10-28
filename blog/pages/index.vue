@@ -9,26 +9,20 @@
 
         <table class="summary-info">
           <tr>
-            <td class="title">
-              Name
-            </td>
-            <td class="w-100">
+            <td>Name</td>
+            <td>
               Michael Clark
             </td>
           </tr>
           <tr>
-            <td class="title">
-              Contact
-            </td>
-            <td class="w-100">
+            <td>Contact</td>
+            <td>
               07936707118
             </td>
           </tr>
           <tr>
-            <td class="title">
-              Email
-            </td>
-            <td class="w-100">
+            <td>Email</td>
+            <td>
               mclarkgb@gmail.com
             </td>
           </tr>
@@ -41,26 +35,20 @@
         </div>
         <table class="summary-info">
           <tr>
-            <td class="title">
-              University
-            </td>
-            <td class="w-100">
+            <td>University</td>
+            <td>
               University of West of Scotland
             </td>
           </tr>
           <tr>
-            <td class="title">
-              Course
-            </td>
-            <td class="w-100">
+            <td>Course</td>
+            <td>
               Software Development - First Class BSC Hons
             </td>
           </tr>
           <tr>
-            <td class="title">
-              High School
-            </td>
-            <td class="w-100">
+            <td>High School</td>
+            <td>
               Perth Academy
             </td>
           </tr>
@@ -261,10 +249,6 @@ export default Vue.extend({})
     $border-color: #bbbdbc;
     border-collapse: collapse;
 
-    .title {
-      width: 25px;
-    }
-
     td {
       border-top: 1px solid $border-color;
       border-bottom: 1px solid $border-color;
@@ -329,13 +313,13 @@ export default Vue.extend({})
 
   &__header {
     display: flex;
-    width: 100%;
+    @extend .w-100;
     flex-direction: row;
 
     &-personal-info {
       display: flex;
       flex-direction: column;
-      width: 100%;
+      @extend .w-100;
       height: calc(100% + 1px); // 1px is because of table border bottom - not rendering well in chrome
       overflow: hidden;
 
@@ -349,7 +333,7 @@ export default Vue.extend({})
     &-education {
       display: flex;
       flex-direction: column;
-      width: 100%;
+      @extend .w-100;
       height: calc(100% + 1px); // 1px is because of table border bottom - not rendering well in chrome
       overflow: hidden;
 
@@ -364,13 +348,13 @@ export default Vue.extend({})
   &__footer {
     margin-top: 5px;
     display: flex;
-    width: 100%;
+    @extend .w-100;
     flex-direction: row;
 
     &-profile {
       display: flex;
       flex-direction: column;
-      width: 100%;
+      @extend .w-100;
       overflow: hidden;
 
       border-bottom: solid;
@@ -388,7 +372,7 @@ export default Vue.extend({})
     &-skills {
       display: flex;
       flex-direction: column;
-      width: 100%;
+      @extend .w-100;
       overflow: hidden;
 
       border-bottom: solid;
