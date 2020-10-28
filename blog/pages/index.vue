@@ -9,13 +9,22 @@
 
         <table class="summary-info">
           <tr>
-            <td>Name</td><td>Michael Clark</td>
+            <td>Name</td>
+            <td class="w-100">
+              Michael Clark
+            </td>
           </tr>
           <tr>
-            <td>Contact</td><td>07936707118</td>
+            <td>Contact</td>
+            <td class="w-100">
+              07936707118
+            </td>
           </tr>
           <tr>
-            <td>Email</td><td>mclarkgb@gmail.com</td>
+            <td>Email</td>
+            <td class="w-100">
+              mclarkgb@gmail.com
+            </td>
           </tr>
         </table>
       </div>
@@ -26,13 +35,22 @@
         </div>
         <table class="summary-info">
           <tr>
-            <td>University</td><td>University of West of Scotland</td>
+            <td>University</td>
+            <td class="w-100">
+              University of West of Scotland
+            </td>
           </tr>
           <tr>
-            <td>Course</td><td>Software Development - First Class BSC Hons</td>
+            <td>Course</td>
+            <td class="w-100">
+              Software Development - First Class BSC Hons
+            </td>
           </tr>
           <tr>
-            <td>High School</td><td>Perth Academy</td>
+            <td>High School</td>
+            <td class="w-100">
+              Perth Academy
+            </td>
           </tr>
         </table>
       </div>
@@ -200,6 +218,10 @@ export default Vue.extend({})
     margin-bottom: 0in;
     margin-left: 0in;
     margin-right: 0in;
+}
+
+.w-100 {
+  width: 100%;
 }
 
 .cv {
