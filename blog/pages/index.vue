@@ -9,19 +9,25 @@
 
         <table class="summary-info">
           <tr>
-            <td>Name</td>
+            <td class="title">
+              Name
+            </td>
             <td class="w-100">
               Michael Clark
             </td>
           </tr>
           <tr>
-            <td>Contact</td>
+            <td class="title">
+              Contact
+            </td>
             <td class="w-100">
               07936707118
             </td>
           </tr>
           <tr>
-            <td>Email</td>
+            <td class="title">
+              Email
+            </td>
             <td class="w-100">
               mclarkgb@gmail.com
             </td>
@@ -35,19 +41,25 @@
         </div>
         <table class="summary-info">
           <tr>
-            <td>University</td>
+            <td class="title">
+              University
+            </td>
             <td class="w-100">
               University of West of Scotland
             </td>
           </tr>
           <tr>
-            <td>Course</td>
+            <td class="title">
+              Course
+            </td>
             <td class="w-100">
               Software Development - First Class BSC Hons
             </td>
           </tr>
           <tr>
-            <td>High School</td>
+            <td class="title">
+              High School
+            </td>
             <td class="w-100">
               Perth Academy
             </td>
@@ -248,6 +260,10 @@ export default Vue.extend({})
   table.summary-info {
     $border-color: #bbbdbc;
     border-collapse: collapse;
+
+    .title {
+      width: 25px;
+    }
 
     td {
       border-top: 1px solid $border-color;
