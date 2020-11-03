@@ -3,7 +3,7 @@
     <div class="cv__header">
       <div class="cv__header-personal-info">
         <div class="cv__section-header">
-          <img height="20" width="20" src="/information.svg">
+          <img height="20" width="20" src="/information.svg" alt="Personal Details">
           <h4>Personal Details</h4>
         </div>
 
@@ -30,7 +30,7 @@
       </div>
       <div class="cv__header-education">
         <div class="cv__section-header">
-          <img height="20" width="20" src="/mortarboard.svg">
+          <img height="20" width="20" src="/mortarboard.svg" alt="Education">
           <h4>Education</h4>
         </div>
         <table class="summary-info">
@@ -57,7 +57,7 @@
     </div>
     <div class="cv__experience">
       <div class="cv__section-header--underlined">
-        <img height="20" width="20" src="/briefcase.svg">
+        <img height="20" width="20" src="/briefcase.svg" alt="Experience">
         <h4>Experience</h4>
       </div>
       <table class="work-experience">
@@ -178,7 +178,7 @@
     <div class="cv__footer">
       <div class="cv__footer-profile">
         <div class="cv__section-header--underlined">
-          <img height="20" width="20" src="/user.svg">
+          <img height="20" width="20" src="/user.svg" alt="Profile">
           <h4>Profile</h4>
         </div>
         <div class="cv__footer-content">
@@ -189,7 +189,7 @@
       </div>
       <div class="cv__footer-skills">
         <div class="cv__section-header--underlined">
-          <img height="20" width="20" src="/spanner.svg">
+          <img height="20" width="20" src="/spanner.svg" alt="Technical Fluencies">
           <h4>Technical fluencies</h4>
         </div>
         <div class="cv__footer-content">
@@ -225,7 +225,8 @@ export default Vue.extend({})
 }
 
 .cv {
-  $sectionHeaderColor: #43a1de;
+  // $sectionHeaderColor: #43a1de;
+  $sectionHeaderColor: black;
 
   margin: 0 auto;
   min-height: 100vh;
@@ -239,7 +240,6 @@ export default Vue.extend({})
   @media screen {
     /* Not applied on print */
     border: 1px solid #888888;
-    // padding: 10px;
     box-shadow: 10px 10px 5px #aaaaaa;
     margin-top: 10px;
     margin-bottom: 10px;
