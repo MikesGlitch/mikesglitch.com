@@ -8,6 +8,9 @@
     <NuxtLink class="nav__link" to="/blog">
       Blog
     </NuxtLink>
+    <NuxtLink class="nav__link" to="/webrtc">
+      Contact me
+    </NuxtLink>
     <div class="nav__search">
       <label for="navSearch">
         Search
