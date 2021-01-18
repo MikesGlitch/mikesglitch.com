@@ -18,7 +18,8 @@ export default {
       { charset: 'utf-8' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:400,700&amp;display=swap' }
     ]
   },
 
@@ -40,7 +41,8 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build'
+    '@nuxt/typescript-build',
+    '@nuxtjs/tailwindcss'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
