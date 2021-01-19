@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>Home page test</p>
+    <p>Hi, my name is Michael</p>
   </div>
 </template>
 
