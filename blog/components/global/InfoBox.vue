@@ -1,11 +1,11 @@
 <template>
-  <div class="bg-blue-500 text-white p-4 mb-4">
+  <div class="info-box">
     <p v-if="timeToRead">
       Time to read: {{ timeToRead }}
     </p>
     {{ counter }}
     <p>
-      <slot name="info-box">
+      <slot name="info-box__content">
         default
       </slot>
     </p>
@@ -33,3 +33,11 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.info-box {
+  background-color: rgba(59, 130, 246, 1);
+  color: white;
+  padding: 1rem;
+}
+</style>

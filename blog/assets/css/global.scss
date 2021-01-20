@@ -1,6 +1,6 @@
 /* Global - included on every page */
-@import 'global/_layout';
-@import 'global/screen-breakpoints';
+@use 'global/_layout';
+@use 'global/screen-breakpoints';
 
 html {
   font-size: 100%;

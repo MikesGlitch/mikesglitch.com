@@ -1,28 +1,80 @@
 <template>
-  <div class="nav">
-    <div class="container">
-      <nav class="flex align-middle items-center justify-between h-10">
-        <NuxtLink class="nav__link" to="/">
-          <h2>Logo here</h2>
-        </NuxtLink>
-        <div class="hidden md:inline-flex md:flex-grow align-middle items-center pl-6">
-          <NuxtLink class="nav__link" to="/blog">Blog</NuxtLink>
-          <NuxtLink class="nav__link" to="/webrtc">Contact me</NuxtLink>
-        </div>
-      </nav>
-    </div>
+  <div class="nav-container">
+    <nav class="container">
+      <NuxtLink class="nav_logo" to="/">
+        <svg
+          class="NuxtLogo"
+          width="60"
+          height="40"
+          viewBox="0 0 452 342"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M139 330l-1-2c-2-4-2-8-1-13H29L189 31l67 121 22-16-67-121c-1-2-9-14-22-14-6 0-15 2-22 15L5 303c-1 3-8 16-2 27 4 6 10 12 24 12h136c-14 0-21-6-24-12z"
+            fill="#00C58E"
+          />
+          <path
+            d="M447 304L317 70c-2-2-9-15-22-15-6 0-15 3-22 15l-17 28v54l39-67 129 230h-49a23 23 0 0 1-2 14l-1 1c-6 11-21 12-23 12h76c3 0 17-1 24-12 3-5 5-14-2-26z"
+            fill="#108775"
+          />
+          <path
+            d="M376 330v-1l1-2c1-4 2-8 1-12l-4-12-102-178-15-27h-1l-15 27-102 178-4 12a24 24 0 0 0 2 15c4 6 10 12 24 12h190c3 0 18-1 25-12zM256 152l93 163H163l93-163z"
+            fill="#2F495E"
+          />
+        </svg>
+      </NuxtLink>
+      <div class="nav_links">
+        <NuxtLink class="nav__link" to="/blog">Blog</NuxtLink>
+        <NuxtLink class="nav__link" to="/webrtc">Contact me</NuxtLink>
+      </div>
+    </nav>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.nav {
+// util
+.py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
-  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); // multiple shadows for a bit more depth
+}
 
-  &__link {
-    // font-bold text-grey-900 hover:text-purple-500 transition transition-color duration-200 flex align-middle items-center pr-5
-    font-weight: bold;
+.nav-container {
+  @extend .py-3;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); // multiple shadows for a bit more depth
+
+  nav {
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: space-between;
+    height: 2.5rem;
+
+    .nav_logo {
+      width: 80px;
+      height: 100%;
+    }
+
+    .nav_links {
+      display: inline-flex;
+      flex-grow: 1;
+      align-items: center;
+      padding-left: 1.5rem;
+
+      .nav__link {
+        font-weight: bold;
+        color: black;
+        display: flex;
+        align-items: center;
+        padding-right: 2.5rem;
+        text-decoration: none;
+        transition-duration: .2s;
+        transition-property: color;
+
+        &:hover {
+          color: purple;
+        }
+      }
+    }
   }
 }
 </style>
