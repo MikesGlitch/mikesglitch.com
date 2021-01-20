@@ -1,15 +1,6 @@
 export default {
-  // Disable server-side rendering (https://go.nuxtjs.dev/ssr-mode)
-  ssr: false,
-
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'static',
-
-  // Generate (https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-generate)
-  generate: {
-    crawler: true
-    // routes: ['blog/first-article']
-  },
 
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
