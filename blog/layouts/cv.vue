@@ -5,10 +5,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
 html {
-  font-family: 'Roboto', sans-serif;
   font-size: 12px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
