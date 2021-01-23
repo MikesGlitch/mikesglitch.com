@@ -1,7 +1,7 @@
 <template>
-  <div class="nav-container">
+  <div class="nav__container">
     <nav class="container">
-      <NuxtLink class="nav_logo" to="/">
+      <NuxtLink class="nav__logo" to="/">
         <svg
           class="NuxtLogo"
           width="60"
@@ -23,9 +23,10 @@
           />
         </svg>
       </NuxtLink>
-      <div class="nav_links">
+      <div class="nav__links">
+        <NuxtLink class="nav__link" to="/projects">Projects</NuxtLink>
         <NuxtLink class="nav__link" to="/blog">Blog</NuxtLink>
-        <NuxtLink class="nav__link" to="/webrtc">Contact me</NuxtLink>
+        <NuxtLink class="nav__link" to="/webrtc">Contact</NuxtLink>
       </div>
     </nav>
   </div>
@@ -38,7 +39,7 @@
   padding-bottom: 0.75rem;
 }
 
-.nav-container {
+.nav__container {
   @extend .py-3;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); // multiple shadows for a bit more depth
 
@@ -49,12 +50,12 @@
     justify-content: space-between;
     height: 2.5rem;
 
-    .nav_logo {
+    .nav__logo {
       width: 80px;
       height: 100%;
     }
 
-    .nav_links {
+    .nav__links {
       display: inline-flex;
       flex-grow: 1;
       align-items: center;

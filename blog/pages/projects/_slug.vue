@@ -1,26 +1,26 @@
 <template>
   <article>
-    <p>Post last updated: {{ article.updatedAt }}</p>
-    <h1>{{ article.title }}</h1>
-    <p>{{ article.description }}</p>
+    <p>Post last updated: {{ project.updatedAt }}</p>
+    <h1>{{ project.title }}</h1>
+    <p>{{ project.description }}</p>
 
     <ul>
-      <li v-for="link of article.toc" :key="link.id">
+      <li v-for="link of project.toc" :key="link.id">
         <NuxtLink :to="`#${link.id}`">
           {{ link.text }}
         </NuxtLink>
       </li>
     </ul>
-    <nuxt-content :document="article" />
+    <nuxt-content :document="project" />
   </article>
 </template>
 
 <script>
 export default {
   async asyncData ({ $content, params }) {
-    const article = await $content('blog', params.slug).fetch()
+    const project = await $content('projects', params.slug).fetch()
 
-    return { article }
+    return { project }
   }
 }
 </script>
