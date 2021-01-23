@@ -3,7 +3,9 @@ layout: post
 title:  "Git Smudge and Clean Filters"
 date:   2016-02-12 17:58:09 +0100
 categories: old-blog
+timeToRead: 5 minutes
 ---
+
 The **Smudge** is the equivalent to “Run this code whenever you check anything out”.
 
 The **Clean** is the equivalent to “Run this code whenever you check anything in”.

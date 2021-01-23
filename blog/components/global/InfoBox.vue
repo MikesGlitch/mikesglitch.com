@@ -3,11 +3,8 @@
     <p v-if="timeToRead">
       Time to read: {{ timeToRead }}
     </p>
-    {{ counter }}
     <p>
-      <slot name="info-box__content">
-        default
-      </slot>
+      <slot name="info-box__content" />
     </p>
   </div>
 </template>
@@ -20,16 +17,6 @@ export default {
       required: false,
       default: null
     }
-  },
-  data () {
-    return {
-      counter: 0
-    }
-  },
-  mounted () {
-    setInterval(() => {
-      this.counter++
-    }, 1000)
   }
 }
 </script>

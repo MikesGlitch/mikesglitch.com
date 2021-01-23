@@ -1,17 +1,22 @@
 <template>
   <article>
-    <p>Post last updated: {{ article.updatedAt }}</p>
+    <info-box :time-to-read="article.timeToRead">
+      <template #info-box>
+      <!-- This is a vue component inside markdown using slots -->
+      </template>
+    </info-box>
     <h1>{{ article.title }}</h1>
     <p>{{ article.description }}</p>
-
+    <!--
     <ul>
       <li v-for="link of article.toc" :key="link.id">
         <NuxtLink :to="`#${link.id}`">
           {{ link.text }}
         </NuxtLink>
       </li>
-    </ul>
+    </ul> -->
     <nuxt-content :document="article" />
+    <p>Post last updated: {{ article.updatedAt }}</p>
   </article>
 </template>
 

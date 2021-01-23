@@ -3,6 +3,7 @@ layout: post
 title:  "Thinking of the future"
 date:   2016-05-30 17:58:09 +0100
 categories: old-blog
+timeToRead: 5 minutes
 ---
 This week I’ve been working through my second draft of the ServiceStack article.  So far I think the article is looking quite good, at least in comparison to what it was last week.  I’ve also added a Table of Contents that follows you down the page in the sidebar which is a really useful thing because the articles are quite large.  I’ve added a lot more into the benchmarks section of the article, cleaned up the structure, and rewritten some of it to make it more readable.  I need to continue on, and I think it will take a fourth draft before I’m happy enough with it to move on to Nancy properly.  On top of all that, I’m thinking about creating a markup review sheet for API Frameworks that can be consistent across API reviews.  This will allow an easy way to compare the frameworks and could offer insight to someone looking to pick a framework.
 

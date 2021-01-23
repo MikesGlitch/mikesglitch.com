@@ -3,6 +3,7 @@ layout: post
 title:  "Creating a ServiceStack Windows Service that uses Quartz"
 date:   2016-07-05 17:58:09 +0100
 categories: old-blog
+timeToRead: 5 minutes
 ---
 I've been using Quartz.Net in a prototype project for the last few months  which somehow made it from prototyping stages directly to production.  I’ve found some free time and have decided to port the application over to run on the ServiceStack framework for Windows Services to allow for some easier development.  During my experimental stages I was trying to find a way to “Hook-up” Quartz with the ServiceStack built-in IoC (Funq) and I’ve built a library that enables people to do so easily.  It is below:
 
