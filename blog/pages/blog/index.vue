@@ -6,7 +6,7 @@
         <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
           <Card :title="article.title">
             <template #image>
-              <img src="~/assets/images/img_avatar.png" alt="Avatar" style="width:100%">
+              <img src="~/assets/images/img_avatar.webp" alt="Avatar" style="width:100%">
             </template>
             <p>{{ article.description }}</p>
           </Card>
