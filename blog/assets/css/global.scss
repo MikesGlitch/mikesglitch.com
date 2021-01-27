@@ -9,5 +9,7 @@ html {
 
 body
 {
-	margin: 0;
+  margin: 0;
+  /* Show scrollbars so there's no layout inconsistency (due to the width of the scrollbar) */
+  overflow: scroll;
 }
