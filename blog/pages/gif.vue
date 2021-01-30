@@ -43,21 +43,30 @@ export default {
 
     return {
       gifs,
-      currentGif: gifs[0]
+      currentGif: gifs[0],
+      gifInterval: null
     }
   },
 
-  created () {
-    let index = 0
-    const self = this
-    setInterval(() => {
-      if (index === self.gifs.length) {
-        index = 0
-      }
+  mounted () {
+    this.getGifOnInterval()
+  },
+  beforeDestroy  () {
+    clearInterval(this.gifInterval)
+  },
+  methods: {
+    getGifOnInterval () {
+      let index = 0
+      const self = this
+      this.gifInterval = setInterval(() => {
+        if (index === self.gifs.length) {
+          index = 0
+        }
 
-      this.currentGif = self.gifs[index]
-      index = index + 1
-    }, 8000)
+        this.currentGif = self.gifs[index]
+        index = index + 1
+      }, 8000)
+    }
   }
 }
 </script>
