@@ -13,3 +13,16 @@ body
   /* Show scrollbars so there's no layout inconsistency (due to the width of the scrollbar) */
   overflow-y: scroll;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+
+  :visited {
+    color: unset;
+  }
+
+  :active {
+    color: unset;
+  }
+}
