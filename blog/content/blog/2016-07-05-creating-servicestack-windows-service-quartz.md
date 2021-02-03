@@ -7,7 +7,7 @@ timeToRead: 5 minutes
 ---
 I've been using Quartz.Net in a prototype project for the last few months  which somehow made it from prototyping stages directly to production.  I’ve found some free time and have decided to port the application over to run on the ServiceStack framework for Windows Services to allow for some easier development.  During my experimental stages I was trying to find a way to “Hook-up” Quartz with the ServiceStack built-in IoC (Funq) and I’ve built a library that enables people to do so easily.  It is below:
 
-- **Github**: github.com/CodeRevver/ServiceStackWithQuartz
+- **Github**: github.com/mikesglitch/ServiceStackWithQuartz
 - **NuGet**: www.nuget.org/packages/ServiceStack.Funq.Quartz
 
 Keep in mind that this was built for use in my own project, and if you can think of a way to improve it , I welcome contributions/forks – if you can make it better, please do.
@@ -46,7 +46,7 @@ public class HelloJob : IJob
     {
         var response = MyServices.Any(new ServiceModel.Hello
         {
-            Name = "CodeRevver"
+            Name = "mikesglitch"
         });
  
         response.PrintDump();

@@ -11,7 +11,7 @@ Over the last week the progress has been good.  I’ve managed to complete the f
 
 I’ll be looking to clean up the draft and add some more relevant information over the next month and possibly beyond with any framework updates.  On top of this, I had the great idea (If I say so myself) to build my own benchmark tests because I noticed some of the benchmarks which compared WebAPI alongside ServiceStack had some dodgy code in them.  I found that not only were different clients being used to send the requests, but the WebApi client was actually calling the Result of a task twice per call – which slowed it down a bit.  I fixed the issue with the result call and it turns out that WebApi is still slower, but nowhere near as slow as was stated.  I’m still working on the repository and am considering changing the Clients used to test each framework to a single Client, but I’m in two minds because they each use the suggested Client for the framework.  Whatever I chose the repository is available here :
 
-[www.github.com/CodeRevver/WebServiceBenchmarks](www.github.com/CodeRevver/WebServiceBenchmarks)
+[www.github.com/mikesglitch/WebServiceBenchmarks](www.github.com/mikesglitch/WebServiceBenchmarks)
 
 I’ll be adding all frameworks that I will be testing into this repository which will allow for some nice comparisons in one single place.  Currently I’ve added ServiceStack, Web API and NancyFx for end-to-end benchmarks.
 

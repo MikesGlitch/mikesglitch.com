@@ -12,6 +12,7 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
-    'vue/singleline-html-element-content-newline': 'off'
+    'vue/singleline-html-element-content-newline': 'off',
+    'vue/html-self-closing': 'off'
   }
 }

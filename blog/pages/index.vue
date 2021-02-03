@@ -11,7 +11,7 @@
 
     <div class="info-cards">
       <Card title="Hi, my name is Michael" class="info-card">
-        <p>Figma - <a href="https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/coderevver.github.io">https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/coderevver.github.io</a></p>
+        <p>Figma - <a href="https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/mikesglitch.github.io">https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/coderevver.github.io</a></p>
       </Card>
 
       <Card class="info-card">
@@ -24,7 +24,7 @@
       <Card class="info-card">
         <h1>Be careful with embedding a video - I don't want it to take over the page and it needs to look good.  See how other websties do it.</h1>
       </Card>
-      <Card class="info-card">Blah</Card>
+      <Card class="info-card">Link to youtube and twitch - maybe in nav, maybe make a page for it.  So like a "Live Stream" link that links to YouTube and Twitch and maybe shows past live streams</Card>
     </div>
   </div>
 </template>

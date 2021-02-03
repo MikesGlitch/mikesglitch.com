@@ -10,7 +10,7 @@ I just got finished with my first public NuGet package this morning (YAY for me!
 It was an interesting experience setting it all up.  I couldn’t believe there was a free way of running Continuous Integration on Github with AppVeyor – that must cost them a fortune to run for so many users!    Also, setting up a NuGet had a learning curve – It didn’t take too long with the help of an VS extension but it was interesting nonetheless.
 
 The project can be viewed here:
-- www.github.com/CodeRevver/ServiceStackWithQuartz
+- www.github.com/mikesglitch/ServiceStackWithQuartz
 - www.nuget.org/packages/ServiceStack.Funq.Quartz
 
 ## Busy week at work

@@ -9,7 +9,9 @@ export default {
   layout: 'empty',
   data () {
     const shuffle = (array) => {
-      let currentIndex = array.length; let temporaryValue; let randomIndex
+      let currentIndex = array.length
+      let temporaryValue
+      let randomIndex
 
       // While there remain elements to shuffle...
       while (currentIndex !== 0) {
@@ -64,7 +66,7 @@ export default {
         }
 
         this.currentGif = self.gifs[index]
-        index = index + 1
+        index++
       }, 8000)
     }
   }
