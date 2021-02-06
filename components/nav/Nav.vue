@@ -4,7 +4,20 @@
       <NuxtLink class="nav__logo" to="/">
         <span class="nav__logo-start">Mikes</span><span class="nav__logo-end">Glitch</span>
       </NuxtLink>
-      <div class="nav__links">
+      <button @click="toggleOpen" class="nav__menu-toggle" aria-expanded="Open">
+            <span class="sr-only">Open main menu</span>
+
+            <!-- Icon when menu is closed. -->
+            <svg :class="{ 'nav__menu-toggle--hidden': isOpen }" description="Heroicon name: outline/menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+
+            <!-- Icon when menu is open. -->
+            <svg :class="{ 'nav__menu-toggle--hidden': !isOpen }" description="Heroicon name: outline/x" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+      </button>
+      <div :class="{'nav__links': !isOpen, 'nav__links--show-mobile': isOpen }">
         <NuxtLink class="nav__link" to="/projects">Projects</NuxtLink>
         <NuxtLink class="nav__link" to="/blog">Blog</NuxtLink>
         <NuxtLink class="nav__link" to="/contact">Contact</NuxtLink>
@@ -13,7 +26,26 @@
   </div>
 </template>
 
+<script>
+export default {
+  props: {
+    isOpen: {
+      type: Boolean,
+      required: true,
+      default: false
+    }
+  },
+  methods: {
+    toggleOpen() {
+      this.isOpen = !this.isOpen;
+    }
+  }
+}
+</script>
+
 <style lang="scss" scoped>
+@import 'assets/css/screen-breakpoints';
+
 // util
 .py-3 {
   padding-top: var(--gutter-y, .75rem);
@@ -32,6 +64,25 @@
     justify-content: space-between;
     height: 2.5rem;
 
+    .nav__menu-toggle{
+      display: flex;
+      // padding: 1rem;
+
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+
+//  inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white
+      @include tablet {
+        display: none;
+      }
+
+      &--hidden {
+        display: none;
+      }
+    }
+
     .nav__logo {
       height: 100%;
       font-weight: bold;
@@ -46,8 +97,16 @@
     }
 
     .nav__links {
-      display: inline-flex;
-      // flex-grow: 1;
+      display: none;
+
+      @include tablet{
+        display: inline-flex;
+      }
+
+      &--show-mobile {
+        display: block;
+      }
+
       align-items: center;
       padding-left: 1.5rem;
 

@@ -79,8 +79,12 @@ export default Vue.extend({})
 .info-cards {
   margin-top: 1rem;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto;
   grid-gap: 10px;
+
+  @include tablet {
+    grid-template-columns: auto auto;
+  }
 
   .info-card {
     // margin-top: 1rem;

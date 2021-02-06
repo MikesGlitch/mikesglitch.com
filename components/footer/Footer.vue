@@ -12,7 +12,8 @@
             class="footer-link__icon"
             src="~/assets/images/icons/github-brands.svg"
             alt="Github"
-          />GitHub
+          />
+          GitHub
         </a>
         <a
           class="footer-link"
@@ -43,6 +44,8 @@
 </template>
 
 <style lang="scss" scoped>
+@import 'assets/css/screen-breakpoints';
+
 footer {
   margin-top: 1rem;
   background-color: white;
@@ -57,11 +60,20 @@ footer {
     height: 100%;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+    }
 
     .footer-link {
       display: flex;
-      margin: 0 1rem;
+      margin: .5rem 0;
       align-items: center;
+
+      @include tablet {
+        margin: 0 1rem;
+      }
 
       &__icon {
         margin-right: 1rem;
