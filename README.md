@@ -1,4 +1,4 @@
-# blog
+# MikesGlitch.com
 
 ## Build Setup
 
