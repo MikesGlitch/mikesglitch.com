@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1>Projects Posts</h1>
+
+    <h1>Upcoming projects</h1>
+    <h1>Completed projects</h1>
     <ul>
       <li v-for="project of projects" :key="project.slug">
         <NuxtLink :to="{ name: 'projects-slug', params: { slug: project.slug } }">

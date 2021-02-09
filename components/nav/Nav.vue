@@ -1,4 +1,10 @@
 <template>
+<!--
+      I REALLY DON'T WANT A COLLAPSIBLE HAMBURGER MENU - THEY'RE BORING.  WHY NOT JUST SIMPLIFY THE MENUS?
+      COULD REMOVE THE LOGO OR ADD IT ABOVE THE MENU ON MOBILE?
+
+      https://codepen.io/DirkWeber/pen/ArFvk OR  https://css-tricks.com/glitch-effect-text-images-svg/
+      -->
   <div class="nav__container">
     <nav class="container">
       <NuxtLink class="nav__logo" to="/">
@@ -28,12 +34,8 @@
 
 <script>
 export default {
-  props: {
-    isOpen: {
-      type: Boolean,
-      required: true,
-      default: false
-    }
+  data() {
+    return { isOpen: false }
   },
   methods: {
     toggleOpen() {
