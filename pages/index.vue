@@ -12,6 +12,7 @@
     <div class="info-cards">
       <Card title="Hi, my name is Michael" class="info-card">
         <p>Figma - <a href="https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/mikesglitch.github.io">https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/coderevver.github.io</a></p>
+        <p>Add a dark theme?</p>
       </Card>
 
       <Card class="info-card">
