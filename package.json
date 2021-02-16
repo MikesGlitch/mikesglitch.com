@@ -15,7 +15,8 @@
     "@nuxt/content": "^1.13.1",
     "@nuxt/typescript-runtime": "^2.0.1",
     "core-js": "^3.8.3",
-    "nuxt": "^2.15.00"
+    "nuxt": "^2.15.00",
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.00",
@@ -28,7 +29,6 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.17.0",
     "eslint-plugin-nuxt": "^2.0.0",
-    "express": "^4.17.1",
     "fibers": "^5.0.0",
     "postcss": "^7.0.35",
     "push-dir": "^0.4.1",
