@@ -47,6 +47,11 @@ export default {
     '@nuxt/content'
   ],
 
+  // Server Middleware
+  serverMiddleware: {
+    '/api': '~/api'
+  },
+
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     analyze: false

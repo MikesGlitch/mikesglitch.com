@@ -5,7 +5,7 @@
         <iframe width="560" height="349" src="https://www.youtube.com/embed?max-results=1&controls=1&showinfo=1&rel=0&listType=user_uploads&list=kardkaper" frameborder="0" allowfullscreen />
       </div>
       <div class="recent-video__info">
-        <p>Info about video</p>
+        <p>Info about video/me?</p>
       </div>
     </div>
 

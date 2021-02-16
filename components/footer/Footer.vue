@@ -31,7 +31,7 @@
         <NuxtLink class="footer-link" title="Contact me" to="/contact">
           <img
             class="footer-link__icon"
-            src="~/assets/images/icons/at-solid.svg"
+            src="~/assets/images/icons/envelope-regular.svg"
             alt="Contact me"
           />Contact me
         </NuxtLink>
@@ -76,7 +76,7 @@ footer {
       }
 
       &__icon {
-        margin-right: 1rem;
+        margin-right: 0.5rem;
         width: 25px;
         height: 25px;
       }
