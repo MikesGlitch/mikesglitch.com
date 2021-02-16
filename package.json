@@ -14,15 +14,15 @@
   "dependencies": {
     "@nuxt/content": "^1.13.1",
     "@nuxt/typescript-runtime": "^2.0.1",
-    "@nuxtjs/vercel-builder": "^0.20.3",
-    "core-js": "^3.8.2",
-    "nuxt": "^2.14.12"
+    "core-js": "^3.8.3",
+    "nuxt": "^2.15.00"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.14.12",
-    "@nuxt/typescript-build": "^2.0.3",
+    "@nuxt/types": "^2.15.00",
+    "@nuxt/typescript-build": "^2.0.4",
     "@nuxtjs/eslint-config": "^5.0.0",
     "@nuxtjs/eslint-config-typescript": "^5.0.0",
+    "@nuxtjs/vercel-builder": "^0.20.3",
     "@nuxtjs/eslint-module": "^3.0.2",
     "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
