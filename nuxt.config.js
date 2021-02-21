@@ -25,6 +25,11 @@ export default {
     '~/assets/css/global.scss'
   ],
 
+  // https://google-analytics.nuxtjs.org/setup/
+  googleAnalytics: {
+    id: 'G-VT2V54WNQ3'
+  },
+
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
   ],
@@ -39,7 +44,8 @@ export default {
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
     // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build'
+    '@nuxt/typescript-build',
+    '@nuxtjs/google-analytics'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
