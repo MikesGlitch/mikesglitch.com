@@ -45,7 +45,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
-    '@nuxtjs/google-analytics'
+    '~/googleanalytics/module.js'
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
