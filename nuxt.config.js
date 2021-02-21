@@ -27,7 +27,7 @@ export default {
 
   // https://google-analytics.nuxtjs.org/setup/
   googleAnalytics: {
-    id: 'G-VT2V54WNQ3'
+    id: process.env.NUXT_ENV_GOOGLE_ANALYTICS_ID
   },
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
