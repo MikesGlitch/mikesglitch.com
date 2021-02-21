@@ -6,6 +6,7 @@
       </div>
       <div class="recent-video__info">
         <p>Info about video/me?</p>
+        <p>Replace the logo - it's not working well.  I needs to be glitchy and attractive</p>
       </div>
     </div>
 
@@ -46,7 +47,7 @@ export default Vue.extend({})
   grid-template-columns: auto;
 
   @include desktop {
-    grid-template-columns: auto auto auto;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   }
 
   &__player {
@@ -70,6 +71,10 @@ export default Vue.extend({})
   }
 
   &__info {
+    @include desktop {
+      grid-column-start: 3;
+      grid-column-end: 3;
+    }
     color: hotpink;
     font-weight: bold;
     background-color: black;

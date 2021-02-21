@@ -1,27 +1,37 @@
 <template>
-<!--
-      I REALLY DON'T WANT A COLLAPSIBLE HAMBURGER MENU - THEY'RE BORING.  WHY NOT JUST SIMPLIFY THE MENUS?
-      COULD REMOVE THE LOGO OR ADD IT ABOVE THE MENU ON MOBILE?
-
-      https://codepen.io/DirkWeber/pen/ArFvk OR  https://css-tricks.com/glitch-effect-text-images-svg/
-      -->
   <div class="nav__container">
     <nav class="container">
       <NuxtLink class="nav__logo" to="/">
-        <span class="nav__logo-start">Mikes</span><span class="nav__logo-end">Glitch</span>
+        <GlitchLogo></GlitchLogo>
       </NuxtLink>
-      <button @click="toggleOpen" class="nav__menu-toggle" aria-expanded="Open">
-            <span class="sr-only">Open main menu</span>
+      <button class="nav__menu-toggle" aria-expanded="Open" @click="toggleOpen">
+        <span class="sr-only">Open main menu</span>
 
-            <!-- Icon when menu is closed. -->
-            <svg :class="{ 'nav__menu-toggle--hidden': isOpen }" description="Heroicon name: outline/menu" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-            </svg>
+        <!-- Icon when menu is closed. -->
+        <svg
+          :class="{ 'nav__menu-toggle--hidden': isOpen }"
+          description="Heroicon name: outline/menu"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
 
-            <!-- Icon when menu is open. -->
-            <svg :class="{ 'nav__menu-toggle--hidden': !isOpen }" description="Heroicon name: outline/x" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
+        <!-- Icon when menu is open. -->
+        <svg
+          :class="{ 'nav__menu-toggle--hidden': !isOpen }"
+          description="Heroicon name: outline/x"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
       </button>
       <div :class="{'nav__links': !isOpen, 'nav__links--show-mobile': isOpen }">
         <NuxtLink class="nav__link" to="/projects">Projects</NuxtLink>
@@ -34,12 +44,12 @@
 
 <script>
 export default {
-  data() {
+  data () {
     return { isOpen: false }
   },
   methods: {
-    toggleOpen() {
-      this.isOpen = !this.isOpen;
+    toggleOpen () {
+      this.isOpen = !this.isOpen
     }
   }
 }
@@ -126,4 +136,5 @@ export default {
     }
   }
 }
+
 </style>
