@@ -2,31 +2,58 @@
   <div>
     <div class="recent-video">
       <div class="recent-video__player">
-        <iframe width="560" height="349" src="https://www.youtube.com/embed?max-results=1&controls=1&showinfo=1&rel=0&listType=user_uploads&list=kardkaper" frameborder="0" allowfullscreen />
+        <iframe width="560" height="349" :src="latestYoutubeVideoUrl" frameborder="0" allowfullscreen />
       </div>
       <div class="recent-video__info">
         <p>Info about video/me?</p>
-        <p>Replace the logo - it's not working well.  I needs to be glitchy and attractive</p>
+        <p>
+          Replace the logo - it's not working well. I needs to be glitchy and
+          attractive
+        </p>
       </div>
     </div>
 
     <div class="info-cards">
       <Card title="Hi, my name is Michael" class="info-card">
-        <p>Figma - <a href="https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/mikesglitch.github.io">https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/coderevver.github.io</a></p>
+        <p>
+          Figma -
+          <a
+            href="https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/mikesglitch.github.io"
+          >https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/coderevver.github.io</a>
+        </p>
         <p>Add a dark theme?</p>
       </Card>
 
       <Card class="info-card">
-        <p>Switch to using css variables rather that scss variables  https://youtu.be/D-h8L5hgW-w?t=4682</p>
-        <p>Fonts:  https://www.quicksprout.com/best-font-for-website/</p>
-        <p>Note: Was thinking about movign this to a ssr app.  If i did that i'd lose the github domain.  That may be fine, new domains aren't that expensive.  mikesglitch.com is free.</p>
-        <p>If I did switch to ssr I could be clever and load in the live stream only when it was live, load the last youtube video otherwise.</p>
+        <p>
+          Switch to using css variables rather that scss variables
+          https://youtu.be/D-h8L5hgW-w?t=4682
+        </p>
+        <p>Fonts: https://www.quicksprout.com/best-font-for-website/</p>
+        <p>
+          Note: Was thinking about movign this to a ssr app. If i did that i'd
+          lose the github domain. That may be fine, new domains aren't that
+          expensive. mikesglitch.com is free.
+        </p>
+        <p>
+          If I did switch to ssr I could be clever and load in the live stream
+          only when it was live, load the last youtube video otherwise.
+        </p>
       </Card>
 
       <Card class="info-card">
-        <h1>Be careful with embedding a video - I don't want it to take over the page and it needs to look good.  See how other websties do it.</h1>
+        <h1>
+          Be careful with embedding a video - I don't want it to take over the
+          page and it needs to look good. See how other websties do it.
+        </h1>
       </Card>
-      <Card class="info-card">Link to youtube and twitch - maybe in nav, maybe make a page for it.  So like a "Live Stream" link that links to YouTube and Twitch and maybe shows past live streams</Card>
+      <Card
+        class="info-card"
+      >
+        Link to youtube and twitch - maybe in nav, maybe make a page for it. So
+        like a "Live Stream" link that links to YouTube and Twitch and maybe
+        shows past live streams
+      </Card>
     </div>
   </div>
 </template>
@@ -34,11 +61,23 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  data () {
+    return { latestYoutubeVideoUrl: '' }
+  },
+  async fetch () {
+    const youtubeRssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=UCfx1yOrSVwlO-VwpKxvlqow'
+    const youtubeLatestVideosReqUrl = `https://api.rss2json.com/v1/api.json?rss_url=${youtubeRssUrl}`
+    const rss = await fetch(youtubeLatestVideosReqUrl).then(res => res.json())
+    const link = rss.items[0].link
+    const latestYoutubeVideoId = link.substr(link.indexOf('=') + 1)
+    this.latestYoutubeVideoUrl = 'https://youtube.com/embed/' + latestYoutubeVideoId + '?max-results=1&controls=1&showinfo=1&rel=0'
+  }
+})
 </script>
 
 <style lang="scss">
-@import 'assets/css/screen-breakpoints';
+@import "assets/css/screen-breakpoints";
 
 .recent-video {
   margin: 0 auto;
@@ -95,6 +134,5 @@ export default Vue.extend({})
   .info-card {
     // margin-top: 1rem;
   }
-
 }
 </style>
