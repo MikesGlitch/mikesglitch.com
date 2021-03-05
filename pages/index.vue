@@ -62,16 +62,14 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  data () {
-    return { latestYoutubeVideoUrl: '' }
-  },
-  async fetch () {
+  async asyncData () {
     const youtubeRssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=UCfx1yOrSVwlO-VwpKxvlqow'
     const youtubeLatestVideosReqUrl = `https://api.rss2json.com/v1/api.json?rss_url=${youtubeRssUrl}`
     const rss = await fetch(youtubeLatestVideosReqUrl).then(res => res.json())
     const link = rss.items[0].link
     const latestYoutubeVideoId = link.substr(link.indexOf('=') + 1)
-    this.latestYoutubeVideoUrl = 'https://youtube.com/embed/' + latestYoutubeVideoId + '?max-results=1&controls=1&showinfo=1&rel=0'
+    const latestYoutubeVideoUrl = 'https://youtube.com/embed/' + latestYoutubeVideoId + '?max-results=1&controls=1&showinfo=1&rel=0'
+    return { latestYoutubeVideoUrl }
   }
 })
 </script>
