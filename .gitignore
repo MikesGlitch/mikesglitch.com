@@ -91,3 +91,4 @@ sw.*
 
 # Vue Config files
 .env.production
+.env

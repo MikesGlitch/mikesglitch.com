@@ -1,13 +1,15 @@
 const express = require('express')
+const config = require('dotenv').config()
 
+console.log(config)
 // Create express instance
 const app = express()
 
 // Require API routes
-const test = require('./routes/test')
+const getGif = require('./routes/getGif')
 
 // Import API Routes
-app.use(test)
+app.use(getGif)
 
 // Export express app
 module.exports = app
