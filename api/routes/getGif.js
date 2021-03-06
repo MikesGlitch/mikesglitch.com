@@ -1,15 +1,14 @@
-const { Router } = require('express')
+const axios = require('axios')
+const asyncHandler = require('express-async-handler')
 
-const router = Router()
+export const getGif = asyncHandler(async (req, res) => {
+  const tags = ['programming', 'programmer', 'computer', 'css', 'javascript', 'coding', 'hacking', 'coder']
+  const requestUrl = `https://api.giphy.com/v1/gifs/random?api_key=${process.env.SERVER_GIPHY_API_KEY}&tag=${tags.join(' ')}`
+  const response = await axios(requestUrl).then(res => res.data)
 
-router.use('/gif', (req, res) => {
-  // console.log(process.env.SERVER_GIPHY_API_KEY)
-  // res.end(process.env.SERVER_GIPHY_API_KEY)
   const gif = {
-    gif: 'https://media0.giphy.com/media/mlvseq9yvZhba/giphy.gif?cid=ecf05e47f7htuxg99hiwwugebn4qtz8iyolpn0wf0xno6bwx&rid=giphy.gif'
+    gif: response.data.images.downsized_large.url
   }
 
   res.end(JSON.stringify(gif))
 })
-
-module.exports = router
