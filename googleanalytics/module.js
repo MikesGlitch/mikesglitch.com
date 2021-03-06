@@ -1,20 +1,11 @@
 const { resolve } = require('path')
 
-function analyticsModule (moduleOptions) {
-  const options = {
-    dev: true,
-    ...this.options['google-analytics'],
-    ...this.options.googleAnalytics,
-    ...moduleOptions
-  }
-
+function analyticsModule () {
   this.addPlugin({
-    ssr: false,
+    mode: 'client',
     src: resolve(__dirname, 'plugin.js'),
-    fileName: 'google-analytics.js',
-    options
+    fileName: 'google-analytics.js'
   })
 }
 
 module.exports = analyticsModule
-module.exports.meta = require('../package.json')

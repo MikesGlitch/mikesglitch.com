@@ -1,15 +1,19 @@
 import Vue from 'vue'
-import VueGtag from "vue-gtag";
+import VueGtag from 'vue-gtag'
 
-export default async (ctx, inject) => {
-  const runtimeConfig = ctx.$config && ctx.$config.googleAnalytics || {}
-  const moduleOptions = <%= serialize(options) %>
-  const options = {...moduleOptions, ...runtimeConfig}
+export default (ctx) => {
+  let enableAnalytics = false
+  if (process.env.NUXT_ENV_GOOGLE_ANALYTICS_ID) {
+    enableAnalytics = true
+  }
 
-  Vue.use(VueGtag, {
-    config: {
-      ...options
-    },
-    enabled: !ctx.isDev
-  }, ctx.app.router)
+  if (enableAnalytics) {
+    Vue.use(VueGtag, {
+      config: {
+        id: process.env.NUXT_ENV_GOOGLE_ANALYTICS_ID
+      },
+      pageTrackerScreenviewEnabled: true,
+      enabled: true
+    }, ctx.app.router)
+  }
 }
