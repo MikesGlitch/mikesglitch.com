@@ -1,13 +1,14 @@
 ---
-title: My first Blog Post
-description: Learning how to use @nuxt/content to create a blog
+title: Budget desktop app
+description: A desktop app that allows you to create a budget
 img: first-blog-post.jpg
-alt: my first blog post
+alt: Budget desktop app
 timeToRead: 5 minutes
 ---
-## My first blog post
+## Spotify current song
 
-Welcome to my first blog post using content module
+Budget desktop app.
+
 <info-box :time-to-read="timeToRead">
   <template #info-box>
     This is a vue component inside markdown using slots

@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Git Smudge and Clean Filters"
+img: "/blog-assets/gitsmudge.png"
 date:   2016-02-12 17:58:09 +0100
 categories: old-blog
 timeToRead: 5 minutes

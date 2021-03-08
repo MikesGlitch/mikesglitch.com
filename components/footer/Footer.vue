@@ -44,7 +44,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'assets/css/screen-breakpoints';
+@use 'assets/css/screen-breakpoints';
 
 footer {
   margin-top: 1rem;
@@ -62,7 +62,7 @@ footer {
     justify-content: center;
     flex-direction: column;
 
-    @include tablet {
+    @include screen-breakpoints.tablet {
       flex-direction: row;
     }
 
@@ -71,7 +71,7 @@ footer {
       margin: .5rem 0;
       align-items: center;
 
-      @include tablet {
+      @include screen-breakpoints.tablet {
         margin: 0 1rem;
       }
 

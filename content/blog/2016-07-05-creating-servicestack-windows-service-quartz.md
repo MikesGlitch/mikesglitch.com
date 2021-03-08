@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Creating a ServiceStack Windows Service that uses Quartz"
+img: "/blog-assets/Quartz.jpg"
 date:   2016-07-05 17:58:09 +0100
 categories: old-blog
 timeToRead: 5 minutes

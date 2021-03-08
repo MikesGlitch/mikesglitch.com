@@ -70,7 +70,8 @@
   </figure>
 </template>
 
-<style lang="scss" scoped>@import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);
+<style lang="scss" scoped>
+
 figure {
   height: 100%;
   width: 100%;

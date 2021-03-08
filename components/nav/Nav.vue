@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import 'assets/css/screen-breakpoints';
+@use 'assets/css/screen-breakpoints';
 
 // util
 .py-3 {
@@ -84,7 +84,7 @@ export default {
         height: 1.5rem;
       }
 
-      @include tablet {
+      @include screen-breakpoints.tablet {
         display: none;
       }
 
@@ -109,7 +109,7 @@ export default {
     .nav__links {
       display: none;
 
-      @include tablet{
+      @include screen-breakpoints.tablet{
         display: inline-flex;
       }
 

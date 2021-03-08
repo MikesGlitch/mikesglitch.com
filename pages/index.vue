@@ -75,7 +75,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@import "assets/css/screen-breakpoints";
+@use "assets/css/screen-breakpoints";
 
 .recent-video {
   margin: 0 auto;
@@ -83,7 +83,7 @@ export default Vue.extend({
   grid-gap: 10px;
   grid-template-columns: auto;
 
-  @include desktop {
+  @include screen-breakpoints.desktop {
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   }
 
@@ -93,7 +93,7 @@ export default Vue.extend({
     padding-bottom: 56.25%; /* 16:9 */
     height: 0;
 
-    @include desktop {
+    @include screen-breakpoints.desktop {
       grid-column-start: 1;
       grid-column-end: 3;
     }
@@ -108,7 +108,7 @@ export default Vue.extend({
   }
 
   &__info {
-    @include desktop {
+    @include screen-breakpoints.desktop {
       grid-column-start: 3;
       grid-column-end: 3;
     }
@@ -125,7 +125,7 @@ export default Vue.extend({
   grid-template-columns: auto;
   grid-gap: 10px;
 
-  @include tablet {
+  @include screen-breakpoints.tablet {
     grid-template-columns: auto auto;
   }
 
