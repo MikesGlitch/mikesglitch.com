@@ -2,7 +2,7 @@
   <div>
     <div class="recent-video">
       <div class="recent-video__player">
-        <iframe width="560" height="349" :src="latestYoutubeVideoUrl" frameborder="0" allowfullscreen />
+        <iframe v-if="latestYoutubeVideoUrl" width="560" height="349" :src="latestYoutubeVideoUrl" frameborder="0" allowfullscreen />
       </div>
       <div class="recent-video__info">
         <p>Info about video/me?</p>
@@ -63,13 +63,8 @@ import Vue from 'vue'
 
 export default Vue.extend({
   async asyncData () {
-    const youtubeRssUrl = 'https://www.youtube.com/feeds/videos.xml?channel_id=UCfx1yOrSVwlO-VwpKxvlqow'
-    const youtubeLatestVideosReqUrl = `https://api.rss2json.com/v1/api.json?rss_url=${youtubeRssUrl}`
-    const rss = await fetch(youtubeLatestVideosReqUrl).then(res => res.json())
-    const link = rss.items[0].link
-    const latestYoutubeVideoId = link.substr(link.indexOf('=') + 1)
-    const latestYoutubeVideoUrl = 'https://youtube.com/embed/' + latestYoutubeVideoId + '?max-results=1&controls=1&showinfo=1&rel=0'
-    return { latestYoutubeVideoUrl }
+    const response = await fetch(`${process.env.NUXT_ENV_API_BASE_URL}/latest-youtube-video`).then(res => res.json()) as any
+    return { latestYoutubeVideoUrl: response.videoEmbedIframeUrl }
   }
 })
 </script>

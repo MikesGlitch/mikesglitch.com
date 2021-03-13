@@ -1,4 +1,5 @@
 import { getGif } from './routes/getGif'
+import { getLatestYoutubeVideo } from './routes/getLatestYoutubeVideo'
 
 const express = require('express')
 require('dotenv').config()
@@ -8,6 +9,7 @@ const app = express()
 
 // Import API Routes
 app.get('/gif', getGif)
+app.get('/latest-youtube-video', getLatestYoutubeVideo)
 
 // Export express app
 module.exports = app

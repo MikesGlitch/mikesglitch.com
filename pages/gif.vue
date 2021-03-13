@@ -1,6 +1,6 @@
 <template>
   <div class="gif-container">
-    <img :src="currentGif" alt="gif">
+    <img v-if="currentGif" :src="currentGif" alt="gif">
   </div>
 </template>
 
@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     async getGif () {
-      const response = await fetch('/api/gif').then(res => res.json())
+      const response = await fetch(`${process.env.NUXT_ENV_API_BASE_URL}/gif`).then(res => res.json())
       this.currentGif = response.gif
     },
     getGifOnInterval () {
