@@ -16,7 +16,7 @@ app.get('/latest-youtube-video', getLatestYoutubeVideo)
 const server = app.listen() // unsure
 const peerServer = ExpressPeerServer(server, {
   debug: true,
-  path: '/',
+  path: '/webrtc',
   allow_discovery: true
 })
 

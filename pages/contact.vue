@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>WebRTC - WIP</h1>
+    <p>Peers - <a href="https://mikesglitch.com/api/peerjs/webrtc/peerjs/peers">https://mikesglitch.com/api/peerjs/webrtc/peerjs/peers</a></p>
     <p>To call me you need to have audio and video capabilities</p>
     <p><a href="https://glitch.com/~peerjs-video">https://glitch.com/~peerjs-video</a></p>
     <div v-if="!hasSubmittedPeerId">
@@ -51,9 +52,9 @@ export default {
       // this.peer = new Peer()
 
       this.peer = new Peer(this.peerId, {
-        host: 'localhost:3333/api/peerjs',
-        port: 3333,
-        path: '/'
+        host: '/',
+        port: window.location.port,
+        path: '/api/peerjs/webrtc'
       })
 
       console.log('calling')
@@ -104,9 +105,9 @@ export default {
       // this.peer = new Peer(this.peerId)
       // this.peer = new Peer('mclarkgb')
       this.peer = new Peer('mclarkgb', {
-        host: 'localhost:3333/api/peerjs',
-        port: 3333,
-        path: '/'
+        host: '/',
+        port: window.location.port,
+        path: '/api/peerjs/webrtc'
       })
       console.log('recieving')
 
