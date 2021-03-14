@@ -2,7 +2,8 @@
   <div class="nav__container">
     <nav class="container">
       <NuxtLink class="nav__logo" to="/">
-        <GlitchLogo></GlitchLogo>
+        <span class="nav__logo-start">Mikes</span><span class="nav__logo-end">Glitch</span>
+        <!-- <GlitchLogo></GlitchLogo> -->
       </NuxtLink>
       <button class="nav__menu-toggle" aria-expanded="Open" @click="toggleOpen">
         <span class="sr-only">Open main menu</span>
@@ -75,6 +76,7 @@ export default {
     align-items: center;
     justify-content: space-between;
     height: 2.5rem;
+    word-wrap: unset;
 
     .nav__menu-toggle{
       display: flex;
