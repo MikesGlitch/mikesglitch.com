@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>WebRTC</h1>
+    <h1>WebRTC - WIP</h1>
     <p>To call me you need to have audio and video capabilities</p>
     <p><a href="https://glitch.com/~peerjs-video">https://glitch.com/~peerjs-video</a></p>
     <div v-if="!hasSubmittedPeerId">
@@ -12,12 +12,10 @@
       <button @click="call">Connect peer</button>
       <button @click="recieve">Recieve peer</button>
     </div>
-
-    {{isCalling}}
-    {{callingSream}}
     <div v-if="isCalling && callingSream">
-      <video :src="callingSream"></video>
     </div>
+    <video ref="callingStream"></video>
+    <video ref="recievingSream"></video>
   </div>
 </template>
 
@@ -31,7 +29,8 @@ export default {
       peerId: null,
       hasSubmittedPeerId: false,
       isCalling: false,
-      callingSream: null
+      callingSream: null,
+      recievingSream: null
     }
   },
   methods: {
@@ -41,7 +40,7 @@ export default {
         this.hasSubmittedPeerId = true
       }
     },
-    call () {
+    async call () {
       if (!process.client) {
         return
       }
@@ -49,11 +48,17 @@ export default {
       this.isCalling = true
       const Peer = require('peerjs').default
 
-      this.peer = new Peer()
+      // this.peer = new Peer()
+
+      this.peer = new Peer(this.peerId, {
+        host: 'localhost:3333/api/peerjs',
+        port: 3333,
+        path: '/'
+      })
 
       console.log('calling')
 
-      const conn = this.peer.connect('mclarkgb@gmail.com')
+      const conn = this.peer.connect('mclarkgb')
 
       console.log('peerid', this.peer.id)
 
@@ -76,17 +81,19 @@ export default {
       })
 
       console.log('getting usermedia', navigator.mediaDevices.getUserMedia)
-      navigator.mediaDevices.getUserMedia({ video: true, audio: false }, (stream) => {
+      try {
+        this.callingSream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
         console.log('got user media')
-        this.callingSream = stream
-        const call = this.peer.call('another-peers-id', stream)
+        this.$refs.callingStream.srcObject = this.callingSream
+        this.$refs.callingStream.play()
+        const call = this.peer.call('mcalrkgb', this.callingSream)
         call.on('stream', (remoteStream) => {
           // Show stream in some video/canvas element.
           console.log('stream')
         })
-      }, function (err) {
-        console.log('Failed to get local stream', err)
-      })
+      } catch (err) {
+        console.error('Failed to get local stream', err)
+      }
     },
     recieve () {
       if (!process.client) {
@@ -94,24 +101,34 @@ export default {
       }
 
       const Peer = require('peerjs').default
-      this.peer = new Peer(this.peerId)
+      // this.peer = new Peer(this.peerId)
+      // this.peer = new Peer('mclarkgb')
+      this.peer = new Peer('mclarkgb', {
+        host: 'localhost:3333/api/peerjs',
+        port: 3333,
+        path: '/'
+      })
       console.log('recieving')
 
       this.peer.on('error', function (err) {
         console.log(err)
       })
 
-      this.peer.on('call', function (call) {
-        console.log('called')
-        navigator.mediaDevices.getUserMedia({ video: true, audio: true }, (stream) => {
-          call.answer(stream) // Answer the call with an A/V stream.
+      this.peer.on('call', async (call) => {
+        try {
+          console.log('called')
+          this.recievingSream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+          this.$refs.recievingSream.srcObject = this.recievingSream
+          this.$refs.recievingSream.play()
+
+          call.answer(this.recievingSream) // Answer the call with an A/V stream.
           call.on('stream', (remoteStream) => {
             // Show stream in some video/canvas element.
             console.log('streaming')
           })
-        }, function (err) {
+        } catch (err) {
           console.log('Failed to get local stream', err)
-        })
+        }
       })
     }
   }
