@@ -49,13 +49,13 @@ export default {
       this.isCalling = true
       const Peer = require('peerjs').default
 
-      // this.peer = new Peer()
+      this.peer = new Peer()
 
-      this.peer = new Peer(this.peerId, {
-        host: '/',
-        port: window.location.port,
-        path: '/api/peerjs/webrtc'
-      })
+      // this.peer = new Peer(this.peerId, {
+      //   host: '/',
+      //   port: window.location.port,
+      //   path: '/api/peerjs/webrtc'
+      // })
 
       console.log('calling')
 
@@ -103,12 +103,12 @@ export default {
 
       const Peer = require('peerjs').default
       // this.peer = new Peer(this.peerId)
-      // this.peer = new Peer('mclarkgb')
-      this.peer = new Peer('mclarkgb', {
-        host: '/',
-        port: window.location.port,
-        path: '/api/peerjs/webrtc'
-      })
+      this.peer = new Peer('mclarkgb')
+      // this.peer = new Peer('mclarkgb', {
+      //   host: '/',
+      //   port: window.location.port,
+      //   path: '/api/peerjs/webrtc'
+      // })
       console.log('recieving')
 
       this.peer.on('error', function (err) {

@@ -1,6 +1,6 @@
 import { getGif } from './routes/getGif'
 import { getLatestYoutubeVideo } from './routes/getLatestYoutubeVideo'
-const { ExpressPeerServer } = require('peer')
+// const { ExpressPeerServer } = require('peer')
 
 const express = require('express')
 require('dotenv').config()
@@ -13,22 +13,24 @@ app.get('/gif', getGif)
 app.get('/latest-youtube-video', getLatestYoutubeVideo)
 
 // WebRTC - PeerServer - maybe move this to an else on the standalone check
-const server = app.listen() // unsure
-const peerServer = ExpressPeerServer(server, {
-  debug: true,
-  path: '/webrtc',
-  allow_discovery: true
-})
+// NOT - can't do peerjs server on this server cause vercel wont support websockets - https://vercel.com/support/articles/do-vercel-serverless-functions-support-websocket-connections
 
-peerServer.on('connection', (client) => {
-  console.log('connection', client)
-})
+// const server = app.listen() // unsure
+// const peerServer = ExpressPeerServer(server, {
+//   debug: true,
+//   path: '/webrtc',
+//   allow_discovery: true
+// })
 
-peerServer.on('disconnect', (client) => {
-  console.log('disconnection', client)
-})
+// peerServer.on('connection', (client) => {
+//   console.log('connection', client)
+// })
 
-app.use('/peerjs', peerServer)
+// peerServer.on('disconnect', (client) => {
+//   console.log('disconnection', client)
+// })
+
+// app.use('/peerjs', peerServer)
 
 // Export express app
 module.exports = app
