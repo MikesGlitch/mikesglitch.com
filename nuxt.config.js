@@ -1,3 +1,6 @@
+import path from 'path'
+import fs from 'fs'
+
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'server',
