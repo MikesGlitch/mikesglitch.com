@@ -21,8 +21,6 @@
 </template>
 
 <script>
-// import Peer from 'peerjs'
-
 export default {
   data () {
     return {
