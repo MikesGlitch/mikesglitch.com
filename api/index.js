@@ -1,5 +1,5 @@
 import { getGif } from './routes/getGif'
-import { getLatestYoutubeVideo } from './routes/getLatestYoutubeVideo'
+import { getYoutubeVideos } from './routes/getYoutubeVideos'
 // const { ExpressPeerServer } = require('peer')
 
 const express = require('express')
@@ -10,7 +10,7 @@ const app = express()
 
 // Import API Routes
 app.get('/gif', getGif)
-app.get('/latest-youtube-video', getLatestYoutubeVideo)
+app.get('/youtube-videos', getYoutubeVideos)
 
 // WebRTC - PeerServer - maybe move this to an else on the standalone check
 // NOT - can't do peerjs server on this server cause vercel wont support websockets - https://vercel.com/support/articles/do-vercel-serverless-functions-support-websocket-connections

@@ -124,7 +124,7 @@ export default {
 
       .nav__link {
         font-weight: bold;
-        color: black;
+        // color: black;
         display: flex;
         align-items: center;
         padding-left: 2.5rem;

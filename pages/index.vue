@@ -2,14 +2,10 @@
   <div>
     <div class="recent-video">
       <div class="recent-video__player">
-        <iframe v-if="latestYoutubeVideoUrl" width="560" height="349" :src="latestYoutubeVideoUrl" frameborder="0" allowfullscreen />
+        <iframe v-if="latestYoutubeVideoUrl" :src="latestYoutubeVideoUrl" frameborder="0" allowfullscreen />
       </div>
       <div class="recent-video__info">
-        <p>Info about video/me?</p>
-        <p>
-          Replace the logo - it's not working well. I needs to be glitchy and
-          attractive
-        </p>
+        <VideoList :videos="latestVideos" />
       </div>
     </div>
 
@@ -21,24 +17,11 @@
             href="https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/mikesglitch.github.io"
           >https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/coderevver.github.io</a>
         </p>
-        <p>Add a dark theme?</p>
+        <p><b><u><a target="_blank" href="https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/">Add a dark theme?</a></u></b></p>
       </Card>
 
       <Card class="info-card">
-        <p>
-          Switch to using css variables rather that scss variables
-          https://youtu.be/D-h8L5hgW-w?t=4682
-        </p>
         <p>Fonts: https://www.quicksprout.com/best-font-for-website/</p>
-        <p>
-          Note: Was thinking about movign this to a ssr app. If i did that i'd
-          lose the github domain. That may be fine, new domains aren't that
-          expensive. mikesglitch.com is free.
-        </p>
-        <p>
-          If I did switch to ssr I could be clever and load in the live stream
-          only when it was live, load the last youtube video otherwise.
-        </p>
       </Card>
 
       <Card class="info-card">
@@ -60,11 +43,15 @@
 
 <script lang="ts">
 import Vue from 'vue'
+import { IGetYoutubeVideosResponse } from 'interfaces/Api'
 
 export default Vue.extend({
   async asyncData () {
-    const response = await fetch(`${process.env.NUXT_ENV_API_BASE_URL}/latest-youtube-video`).then(res => res.json()) as any
-    return { latestYoutubeVideoUrl: response.videoEmbedIframeUrl }
+    const response = await fetch(`${process.env.NUXT_ENV_API_BASE_URL}/youtube-videos`).then(res => res.json()) as IGetYoutubeVideosResponse
+    return {
+      latestYoutubeVideoUrl: response.latestVideoEmbedIframeUrl,
+      latestVideos: response.latestVideos
+    }
   }
 })
 </script>
@@ -107,10 +94,10 @@ export default Vue.extend({
       grid-column-start: 3;
       grid-column-end: 3;
     }
-    color: hotpink;
-    font-weight: bold;
-    background-color: black;
-    padding: 1rem;
+    // color: hotpink;
+    // font-weight: bold;
+    // background-color: black;
+    // padding: 1rem;
   }
 }
 

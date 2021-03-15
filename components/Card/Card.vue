@@ -1,5 +1,8 @@
 <template>
   <div class="card">
+    <div class="card__tabs">
+      <slot name="tabs" />
+    </div>
     <div class="card__image">
       <slot name="image" />
     </div>

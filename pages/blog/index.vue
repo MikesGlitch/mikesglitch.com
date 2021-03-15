@@ -6,7 +6,7 @@
         <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
           <Card :title="article.title">
             <template #image>
-              <img :src="article.img || defaultImageSrc" @error="replaceByDefault" alt="Avatar" style="width:100%">
+              <img :src="article.img || defaultImageSrc" @error="replaceByDefault" alt="Avatar">
             </template>
             <p>{{ article.description }}</p>
           </Card>
@@ -45,6 +45,10 @@ export default {
   display: grid;
   grid-gap: 10px;
   grid-template-columns: auto;
+
+  img {
+    width: 100%;
+  }
 
   @include screen-breakpoints.tablet {
     grid-template-columns: auto auto;

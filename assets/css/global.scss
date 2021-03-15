@@ -1,15 +1,17 @@
 /* Global - included on every page */
 @use 'global/_layout';
+@use 'global/_variables';
 
 html {
   font-size: 100%;
   font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-	color: #333;
   height: 100%;
 }
 
 body
 {
+  color: var(--light-theme-body-text-color);
+  background-color: var(--light-theme-body-background-color);
   height:100%;
   margin: 0;
   /* Show scrollbars so there's no layout inconsistency (due to the width of the scrollbar) */
@@ -24,7 +26,7 @@ body
 
 a {
   text-decoration: none;
-  color: black;
+  color: var(--light-theme-link-color);
 
   :visited {
     color: unset;
