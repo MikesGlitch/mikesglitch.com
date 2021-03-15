@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="recent-video">
+    <div v-if="latestYoutubeVideoUrl && latestVideos" class="recent-video">
       <div class="recent-video__player">
         <iframe v-if="latestYoutubeVideoUrl" :src="latestYoutubeVideoUrl" frameborder="0" allowfullscreen />
       </div>
@@ -24,6 +24,7 @@
 
       <Card class="info-card">
         <p>Fonts: https://www.quicksprout.com/best-font-for-website/</p>
+        <p>Add caching for the backend - I'm hitting rate limits on google api's - <a href="https://stackoverflow.com/questions/21389823/is-there-a-free-online-data-cache-service">https://stackoverflow.com/questions/21389823/is-there-a-free-online-data-cache-service</a></p>
       </Card>
 
       <Card class="info-card">
@@ -45,14 +46,14 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { IGetYoutubeVideosResponse } from 'interfaces/Api'
 
 export default Vue.extend({
   async asyncData () {
-    const response = await fetch(`${process.env.NUXT_ENV_API_BASE_URL}/youtube-videos`).then(res => res.json()) as IGetYoutubeVideosResponse
+    const response = await fetch(`${process.env.NUXT_ENV_API_BASE_URL}/youtube-videos`).then(res => res.json()).catch(() => null)
+
     return {
-      latestYoutubeVideoUrl: response.latestVideoEmbedIframeUrl,
-      latestVideos: response.latestVideos
+      latestYoutubeVideoUrl: response?.latestVideoEmbedIframeUrl,
+      latestVideos: response?.latestVideos
     }
   }
 })
