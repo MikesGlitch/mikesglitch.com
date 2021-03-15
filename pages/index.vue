@@ -12,6 +12,8 @@
     <div class="info-cards">
       <Card title="Hi, my name is Michael" class="info-card">
         <p>
+          Theme Inspiration <a href="https://colorlib.com/wp/best-personal-blog-wordpress-themes/">https://colorlib.com/wp/best-personal-blog-wordpress-themes/</a>
+          <br>
           Figma -
           <a
             href="https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/mikesglitch.github.io"

@@ -3,17 +3,14 @@
     <template #tabs>
       <CardTabs />
     </template>
-    <ul class="videos">
-      <li v-for="video in videos" :key="video.id">
-        <div class="video">
-          <a class="">
-            <img :src="video.thumbnail" class="thumbnail" alt=""></a>
-          <div class="video__info">
-            <p>{{ video.title }}</p>
-          </div>
+    <div class="videos">
+      <a v-for="video in videos" :key="video.id" class="video">
+        <img :src="video.thumbnail" class="thumbnail" alt="">
+        <div class="video__info">
+          <p>{{ video.title }}</p>
         </div>
-      </li>
-    </ul>
+      </a>
+    </div>
   </Card>
 </template>
 
@@ -32,33 +29,44 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use "assets/css/screen-breakpoints";
+
 .video__list {
   height: 100%;
   max-height: 575px;
 
   .videos {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
     height: 100%;
 
+    overflow-y: scroll;
+    max-height: 300px;
+
+    @include screen-breakpoints.tablet {
+      overflow-y: unset;
+      max-height: none;
+    }
+
     .video {
-      display: flex;
+      display: grid;
+      grid-template-columns: auto;
+
+      @include screen-breakpoints.tablet {
+        grid-template-columns: 180px auto;
+        grid-column-gap: 1rem;
+      }
+
       width: 100%;
-      height: 100px;
 
       &:hover {
         background-color: lightgrey;
-        cursor: pointer;
       }
 
       .thumbnail {
-        margin-right: 1rem;
-        height: 100px;
-      }
+        width: 100%;
 
-      &__info {
-
+        @include screen-breakpoints.tablet {
+          height: 100px;
+        }
       }
     }
   }
