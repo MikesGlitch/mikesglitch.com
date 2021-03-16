@@ -1,10 +1,23 @@
-import { json, Response } from 'express'
+/* eslint-disable no-console */
+import { Response } from 'express'
 import { IGetYoutubeVideosResponse, IYouTubeVideo } from 'interfaces/Api'
 import axios from 'axios'
+import { Client } from 'memjs'
 
+const CACHE_KEY = 'latestYoutubeVideos'
 const getYoutubeEmbedUrl = (videoId: string) => `https://youtube.com/embed/${videoId}?max-results=1&controls=1&showinfo=1&rel=0`
 
 export const getYoutubeVideos = async (_: Request, res: Response) => {
+  const cacheClient = Client.create()
+  const cachedVideos = await cacheClient.get(CACHE_KEY).catch(() => null)
+
+  if (cachedVideos?.value) {
+    console.log('cache hit - returning youtube video cache')
+    res.end(cachedVideos.value.toString())
+    return
+  }
+
+  console.log('no cache found')
   const myChannelId = 'UCfx1yOrSVwlO-VwpKxvlqow'
   const requestUrl = `https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=${myChannelId}&key=${process.env.SERVER_GOOGLE_API_KEY}`
   const response = await axios(requestUrl).then((res: { data: any }) => res.data).catch((err) => {
@@ -29,7 +42,11 @@ export const getYoutubeVideos = async (_: Request, res: Response) => {
       latestVideos
     }
 
-    res.end(JSON.stringify(video))
+    const responseContent = JSON.stringify(video)
+    await cacheClient.set(CACHE_KEY, responseContent, { expires: 300 }).catch(err => console.error(err)) // 5 minutes
+    console.log('cached the youtube response')
+
+    res.end(responseContent)
   } else {
     res.statusCode = 503
     res.send('Unable to call the youtube api')
