@@ -99,7 +99,7 @@ export default {
         console.log('called')
         call.on('stream', (remoteStream) => {
           console.log('streaming to client')
-          this.$refs.receivingSream.srcObject = this.callingSream
+          this.$refs.receivingSream.srcObject = remoteStream
           this.$refs.receivingSream.play()
         })
       } catch (err) {
