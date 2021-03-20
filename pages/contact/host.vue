@@ -1,7 +1,11 @@
 <template>
   <div>
+    <h1>Answering contact requests</h1>
+    <h5>Add some functionality to allow me to send an automated email to whoever called me - info would have been in the email link to this page.  I'll use it to ask them to come back to the website if they've left</h5>
+    <!-- <p v-for="contactablePeer in contactablePeers" :key="contactablePeer.id"> {{ contactablePeer }}</p> -->
     <button @click="recieve">Recieve peer</button>
-    <video ref="recievingSream"></video>
+    <video ref="thisSream"></video>
+    <video ref="remoteSream"></video>
   </div>
 </template>
 
@@ -13,9 +17,9 @@ export default {
       peerId: null,
       hasSubmittedPeerId: false,
       isCalling: false,
-      callingSream: null,
-      recievingSream: null,
+      thisSream: null,
       conn: null
+      // contactablePeers: ['test']
     }
   },
   mounted () {
@@ -40,13 +44,15 @@ export default {
     this.peer.on('call', async (call) => {
       console.log('being called')
       try {
-        this.recievingSream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-        this.$refs.recievingSream.srcObject = this.recievingSream
-        this.$refs.recievingSream.play()
+        this.thisSream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+        this.$refs.thisSream.srcObject = this.thisSream
+        this.$refs.thisSream.play()
 
-        call.answer(this.recievingSream) // Answer the call with an A/V stream.
+        call.answer(this.thisSream) // Answer the call with an A/V stream.
         call.on('stream', (remoteStream) => {
           // Show stream in some video/canvas element.
+          this.$refs.remoteStream.srcObject = remoteStream
+          this.$refs.remoteStream.play()
           console.log('streaming')
         })
       } catch (err) {

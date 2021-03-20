@@ -23,6 +23,7 @@
       </Card>
 
       <Card class="info-card">
+        <p>Logo? <a href="https://www.youtube.com/watch?v=7Xyg8Ja7dyY">https://www.youtube.com/watch?v=7Xyg8Ja7dyY</a></p>
         <p>Fonts: https://www.quicksprout.com/best-font-for-website/</p>
         <p>Add caching for the backend - I'm hitting rate limits on google api's - <a href="https://stackoverflow.com/questions/21389823/is-there-a-free-online-data-cache-service">https://stackoverflow.com/questions/21389823/is-there-a-free-online-data-cache-service</a></p>
         <p>I can't just store it in localstorage because it runs serverside (SSR).  I need a server side cache</p>

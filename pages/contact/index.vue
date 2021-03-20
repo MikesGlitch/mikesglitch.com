@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="contact-page">
     <h1>WebRTC - WIP - having issues with connection not being open?  try putting the recieve on another page.  This is weird</h1>
     <p>Peers - <a href="https://mikesglitch.com/api/peerjs/webrtc/peerjs/peers">https://mikesglitch.com/api/peerjs/webrtc/peerjs/peers</a></p>
     <p>To call me you need to have audio and video capabilities</p>
@@ -9,27 +9,27 @@
       <input id="peerId" v-model="peerId" />
       <button @click="submitPeerId">Enter</button>
     </div>
-    <div v-if="hasSubmittedPeerId">
+    <!-- <div v-if="hasSubmittedPeerId">
       <button @click="call">Connect peer</button>
-    </div>
+    </div> -->
     <div :class="{ 'webcam-container': true, 'show': isCalling }">
       <div class="webcam-container__webcam">
-        <video ref="callingStream"></video>
+        <video ref="thisStream"></video>
         <p>Webcam 1</p>
       </div>
       <div class="webcam-container__webcam">
         <video ref="receivingSream"></video>
         <p>Webcam 2</p>
       </div>
+
+      <div class="chat">
+        <p v-for="(message, index) in messages" :key="index">
+          <span :class="'chat__from ' + message.css">{{ message.from }}</span> {{ message.text }}
+        </p>
+      </div>
+      <input v-model="messageToSend" type="text" />
+      <button @click="sendMessage">Send</button>
     </div>
-    <div class="chat">
-      <p v-for="(message, index) in messages" :key="index">
-        <span :class="'chat__from ' + message.css">{{ message.from }}</span> {{ message.text }}
-      </p>
-    </div>
-    <!-- <textarea name="chatMessages" id="chatMessages" cols="30" rows="10" v-model="messages"></textarea> -->
-    <input v-model="messageToSend" type="text" />
-    <button @click="sendMessage">Send</button>
   </div>
 </template>
 
@@ -41,7 +41,7 @@ export default {
       peerId: null,
       hasSubmittedPeerId: false,
       isCalling: false,
-      callingSream: null,
+      thisStream: null,
       conn: null,
       messageToSend: null,
       messages: []
@@ -75,37 +75,68 @@ export default {
       console.log('submitting', this.peerId)
       if (this.peerId) {
         this.hasSubmittedPeerId = true
+        this.setupPeer()
       }
     },
-    async call () {
+    async setupPeer () {
       this.isCalling = true
 
-      this.conn = this.peer.connect('mclarkgb')
-      // // // on open will be launch when you successfully connect to PeerServer
-      this.conn.on('open', (id) => {
-        console.log('opening', id)
-        this.conn.send('hi!')
-      })
+      // this.conn = this.peer.connect('mclarkgb')
+      // this.conn.on('open', (id) => {
+      //   console.log('opening', id)
+      //   this.conn.send('hi!')
+      // })
 
       this.peer.on('error', function (err) {
         console.log(err)
       })
 
       try {
-        this.callingSream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
-        this.$refs.callingStream.srcObject = this.callingSream
-        this.$refs.callingStream.play()
-        const call = this.peer.call('mclarkgb', this.callingSream)
-        console.log('called')
-        call.on('stream', (remoteStream) => {
-          console.log('streaming to client')
-          this.$refs.receivingSream.srcObject = remoteStream
-          this.$refs.receivingSream.play()
-        })
+        this.thisStream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+        this.$refs.thisStream.srcObject = this.thisStream
+        this.$refs.thisStream.play()
+        // at this point we're waiting on being called
+        // send an email and include the peerid
+        // Tell the user to wait on this page until i call them
+
+        // const call = this.peer.call('mclarkgb', this.callingSream)
+        // call.on('stream', (remoteStream) => {
+        //   console.log('streaming to client')
+        //   this.$refs.receivingSream.srcObject = remoteStream
+        //   this.$refs.receivingSream.play()
+        // })
       } catch (err) {
         console.error('Failed to get local stream', err)
       }
     },
+    // async call () {
+    //   this.isCalling = true
+
+    //   this.conn = this.peer.connect('mclarkgb')
+    //   this.conn.on('open', (id) => {
+    //     console.log('opening', id)
+    //     this.conn.send('hi!')
+    //   })
+
+    //   this.peer.on('error', function (err) {
+    //     console.log(err)
+    //   })
+
+    //   try {
+    //     this.callingSream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false })
+    //     this.$refs.callingStream.srcObject = this.callingSream
+    //     this.$refs.callingStream.play()
+    //     const call = this.peer.call('mclarkgb', this.callingSream)
+    //     console.log('called')
+    //     call.on('stream', (remoteStream) => {
+    //       console.log('streaming to client')
+    //       this.$refs.receivingSream.srcObject = remoteStream
+    //       this.$refs.receivingSream.play()
+    //     })
+    //   } catch (err) {
+    //     console.error('Failed to get local stream', err)
+    //   }
+    // },
     sendMessage () {
       console.log('send', this.messageToSend)
       this.messages.push({ from: 'You', css: 'green', text: this.messageToSend })
@@ -117,25 +148,26 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.webcam-container {
-  /* display: flex; */
-  flex-direction: row;
-  display: none;
-}
+.contact-page {
+  .webcam-container {
+    flex-direction: row;
+    display: none;
 
-.show {
-  display: flex;
-}
-
-.chat {
-  background-color: lightgray;
-
-  .green {
-    color: green
+    &.show {
+      display: flex;
+    }
   }
 
-  .blue {
-    color: blue
+  .chat {
+    background-color: lightgray;
+
+    .green {
+      color: green
+    }
+
+    .blue {
+      color: blue
+    }
   }
 }
 </style>
