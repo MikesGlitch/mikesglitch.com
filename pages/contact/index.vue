@@ -1,6 +1,6 @@
 <template>
   <div class="contact-page">
-    <h1>WebRTC - WIP - having issues with connection not being open?  try putting the recieve on another page.  This is weird</h1>
+    <h1>WebRTC</h1>
     <p>Peers - <a href="https://mikesglitch.com/api/peerjs/webrtc/peerjs/peers">https://mikesglitch.com/api/peerjs/webrtc/peerjs/peers</a></p>
     <p>To call me you need to have audio and video capabilities</p>
     <p><a href="https://glitch.com/~peerjs-video">https://glitch.com/~peerjs-video</a></p>
