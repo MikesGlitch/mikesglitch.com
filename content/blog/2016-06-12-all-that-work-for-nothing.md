@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "All that work for nothing"
-date:   2016-06-12 17:58:09 +0100
+date:   2016-06-12
 categories: old-blog
 timeToRead: 5 minutes
 ---

@@ -37,7 +37,7 @@ export default {}
 
 <style lang="scss" scoped>
 .blog-sidebar {
-  padding: 0 1rem;
+  padding: 1rem;
 
   .about-me-summary {
     display: flex;

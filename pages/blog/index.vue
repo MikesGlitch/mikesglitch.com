@@ -1,17 +1,19 @@
 <template>
   <div class="blog-list-page">
-    <h1>Blog Posts</h1>
-    <div class="blog-container">
-      <div class="blog-posts">
-        <div v-for="article of articles" :key="article.slug" class="blog-post">
-          <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
-            <Card :title="article.title">
-              <template #image>
-                <img :src="article.img || defaultImageSrc" alt="Avatar" @error="replaceByDefault">
-              </template>
-              <p>{{ article.description }}</p>
-            </Card>
-          </NuxtLink>
+    <div class="blog-list">
+      <div class="blog-list__content">
+        <h1>Blog Posts</h1>
+        <div class="blog-posts">
+          <div v-for="article of articles" :key="article.slug" class="blog-post">
+            <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
+              <Card :title="article.title">
+                <template #image>
+                  <img :src="article.img || defaultImageSrc" alt="Avatar" @error="replaceByDefault">
+                </template>
+                <p>{{ article.description }}</p>
+              </Card>
+            </NuxtLink>
+          </div>
         </div>
       </div>
       <BlogSidebar />
@@ -45,7 +47,11 @@ export default {
 @use 'assets/css/screen-breakpoints';
 
 .blog-list-page {
-  .blog-container {
+  h1 {
+    margin: 0;
+  }
+
+  .blog-list {
     display: grid;
     grid-gap: 10px;
     grid-template-columns: auto;
@@ -63,24 +69,42 @@ export default {
       }
     }
 
-    .blog-posts {
-      display: grid;
-      grid-row: 2;
-      grid-gap: 10px;
-      grid-template-columns: auto;
+    &__content {
+        display: grid;
+        grid-row: 2;
+        grid-gap: 10px;
+        grid-template-columns: auto;
+        padding: 1rem 0;
 
-      @include screen-breakpoints.tablet {
-        grid-row: unset;
-        grid-column: 1/span 4;
-        grid-template-columns: auto auto;
-      }
+        @include screen-breakpoints.tablet {
+          grid-row: unset;
+          grid-column: 1/span 4;
+          grid-template-columns: auto auto;
+        }
 
-      @include screen-breakpoints.desktop {
-        grid-template-columns: auto auto auto;
-      }
+        @include screen-breakpoints.desktop {
+          grid-template-columns: auto auto auto;
+        }
 
-      img {
-        width: 100%;
+      .blog-posts {
+        display: grid;
+        grid-row: 2;
+        grid-gap: 10px;
+        grid-template-columns: auto;
+
+        @include screen-breakpoints.tablet {
+          grid-row: unset;
+          grid-column: 1/span 4;
+          grid-template-columns: auto auto;
+        }
+
+        @include screen-breakpoints.desktop {
+          grid-template-columns: auto auto auto;
+        }
+
+        img {
+          width: 100%;
+        }
       }
     }
   }

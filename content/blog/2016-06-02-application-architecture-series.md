@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Application Architecture series"
-date:   2016-06-02 17:58:09 +0100
+date:   2016-06-02
 categories: old-blog
 timeToRead: 5 minutes
 ---

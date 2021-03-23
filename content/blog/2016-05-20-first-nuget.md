@@ -2,7 +2,7 @@
 layout: post
 title:  "My first NuGet and a busy week at work"
 img: "/blog-assets/free-stuff.jpg"
-date:   2016-05-20 17:58:09 +0100
+date:   2016-05-20
 categories: old-blog
 timeToRead: 5 minutes
 ---

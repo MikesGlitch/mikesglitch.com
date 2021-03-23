@@ -1,26 +1,24 @@
 <template>
   <div class="blog-page">
-    <h1>{{ article.title }}</h1>
     <div class="blog-post">
       <div class="blog-post__content">
+        <h1>{{ article.title }}</h1>
+        <div class="blog-metadata">
+          <span v-if="article.date" class="blog-metadata__item"><span>Updated at:</span> {{ new Date(article.date).toLocaleDateString() }}</span>
+          <span v-if="article.timeToRead" class="blog-metadata__item"><span>Time to read:</span> {{ article.timeToRead }}</span>
+        </div>
+        <hr />
         <article>
-          <info-box :time-to-read="article.timeToRead">
-            <template #info-box>
-              <!-- This is a vue component inside markdown using slots -->
-            </template>
-          </info-box>
-          <!-- <h1>{{ article.title }}</h1> -->
           <p>{{ article.description }}</p>
-          <!--
-        <ul>
-          <li v-for="link of article.toc" :key="link.id">
-            <NuxtLink :to="`#${link.id}`">
-              {{ link.text }}
-            </NuxtLink>
-          </li>
-        </ul> -->
+
+          <!-- <ul>
+            <li v-for="link of article.toc" :key="link.id">
+              <NuxtLink :to="`#${link.id}`">
+                {{ link.text }}
+              </NuxtLink>
+            </li>
+          </ul> -->
           <nuxt-content :document="article" />
-          <p>Post last updated: {{ article.updatedAt }}</p>
         </article>
       </div>
       <BlogSidebar />
@@ -41,6 +39,24 @@ export default {
 <style lang="scss" scoped>
 @use 'assets/css/screen-breakpoints';
 .blog-page {
+  h1 {
+    margin: 0;
+  }
+
+  .blog-metadata {
+    margin-top: 1rem;
+    color: #8a8a8a;
+    font-style: italic;
+
+    &__item {
+      margin-right: 1rem;
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
   .blog-post {
     display: grid;
     grid-gap: 10px;
@@ -62,6 +78,7 @@ export default {
     &__content {
       grid-row: 2;
       grid-gap: 10px;
+      padding: 1rem 0;
 
       @include screen-breakpoints.tablet {
         grid-row: unset;

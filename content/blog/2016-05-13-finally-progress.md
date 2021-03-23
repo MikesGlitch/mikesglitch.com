@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Finally making some progress"
-date:   2016-05-13 17:58:09 +0100
+date:   2016-05-13
 categories: old-blog
 timeToRead: 5 minutes
 ---

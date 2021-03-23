@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Thinking of the future"
-date:   2016-05-30 17:58:09 +0100
+date:   2016-05-30
 categories: old-blog
 timeToRead: 5 minutes
 ---
