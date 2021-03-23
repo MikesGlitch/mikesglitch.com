@@ -128,16 +128,9 @@ export default {
 
       .nav__link {
         font-weight: bold;
-        // color: black;
         display: flex;
         align-items: center;
         padding-left: 2.5rem;
-        // transition-duration: .2s;
-        // transition-property: color;
-
-        // &:hover {
-        //   color: hotpink;
-        // }
       }
     }
   }
