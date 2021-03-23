@@ -25,15 +25,21 @@ body
 }
 
 a {
+  transition-duration: .2s;
+  transition-property: color;
   text-decoration: none;
   color: var(--light-theme-link-color);
 
-  :visited {
+  &:visited {
     color: unset;
   }
 
-  :active {
+  &:active {
     color: unset;
+  }
+
+  &:hover {
+    color: var(--light-theme-link-hover-color);
   }
 }
 

@@ -103,6 +103,10 @@ export default {
       justify-content: center;
       align-items:center;
 
+      &-start {
+        color: black;
+      }
+
       &-end {
         color: hotpink;
       }
@@ -128,12 +132,12 @@ export default {
         display: flex;
         align-items: center;
         padding-left: 2.5rem;
-        transition-duration: .2s;
-        transition-property: color;
+        // transition-duration: .2s;
+        // transition-property: color;
 
-        &:hover {
-          color: purple;
-        }
+        // &:hover {
+        //   color: hotpink;
+        // }
       }
     }
   }
