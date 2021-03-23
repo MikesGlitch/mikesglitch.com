@@ -6,6 +6,10 @@ import { Client } from 'memjs'
 
 const CACHE_KEY = 'latestYoutubeVideos'
 const getYoutubeEmbedUrl = (videoId: string) => `https://youtube.com/embed/${videoId}?max-results=1&controls=1&showinfo=1&rel=0`
+const escapeHtmlCharacters = (html: string) => {
+  // Didn't want to add a library just for this
+  return html.replace(/&quot;/g, '"')
+}
 
 export const getYoutubeVideos = async (_: Request, res: Response) => {
   const cacheClient = Client.create()
@@ -31,8 +35,8 @@ export const getYoutubeVideos = async (_: Request, res: Response) => {
         id: video.id.videoId,
         publishedAt: video.snippet.publishedAt,
         thumbnail: video.snippet.thumbnails.medium.url,
-        title: video.snippet.title,
-        description: video.snippet.description,
+        title: escapeHtmlCharacters(video.snippet.title),
+        description: escapeHtmlCharacters(video.snippet.description),
         iframeEmbedUrl: getYoutubeEmbedUrl(video.id.videoId)
       }
     })

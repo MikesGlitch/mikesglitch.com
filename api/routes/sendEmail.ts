@@ -17,13 +17,14 @@ export const sendEmail = async (_: Request, res: Response) => {
 //         }
 //     ],
 //     "from": {
-//         "email": "donotreply@mikesglitch.com"
+//         "email": "donotreply@mikesglitch.com",
+//         "name": "Mike from MikesGlitch.com"
 //     },
-//     "subject": "Sending with SendGrid is Fun",
-//     "content": [
+//     "subject": "MikesGlitch.com - Call me request",
+//     "template_id": [
 //         {
-//             "type": "text/plain",
-//             "value": "and easy to do anywhere, even with cURL /n Please do not reply"
+//             "type": "text/html",
+//             "value": "boob \n test \n test2 \n test3 - html encode this so it fits in the string"
 //         }
 //     ]
 // }
