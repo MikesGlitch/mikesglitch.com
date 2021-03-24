@@ -1,8 +1,7 @@
-
-$container-max: 1536px; // standard "upper" size xl screens  (in bootstrap and tailwind)
+@use 'variables';
 
 .container {
-  max-width: $container-max;
+  max-width: variables.$container-max;
   margin: 0 auto;
   padding-right: var(--gutter-x,.75rem);
   padding-left: var(--gutter-x,.75rem);

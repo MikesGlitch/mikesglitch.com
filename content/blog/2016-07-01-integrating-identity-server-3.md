@@ -2,7 +2,6 @@
 layout: post
 title:  "Integrating Identity Server 3 with Web API 2 Swashbuckle"
 date:   2016-07-01
-img: "/blog-assets/whoami.jpg"
 categories: old-blog
 timeToRead: 5 minutes
 ---

@@ -2,7 +2,6 @@
 layout: post
 title:  "Updating Configuration Files"
 date:   2016-03-12
-img: "/blog-assets/config.jpg"
 categories: old-blog
 timeToRead: 5 minutes
 ---

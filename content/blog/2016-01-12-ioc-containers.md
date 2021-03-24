@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "What IoC Containers are and what they aren't"
-img: "/blog-assets/ioc.jpg"
 date:   2016-01-12
 categories: old-blog
 timeToRead: 5 minutes

@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Git Smudge and Clean Filters"
-img: "/blog-assets/gitsmudge.png"
 date:   2016-02-12
 author: "Michael Clark (Mike)"
 categories: old-blog

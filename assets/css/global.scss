@@ -1,6 +1,6 @@
 /* Global - included on every page */
-@use 'global/_layout';
 @use 'global/_variables';
+@use 'global/_layout';
 
 html {
   font-size: 100%;

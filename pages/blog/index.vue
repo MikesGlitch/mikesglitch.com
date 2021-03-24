@@ -31,7 +31,7 @@ export default {
 
     return {
       articles,
-      defaultImageSrc: '/blog-assets/placeholder.jpg'
+      defaultImageSrc: '/blog-assets/placeholder.webp'
     }
   },
 

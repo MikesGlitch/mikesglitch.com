@@ -70,8 +70,9 @@ export default Vue.extend({
   grid-gap: 10px;
   grid-template-columns: auto;
 
-  @include screen-breakpoints.desktop {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  @include screen-breakpoints.fullwidth {
+    // grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   &__player {
@@ -80,7 +81,7 @@ export default Vue.extend({
     padding-bottom: 56.25%; /* 16:9 */
     height: 0;
 
-    @include screen-breakpoints.desktop {
+    @include screen-breakpoints.fullwidth {
       grid-column-start: 1;
       grid-column-end: 3;
     }
@@ -95,14 +96,10 @@ export default Vue.extend({
   }
 
   &__info {
-    @include screen-breakpoints.desktop {
+    @include screen-breakpoints.fullwidth {
       grid-column-start: 3;
       grid-column-end: 3;
     }
-    // color: hotpink;
-    // font-weight: bold;
-    // background-color: black;
-    // padding: 1rem;
   }
 }
 

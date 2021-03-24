@@ -1,6 +1,3 @@
-import path from 'path'
-import fs from 'fs'
-
 export default {
   // Target (https://go.nuxtjs.dev/config-target)
   target: 'server',
@@ -25,11 +22,6 @@ export default {
 
   render: {
     fallback: false
-  },
-
-  // Env variables https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-env/
-  env: {
-    secret: process.env.TEST || 'didnt get it'
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)

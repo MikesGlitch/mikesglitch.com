@@ -32,6 +32,8 @@ export default {
 @use "assets/css/screen-breakpoints";
 
 .video__list {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   max-height: 575px;
 
@@ -41,9 +43,13 @@ export default {
     overflow-y: scroll;
     max-height: 300px;
 
+    // There's an issue here on desktop/tablet size screens where the height isn't understood correctly by the browser.
+    // I don't get it - it's hard to fix.  May take some googling.
+    // https://themebubble.com/demo/videoly/animated-movie-trailer-for-new-kickass-movie-more/
+
     @include screen-breakpoints.tablet {
       overflow-y: unset;
-      max-height: none;
+      max-height: 100%;
     }
 
     .video {

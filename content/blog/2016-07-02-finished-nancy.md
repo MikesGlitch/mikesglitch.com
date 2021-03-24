@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Finished NancyFx Article"
-img: "/blog-assets/nancyfx/Logo.png"
+img: "/blog-assets/nancyfx/Logo.webp"
 date:   2016-07-02
 categories: old-blog
 timeToRead: 5 minutes
