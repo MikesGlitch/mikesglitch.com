@@ -4,7 +4,7 @@
       <CardTabs />
     </template>
     <div class="videos">
-      <a v-for="video in videos" :key="video.id" class="video">
+      <a v-for="video in videos" :key="video.id" role="button" :class="{ 'video': true, 'selected': currentVideo == video.iframeEmbedUrl } " @click="() => onChangeVideo(video)">
         <img :src="video.thumbnail" class="thumbnail" alt="">
         <div class="video__info">
           <p>{{ video.title }}</p>
@@ -23,10 +23,29 @@ export default {
       type: Array,
       required: false,
       default: () => [] as IYouTubeVideo[]
+    },
+    currentVideo: {
+      type: String,
+      required: false,
+      default: null
+    },
+    onChangeVideo: {
+      type: Function,
+      required: true
     }
   }
 }
 </script>
+
+<style lang="scss">
+.video__list {
+  .card__content {
+    min-height: 0;
+    flex: 1 0 300px;
+    padding: 0 !important;
+  }
+}
+</style>
 
 <style lang="scss" scoped>
 @use "assets/css/screen-breakpoints";
@@ -39,40 +58,37 @@ export default {
 
   .videos {
     height: 100%;
-
     overflow-y: scroll;
     max-height: 300px;
 
-    // There's an issue here on desktop/tablet size screens where the height isn't understood correctly by the browser.
-    // I don't get it - it's hard to fix.  May take some googling.
-    // https://themebubble.com/demo/videoly/animated-movie-trailer-for-new-kickass-movie-more/
-
     @include screen-breakpoints.tablet {
-      overflow-y: unset;
+      overflow-y: auto;
       max-height: 100%;
     }
 
     .video {
+      padding: 0.5rem;
       display: grid;
       grid-template-columns: auto;
+      box-sizing: border-box;
+      width: 100%;
 
       @include screen-breakpoints.tablet {
         grid-template-columns: 180px auto;
-        grid-column-gap: 1rem;
+        grid-column-gap: 0.5rem;
       }
-
-      width: 100%;
 
       &:hover {
         background-color: lightgrey;
+        // color: grey;
       }
 
       .thumbnail {
         width: 100%;
+      }
 
-        @include screen-breakpoints.tablet {
-          height: 100px;
-        }
+      &.selected {
+        background-color: lightgrey;
       }
     }
   }

@@ -29,6 +29,7 @@ a {
   transition-property: color;
   text-decoration: none;
   color: var(--light-theme-link-color);
+  cursor: pointer;
 
   &:visited {
     color: unset;

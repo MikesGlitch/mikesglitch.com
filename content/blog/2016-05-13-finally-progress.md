@@ -2,7 +2,7 @@
 layout: post
 title:  "Finally making some progress"
 date:   2016-05-13
-categories: old-blog
+tags: old blog
 timeToRead: 5 minutes
 ---
 Over the last week the progress has been good.  I’ve managed to complete the first draft of the ServiceStack article and I’ve learned a lot.  At work, we’ve also bought ServiceStack Enterprise Licenses for our APIs so it feels good be writing this article and supporting ServiceStack because it really is a great framework.  The first draft is still rough, but contains a lot of good information and is available here :

@@ -21,6 +21,7 @@
           <nuxt-content :document="article" />
         </article>
       </div>
+      <!-- Dunno what to do with this sidebar - maybe just make another one.  Otherwise i'll have to pass in tags etc -->
       <BlogSidebar />
     </div>
   </div>

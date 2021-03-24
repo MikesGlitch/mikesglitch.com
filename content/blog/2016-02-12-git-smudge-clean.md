@@ -2,8 +2,7 @@
 layout: post
 title:  "Git Smudge and Clean Filters"
 date:   2016-02-12
-author: "Michael Clark (Mike)"
-categories: old-blog
+tags: old blog
 timeToRead: 5 minutes
 ---
 

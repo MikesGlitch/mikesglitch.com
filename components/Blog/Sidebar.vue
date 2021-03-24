@@ -13,18 +13,18 @@
     <div class="tags-filters">
       <h4 class="tags-filters__title">Tags</h4>
       <div class="tags-filters__tags">
-        <a class="tag active" href="javascript:void(0)">All</a>
-        <a class="tag" href="javascript:void(0)">Old stuff</a>
+        <!-- <a class="tag active" href="javascript:void(0)">All</a> -->
+        <a v-for="(tag, index) in tags" :key="index" class="tag">{{ tag }}</a>
       </div>
     </div>
-    <div class="category-filters">
+    <!-- <div class="category-filters">
       <h4 class="category__title">Categories - might delete</h4>
       <div class="category__categories">
         <a class="" href="javascript:void(0)">Web development</a>
         <a class="" href="javascript:void(0)">Flutter Desktop</a>
         <a class="" href="javascript:void(0)">Old stuff</a>
       </div>
-    </div>
+    </div> -->
     <div class="rss-feed">
       <h4 class="rss-feed__title">RSS Feed</h4>
     </div>
@@ -32,7 +32,15 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    tags: {
+      type: Array,
+      required: false,
+      default: () => []
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

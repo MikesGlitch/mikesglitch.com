@@ -1,11 +1,11 @@
 <template>
   <div>
-    <div v-if="latestYoutubeVideoUrl && latestVideos" class="recent-video">
+    <div v-if="videoToPlay && latestVideos" class="recent-video">
       <div class="recent-video__player">
-        <iframe v-if="latestYoutubeVideoUrl" :src="latestYoutubeVideoUrl" frameborder="0" allowfullscreen />
+        <iframe v-if="videoToPlay" :src="videoToPlay" frameborder="0" allowfullscreen />
       </div>
       <div class="recent-video__info">
-        <VideoList :videos="latestVideos" />
+        <VideoList :videos="latestVideos" :current-video="videoToPlay" :on-change-video="onChangeVideo" />
       </div>
     </div>
 
@@ -35,9 +35,7 @@
           page and it needs to look good. See how other websties do it.
         </h1>
       </Card>
-      <Card
-        class="info-card"
-      >
+      <Card class="info-card">
         Link to youtube and twitch - maybe in nav, maybe make a page for it. So
         like a "Live Stream" link that links to YouTube and Twitch and maybe
         shows past live streams
@@ -46,7 +44,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 
 export default Vue.extend({
@@ -54,8 +52,13 @@ export default Vue.extend({
     const response = await fetch(`${process.env.NUXT_ENV_API_BASE_URL}/youtube-videos`).then(res => res.json()).catch(() => null)
 
     return {
-      latestYoutubeVideoUrl: response?.latestVideoEmbedIframeUrl,
+      videoToPlay: response?.latestVideoEmbedIframeUrl,
       latestVideos: response?.latestVideos
+    }
+  },
+  methods: {
+    onChangeVideo (video) {
+      this.videoToPlay = video.iframeEmbedUrl
     }
   }
 })
@@ -70,8 +73,7 @@ export default Vue.extend({
   grid-gap: 10px;
   grid-template-columns: auto;
 
-  @include screen-breakpoints.fullwidth {
-    // grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  @include screen-breakpoints.widescreen {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
@@ -81,9 +83,8 @@ export default Vue.extend({
     padding-bottom: 56.25%; /* 16:9 */
     height: 0;
 
-    @include screen-breakpoints.fullwidth {
-      grid-column-start: 1;
-      grid-column-end: 3;
+    @include screen-breakpoints.widescreen {
+      grid-column: span 2;
     }
 
     iframe {
@@ -96,9 +97,8 @@ export default Vue.extend({
   }
 
   &__info {
-    @include screen-breakpoints.fullwidth {
-      grid-column-start: 3;
-      grid-column-end: 3;
+    @include screen-breakpoints.widescreen {
+      grid-column: span 1;
     }
   }
 }
@@ -110,11 +110,7 @@ export default Vue.extend({
   grid-gap: 10px;
 
   @include screen-breakpoints.tablet {
-    grid-template-columns: auto auto;
-  }
-
-  .info-card {
-    // margin-top: 1rem;
+    grid-template-columns: repeat(2, auto);
   }
 }
 </style>
