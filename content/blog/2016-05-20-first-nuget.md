@@ -3,6 +3,7 @@ layout: post
 title:  "My first NuGet and a busy week at work"
 date:   2016-05-20
 tags: old blog
+description:  "I just published a nuget package for ServiceStack!"
 timeToRead: 5 minutes
 ---
 I just got finished with my first public NuGet package this morning (YAY for me!).  Its purpose is to provide an easy way to register Quartz with ServiceStack’s default IoC container (Funq).  It’s something I was going to have to do anyway because at work I’m porting our “Integration Service” scheduler (which uses Quartz) over to a ServiceStack Windows Service.  I noticed a couple of people asking questions about using Quartz with ServiceStack on StackOverflow and though it might help to add a library for it.

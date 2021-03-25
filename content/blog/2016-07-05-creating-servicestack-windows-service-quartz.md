@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Creating a ServiceStack Windows Service that uses Quartz"
+description:  "How I built my ServiceStack with Quartz Nuget package"
 date:   2016-07-05
 tags: old blog
 timeToRead: 5 minutes

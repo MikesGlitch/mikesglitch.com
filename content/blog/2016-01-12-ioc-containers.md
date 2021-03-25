@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "What IoC Containers are and what they aren't"
+description:  "An overview on IoC containers"
 date:   2016-01-12
 tags: old blog
 timeToRead: 5 minutes

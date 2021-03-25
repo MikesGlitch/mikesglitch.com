@@ -1,5 +1,5 @@
 // Breakpoints
-$container-max: 1536px; // standard "upper" size xl screens  (in bootstrap and tailwind)
+$container-max: 1366px; // standard "upper" size xl screens  (in bootstrap and tailwind)
 $screen-sm-min: 576px; // Small tablets and large smartphones (landscape view)
 $screen-md-min: 768px; // Small tablets (portrait view)
 $screen-lg-min: 992px; // Tablets and small desktops
@@ -16,4 +16,5 @@ $screen-xl-min: 1200px; // Large tablets and desktops
   --dark-theme-link-hover-color: hotpink;
   --light-theme-link-color: black;
   --light-theme-link-hover-color: hotpink;
+  --hover-background-color: rgba(0, 0, 0, 0.04);
 }

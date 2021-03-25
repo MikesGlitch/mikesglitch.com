@@ -3,6 +3,7 @@ layout: post
 title:  "Git Smudge and Clean Filters"
 date:   2016-02-12
 tags: old blog
+description:  "Smudge and clean filters in Git"
 timeToRead: 5 minutes
 ---
 

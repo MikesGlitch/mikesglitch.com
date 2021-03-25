@@ -30,12 +30,6 @@
       </Card>
 
       <Card class="info-card">
-        <h1>
-          Be careful with embedding a video - I don't want it to take over the
-          page and it needs to look good. See how other websties do it.
-        </h1>
-      </Card>
-      <Card class="info-card">
         Link to youtube and twitch - maybe in nav, maybe make a page for it. So
         like a "Live Stream" link that links to YouTube and Twitch and maybe
         shows past live streams
@@ -74,7 +68,7 @@ export default Vue.extend({
   grid-template-columns: auto;
 
   @include screen-breakpoints.widescreen {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   &__player {
@@ -84,7 +78,7 @@ export default Vue.extend({
     height: 0;
 
     @include screen-breakpoints.widescreen {
-      grid-column: span 2;
+      grid-column: span 3;
     }
 
     iframe {
@@ -98,7 +92,7 @@ export default Vue.extend({
 
   &__info {
     @include screen-breakpoints.widescreen {
-      grid-column: span 1;
+      grid-column: span 2;
     }
   }
 }
@@ -110,7 +104,7 @@ export default Vue.extend({
   grid-gap: 10px;
 
   @include screen-breakpoints.tablet {
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(3, auto);
   }
 }
 </style>

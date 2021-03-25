@@ -3,6 +3,7 @@ layout: post
 title:  "Updating Configuration Files"
 date:   2016-03-12
 tags: old blog
+description:  "Writing powershell scripts to update config files"
 timeToRead: 5 minutes
 ---
 

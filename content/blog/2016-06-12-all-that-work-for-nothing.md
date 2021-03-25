@@ -3,6 +3,7 @@ layout: post
 title:  "All that work for nothing"
 date:   2016-06-12
 tags: old blog
+description:  "Urgh...  All that time spent that was wasted."
 timeToRead: 5 minutes
 ---
 I've spent a lot of time this passed week trying to write up on Scalability with some metrics for the ServiceStack article.  I ran into problems initially because measuring Scalability is quite difficult.  I’ve tried a few tools online to give me an idea of what to test on, and then some tools like LoadUI which cost a lot of money and allow you to create multiple users and send requests to your API for each user simultaneously.  The problem became that it was very difficult to compare one frameworks scalability to another.  Overall, I just couldn’t figure out how to do it effectively so I gave up.

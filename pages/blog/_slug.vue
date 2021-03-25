@@ -9,8 +9,6 @@
         </div>
         <hr />
         <article>
-          <p>{{ article.description }}</p>
-
           <!-- <ul>
             <li v-for="link of article.toc" :key="link.id">
               <NuxtLink :to="`#${link.id}`">

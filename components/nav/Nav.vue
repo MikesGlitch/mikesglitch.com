@@ -35,9 +35,36 @@
         </svg>
       </button>
       <div :class="{'nav__links': !isOpen, 'nav__links--show-mobile': isOpen }">
+        <NuxtLink class="nav__link home" to="/">Home</NuxtLink>
         <NuxtLink class="nav__link" to="/projects">Projects</NuxtLink>
         <NuxtLink class="nav__link" to="/blog">Blog</NuxtLink>
         <NuxtLink class="nav__link" to="/contact">Contact</NuxtLink>
+        <div class="nav__link-icons">
+          <a
+            title="Check out my Github"
+            href="https://github.com/mikesglitch"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              class="icon"
+              src="~/assets/images/icons/github-brands.svg"
+              alt="Github"
+            />
+          </a>
+          <a
+            title="Check out my LinkedIn"
+            href="https://www.linkedin.com/in/mjclark91/"
+            target="_blank"
+            rel="noopener"
+          >
+            <img
+              class="icon"
+              src="~/assets/images/icons/linkedin-brands.svg"
+              alt="Linkedin"
+            />
+          </a>
+        </div>
       </div>
     </nav>
   </div>
@@ -58,7 +85,6 @@ export default {
 
 <style lang="scss" scoped>
 @use 'assets/css/screen-breakpoints';
-
 // util
 .py-3 {
   padding-top: var(--gutter-y, .75rem);
@@ -126,11 +152,45 @@ export default {
       align-items: center;
       padding-left: 1.5rem;
 
+      .nuxt-link-exact-active {
+        color: hotpink;
+      }
+
+      .nuxt-link-active {
+        &:not(.home) {
+          color: hotpink;
+        }
+      }
+
       .nav__link {
         font-weight: bold;
         display: flex;
         align-items: center;
         padding-left: 2.5rem;
+
+        &-icons {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+
+          a {
+            display: flex;
+
+            .icon {
+              margin-left: 1rem;
+              border-radius: 50%;
+              padding: 0.5rem;
+              width: 25px;
+              height: 25px;
+            }
+
+            :hover {
+              background-color: var('--hover-background-color');
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+              transition: 0.3s;
+            }
+          }
+        }
       }
     }
   }

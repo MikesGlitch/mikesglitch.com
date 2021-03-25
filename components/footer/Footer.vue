@@ -2,32 +2,6 @@
   <footer>
     <div class="container">
       <div class="footer-links">
-        <a
-          class="footer-link"
-          title="Check out my Github"
-          href="https://github.com/mikesglitch"
-          target="_blank"
-        >
-          <img
-            class="footer-link__icon"
-            src="~/assets/images/icons/github-brands.svg"
-            alt="Github"
-          />
-          GitHub
-        </a>
-        <a
-          class="footer-link"
-          title="Check out my LinkedIn"
-          href="https://www.linkedin.com/in/mjclark91/"
-          target="_blank"
-        >
-          <img
-            class="footer-link__icon"
-            src="~/assets/images/icons/linkedin-brands.svg"
-            alt="Linkedin"
-          />Linkedin
-        </a>
-
         <NuxtLink class="footer-link" title="Contact me" to="/contact">
           <img
             class="footer-link__icon"
@@ -48,7 +22,6 @@
 
 footer {
   margin-top: 1rem;
-  // background-color: white;
   font-weight: bold;
   padding: 3rem;
   box-shadow: 0 -10px 15px -3px rgba(0, 0, 0, 0.1),

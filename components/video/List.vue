@@ -79,8 +79,7 @@ export default {
       }
 
       &:hover {
-        background-color: lightgrey;
-        // color: grey;
+        background-color: var('--hover-background-color');
       }
 
       .thumbnail {
@@ -88,7 +87,8 @@ export default {
       }
 
       &.selected {
-        background-color: lightgrey;
+        color: hotpink;
+        background-color: var('--hover-background-color');
       }
     }
   }
