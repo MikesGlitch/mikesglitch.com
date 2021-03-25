@@ -19,7 +19,6 @@
             href="https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/mikesglitch.github.io"
           >https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/coderevver.github.io</a>
         </p>
-        <p><b><u><a target="_blank" href="https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/">Add a dark theme?</a></u></b></p>
       </Card>
 
       <Card class="info-card">
