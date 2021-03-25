@@ -3,11 +3,7 @@
     <div class="container">
       <div class="footer-links">
         <NuxtLink class="footer-link" title="Contact me" to="/contact">
-          <img
-            class="footer-link__icon"
-            src="~/assets/images/icons/envelope-regular.svg"
-            alt="Contact me"
-          />Contact me
+          <IconMail class="footer-link__icon" /> Contact me
         </NuxtLink>
       </div>
       <div class="copyright">
@@ -19,6 +15,18 @@
 
 <style lang="scss" scoped>
 @use 'assets/css/screen-breakpoints';
+
+.light-theme{
+  footer {
+    background-color: var(--light-theme-secondary-background-color);
+  }
+}
+
+.dark-theme{
+  footer {
+    background-color: var(--dark-theme-secondary-background-color);
+  }
+}
 
 footer {
   margin-top: 1rem;

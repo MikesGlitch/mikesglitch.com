@@ -26,6 +26,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.light-theme{
+  .card {
+    background-color: var(--light-theme-secondary-background-color);
+  }
+}
+
+.dark-theme{
+  .card {
+    background-color: var(--dark-theme-secondary-background-color);
+  }
+}
+
 .card {
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);

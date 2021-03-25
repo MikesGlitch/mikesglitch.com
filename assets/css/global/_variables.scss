@@ -8,13 +8,27 @@ $screen-xl-min: 1200px; // Large tablets and desktops
 :root {
   --gutter-x: .75rem;
   --gutter-y: .75rem;
+
   --dark-theme-body-background-color: #0e0e10;
   --light-theme-body-background-color: white;
+
+  --dark-theme-secondary-background-color: #202020;
+  --light-theme-secondary-background-color: white;
+
   --dark-theme-body-text-color: white;
   --light-theme-body-text-color: #333;
+
   --dark-theme-link-color: white;
-  --dark-theme-link-hover-color: hotpink;
   --light-theme-link-color: black;
+
+  --dark-theme-link-hover-color: hotpink;
   --light-theme-link-hover-color: hotpink;
+
+  --dark-theme-logo-start-color: white;
+  --light-theme-logo-start-color: black;
+
+  --light-theme-logo-end-color: hotpink;
+  --dark-theme-logo-end-color: hotpink;
+
   --hover-background-color: rgba(0, 0, 0, 0.04);
 }

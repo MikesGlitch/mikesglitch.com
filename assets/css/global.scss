@@ -28,20 +28,7 @@ a {
   transition-duration: .2s;
   transition-property: color;
   text-decoration: none;
-  color: var(--light-theme-link-color);
   cursor: pointer;
-
-  &:visited {
-    color: unset;
-  }
-
-  &:active {
-    color: unset;
-  }
-
-  &:hover {
-    color: var(--light-theme-link-hover-color);
-  }
 }
 
 .sr-only {
@@ -54,4 +41,45 @@ a {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+// Themes
+.dark-theme {
+  color: var(--dark-theme-body-text-color);
+
+  a {
+    color: var(--dark-theme-link-color);
+
+    &:visited {
+      color: unset;
+    }
+
+    &:active {
+      color: unset;
+    }
+
+    &:hover {
+      color: var(--dark-theme-link-hover-color);
+    }
+  }
+}
+
+.light-theme {
+  color: var(--light-theme-body-text-color);
+
+  a {
+    color: var(--light-theme-link-color);
+
+    &:visited {
+      color: unset;
+    }
+
+    &:active {
+      color: unset;
+    }
+
+    &:hover {
+      color: var(--light-theme-link-hover-color);
+    }
+  }
 }

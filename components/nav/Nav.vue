@@ -46,11 +46,7 @@
             target="_blank"
             rel="noopener"
           >
-            <img
-              class="icon"
-              src="~/assets/images/icons/github-brands.svg"
-              alt="Github"
-            />
+            <IconGithub class="icon" />
           </a>
           <a
             title="Check out my LinkedIn"
@@ -58,11 +54,12 @@
             target="_blank"
             rel="noopener"
           >
-            <img
-              class="icon"
-              src="~/assets/images/icons/linkedin-brands.svg"
-              alt="Linkedin"
-            />
+            <div class="icon">
+              <IconLinkedin />
+            </div>
+          </a>
+          <a title="Toggle light/dark theme" @click="onToggleTheme">
+            <IconThemeSwitch class="icon" :is-light-theme="isLightTheme" />
           </a>
         </div>
       </div>
@@ -72,6 +69,17 @@
 
 <script>
 export default {
+  props: {
+    onToggleTheme: {
+      type: Function,
+      required: true
+    },
+    isLightTheme: {
+      type: Boolean,
+      required: true,
+      default: false
+    }
+  },
   data () {
     return { isOpen: false }
   },
@@ -89,6 +97,31 @@ export default {
 .py-3 {
   padding-top: var(--gutter-y, .75rem);
   padding-bottom: var(--gutter-y, .75rem);
+}
+
+.light-theme {
+  .nav__logo-start {
+    color: var(--light-theme-logo-start-color);
+  }
+  .nav__logo-end {
+    color: var(--light-theme-logo-end-color);
+  }
+
+  .nav__container {
+    background-color: var(--light-theme-secondary-background-color);
+  }
+}
+.dark-theme {
+  .nav__logo-start {
+    color: var(--dark-theme-logo-start-color);
+  }
+  .nav__logo-end {
+    color: var(--dark-theme-logo-end-color);
+  }
+
+  .nav__container {
+    background-color: var(--dark-theme-secondary-background-color);
+  }
 }
 
 .nav__container {
@@ -128,14 +161,6 @@ export default {
       display: flex;
       justify-content: center;
       align-items:center;
-
-      &-start {
-        color: black;
-      }
-
-      &-end {
-        color: hotpink;
-      }
     }
 
     .nav__links {

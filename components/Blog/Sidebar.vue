@@ -38,6 +38,10 @@ export default {
       type: Array,
       required: false,
       default: () => []
+    },
+    onChangeTheme: {
+      type: Function,
+      required: true
     }
   }
 }

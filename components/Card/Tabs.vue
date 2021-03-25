@@ -29,7 +29,6 @@
 
     &--active {
       @extend .tab;
-      color: black;
       border-top: solid 3px hotpink;
       border-left: none;
       border-right: none;
