@@ -12,7 +12,11 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Michael Clarks Blog' },
-      { charset: 'utf-8' }
+      { charset: 'utf-8' },
+      { 'og-title': 'MikesGlitch.com | Building stuff, learning things, sharing the experience' },
+      { 'og-description': 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
+      { 'og-image': 'https://mikesglitch.com/logo.png' },
+      { 'og-url': 'https://mikesglitch.com' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
