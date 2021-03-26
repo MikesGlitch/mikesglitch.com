@@ -13,10 +13,11 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Michael Clarks Blog' },
       { charset: 'utf-8' },
-      { 'og-title': 'MikesGlitch.com | Building stuff, learning things, sharing the experience' },
-      { 'og-description': 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
-      { 'og-image': 'https://mikesglitch.com/logo.png' },
-      { 'og-url': 'https://mikesglitch.com' }
+      { name: 'og-title', content: 'MikesGlitch.com | Building stuff, learning things, sharing the experience' },
+      { name: 'og-description', content: 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
+      { name: 'og-image', content: 'https://mikesglitch.com/logo.png' },
+      { name: 'twitter:image:src', content: 'https://mikesglitch.com/logo.png' },
+      { name: 'og-url', content: 'https://mikesglitch.com' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
