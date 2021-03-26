@@ -15,11 +15,11 @@ export default {
       { charset: 'utf-8' },
 
       // Facebook
-      { prefix: 'og: http://ogp.me/ns#', property: 'og-url', content: 'https://mikesglitch.com' },
-      { prefix: 'og: http://ogp.me/ns#', property: 'og-type', content: 'website' },
-      { prefix: 'og: http://ogp.me/ns#', property: 'og-title', content: 'MikesGlitch.com | Build stuff, learn things, share the XP' },
-      { prefix: 'og: http://ogp.me/ns#', property: 'og-description', content: 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
-      { prefix: 'og: http://ogp.me/ns#', property: 'og-image', content: 'https://mikesglitch.com/logo.png' },
+      { property: 'og:url', content: 'https://mikesglitch.com' },
+      { property: 'og:type', content: 'website' },
+      { property: 'og:title', content: 'MikesGlitch.com | Build stuff, learn things, share the XP' },
+      { property: 'og:description', content: 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
+      { property: 'og:image', content: 'https://mikesglitch.com/logo.png' },
 
       // Twitter
       { name: 'twitter:card', content: 'summary' },
