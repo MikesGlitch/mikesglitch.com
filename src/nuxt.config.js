@@ -7,20 +7,27 @@ export default {
     htmlAttrs: {
       lang: 'en'
     },
-    title: 'Michael Clark',
+    title: 'MikesGlitch.com | Build stuff, learn things, share the XP',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Michael Clarks Blog' },
+      { hid: 'description', name: 'description', content: 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
       { charset: 'utf-8' },
-      { prefix: 'og: http://ogp.me/ns#', property: 'og-title', content: 'MikesGlitch.com | Building stuff, learning things, sharing the experience' },
+
+      // Facebook
+      { prefix: 'og: http://ogp.me/ns#', property: 'og-url', content: 'https://mikesglitch.com' },
+      { prefix: 'og: http://ogp.me/ns#', property: 'og-type', content: 'website' },
+      { prefix: 'og: http://ogp.me/ns#', property: 'og-title', content: 'MikesGlitch.com | Build stuff, learn things, share the XP' },
       { prefix: 'og: http://ogp.me/ns#', property: 'og-description', content: 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
       { prefix: 'og: http://ogp.me/ns#', property: 'og-image', content: 'https://mikesglitch.com/logo.png' },
-      { prefix: 'og: http://ogp.me/ns#', property: 'og-url', content: 'https://mikesglitch.com' },
-      { name: 'twitter:site', content: 'https://mikesglitch.com' },
+
+      // Twitter
       { name: 'twitter:card', content: 'summary' },
-      { name: 'twitter:title', content: 'MikesGlitch.com | Building stuff, learning things, sharing the experience' },
-      { name: 'twitter:image:src', content: 'https://mikesglitch.com/logo.png' }
+      { name: 'twitter:domain', content: 'mikesglitch.com' },
+      { name: 'twitter:url', content: 'https://mikesglitch.com/' },
+      { name: 'twitter:title', content: 'MikesGlitch.com | Build stuff, learn things, share the XP' },
+      { name: 'twitter:description', content: 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
+      { name: 'twitter:image', content: 'https://mikesglitch.com/logo.png' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
