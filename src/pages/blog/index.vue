@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import { toHumanReadableDate } from './../../utils/dateUtils'
 export default {
   async asyncData ({ $content, params }) {
     const articles = await $content('blog', params.slug)
