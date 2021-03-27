@@ -19,7 +19,7 @@ export default {
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'MikesGlitch.com | Build stuff, learn things, share the XP' },
       { property: 'og:description', content: 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
-      { property: 'og:image', content: 'https://mikesglitch.com/logo.png' },
+      { property: 'og:image', content: 'https://mikesglitch.com/open-graph-image.png' },
 
       // Twitter
       { name: 'twitter:card', content: 'summary' },
@@ -27,7 +27,7 @@ export default {
       { name: 'twitter:url', content: 'https://mikesglitch.com/' },
       { name: 'twitter:title', content: 'MikesGlitch.com | Build stuff, learn things, share the XP' },
       { name: 'twitter:description', content: 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
-      { name: 'twitter:image', content: 'https://mikesglitch.com/logo.png' }
+      { name: 'twitter:image', content: 'https://mikesglitch.com/open-graph-image.png' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
