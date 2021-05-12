@@ -38,7 +38,7 @@
     "eslint": "^7.17.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "fibers": "^5.0.0",
-    "postcss": "^7.0.35",
+    "postcss": "^8.2.10",
     "push-dir": "^0.4.1",
     "sass": "^1.32.2",
     "sass-loader": "^10.1.0"
