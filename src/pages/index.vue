@@ -3,7 +3,7 @@
     <div class="about-me-summary">
       <div class="about-me-summary__container container">
         <div class="about-me-summary__description">
-          <h1>Hi, I'm Michael Clark.</h1>
+          <h1>Hi, I'm Mike.</h1>
           <p>I'm a software engineer living in Glasgow Scotland. This website is a digital expression of life in programming.</p>
         </div>
         <img class="about-me-summary__image" src="/avatar.png" alt="Picture of me">
@@ -29,6 +29,12 @@
         </div>
       </div>
     </div>
+
+    <!--
+      REFERENCE MATERIAL:
+      https://flaviocopes.com/
+      https://www.taniarascia.com/
+    -->
 
     <!--
     <div class="info-cards">
