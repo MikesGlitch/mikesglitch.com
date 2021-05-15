@@ -23,4 +23,9 @@
     color: var(--light-theme-body-text-color);
   }
 }
+
+svg {
+  height: 25px;
+  width: 25px;
+}
 </style>

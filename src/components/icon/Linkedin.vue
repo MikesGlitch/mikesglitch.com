@@ -23,4 +23,9 @@
     fill: #0e76a8;
   }
 }
+
+svg {
+    height: 25px;
+    width: 25px;
+}
 </style>

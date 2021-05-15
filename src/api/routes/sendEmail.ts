@@ -21,7 +21,7 @@ export const sendEmail = async (_: Request, res: Response) => {
 //         "name": "Mike from MikesGlitch.com"
 //     },
 //     "subject": "MikesGlitch.com - Call me request",
-//     "template_id": [
+//     "content": [
 //         {
 //             "type": "text/html",
 //             "value": "boob \n test \n test2 \n test3 - html encode this so it fits in the string"

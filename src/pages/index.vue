@@ -1,18 +1,46 @@
 <template>
   <div>
-    <div v-if="videoToPlay && latestVideos" class="recent-video">
-      <div class="recent-video__player">
-        <iframe v-if="videoToPlay" :src="videoToPlay" frameborder="0" allowfullscreen />
+    <div class="about-me-summary">
+      <div class="about-me-summary__container container">
+        <div class="about-me-summary__description">
+          <h1>Hi, I'm Michael Clark.</h1>
+          <p>I'm a software engineer living in Glasgow Scotland. This website is a digital expression of life in programming.</p>
+        </div>
+        <img class="about-me-summary__image" src="/avatar.png" alt="Picture of me">
       </div>
-      <div class="recent-video__info">
-        <VideoList :videos="latestVideos" :current-video="videoToPlay" :on-change-video="onChangeVideo" />
+    </div>
+    <div class="latest-videos container">
+      <h1>Latest videos</h1>
+      <div v-if="videoToPlay && latestVideos" class="recent-video">
+        <div class="recent-video__player">
+          <iframe
+            v-if="videoToPlay"
+            :src="videoToPlay"
+            frameborder="0"
+            allowfullscreen
+          />
+        </div>
+        <div class="recent-video__info">
+          <VideoList
+            :videos="latestVideos"
+            :current-video="videoToPlay"
+            :on-change-video="onChangeVideo"
+          />
+        </div>
       </div>
     </div>
 
+    <!--
     <div class="info-cards">
       <Card title="Hi, my name is Michael" class="info-card">
         <p>
           Theme Inspiration <a href="https://colorlib.com/wp/best-personal-blog-wordpress-themes/">https://colorlib.com/wp/best-personal-blog-wordpress-themes/</a>
+      <br>
+      Add Tel icon to blog and have it phone my phone
+
+          <a
+            href="tel:07936707118"
+          >"tel:07936707118"</a>
           <br>
           Figma -
           <a
@@ -37,7 +65,7 @@
         like a "Live Stream" link that links to YouTube and Twitch and maybe
         shows past live streams
       </Card>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -46,7 +74,11 @@ import Vue from 'vue'
 
 export default Vue.extend({
   async asyncData () {
-    const response = await fetch(`${process.env.NUXT_ENV_API_BASE_URL}/youtube-videos`).then(res => res.json()).catch(() => null)
+    const response = await fetch(
+      `${process.env.NUXT_ENV_API_BASE_URL}/youtube-videos`
+    )
+      .then(res => res.json())
+      .catch(() => null)
 
     return {
       videoToPlay: response?.latestVideoEmbedIframeUrl,
@@ -61,53 +93,92 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @use "assets/css/screen-breakpoints";
 
-.recent-video {
-  margin: 0 auto;
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: auto;
+.light-theme {
+  .about-me-summary {
+    background-color: #f1f4f8;
+  }
+}
 
-  @include screen-breakpoints.widescreen {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+.dark-theme {
+  .about-me-summary {
+    background-color: #111;
+  }
+}
+
+.about-me-summary {
+  &__container {
+    display: flex;
+    flex-direction: row;
+    padding: 3rem 0;
   }
 
-  &__player {
-    /* falls back to 16/9, but otherwise uses ratio from HTML */
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
-
-    @include screen-breakpoints.widescreen {
-      grid-column: span 3;
-    }
-
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+  &__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
-  &__info {
+  &__image {
+    margin: 0 auto;
+    vertical-align: middle;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+  }
+}
+
+.latest-videos {
+  margin-top: 2rem;
+
+  .recent-video {
+    margin: 2rem auto;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: auto;
+
     @include screen-breakpoints.widescreen {
-      grid-column: span 2;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    &__player {
+      /* falls back to 16/9, but otherwise uses ratio from HTML */
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+
+      @include screen-breakpoints.widescreen {
+        grid-column: span 3;
+      }
+
+      iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    &__info {
+      @include screen-breakpoints.widescreen {
+        grid-column: span 2;
+      }
     }
   }
 }
 
-.info-cards {
-  margin-top: 1rem;
-  display: grid;
-  grid-template-columns: auto;
-  grid-gap: 10px;
+// .info-cards {
+//   margin-top: 1rem;
+//   display: grid;
+//   grid-template-columns: auto;
+//   grid-gap: 10px;
 
-  @include screen-breakpoints.tablet {
-    grid-template-columns: repeat(3, auto);
-  }
-}
+//   @include screen-breakpoints.tablet {
+//     grid-template-columns: repeat(3, auto);
+//   }
+// }
 </style>

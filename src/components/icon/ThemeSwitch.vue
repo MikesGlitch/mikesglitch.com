@@ -3,6 +3,7 @@
     <client-only>
       <!-- Client-only because the value of the themes are set in onmounted (client side).
     There will always be a mismatch between client and server render -->
+
       <svg
         v-if="isLightTheme"
         aria-hidden="true"
@@ -43,15 +44,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.light-theme {
-  svg {
-    color: var(--light-theme-body-text-color);
-  }
-}
-
-.dark-theme {
-  svg {
-    color: var(--dark-theme-body-text-color);
-  }
+svg {
+  color: gold;
+  width: 25px;
+  height: 25px;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-list-page">
+  <div class="blog-list-page container">
     <div class="blog-list">
       <div class="blog-list__content">
         <h1>Blog Posts</h1>

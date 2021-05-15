@@ -36,9 +36,9 @@
       </button>
       <div :class="{'nav__links': !isOpen, 'nav__links--show-mobile': isOpen }">
         <NuxtLink class="nav__link home" to="/">Home</NuxtLink>
-        <NuxtLink class="nav__link" to="/projects">Projects</NuxtLink>
+        <!-- <NuxtLink class="nav__link" to="/projects">Projects</NuxtLink> -->
         <NuxtLink class="nav__link" to="/blog">Blog</NuxtLink>
-        <NuxtLink class="nav__link" to="/contact">Contact</NuxtLink>
+        <!-- <NuxtLink class="nav__link" to="/contact">Contact</NuxtLink> -->
         <div class="nav__link-icons">
           <a
             title="Check out my Github"

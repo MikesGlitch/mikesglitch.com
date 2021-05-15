@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-page">
+  <div class="blog-page container">
     <div class="blog-post">
       <div class="blog-post__content">
         <h1>{{ article.title }}</h1>

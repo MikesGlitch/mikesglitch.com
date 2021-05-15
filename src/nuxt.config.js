@@ -7,7 +7,7 @@ export default {
     htmlAttrs: {
       lang: 'en'
     },
-    title: 'MikesGlitch.com | Build stuff, learn things, share the XP',
+    title: 'MikesGlitch.com | Delivering highly scalable, performant and tested apps',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -17,7 +17,7 @@ export default {
       // Facebook
       { property: 'og:url', content: 'https://mikesglitch.com' },
       { property: 'og:type', content: 'website' },
-      { property: 'og:title', content: 'MikesGlitch.com | Build apps, learn, share the XP' },
+      { property: 'og:title', content: 'MikesGlitch.com | Delivering highly scalable, performant and tested apps' },
       { property: 'og:description', content: 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
       { property: 'og:image', content: 'https://mikesglitch.com/open-graph-image.png' },
 
@@ -25,7 +25,7 @@ export default {
       { name: 'twitter:card', content: 'summary' },
       { name: 'twitter:domain', content: 'mikesglitch.com' },
       { name: 'twitter:url', content: 'https://mikesglitch.com/' },
-      { name: 'twitter:title', content: 'MikesGlitch.com | Build apps, learn, share the XP' },
+      { name: 'twitter:title', content: 'MikesGlitch.com | Delivering highly scalable, performant and tested apps' },
       { name: 'twitter:description', content: 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
       { name: 'twitter:image', content: 'https://mikesglitch.com/open-graph-image.png' }
     ],
