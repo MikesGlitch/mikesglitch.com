@@ -58,8 +58,8 @@
               <IconLinkedin />
             </div>
           </a>
-          <a title="Toggle light/dark theme" @click="onToggleTheme">
-            <IconThemeSwitch class="icon" :is-light-theme="isLightTheme" />
+          <a title="Toggle light/dark theme">
+            <IconThemeSwitch class="icon" :on-toggle="onToggleTheme" :is-light-theme="isLightTheme" />
           </a>
         </div>
       </div>
@@ -203,16 +203,9 @@ export default {
 
             .icon {
               margin-left: 1rem;
-              border-radius: 50%;
               padding: 0.5rem;
               width: 25px;
               height: 25px;
-            }
-
-            :hover {
-              background-color: var('--hover-background-color');
-              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-              transition: 0.3s;
             }
           }
         }
