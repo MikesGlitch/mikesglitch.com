@@ -13,34 +13,34 @@
     "deploy": "npm run generate && push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
-    "@nuxt/content": "^1.13.1",
-    "@nuxt/typescript-runtime": "^2.0.1",
+    "@nuxt/content": "^1.14.0",
+    "@nuxt/typescript-runtime": "^2.1.0",
     "axios": "^0.21.1",
-    "core-js": "^3.8.3",
-    "dotenv": "^8.2.0",
+    "core-js": "^3.12.1",
+    "dotenv": "^9.0.2",
     "express": "^4.17.1",
     "memjs": "^1.3.0",
     "nuxt": "^2.15.00",
     "peerjs": "^1.3.2",
     "vue-analytics": "^5.22.1",
-    "vue-gtag": "^1.11.0"
+    "vue-gtag": "^1.16.1"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.00",
-    "@nuxt/typescript-build": "^2.0.4",
-    "@nuxtjs/eslint-config": "^5.0.0",
-    "@nuxtjs/eslint-config-typescript": "^5.0.0",
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/eslint-config": "^6.0.0",
+    "@nuxtjs/eslint-config-typescript": "^6.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
-    "@nuxtjs/vercel-builder": "^0.20.3",
-    "@types/memjs": "^1.2.1",
-    "autoprefixer": "^9.8.6",
+    "@nuxtjs/vercel-builder": "^0.21.2",
+    "@types/memjs": "^1.2.2",
+    "autoprefixer": "^10.2.5",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.17.0",
+    "eslint": "^7.26.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "fibers": "^5.0.0",
-    "postcss": "^8.2.10",
+    "postcss": "^8.3.0",
     "push-dir": "^0.4.1",
-    "sass": "^1.32.2",
-    "sass-loader": "^10.1.0"
+    "sass": "^1.33.0",
+    "sass-loader": "^11.1.1"
   }
 }
