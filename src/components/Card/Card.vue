@@ -42,6 +42,11 @@ export default {
 .dark-theme{
   .card {
     background-color: var(--dark-theme-secondary-background-color);
+    color: white;
+
+    &:hover {
+      color: hotpink;
+    }
 
     &__image {
       &-label {

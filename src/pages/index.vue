@@ -4,32 +4,13 @@
       <div class="about-me-summary__container container">
         <div class="about-me-summary__description">
           <h1>Hi, I'm Mike.</h1>
-          <p>I'm a software engineer living in Glasgow Scotland. This website is a digital expression of life in programming.</p>
-          <!-- <p><strong>Change the design to be more simple and remove the video player in favor of card stuff - same kind of thumbnails etc as youtube uses - seperate page and we just link to it here.  Also see what you can do with dark theme to make it a bit faster </strong></p> -->
+          <p>I'm a full stack web developer from Glasgow, Scotland.</p>
+          <p>Check out my <NuxtLink to="/blog">articles</NuxtLink>, <NuxtLink to="/videos">videos</NuxtLink> and <a href="https://www.youtube.com/channel/UCfx1yOrSVwlO-VwpKxvlqow" title="My Youtube channel">live streams!</a></p>
+          <p>Feel free to take a look at my latest projects on <a href="https://github.com/MikesGlitch" title="My github" target="_blank">Github</a>.</p>
         </div>
         <img class="about-me-summary__image" src="/avatar.png" alt="Picture of me">
       </div>
     </div>
-    <!-- <div class="latest-videos container">
-      <h1>Latest videos</h1>
-      <div v-if="videoToPlay && latestVideos" class="recent-video">
-        <div class="recent-video__player">
-          <iframe
-            v-if="videoToPlay"
-            :src="videoToPlay"
-            frameborder="0"
-            allowfullscreen
-          />
-        </div>
-        <div class="recent-video__info">
-          <VideoList
-            :videos="latestVideos"
-            :current-video="videoToPlay"
-            :on-change-video="onChangeVideo"
-          />
-        </div>
-      </div>
-    </div> -->
 
     <!--
       REFERENCE MATERIAL:
@@ -76,30 +57,6 @@
   </div>
 </template>
 
-<script>
-import Vue from 'vue'
-
-export default Vue.extend({
-  async asyncData () {
-    const response = await fetch(
-      `${process.env.NUXT_ENV_API_BASE_URL}/youtube-videos`
-    )
-      .then(res => res.json())
-      .catch(() => null)
-
-    return {
-      videoToPlay: response?.latestVideoEmbedIframeUrl,
-      latestVideos: response?.latestVideos
-    }
-  },
-  methods: {
-    onChangeVideo (video) {
-      this.videoToPlay = video.iframeEmbedUrl
-    }
-  }
-})
-</script>
-
 <style lang="scss" scoped>
 @use "assets/css/screen-breakpoints";
 
@@ -135,46 +92,6 @@ export default Vue.extend({
     height: 300px;
     border-radius: 50%;
     box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
-  }
-}
-
-.latest-videos {
-  margin-top: 2rem;
-
-  .recent-video {
-    margin: 2rem auto;
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: auto;
-
-    @include screen-breakpoints.widescreen {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-    }
-
-    &__player {
-      /* falls back to 16/9, but otherwise uses ratio from HTML */
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 */
-      height: 0;
-
-      @include screen-breakpoints.widescreen {
-        grid-column: span 3;
-      }
-
-      iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    &__info {
-      @include screen-breakpoints.widescreen {
-        grid-column: span 2;
-      }
-    }
   }
 }
 

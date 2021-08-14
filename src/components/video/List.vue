@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { IYouTubeVideo } from 'interfaces/Api'
+import { IYouTubeVideo } from './../../interfaces/Api'
 
 export default {
   props: {

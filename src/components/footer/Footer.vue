@@ -25,6 +25,13 @@
 .dark-theme{
   footer {
     background-color: var(--dark-theme-secondary-background-color);
+    .footer-link {
+      color: white;
+
+      &:hover {
+        color: hotpink;
+      }
+    }
   }
 }
 
