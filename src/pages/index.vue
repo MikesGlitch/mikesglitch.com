@@ -5,6 +5,7 @@
         <div class="about-me-summary__description">
           <h1>Hi, I'm Mike.</h1>
           <p>I'm a software engineer living in Glasgow Scotland. This website is a digital expression of life in programming.</p>
+          <!-- <p><strong>Change the design to be more simple and remove the video player in favor of card stuff - same kind of thumbnails etc as youtube uses - seperate page and we just link to it here.  Also see what you can do with dark theme to make it a bit faster </strong></p> -->
         </div>
         <img class="about-me-summary__image" src="/avatar.png" alt="Picture of me">
       </div>

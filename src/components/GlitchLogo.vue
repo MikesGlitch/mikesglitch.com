@@ -71,6 +71,7 @@
 </template>
 
 <style lang="scss" scoped>
+@use 'sass:math';
 
 figure {
   height: 100%;
@@ -134,7 +135,7 @@ figure {
 }
 
 @mixin createRandomKeyframes($numberOfKeys) {
-    $delta: round(100/$numberOfKeys);
+    $delta: round(math.div(100, $numberOfKeys));
 
     @for $i from 1 through $numberOfKeys {
         $time: ($i*$delta - random($delta)) +'%';
