@@ -12,15 +12,17 @@
 </template>
 
 <style lang="scss" scoped>
+@use 'assets/css/global/variables';
+
 .dark-theme {
   svg {
-    color: var(--dark-theme-body-text-color);
+    color: variables.$dark-theme-body-text-color;
   }
 }
 
 .light-theme {
   svg {
-    color: var(--light-theme-body-text-color);
+    color: variables.$light-theme-body-text-color;
   }
 }
 </style>

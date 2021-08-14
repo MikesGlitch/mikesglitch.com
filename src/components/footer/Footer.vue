@@ -15,16 +15,17 @@
 
 <style lang="scss" scoped>
 @use 'assets/css/screen-breakpoints';
+@use 'assets/css/global/variables';
 
 .light-theme{
   footer {
-    background-color: var(--light-theme-secondary-background-color);
+    background-color: variables.$light-theme-secondary-background-color;
   }
 }
 
 .dark-theme{
   footer {
-    background-color: var(--dark-theme-secondary-background-color);
+    background-color: variables.$dark-theme-secondary-background-color;
     .footer-link {
       color: white;
 

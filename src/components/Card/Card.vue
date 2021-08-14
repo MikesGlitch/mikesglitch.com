@@ -27,9 +27,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use 'assets/css/global/variables';
 .light-theme{
   .card {
-    background-color: var(--light-theme-secondary-background-color);
+    background-color: variables.$light-theme-secondary-background-color;
 
     &__image {
       &-label {
@@ -41,7 +42,7 @@ export default {
 
 .dark-theme{
   .card {
-    background-color: var(--dark-theme-secondary-background-color);
+    background-color: variables.$dark-theme-secondary-background-color;
     color: white;
 
     &:hover {

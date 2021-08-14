@@ -28,6 +28,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use 'assets/css/global/variables';
+
 $sliderColor: #ccc;
 
 .switch {
@@ -72,7 +74,7 @@ $sliderColor: #ccc;
       margin: auto 0;
       transition: 0.4s;
       background: white url('/night.png');
-      background-color: var(--dark-theme-secondary-background-color);
+      background-color: variables.$dark-theme-secondary-background-color;
       box-shadow: 0 0px 5px $sliderColor;
       background-repeat: no-repeat;
       background-position: center;

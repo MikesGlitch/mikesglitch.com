@@ -1,6 +1,6 @@
 /* Global - included on every page */
-@use 'global/_variables';
-@use 'global/_layout';
+@use 'global/variables';
+@use 'global/layout';
 
 html {
   font-size: 100%;
@@ -10,8 +10,8 @@ html {
 
 body
 {
-  color: var(--light-theme-body-text-color);
-  background-color: var(--light-theme-body-background-color);
+  color: variables.$light-theme-body-text-color;
+  background-color: variables.$light-theme-body-background-color;
   height:100%;
   margin: 0;
   /* Show scrollbars so there's no layout inconsistency (due to the width of the scrollbar) */
@@ -45,10 +45,10 @@ a {
 
 // Themes
 .dark-theme {
-  color: var(--dark-theme-body-text-color);
+  color: variables.$dark-theme-body-text-color;
 
   a {
-    color: var(--dark-theme-link-color);
+    color: variables.$dark-theme-link-color;
 
     &:visited {
       color: unset;
@@ -59,16 +59,16 @@ a {
     }
 
     &:hover {
-      color: var(--dark-theme-link-hover-color);
+      color: variables.$dark-theme-link-hover-color;
     }
   }
 }
 
 .light-theme {
-  color: var(--light-theme-body-text-color);
+  color: variables.$light-theme-body-text-color;
 
   a {
-    color: var(--light-theme-link-color);
+    color: variables.$light-theme-link-color;
 
     &:visited {
       color: unset;
@@ -79,7 +79,7 @@ a {
     }
 
     &:hover {
-      color: var(--light-theme-link-hover-color);
+      color: variables.$light-theme-link-hover-color;
     }
   }
 }

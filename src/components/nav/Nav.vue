@@ -94,34 +94,36 @@ export default {
 
 <style lang="scss" scoped>
 @use 'assets/css/screen-breakpoints';
+@use 'assets/css/global/variables';
+
 // util
 .py-3 {
-  padding-top: var(--gutter-y, .75rem);
-  padding-bottom: var(--gutter-y, .75rem);
+  padding-top: variables.$gutter-y;
+  padding-bottom: variables.$gutter-y;
 }
 
 .light-theme {
   .nav__logo-start {
-    color: var(--light-theme-logo-start-color);
+    color: variables.$light-theme-logo-start-color;
   }
   .nav__logo-end {
-    color: var(--light-theme-logo-end-color);
+    color: variables.$light-theme-logo-end-color;
   }
 
   .nav__container {
-    background-color: var(--light-theme-secondary-background-color);
+    background-color: variables.$light-theme-secondary-background-color;
   }
 }
 .dark-theme {
   .nav__logo-start {
-    color: var(--dark-theme-logo-start-color);
+    color: variables.$dark-theme-logo-start-color;
   }
   .nav__logo-end {
-    color: var(--dark-theme-logo-end-color);
+    color: variables.$dark-theme-logo-end-color;
   }
 
   .nav__container {
-    background-color: var(--dark-theme-secondary-background-color);
+    background-color: variables.$dark-theme-secondary-background-color;
   }
 
   .nav__link  {
@@ -135,7 +137,7 @@ export default {
 
 .nav__container {
   @extend .py-3;
-  // margin-bottom: var(--gutter-y, .75rem);
+  // margin-bottom: $gutter-y, .75rem);
   // box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); // multiple shadows for a bit more depth
 
   nav {

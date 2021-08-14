@@ -67,20 +67,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use './../assets/css/global/variables';
+
 .default-layout {
   &.dark-theme {
-    background-color: var(--dark-theme-body-background-color);
+    background-color: variables.$dark-theme-body-background-color;
 
     .container-wrapper {
-      background-color: var(--dark-theme-body-background-color);
+      background-color: variables.$dark-theme-body-background-color;
     }
   }
 
   &.light-theme {
-    background-color: var(--light-theme-body-background-color);
+    background-color: variables.$light-theme-body-background-color;
 
     .container-wrapper {
-      background-color: var(--light-theme-body-background-color);
+      background-color: variables.$light-theme-body-background-color;
     }
   }
 
@@ -91,7 +93,7 @@ export default {
   .container-wrapper {
       flex: 1;
       padding: 0;
-      padding-bottom: var(--gutter-y);
+      padding-bottom: variables.$gutter-y;
       width: 100%;
   }
 }
