@@ -1,8 +1,6 @@
 <template>
   <Card class="video__list">
-    <template #tabs>
-      <CardTabs />
-    </template>
+    <CardTabs />
     <div class="videos">
       <a v-for="video in videos" :key="video.id" role="button" :class="{ 'video': true, 'selected': currentVideo == video.iframeEmbedUrl } " @click="() => onChangeVideo(video)">
         <img :src="video.thumbnail" class="thumbnail" alt="">
