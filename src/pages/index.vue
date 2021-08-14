@@ -10,7 +10,7 @@
         <img class="about-me-summary__image" src="/avatar.png" alt="Picture of me">
       </div>
     </div>
-    <div class="latest-videos container">
+    <!-- <div class="latest-videos container">
       <h1>Latest videos</h1>
       <div v-if="videoToPlay && latestVideos" class="recent-video">
         <div class="recent-video__player">
@@ -29,7 +29,7 @@
           />
         </div>
       </div>
-    </div>
+    </div> -->
 
     <!--
       REFERENCE MATERIAL:
