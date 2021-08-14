@@ -1,6 +1,8 @@
 <template>
   <Card class="video__list">
-    <CardTabs />
+    <template #tabs>
+      <CardTabs />
+    </template>
     <div class="videos">
       <a v-for="video in videos" :key="video.id" role="button" :class="{ 'video': true, 'selected': currentVideo == video.iframeEmbedUrl } " @click="() => onChangeVideo(video)">
         <img :src="video.thumbnail" class="thumbnail" alt="">
@@ -36,6 +38,16 @@ export default {
 </script>
 
 <style lang="scss">
+.dark-theme {
+  .video {
+    color: white;
+
+    &:hover {
+      color: hotpink;
+    }
+  }
+}
+
 .video__list {
   .card__content {
     min-height: 0;
