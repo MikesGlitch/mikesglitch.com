@@ -17,20 +17,17 @@
     </div>
 
     <div class="container">
-      <no-ssr>
-        <VideoList
-          :videos="latestVideos"
-          :current-video="videoToPlay"
-          :on-change-video="onChangeVideo"
-        />
-      </no-ssr>
+      <VideoList
+        :videos="latestVideos"
+        :current-video="videoToPlay"
+        :on-change-video="onChangeVideo"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import Vue from 'vue'
-export default Vue.extend({
+export default {
   async asyncData () {
     const response = await fetch(
       `${process.env.NUXT_ENV_API_BASE_URL}/youtube-videos`
@@ -48,7 +45,7 @@ export default Vue.extend({
       this.$refs.videoPlayer.scrollIntoView({ behavior: 'smooth' })
     }
   }
-})
+}
 </script>
 
 <style lang="scss" scoped>

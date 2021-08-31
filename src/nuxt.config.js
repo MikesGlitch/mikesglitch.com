@@ -60,6 +60,8 @@ export default {
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
+  // NOTE: NEVER USE "Vue.extend" AS IT BREAKS PRODUCTION AUTO IMPORTS
+  // YOU WILL GET THIS ERROR - "render function or template not defined in component"
   components: true,
 
   content: {
