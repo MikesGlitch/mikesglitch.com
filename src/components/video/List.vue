@@ -1,21 +1,20 @@
 <template>
-  <Card class="video__list">
-    <template #tabs>
-      <CardTabs />
-    </template>
+  <div class="video__list">
     <div class="videos">
-      <a v-for="video in videos" :key="video.id" role="button" :class="{ 'video': true, 'selected': currentVideo == video.iframeEmbedUrl } " @click="() => onChangeVideo(video)">
-        <img :src="video.thumbnail" class="thumbnail" alt="">
-        <div class="video__info">
-          <p>{{ video.title }}</p>
-        </div>
+      <a v-for="video in videos" :key="video.id" @click="() => onChangeVideo(video)">
+        <Card :title="video.title" :class="{ 'video': true, 'selected': currentVideo == video.iframeEmbedUrl }" @click="() => onChangeVideo(video)">
+          <template #image>
+            <img :src="video.thumbnail" alt="Thumbnail">
+          </template>
+          <!-- <p>{{ video.title }}</p> -->
+        </Card>
       </a>
     </div>
-  </Card>
+  </div>
 </template>
 
 <script lang="ts">
-import { IYouTubeVideo } from './../../interfaces/Api'
+import { IYouTubeVideo } from '../../interfaces/Api'
 
 export default {
   props: {
@@ -37,69 +36,32 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.dark-theme {
-  .video {
-    color: white;
-
-    &:hover {
-      color: hotpink;
-    }
-  }
-}
-
-.video__list {
-  .card__content {
-    min-height: 0;
-    flex: 1 0 300px;
-    padding: 0 !important;
-  }
-}
-</style>
-
 <style lang="scss" scoped>
 @use "assets/css/screen-breakpoints";
 
 .video__list {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  max-height: 575px;
-
   .videos {
-    height: 100%;
-    overflow-y: scroll;
-    max-height: 300px;
+    display: grid;
+    grid-row: 2;
+    grid-gap: 10px;
+    grid-template-columns: auto;
 
     @include screen-breakpoints.tablet {
-      overflow-y: auto;
-      max-height: 100%;
+      grid-row: unset;
+      grid-column: 1/span 4;
+      grid-template-columns: repeat(2, auto);
     }
 
-    .video {
-      padding: 0.5rem;
-      display: grid;
-      grid-template-columns: auto;
-      box-sizing: border-box;
+    @include screen-breakpoints.desktop {
+      grid-template-columns: repeat(4, auto);
+    }
+
+    img {
       width: 100%;
+    }
 
-      @include screen-breakpoints.tablet {
-        grid-template-columns: 180px auto;
-        grid-column-gap: 0.5rem;
-      }
-
-      &:hover {
-        background-color: var('--hover-background-color');
-      }
-
-      .thumbnail {
-        width: 100%;
-      }
-
-      &.selected {
-        color: hotpink;
-        background-color: var('--hover-background-color');
-      }
+    .selected {
+      color: hotpink;
     }
   }
 }

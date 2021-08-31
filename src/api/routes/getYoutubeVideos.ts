@@ -23,7 +23,9 @@ export const getYoutubeVideos = async (_: Request, res: Response) => {
 
   console.log('no cache found')
   const myChannelId = 'UCfx1yOrSVwlO-VwpKxvlqow'
-  const requestUrl = `https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=${myChannelId}&key=${process.env.SERVER_GOOGLE_API_KEY}`
+
+  // This doesn't page yet - it just takes 50.  I might want to add paging when I have more videos
+  const requestUrl = `https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=${myChannelId}&type=video&maxResults=50&key=${process.env.SERVER_GOOGLE_API_KEY}`
   const response = await axios(requestUrl).then((res: { data: any }) => res.data).catch((err) => {
     console.error('Error getting response from youtube api', err)
     return null
