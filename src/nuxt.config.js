@@ -27,11 +27,22 @@ export default {
       { name: 'twitter:url', content: 'https://mikesglitch.com/' },
       { name: 'twitter:title', content: 'MikesGlitch.com | Delivering highly scalable, performant and tested apps' },
       { name: 'twitter:description', content: 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
-      { name: 'twitter:image', content: 'https://mikesglitch.com/open-graph-image.png' }
+      { name: 'twitter:image', content: 'https://mikesglitch.com/open-graph-image.png' },
+
+      // Microsoft
+      { name: 'msapplication-TileColor', content: '#ffd800' },
+      { name: 'theme-color', content: '#ffd800' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:400,700&amp;display=swap' }
+      // { rel: 'icon', type: 'image/x-icon', href: 'https://mikesglitch.com/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:400,700&amp;display=swap' },
+
+      // favicons etc
+      { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },
+      { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon-32x32.png' },
+      { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon-16x16.png' },
+      { rel: 'manifest', href: '/site.webmanifest' },
+      { rel: 'mask-icon', href: '/safari-pinned-tab.svg', color: '#ffd800' }
     ]
   },
 
