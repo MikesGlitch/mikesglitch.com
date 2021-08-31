@@ -17,11 +17,13 @@
     </div>
 
     <div class="container">
-      <VideoList
-        :videos="latestVideos"
-        :current-video="videoToPlay"
-        :on-change-video="onChangeVideo"
-      />
+      <no-ssr>
+        <VideoList
+          :videos="latestVideos"
+          :current-video="videoToPlay"
+          :on-change-video="onChangeVideo"
+        />
+      </no-ssr>
     </div>
   </div>
 </template>

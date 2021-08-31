@@ -6,7 +6,6 @@
           <template #image>
             <img :src="video.thumbnail" alt="Thumbnail">
           </template>
-          <!-- <p>{{ video.title }}</p> -->
         </Card>
       </a>
     </div>
