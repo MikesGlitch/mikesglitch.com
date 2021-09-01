@@ -12,51 +12,60 @@
       </div>
     </div>
 
-    <!--
-      REFERENCE MATERIAL:
-      https://flaviocopes.com/
-      https://www.taniarascia.com/
-    -->
+    <div class="container">
+      <div class="latest-articles">
+        <h2>Latest Articles</h2>
+        <div v-for="article of articles" :key="article.slug">
+          <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
+            <p>{{ article.title }}</p>
+          </NuxtLink>
+        </div>
+      </div>
 
-    <!--
-    <div class="info-cards">
-      <Card title="Hi, my name is Michael" class="info-card">
-        <p>
-          Theme Inspiration <a href="https://colorlib.com/wp/best-personal-blog-wordpress-themes/">https://colorlib.com/wp/best-personal-blog-wordpress-themes/</a>
-      <br>
-      Add Tel icon to blog and have it phone my phone
+      <div class="latest-videos">
+        <h2>Latest Videos</h2>
+        <div v-for="video of latestVideos" :key="video.id">
+          <NuxtLink to="/videos">
+            <p>{{ video.title }}</p>
+          </NuxtLink>
+        </div>
+      </div>
 
-          <a
-            href="tel:07936707118"
-          >"tel:07936707118"</a>
-          <br>
-          Figma -
-          <a
-            href="https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/mikesglitch.github.io"
-          >https://www.figma.com/file/PoFdPpLBabdM4s78Glr9It/coderevver.github.io</a>
-        </p>
-
-        <p>Consider making a ping thingymajig that can keep my vercel site up and running constantly rather than it falling asleep</p>
-      </Card>
-
-      <Card class="info-card">
-        <p>Logo? <a href="https://www.youtube.com/watch?v=7Xyg8Ja7dyY">https://www.youtube.com/watch?v=7Xyg8Ja7dyY</a></p>
-        <p>Fonts: https://www.quicksprout.com/best-font-for-website/</p>
-        <p>Design:  <a href="youtube.com/watch?v=LXuWtCTeCHU">Web design examples</a></p>
-        <p>Maybe remove the video from the homepage - Add it somewhere else or make it a small video</p>
-        <p>Go with a more standard "trendy" frontpage and move the videos to the project pages/blogs</p>
-        <p>Maybe there's a reason PluralSight and Youtube and https://coursetro.com/ and https://www.killersites.com/ and Twitch etc don't put full videos on their homepages</p>
-      </Card>
-
-      <Card class="info-card">
-        Link to youtube and twitch - maybe in nav, maybe make a page for it. So
-        like a "Live Stream" link that links to YouTube and Twitch and maybe
-        shows past live streams
-      </Card>
-    </div> -->
+      <div class="latest-projects">
+        <h2>Latest Projects</h2>
+        <p>Info coming soon!</p>
+      </div>
+    </div>
   </div>
 </template>
 
+<script>
+export default {
+  async asyncData ({ $content, params }) {
+    const articles = await $content('blog', params.slug)
+      .only(['title', 'description', 'slug', 'tags', 'category', 'date'])
+      .sortBy('date', 'desc')
+      .limit(10)
+      .fetch()
+
+    const videos = await fetch(
+      `${process.env.NUXT_ENV_API_BASE_URL}/youtube-videos`
+    )
+      .then(res => res.json())
+      .catch(() => null)
+
+    let latestVideos = []
+    if (videos?.latestVideos) {
+      latestVideos = videos.latestVideos.slice(0, 10)
+    }
+
+    return {
+      articles,
+      latestVideos
+    }
+  }
+}
+</script>
 <style lang="scss" scoped>
 @use "assets/css/screen-breakpoints";
 @use "assets/css/global/variables";
@@ -69,7 +78,7 @@
 
 .dark-theme {
   .about-me-summary {
-    background-color: #111;
+    background-color: variables.$dark-theme-secondary-background-color;
   }
 }
 
@@ -87,23 +96,16 @@
   }
 
   &__image {
-    margin: 0 auto;
+    margin-left: auto;
     vertical-align: middle;
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+    display: none;
+
+    @include screen-breakpoints.tablet {
+      display: block;
+    }
   }
 }
-
-// .info-cards {
-//   margin-top: 1rem;
-//   display: grid;
-//   grid-template-columns: auto;
-//   grid-gap: 10px;
-
-//   @include screen-breakpoints.tablet {
-//     grid-template-columns: repeat(3, auto);
-//   }
-// }
 </style>

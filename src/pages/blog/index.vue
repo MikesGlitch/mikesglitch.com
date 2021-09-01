@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <BlogSidebar :tags="tags" />
+      <!-- <BlogSidebar :tags="tags" /> -->
     </div>
   </div>
 </template>
@@ -67,7 +67,7 @@ export default {
     grid-template-columns: auto;
 
     @include screen-breakpoints.desktop {
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      // grid-template-columns: repeat(5, minmax(0, 1fr));
     }
 
     .blog-sidebar {

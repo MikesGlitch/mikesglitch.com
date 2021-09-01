@@ -5,36 +5,7 @@
         <span class="nav__logo-start">Mikes</span><span class="nav__logo-end">Glitch</span>
         <!-- <GlitchLogo></GlitchLogo> -->
       </NuxtLink>
-      <button class="nav__menu-toggle" aria-expanded="Open" @click="toggleOpen">
-        <span class="sr-only">Open main menu</span>
-
-        <!-- Icon when menu is closed. -->
-        <svg
-          :class="{ 'nav__menu-toggle--hidden': isOpen }"
-          description="Heroicon name: outline/menu"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-
-        <!-- Icon when menu is open. -->
-        <svg
-          :class="{ 'nav__menu-toggle--hidden': !isOpen }"
-          description="Heroicon name: outline/x"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          aria-hidden="true"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-      <div :class="{'nav__links': !isOpen, 'nav__links--show-mobile': isOpen }">
+      <div class="nav__links">
         <NuxtLink class="nav__link home" to="/">Home</NuxtLink>
         <!-- <NuxtLink class="nav__link" to="/projects">Projects</NuxtLink> -->
         <NuxtLink class="nav__link" to="/blog">Blog</NuxtLink>
@@ -102,19 +73,15 @@ export default {
   padding-bottom: variables.$gutter-y;
 }
 
-.light-theme {
-  .nav__logo-start {
-    color: variables.$light-theme-logo-start-color;
-  }
-  .nav__logo-end {
-    color: variables.$light-theme-logo-end-color;
+.light-theme,
+.dark-theme {
+  color: white;
+
+  svg {
+    color: white;
+    fill: white;
   }
 
-  .nav__container {
-    background-color: variables.$light-theme-secondary-background-color;
-  }
-}
-.dark-theme {
   .nav__logo-start {
     color: variables.$dark-theme-logo-start-color;
   }
@@ -123,7 +90,7 @@ export default {
   }
 
   .nav__container {
-    background-color: variables.$dark-theme-secondary-background-color;
+    background-color: variables.$dark-theme-body-background-color;
   }
 
   .nav__link  {
@@ -137,32 +104,19 @@ export default {
 
 .nav__container {
   @extend .py-3;
-  // margin-bottom: $gutter-y, .75rem);
-  // box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); // multiple shadows for a bit more depth
 
   nav {
     display: flex;
     vertical-align: middle;
     align-items: center;
     justify-content: space-between;
-    height: 2.5rem;
     word-wrap: unset;
+    flex-direction: column;
+    height: auto;
 
-    .nav__menu-toggle{
-      display: flex;
-
-      svg {
-        width: 1.5rem;
-        height: 1.5rem;
-      }
-
-      @include screen-breakpoints.tablet {
-        display: none;
-      }
-
-      &--hidden {
-        display: none;
-      }
+    @include screen-breakpoints.tablet {
+      flex-direction: row;
+      height: 2.5rem;
     }
 
     .nav__logo {
@@ -175,18 +129,13 @@ export default {
     }
 
     .nav__links {
-      display: none;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
 
       @include screen-breakpoints.tablet{
         display: inline-flex;
       }
-
-      &--show-mobile {
-        display: block;
-      }
-
-      align-items: center;
-      padding-left: 1.5rem;
 
       .nuxt-link-exact-active {
         color: hotpink;
@@ -202,18 +151,21 @@ export default {
         font-weight: bold;
         display: flex;
         align-items: center;
-        padding-left: 2.5rem;
 
         &-icons {
-          display: flex;
           flex-direction: row;
           align-items: center;
+          display: none;
+
+          @include screen-breakpoints.tablet {
+            display: flex;
+            gap: .5rem;
+          }
 
           a {
             display: flex;
 
             .icon {
-              margin-left: 1rem;
               padding: 0.5rem;
               min-width: 25px;
               height: 25px;

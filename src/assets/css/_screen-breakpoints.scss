@@ -21,15 +21,15 @@
    }
 }
 
-// Extra large devices
-@mixin widescreen {
-   @media (min-width: #{variables.$screen-xl-min}) {
-       @content;
-   }
-}
+// // Extra large devices
+// @mixin widescreen {
+//    @media (min-width: #{variables.$screen-xl-min}) {
+//        @content;
+//    }
+// }
 
-@mixin fullwidth {
- @media (min-width: #{variables.$container-max}) {
-   @content;
- }
-}
+// @mixin fullwidth {
+//  @media (min-width: #{variables.$container-max}) {
+//    @content;
+//  }
+// }

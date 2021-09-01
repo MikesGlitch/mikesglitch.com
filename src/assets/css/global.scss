@@ -4,7 +4,7 @@
 
 html {
   font-size: 100%;
-  font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Roboto Mono, monospace;
   height: 100%;
 }
 
@@ -51,11 +51,11 @@ a {
     color: variables.$dark-theme-link-color;
 
     &:visited {
-      color: unset;
+      color: variables.$dark-theme-link-color;
     }
 
     &:active {
-      color: unset;
+      color: variables.$dark-theme-link-color;
     }
 
     &:hover {

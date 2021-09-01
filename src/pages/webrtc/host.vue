@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Answering contact requests</h1>
+    <h1>WIP - Answering contact requests</h1>
     <h5>Add some functionality to allow me to send an automated email to whoever called me - info would have been in the email link to this page.  I'll use it to ask them to come back to the website if they've left</h5>
     <!-- <p v-for="contactablePeer in contactablePeers" :key="contactablePeer.id"> {{ contactablePeer }}</p> -->
     <button @click="recieve">Recieve peer</button>

@@ -4,7 +4,7 @@
       <h1>Latest videos</h1>
     </div>
     <div v-if="videoToPlay && latestVideos" class="video-player-container">
-      <div ref="videoPlayer" class="video-player-ribbon">
+      <div ref="videoPlayer" class="video-player-ribbon container">
         <div class="video-player">
           <iframe
             v-if="videoToPlay"
@@ -67,8 +67,7 @@ export default {
   margin-bottom: 2rem;
 
   .video-player-ribbon {
-    padding: 1rem;
-    width: 50%;
+    padding: 1rem 0;
     margin: 0 auto;
   }
 
@@ -77,9 +76,7 @@ export default {
     position: relative;
     padding-bottom: 56.25%; /* 16:9 */
     height: 0;
-    @include screen-breakpoints.widescreen {
-      grid-column: span 3;
-    }
+
     iframe {
       position: absolute;
       top: 0;

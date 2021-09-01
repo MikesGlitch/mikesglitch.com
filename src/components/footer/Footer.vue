@@ -2,9 +2,10 @@
   <footer>
     <div class="container">
       <div class="footer-links">
-        <NuxtLink class="footer-link" title="Contact me" to="/contact">
+        <a class="footer-link" target="_blank" href="mailto:mclarkgb@gmail.com?subject=Hi Mike!"><IconMail class="footer-link__icon" /> Contact me</a>
+        <!-- <NuxtLink class="footer-link" title="Contact me" to="/contact">
           <IconMail class="footer-link__icon" /> Contact me
-        </NuxtLink>
+        </NuxtLink> -->
       </div>
       <div class="copyright">
         Copyright © 2021 – present. All rights reserved.
@@ -25,7 +26,8 @@
 
 .dark-theme{
   footer {
-    background-color: variables.$dark-theme-secondary-background-color;
+    background-color: variables.$dark-theme-body-background-color;
+
     .footer-link {
       color: white;
 

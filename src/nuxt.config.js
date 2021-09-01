@@ -35,7 +35,7 @@ export default {
     ],
     link: [
       // { rel: 'icon', type: 'image/x-icon', href: 'https://mikesglitch.com/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:400,700&amp;display=swap' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto+Mono:400,700&amp;display=swap' },
 
       // favicons etc
       { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon.png' },

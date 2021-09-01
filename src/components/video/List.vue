@@ -52,11 +52,16 @@ export default {
     }
 
     @include screen-breakpoints.desktop {
-      grid-template-columns: repeat(4, auto);
+      grid-template-columns: repeat(3, auto);
     }
 
     img {
+      display:none;
       width: 100%;
+
+      @include screen-breakpoints.tablet {
+        display: block
+      }
     }
 
     .selected {
