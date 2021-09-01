@@ -22,7 +22,7 @@
           </a>
           <a
             title="Check out my LinkedIn"
-            href="https://www.linkedin.com/in/mjclark91/"
+            href="https://www.linkedin.com/in/mikesglitch/"
             target="_blank"
             rel="noopener"
           >
