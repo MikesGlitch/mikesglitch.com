@@ -59,10 +59,11 @@
 
 <style lang="scss" scoped>
 @use "assets/css/screen-breakpoints";
+@use "assets/css/global/variables";
 
 .light-theme {
   .about-me-summary {
-    background-color: #f1f4f8;
+    background-color: variables.$light-grey;
   }
 }
 
