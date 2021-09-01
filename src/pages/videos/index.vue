@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div class="container">
-      <h1>Latest videos</h1>
-    </div>
     <div v-if="videoToPlay && latestVideos" class="video-player-container">
       <div ref="videoPlayer" class="video-player-ribbon container">
         <div class="video-player">

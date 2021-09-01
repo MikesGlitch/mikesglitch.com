@@ -2,7 +2,6 @@
   <div class="blog-list-page container">
     <div class="blog-list">
       <div class="blog-list__content">
-        <h1>Blog Posts</h1>
         <div class="blog-posts">
           <div v-for="article of filteredArticles" :key="article.slug" class="blog-post">
             <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
