@@ -21,6 +21,14 @@
 .light-theme{
   footer {
     background-color: variables.$light-theme-secondary-background-color;
+
+    .footer-link {
+      color: black;
+
+      &:hover {
+        color: hotpink;
+      }
+    }
   }
 }
 
@@ -75,7 +83,7 @@ footer {
   .copyright {
     margin-top: 1rem;
     text-align: center;
-    font-style: italic;
+    font-size: .75rem;
   }
 }
 </style>

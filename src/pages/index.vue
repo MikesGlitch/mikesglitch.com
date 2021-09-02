@@ -86,13 +86,23 @@ export default {
   &__container {
     display: flex;
     flex-direction: row;
-    padding: 3rem 0;
+    padding: 0;
+
+    @include screen-breakpoints.tablet {
+      padding: 3rem 0;
+    }
   }
 
   &__description {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-left: variables.$gutter-x;
+    padding-right: variables.$gutter-x;
+
+    @include screen-breakpoints.tablet {
+      padding: 0;
+    }
   }
 
   &__image {

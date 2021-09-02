@@ -32,6 +32,12 @@ export default {
   .card {
     background-color: variables.$light-theme-secondary-background-color;
 
+    color: black;
+
+    &:hover {
+      color: hotpink;
+    }
+
     &__image {
       &-label {
         color: white;
