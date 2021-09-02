@@ -78,8 +78,8 @@ export default {
   color: white;
 
   svg {
-    color: white;
-    fill: white;
+    color: white !important;
+    fill: white !important;
   }
 
   .nav__logo-start {
