@@ -8,10 +8,12 @@ namespace PingBlog
         static void Main(string[] args)
         {
             Console.WriteLine("Starting ping blog service.  This service just keeps the blog alive even when nobody is visiting");
-            var client = new HttpClient();
             var startTimeSpan = TimeSpan.Zero;
             var runEveryXMinutes = TimeSpan.FromMinutes(2);
-            
+
+            var client = new HttpClient();
+            client.Timeout = runEveryXMinutes;
+
             var timer = new System.Threading.Timer(async (e) =>
             {
                 try
