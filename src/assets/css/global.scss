@@ -71,11 +71,11 @@ a {
     color: variables.$light-theme-link-color;
 
     &:visited {
-      color: unset;
+      color: variables.$light-theme-link-color;
     }
 
     &:active {
-      color: unset;
+      color: variables.$light-theme-link-color;
     }
 
     &:hover {
