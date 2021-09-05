@@ -18,8 +18,7 @@ namespace PingBlog
             {
                 try
                 {
-                    // Hitting the blog page because it doesn't call external apis (like youtube etc)
-                    var response = await client.GetAsync("https://mikesglitch.com/blog");
+                    var response = await client.GetAsync("https://mikesglitch.com");
                     Console.WriteLine($"Pinged blog and got response status code: {response.StatusCode}");
                 } 
                 catch(Exception ex)

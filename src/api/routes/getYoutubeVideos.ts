@@ -49,7 +49,7 @@ export const getYoutubeVideos = async (_: Request, res: Response) => {
     }
 
     const responseContent = JSON.stringify(video)
-    await cacheClient.set(CACHE_KEY, responseContent, { expires: 600 }).catch(err => console.error(err)) // 10 minutes
+    await cacheClient.set(CACHE_KEY, responseContent, { expires: 3600 }).catch(err => console.error(err)) // 1 hour
     console.log('cached the youtube response')
 
     res.end(responseContent)
