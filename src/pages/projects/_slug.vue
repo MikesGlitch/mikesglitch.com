@@ -5,13 +5,14 @@
       <h1>{{ project.title }}</h1>
       <p>{{ project.description }}</p>
 
-      <ul>
+      <!-- Table of contents -->
+      <!-- <ul>
         <li v-for="link of project.toc" :key="link.id">
           <NuxtLink :to="`#${link.id}`">
             {{ link.text }}
           </NuxtLink>
         </li>
-      </ul>
+      </ul> -->
       <nuxt-content :document="project" />
     </article>
   </div>
@@ -19,12 +20,12 @@
 
 <script>
 export default {
-  async asyncData({ $content, params }) {
-    const project = await $content("projects", params.slug).fetch();
+  async asyncData ({ $content, params }) {
+    const project = await $content('projects', params.slug).fetch()
 
-    return { project };
-  },
-};
+    return { project }
+  }
+}
 </script>
 
 <style>

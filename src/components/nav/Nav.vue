@@ -6,8 +6,8 @@
         <!-- <GlitchLogo></GlitchLogo> -->
       </NuxtLink>
       <div class="nav__links">
-        <NuxtLink class="nav__link home" to="/">Home</NuxtLink>
-        <!-- <NuxtLink class="nav__link" to="/projects">Projects</NuxtLink> -->
+        <!-- <NuxtLink class="nav__link home" to="/">Home</NuxtLink> -->
+        <NuxtLink class="nav__link" to="/projects">Projects</NuxtLink>
         <NuxtLink class="nav__link" to="/blog">Blog</NuxtLink>
         <NuxtLink class="nav__link" to="/videos">Videos</NuxtLink>
         <!-- <NuxtLink class="nav__link" to="/contact">Contact</NuxtLink> -->

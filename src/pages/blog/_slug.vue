@@ -9,18 +9,11 @@
         </div>
         <hr />
         <article>
-          <!-- <ul>
-            <li v-for="link of article.toc" :key="link.id">
-              <NuxtLink :to="`#${link.id}`">
-                {{ link.text }}
-              </NuxtLink>
-            </li>
-          </ul> -->
           <nuxt-content :document="article" />
         </article>
       </div>
       <!-- Dunno what to do with this sidebar - maybe just make another one.  Otherwise i'll have to pass in tags etc -->
-      <BlogSidebar />
+      <!-- <BlogSidebar /> -->
     </div>
   </div>
 </template>

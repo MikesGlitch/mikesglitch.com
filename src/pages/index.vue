@@ -15,7 +15,7 @@
     <div class="container">
       <div class="latest-articles">
         <h2>Latest Articles</h2>
-        <div v-for="article of articles" :key="article.slug">
+        <div v-for="article of blogArticles" :key="article.slug">
           <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
             <p>{{ article.title }}</p>
           </NuxtLink>
@@ -33,7 +33,11 @@
 
       <div class="latest-projects">
         <h2>Latest Projects</h2>
-        <p>Info coming soon!</p>
+        <div v-for="article of projectArticles" :key="article.slug">
+          <NuxtLink :to="{ name: 'projects-slug', params: { slug: article.slug } }">
+            <p>{{ article.title }}</p>
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </div>
@@ -42,17 +46,25 @@
 <script>
 export default {
   async asyncData ({ $content, params }) {
-    const articles = await $content('blog', params.slug)
+    const blogArticlesPromise = $content('blog', params.slug)
       .only(['title', 'description', 'slug', 'tags', 'category', 'date'])
       .sortBy('date', 'desc')
       .limit(10)
       .fetch()
 
-    const videos = await fetch(
+    const projectArticlesPromise = $content('projects', params.slug)
+      .only(['title', 'description', 'slug', 'tags', 'category', 'date'])
+      .sortBy('date', 'desc')
+      .limit(10)
+      .fetch()
+
+    const videosPromise = fetch(
       `${process.env.NUXT_ENV_API_BASE_URL}/youtube-videos`
     )
       .then(res => res.json())
       .catch(() => null)
+
+    const [blogArticles, projectArticles, videos] = await Promise.all([blogArticlesPromise, projectArticlesPromise, videosPromise])
 
     let latestVideos = []
     if (videos?.latestVideos) {
@@ -60,7 +72,8 @@ export default {
     }
 
     return {
-      articles,
+      blogArticles,
+      projectArticles,
       latestVideos
     }
   }
