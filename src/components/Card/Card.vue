@@ -76,7 +76,7 @@ export default {
 
   &__title {
     margin: 0;
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 
   &__image {
