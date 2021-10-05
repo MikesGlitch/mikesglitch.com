@@ -8,7 +8,8 @@
           <p>Check out my <NuxtLink to="/blog">articles</NuxtLink>, <NuxtLink to="/videos">videos</NuxtLink> and <a href="https://www.youtube.com/channel/UCfx1yOrSVwlO-VwpKxvlqow" title="My Youtube channel">live streams!</a></p>
           <p>Feel free to take a look at my latest projects on <a href="https://github.com/MikesGlitch" title="My github" target="_blank">Github</a>.</p>
         </div>
-        <img class="about-me-summary__image" src="/avatar.png" alt="Picture of me">
+        <AvatarMe class="about-me-summary__image" />
+        <!-- <img class="about-me-summary__image" src="/avatar.png" alt="Picture of me"> -->
       </div>
     </div>
 

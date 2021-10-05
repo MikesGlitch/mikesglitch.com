@@ -38,7 +38,7 @@ export default {
       type: Array,
       required: false,
       default: () => []
-    },
+    }
   }
 }
 </script>
