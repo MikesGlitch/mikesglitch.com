@@ -57,23 +57,23 @@
 @keyframes eyesGoRed {
   0% {
     fill: hotpink;
-    opacity: 20%;
+    opacity: .2;
   }
   25% {
     fill: hotpink;
-    opacity: 30%;
+    opacity: .3;
   }
   50% {
     fill: hotpink;
-    opacity: 40%;
+    opacity: .4;
   }
   75% {
     fill: hotpink;
-    opacity: 30%;
+    opacity: .3;
   }
   100% {
     fill: hotpink;
-    opacity: 20%;
+    opacity: .2;
   }
 }
 </style>
