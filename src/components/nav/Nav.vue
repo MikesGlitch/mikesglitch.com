@@ -2,8 +2,7 @@
   <div class="nav__container">
     <nav class="container">
       <NuxtLink class="nav__logo" to="/">
-        <span class="nav__logo-start">Mikes</span><span class="nav__logo-end">Glitch</span>
-        <!-- <GlitchLogo></GlitchLogo> -->
+        <GlitchLogo></GlitchLogo>
       </NuxtLink>
       <div class="nav__links">
         <!-- <NuxtLink class="nav__link home" to="/">Home</NuxtLink> -->
@@ -80,13 +79,6 @@ export default {
   svg {
     color: white !important;
     fill: white !important;
-  }
-
-  .nav__logo-start {
-    color: variables.$dark-theme-logo-start-color;
-  }
-  .nav__logo-end {
-    color: variables.$dark-theme-logo-end-color;
   }
 
   .nav__container {

@@ -1,155 +1,104 @@
 <template>
-  <figure>
-    <svg
-      version="1.1"
-      xmlns="http://www.w3.org/2000/svg"
-      xmlns:xlink="http://www.w3.org/1999/xlink"
-      width="100%"
-      height="100%"
-      class="filterwrapper"
-    >
-      <defs>
-        <svg id="glitchmask-r" width="100%" height="100%" viewbox="0 0 100 100" preserveAspectRatio="none">
-          <line class="top-r" x1="0" y1="0" x2="100%" y2="0"> </line>
-          <line class="bot-r" x1="0" y1="100%" x2="100%" y2="100%"></line>
-        </svg>
-        <svg id="glitchmask-g" width="100%" height="100%" viewbox="0 0 100 100" preserveAspectRatio="none">
-          <line class="top-g" x1="0" y1="0" x2="100%" y2="0"></line>
-          <line class="bot-g" x1="0" y1="100%" x2="100%" y2="100%"></line>
-        </svg>
-
-        <filter
-          id="filter"
-          color-interpolation-filters="sRGB"
-          width="100%"
-          heigth="100%"
-          x="0"
-          y="0"
-        >
-          <feFlood flood-color="white" result="white" />
-
-          <!-- red text start -->
-          <feFlood flood-color="red" result="REDTXT_FLOOD_10" />
-          <feComposite operator="in" in="REDTXT_FLOOD_10" in2="SourceAlpha" result="REDTXT_COMP_20" />
-          <feOffset in="SourceGraphic" dx="-1" dy="0" result="REDTXT_OFFSET_30" />
-          <feMerge result="REDTXT_MERGE_40">
-            <feMergeNode in="hotpink" />
-            <feMergeNode in="REDTXT_COMP_20" />
-            <feMergeNode in="REDTXT_OFFSET_30" />
-          </feMerge>
-          <feImage id="mask-r" preserveAspectRatio="none" result="REDTXT_IMG_50" xlink:href="#glitchmask-r" />
-          <feComposite in2="REDTXT_IMG_50" in="REDTXT_MERGE_40" operator="out" result="REDTXT_COMP_60" />
-          <!-- red text end -->
-
-          <!-- green text start -->
-          <feFlood flood-color="black" result="GREENTXT_FLOOD_10" />
-          <feComposite operator="in" in="GREENTXT_FLOOD_10" in2="SourceAlpha" result="GREENTXT_COMP_20" />
-          <feOffset in="SourceGraphic" dx="1" dy="0" result="GREENTXT_OFFSET_30" />
-          <feMerge result="GREENTXT_MERGE_40">
-            <feMergeNode in="hotpink" />
-            <feMergeNode in="GREENTXT_COMP_20" />
-            <feMergeNode in="GREENTXT_OFFSET_30" />
-          </feMerge>
-          <feImage id="mask-g" preserveAspectRatio="none" result="GREENTXT_IMG_50" xlink:href="#glitchmask-g" />
-          <feComposite in2="GREENTXT_IMG_50" in="GREENTXT_MERGE_40" operator="out" result="GREENTXT_COMP_60" />
-          <!-- green text end -->
-
-          <feMerge result="MERGE_10">
-            <feMergeNode in="SourceGraphic" />
-            <!-- <feMergeNode in="REDTXT_COMP_60" /> -->
-            <feMergeNode in="GREENTXT_COMP_60" />
-          </feMerge>
-        </filter>
-      </defs>
-    </svg>
-    <svg width="100%" height="100%">
-      <text class="glitch-filter-example__filtered-text" x="0" y="0" text-anchor="middle" transform="translate(70 34)">
-        <tspan class="noglitch">Mikes</tspan><tspan class="glitch" fill="hotpink">Glitch</tspan>
-      </text>
-    </svg>
-  </figure>
+  <div class="glitch-logo">
+    <span class="glitch-logo__start">Mikes<span class="glitch glitch-logo__end" data-text="glitch">Glitch</span></span>
+  </div>
 </template>
 
 <style lang="scss" scoped>
-@use 'sass:math';
+@use 'assets/css/global/variables';
 
-figure {
-  height: 100%;
+/* Our mixin positions a copy of our text
+directly on our existing text, while
+also setting content to the appropriate
+text set in the data-text attribute. */
+@mixin glitchCopy {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  margin: 0;
+  height: 100%;
 }
 
-.filterwrapper {
-    position: fixed;
-    z-index: -1;
-    pointer-events: none;
-    opacity: 0;
-}
+.glitch-logo {
+  letter-spacing: 0.2rem;
 
-.glitch-filter-example {
-    display: block;
-    position: relative;
-    text-align: center;
-    margin: 0;
-    padding: 4em 0 2em;
-}
+  &__start {
+    color: variables.$dark-theme-logo-start-color;
+  }
 
-.glitch-filter-example__filtered-text {
-    fill: black;
-    font-size: 1.5rem;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: block;
-}
+  &__end {
+    color: variables.$dark-theme-logo-end-color;
+  }
+  &:hover {
+    .glitch {
+      position: relative;
 
-.glitch {
-    filter: url(#filter);
-}
+      /* Animation provies a slight random skew. Check bottom of doc
+      for more information on how to random skew. */
+      animation: glitch-skew 2s infinite linear alternate-reverse;
 
-.top-r,
-.bot-r,
-.top-g,
-.bot-g {
-    stroke: black;
-}
+      // Creates a copy before our text.
+      &::before {
+        // Duplicates our text with the mixin.
+        @include glitchCopy;
+        // Scoots text slightly to the left for the color offset.
+        left: 1px;
+        // Creates the color 'shadow' that happens on the glitch.
+        text-shadow: -1px 0 #ff00c1;
+        /* Creates an initial clip for our glitch. This works in
+        a typical top,right,bottom,left fashion and creates a mask
+        to only show a certain part of the glitch at a time. */
+        clip: rect(44px, 450px, 56px, 0);
 
-.top-r {
-    stroke-width: 100px;
-    animation: topani 3.5s linear infinite;
-}
+        /* Runs our glitch-anim defined below to run in a 5s loop, infinitely,
+        with an alternating animation to keep things fresh. */
+        animation: glitch-anim 5s infinite linear alternate-reverse;
+      }
 
-.bot-r {
-    stroke-width: 100px;
-    animation: botani 4s linear infinite;
-}
-
-.top-g {
-    stroke-width: 50px;
-    animation: topani 4s linear reverse infinite;
-}
-
-.bot-g {
-    stroke-width: 50%;
-    animation: botani 3.5s linear reverse infinite;
-}
-
-@mixin createRandomKeyframes($numberOfKeys) {
-    $delta: round(math.div(100, $numberOfKeys));
-
-    @for $i from 1 through $numberOfKeys {
-        $time: ($i*$delta - random($delta)) +'%';
-        #{$time} {
-            stroke-width: random(200) + px;
-        }
+      // Creates a copy after our text. Note comments from ::before.
+      &::after {
+        @include glitchCopy;
+        left: -1px;
+        text-shadow: -1px 0 #00fff9, 1px 1px gainsboro;
+        animation: glitch-anim2 2s infinite linear alternate-reverse;
+      }
     }
+  }
 }
 
-@keyframes topani {
-    @include createRandomKeyframes(5 + random(10));
+/* Creates an animation with 20 steaps. For each step, it calculates
+a percentage for the specific step. It then generates a random clip
+box to be used for the random glitch effect. Also adds a very subtle
+skew to change the 'thickness' of the glitch.*/
+@keyframes glitch-anim {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+      transform: skew((random(100) / 100) + deg);
+    }
+  }
 }
 
-@keyframes botani {
-    @include createRandomKeyframes(5 + random(10));
+// Same deal, just duplicated for ultra randomness.
+@keyframes glitch-anim2 {
+  $steps: 20;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      clip: rect(random(100) + px, 9999px, random(100) + px, 0);
+      transform: skew((random(100) / 100) + deg);
+    }
+  }
+}
+
+// Does the same deal as before, but now only skews. Used for main text.
+@keyframes glitch-skew {
+  $steps: 10;
+  @for $i from 0 through $steps {
+    #{percentage($i*(1/$steps))} {
+      transform: skew((random(10) - 5) + deg);
+    }
+  }
 }
 </style>
