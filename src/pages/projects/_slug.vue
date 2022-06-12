@@ -1,18 +1,8 @@
 <template>
   <div class="container">
     <article>
-      <p>Post last updated: {{ project.updatedAt }}</p>
       <h1>{{ project.title }}</h1>
       <p>{{ project.description }}</p>
-
-      <!-- Table of contents -->
-      <!-- <ul>
-        <li v-for="link of project.toc" :key="link.id">
-          <NuxtLink :to="`#${link.id}`">
-            {{ link.text }}
-          </NuxtLink>
-        </li>
-      </ul> -->
       <nuxt-content :document="project" />
     </article>
   </div>

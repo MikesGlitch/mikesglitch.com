@@ -1,12 +1,19 @@
 ---
 title: Spotify current song
-description: Spotify current song
-# img: first-blog-post.jpg
+description: A program that gets the users current Spotify song and writes it to a text file. The text file can be easily read by OBS.
 alt: Spotify current song
 timeToRead: 5 minutes
 ---
-## Spotify current song
 
-TODO: Make sure i'm on this list: https://johnnycrazy.github.io/SpotifyAPI-NET/docs/next/showcase/
+The majority of music artists allowing free access to their music require only one thing - Attribution.  
 
-Write something about Spotify current song extractor thingy - https://github.com/MikesGlitch/spotify-current-song
+I wrote this extension to allow me to properly attribute music artists on my Twitch/YouTube live streams.
+
+It is designed to connect to the currently logged in users Spotify account, retreieve the current song, and then write it to a text file which can be picked up via OBS (live streaming software). 
+
+Have a look at the source code at [my GitHub repository](https://github.com/MikesGlitch/spotify-current-song)
+
+You can watch me build this program [here](https://youtu.be/GkkEfTrumYI):  
+<center>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/GkkEfTrumYI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</center>

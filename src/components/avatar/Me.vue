@@ -1,5 +1,5 @@
 <template>
-  <div title="Happy haloween! Muhahaha">
+  <div>
     <svg
       width="303"
       height="304"
@@ -46,7 +46,7 @@
 </template>
 
 <style scoped>
-.left-eye,
+/* .left-eye,
 .right-eye {
   animation-name: eyesGoRed;
   animation-iteration-count: infinite;
@@ -75,5 +75,5 @@
     fill: hotpink;
     opacity: .2;
   }
-}
+} */
 </style>

@@ -1,10 +1,10 @@
 ---
 title: Focus first input
-description: Focus first input
-img: first-blog-post.jpg
-alt: Spotify current song
+description: A chrome extension that adds a keyboard shortcut to focus on the first text input of any web page
+alt: Focus first input
 timeToRead: 5 minutes
 ---
-## Focus first input
 
-Write something about focus first input - https://github.com/MikesGlitch/Focus-First-Input
+Have a look at the source code at [my GitHub repository](https://github.com/MikesGlitch/Focus-First-Input)
+
+Check it out at the [Extension webstore link](https://chrome.google.com/webstore/detail/focus-on-first-input-keyb/ofngolgonfcpdanjehfjmcealkclchjg)

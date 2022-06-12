@@ -2,21 +2,7 @@
   <div class="blog-list-page container">
     <div class="blog-list">
       <div class="blog-list__content">
-        <div class="blog-posts">
-          <div v-for="article of filteredArticles" :key="article.slug" class="blog-post">
-            <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
-              <Card :title="article.title">
-                <template #image>
-                  <img :src="article.img || defaultImageSrc" alt="Avatar" @error="replaceByDefault">
-                </template>
-                <template #image-label>
-                  <CardLabel :label="article.category" />
-                </template>
-                <p>{{ article.description }}</p>
-              </Card>
-            </NuxtLink>
-          </div>
-        </div>
+        <CardList :data="filteredArticles" />
       </div>
       <!-- <BlogSidebar :tags="tags" /> -->
     </div>
@@ -36,15 +22,11 @@ export default {
     return {
       tags,
       filteredArticles: articles,
-      articles,
-      defaultImageSrc: '/blog-assets/placeholder.webp'
+      articles
     }
   },
 
   methods: {
-    replaceByDefault (e) {
-      e.target.src = this.defaultImageSrc
-    },
     filterByTag (tag) {
       this.filteredArticles = this.articles.filter(x => x.tags === tag) // currently only filter by one
     }
@@ -94,27 +76,6 @@ export default {
         @include screen-breakpoints.desktop {
           grid-template-columns: repeat(3, auto);
         }
-
-      .blog-posts {
-        display: grid;
-        grid-row: 2;
-        grid-gap: 10px;
-        grid-template-columns: auto;
-
-        @include screen-breakpoints.tablet {
-          grid-row: unset;
-          grid-column: 1/span 4;
-          grid-template-columns: repeat(2, auto);
-        }
-
-        @include screen-breakpoints.desktop {
-          grid-template-columns: repeat(3, auto);
-        }
-
-        img {
-          width: 100%;
-        }
-      }
     }
   }
 }
