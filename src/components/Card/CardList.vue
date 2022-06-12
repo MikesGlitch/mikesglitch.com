@@ -1,7 +1,7 @@
 <template>
   <div class="blog-posts">
     <div v-for="article of data" :key="article.slug" class="blog-post">
-      <NuxtLink :to="article.path">
+      <NuxtLink v-if="article.path" :to="article.path">
         <Card :title="article.title">
           <template #image>
             <img :src="article.img || defaultImageSrc" alt="Avatar" @error="replaceByDefault">
