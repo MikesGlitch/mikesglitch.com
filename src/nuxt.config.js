@@ -11,14 +11,14 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
+      { hid: 'description', name: 'description', content: 'Michael is a software developer focused on the delivery of highly scalable, efficient and tested applications.' },
       { charset: 'utf-8' },
 
       // Facebook
       { property: 'og:url', content: 'https://mikesglitch.com' },
       { property: 'og:type', content: 'website' },
       { property: 'og:title', content: 'MikesGlitch.com | Delivering highly scalable, efficient and tested apps' },
-      { property: 'og:description', content: 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
+      { property: 'og:description', content: 'Michael is a software developer focused on the delivery of highly scalable, efficient and tested applications.' },
       { property: 'og:image', content: 'https://mikesglitch.com/open-graph-image.png' },
 
       // Twitter
@@ -26,7 +26,7 @@ export default {
       { name: 'twitter:domain', content: 'mikesglitch.com' },
       { name: 'twitter:url', content: 'https://mikesglitch.com/' },
       { name: 'twitter:title', content: 'MikesGlitch.com | Delivering highly scalable, efficient and tested apps' },
-      { name: 'twitter:description', content: 'Michael is a software developer focused on the delivery of highly scalable, performance and tested applications.' },
+      { name: 'twitter:description', content: 'Michael is a software developer focused on the delivery of highly scalable, efficient and tested applications.' },
       { name: 'twitter:image', content: 'https://mikesglitch.com/open-graph-image.png' },
 
       // Microsoft
