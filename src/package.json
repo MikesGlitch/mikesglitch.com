@@ -9,8 +9,7 @@
     "start": "nuxt start --dotenv .env.production",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint": "npm run lint:js",
-    "deploy": "npm run generate && push-dir --dir=dist --branch=gh-pages --cleanup"
+    "lint": "npm run lint:js"
   },
   "dependencies": {
     "@nuxt/content": "^1.14.0",
@@ -20,7 +19,6 @@
     "express": "^4.17.1",
     "memjs": "^1.3.0",
     "nuxt": "^2.15.00",
-    "vue-analytics": "^5.22.1",
     "vue-gtag": "^1.16.1"
   },
   "devDependencies": {
@@ -34,7 +32,6 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",
     "eslint-plugin-nuxt": "^2.0.0",
-    "push-dir": "^0.4.1",
     "sass": "^1.37.5",
     "sass-loader": "^10.2.0",
     "webpack": "^4.46.0"
