@@ -1,11 +1,12 @@
-import Vue from 'vue'
+import { Vue } from 'vue'
 import VueGtag from 'vue-gtag'
 
 export default (ctx) => {
-  if (process.env.NUXT_ENV_GOOGLE_ANALYTICS_ID) {
+  const config = useRuntimeConfig()
+  if (config.public.googleAnalyticsId) {
     Vue.use(VueGtag, {
       config: {
-        id: process.env.NUXT_ENV_GOOGLE_ANALYTICS_ID
+        id: config.public.googleAnalyticsId
       },
       appName: 'mikesglitch',
       pageTrackerScreenviewEnabled: true,

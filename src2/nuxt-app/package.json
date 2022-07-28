@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build --dotenv .env.production",
+    "dev": "nuxt dev --dotenv .env.development",
+    "generate": "nuxt generate --dotenv .env.production",
+    "preview": "nuxt preview --dotenv .env.production"
+  },
+  "devDependencies": {
+    "@nuxt/content": "^2.0.1",
+    "@nuxtjs/google-analytics": "^2.4.0",
+    "@types/memjs": "^1.2.4",
+    "nuxt": "3.0.0-rc.6",
+    "sass": "^1.54.0",
+    "sass-loader": "^13.0.2"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "memjs": "^1.3.0",
+    "vue-gtag": "^2.0.1"
+  }
+}

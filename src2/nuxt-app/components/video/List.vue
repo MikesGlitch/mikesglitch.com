@@ -1,9 +1,9 @@
 <template>
   <div class="video__list">
-  {{ videos }}
     <div class="videos">
-      <a v-for="video in videos" :key="video.id" @click="onChangeVideo(video)">
-        <Card :title="video.title" :class="{ 'video': true, 'selected': currentVideo == video.iframeEmbedUrl }" @click="onChangeVideo(video)">
+      <button @click="test()">{{ la }}</button>
+      <a v-for="video in videos" :key="video.id" @click="() => onVideoClicked(video)">
+        <Card :title="video.title" :class="{ 'video': true, 'selected': currentVideo == video.iframeEmbedUrl }" @click="() => onVideoClicked(video)">
           <template #image>
             <img :src="video.thumbnail" alt="Thumbnail">
           </template>
@@ -27,11 +27,20 @@ defineProps({
     required: false,
     default: null
   },
-  onChangeVideo: {
-    type: Function,
-    required: true
-  }
 })
+
+// const emit = defineEmits<{e: 'video-clicked', video: any}>()
+defineEmits(['video-clicked'])
+const la = ref(1)
+const test = function() {
+  console.log('test')
+  la.value = la.value + 1
+}
+
+const onVideoClicked = (video) => {
+  console.log('video clicked')
+  emit('video-clicked', video)
+}
 </script>
 
 <style lang="scss" scoped>

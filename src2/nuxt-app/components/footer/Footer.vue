@@ -1,0 +1,89 @@
+<template>
+  <footer>
+    <div class="container">
+      <div class="footer-links">
+        <a class="footer-link" target="_blank" href="mailto:mclarkgb@gmail.com?subject=Hi Mike!"><IconMail class="footer-link__icon" /> Contact me</a>
+        <!-- <NuxtLink class="footer-link" title="Contact me" to="/contact">
+          <IconMail class="footer-link__icon" /> Contact me
+        </NuxtLink> -->
+      </div>
+      <div class="copyright">
+        Copyright © 2021 – present. All rights reserved.
+      </div>
+    </div>
+  </footer>
+</template>
+
+<style lang="scss" scoped>
+@use 'assets/css/screen-breakpoints';
+@use 'assets/css/global/variables';
+
+.light-theme{
+  footer {
+    background-color: variables.$light-theme-secondary-background-color;
+
+    .footer-link {
+      color: black;
+
+      &:hover {
+        color: hotpink;
+      }
+    }
+  }
+}
+
+.dark-theme{
+  footer {
+    background-color: variables.$dark-theme-body-background-color;
+
+    .footer-link {
+      color: white;
+
+      &:hover {
+        color: hotpink;
+      }
+    }
+  }
+}
+
+footer {
+  font-weight: bold;
+  padding: 3rem;
+  // box-shadow: 0 -10px 15px -3px rgba(0, 0, 0, 0.1), 0 -4px 6px -2px rgba(0, 0, 0, 0.05); // multiple shadows for a bit more depth
+
+  .footer-links {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    @include screen-breakpoints.tablet {
+      flex-direction: row;
+    }
+
+    .footer-link {
+      display: flex;
+      margin: .5rem 0;
+      align-items: center;
+
+      @include screen-breakpoints.tablet {
+        margin: 0 1rem;
+      }
+
+      &__icon {
+        margin-right: 0.5rem;
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+
+  .copyright {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: .75rem;
+  }
+}
+</style>
