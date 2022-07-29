@@ -14,9 +14,9 @@
     </div>
 
     <div class="container">
-      <div class="latest-articles">
-        <h2>Latest Articles</h2>
         {{ data }}
+      <!-- <div class="latest-articles">
+        <h2>Latest Articles</h2>
         <div v-for="article of blogArticles" :key="article._path">
           <NuxtLink :to="article._path">
             <p>{{ article.title }}</p>
@@ -40,7 +40,7 @@
             <p>{{ article.title }}</p>
           </NuxtLink>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -78,6 +78,9 @@ const { data } = await useAsyncData(async () => {
     if (videosData?.latestVideos) {
       latestVideosData = videosData.latestVideos.slice(0, 10)
     }
+    blogArticles.value = data.value.blogArticlesData
+    projectArticles.value = data.value.projectArticlesData
+    latestVideos.value = data.value.latestVideosData
     
     return { blogArticlesData, projectArticlesData, latestVideosData }
 })
