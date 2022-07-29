@@ -16,7 +16,7 @@
     <div class="container">
       <div class="latest-articles">
         <h2>Latest Articles</h2>
-        <div v-for="article of blogArticles" :key="article._path">
+        <div v-if="blogArticles" v-for="article of blogArticles" :key="article._path">
           <NuxtLink :to="article._path">
             <p>{{ article.title }}</p>
           </NuxtLink>
@@ -25,7 +25,7 @@
 
       <div class="latest-videos">
         <h2>Latest Videos</h2>
-        <div v-for="video of latestVideos" :key="video.id">
+        <div v-if="latestVideos" v-for="video of latestVideos" :key="video.id">
           <NuxtLink to="/videos">
             <p>{{ video.title }}</p>
           </NuxtLink>
@@ -34,7 +34,7 @@
 
       <div class="latest-projects">
         <h2>Latest Projects</h2>
-        <div v-for="article of projectArticles" :key="article._path">
+        <div v-if="projectArticles" v-for="article of projectArticles" :key="article._path">
           <NuxtLink :to="article._path">
             <p>{{ article.title }}</p>
           </NuxtLink>
