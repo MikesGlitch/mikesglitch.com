@@ -42,23 +42,14 @@
       </div>
     </div>
   </div>
-      <button @click="la = la + 1">{{ la }}</button>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
 
 const config = useRuntimeConfig()
-const blogArticles = ref([])
-const projectArticles = ref([])
-const latestVideos = ref([])
 
-const la = ref(1)
-function test() {
-  console.log('test')
-  la.value = la.value + 1
-}
-await useAsyncData(async () => {
+const { data } = await useAsyncData(async () => {
   const blogArticlesPromise = queryContent('/blog')
       .only(['title', 'description', '_path', 'tags', 'category', 'date'])
       .sort({ 'date': -1 })
@@ -78,13 +69,17 @@ await useAsyncData(async () => {
       .catch(() => null)
 
     const [blogArticlesData, projectArticlesData, videosData] = await Promise.all([blogArticlesPromise, projectArticlesPromise, videosPromise])
-
+    let latestVideosData = []
     if (videosData?.latestVideos) {
-      latestVideos.value = videosData.latestVideos.slice(0, 10)
+      latestVideosData = videosData.latestVideos.slice(0, 10)
     }
-    blogArticles.value = blogArticlesData
-    projectArticles.value = projectArticlesData
+    
+    return { blogArticlesData, projectArticlesData, latestVideosData }
 })
+
+const blogArticles = ref(data.value.blogArticlesData)
+const projectArticles = ref(data.value.projectArticlesData)
+const latestVideos = ref(data.value.latestVideosData)
 </script>
 <style lang="scss" scoped>
 @use "assets/css/screen-breakpoints";

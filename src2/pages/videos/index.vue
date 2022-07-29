@@ -15,23 +15,23 @@
 </template>
 
 <script lang="ts" setup>
-const videoToPlay = ref();
-const videoPlayer = ref(null);
-const latestVideos = ref();
 const config = useRuntimeConfig()
-await useAsyncData(async () => {
+const { data } = await useAsyncData(async () => {
   const response = await fetch(
     `${config.public.apiBaseUrl}/youtube-videos`
   )
     .then(res => res.json())
     .catch(() => null)
 
-  videoToPlay.value = response?.latestVideoEmbedIframeUrl
-  latestVideos.value = response?.latestVideos
+  return { latestVideoEmbedIframeUrl: response.latestVideoEmbedIframeUrl, latestVideos: response.latestVideos}
 })
 
+const videoPlayer = ref(null);
+const videoToPlay = ref(data.value.latestVideoEmbedIframeUrl);
+const latestVideos = ref(data.value.latestVideos);
+
 const onChangeVideo = (video) => {
-  console.log(video, videoPlayer.value)
+  console.log('changing video')
   videoToPlay.value = video.iframeEmbedUrl
   videoPlayer.value.scrollIntoView({ behavior: 'smooth' })
 }

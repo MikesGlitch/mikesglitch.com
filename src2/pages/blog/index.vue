@@ -10,19 +10,20 @@
 </template>
 
 <script lang="ts" setup>
-const tags = ref([]);
-const filteredArticles = ref([]);
-const articles = ref([]);
-await useAsyncData(async () => {
-  articles.value = await queryContent("/blog")
+const { data } = await useAsyncData(async () => {
+  const articlesData = await queryContent("/blog")
     .only(["title", "description", "img", "_path", "tags", "category", "date"])
     .sort({ date: -1 })
     .find();
-  filteredArticles.value = articles.value;
 
   const onlyUnique = (value, index, self) => self.indexOf(value) === index;
-  tags.value = articles.value.map((article) => article.tags).filter(onlyUnique); // currently only support 1
+  const tagsData = articlesData.map((article) => article.tags).filter(onlyUnique); // currently only support 1
+  return { tags: tagsData, articles: articlesData, filteredArticles: articlesData }
 });
+
+const tags = ref(data.value.articles);
+const filteredArticles = ref(data.value.filteredArticles);
+const articles = ref(data.value.articles);
 
 const filterByTag = (tag) => {
   filteredArticles.value = articles.value.filter((x) => x.tags === tag); // currently only filter by one

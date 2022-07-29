@@ -11,12 +11,13 @@
 </template>
 
 <script lang="ts" setup>
-const projects = ref();
-await useAsyncData(async () => {
-  projects.value = await queryContent(`/projects`)
+const { data } = await useAsyncData(async () => {
+  const projectsData = await queryContent(`/projects`)
     .only(['title', 'description', 'img', '_path', 'author'])
     .sort({ createdAt: 1 })
     .find();
+  return { projectsData }
 })
 
+const projects = ref(data.value.projectsData);
 </script>

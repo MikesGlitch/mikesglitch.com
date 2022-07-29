@@ -1,6 +1,5 @@
 <template>
   <div class="video__list">
-  {{ videos }}
     <div class="videos">
       <a v-for="video in videos" :key="video.id" @click="onChangeVideo(video)">
         <Card :title="video.title" :class="{ 'video': true, 'selected': currentVideo == video.iframeEmbedUrl }" @click="onChangeVideo(video)">
