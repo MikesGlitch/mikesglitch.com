@@ -14,11 +14,7 @@
     </div>
 
     <div class="container">
-        {{ data }}
-        {{ blogArticles }}
-        {{ latestVideos }}
-        {{ projectArticles }}
-      <!-- <div class="latest-articles">
+      <div class="latest-articles">
         <h2>Latest Articles</h2>
         <div v-for="article of blogArticles" :key="article._path">
           <NuxtLink :to="article._path">
@@ -43,56 +39,45 @@
             <p>{{ article.title }}</p>
           </NuxtLink>
         </div>
-      </div> -->
+      </div>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-
 const config = useRuntimeConfig()
 
-const blogArticles = ref([])
-const projectArticles = ref([])
-const latestVideos = ref([])
-
-const { data } = await useAsyncData(async () => {
-  const blogArticlesPromise = queryContent('/blog')
+const { data: blogArticles } = await useAsyncData('home', () => queryContent('/blog')
       .only(['title', 'description', '_path', 'tags', 'category', 'date'])
       .sort({ 'date': -1 })
       .limit(10)
       .find()
+)
 
-    const projectArticlesPromise = queryContent('/projects')
+const { data: projectArticles } = await useAsyncData('home', () => queryContent('/projects')
       .only(['title', 'description', '_path', 'tags', 'category', 'date'])
       .sort({ 'date': -1 })
       .limit(10)
       .find()
+)
 
+const { data: latestVideos } = await useAsyncData(async () => {
     const videosPromise = fetch(
       `${config.public.apiBaseUrl}/youtube-videos`
     )
       .then(res => res.json())
       .catch(() => null)
 
-    const [blogArticlesData, projectArticlesData, videosData] = await Promise.all([blogArticlesPromise, projectArticlesPromise, videosPromise])
+    const [videosData] = await Promise.all([videosPromise])
     let latestVideosData = []
     if (videosData?.latestVideos) {
       latestVideosData = videosData.latestVideos.slice(0, 10)
     }
-    blogArticles.value = data.value.blogArticlesData
-    projectArticles.value = data.value.projectArticlesData
-    latestVideos.value = data.value.latestVideosData
     
-    return { blogArticlesData, projectArticlesData, latestVideosData }
+    return latestVideosData
 })
-
-// console.log(data.value)
-// blogArticles.value = data.value.blogArticlesData
-// projectArticles.value = data.value.projectArticlesData
-// latestVideos.value = data.value.latestVideosData
 </script>
+
 <style lang="scss" scoped>
 @use "assets/css/screen-breakpoints";
 @use "assets/css/global/variables";
