@@ -2,7 +2,7 @@
   <div class="blog-list-page container">
     <div class="blog-list">
       <div class="blog-list__content">
-        <CardList :data="filteredArticles" />
+        <CardList :data="data.filteredArticles" />
       </div>
       <!-- <BlogSidebar :tags="tags" /> -->
     </div>
@@ -21,12 +21,8 @@ const { data } = await useAsyncData(async () => {
   return { tags: tagsData, articles: articlesData, filteredArticles: articlesData }
 });
 
-const tags = ref(data.value.articles);
-const filteredArticles = ref(data.value.filteredArticles);
-const articles = ref(data.value.articles);
-
 const filterByTag = (tag) => {
-  filteredArticles.value = articles.value.filter((x) => x.tags === tag); // currently only filter by one
+  data.value.filteredArticles = data.value.articles.filter((x) => x.tags === tag); // currently only filter by one
 };
 </script>
 
