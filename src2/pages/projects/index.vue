@@ -16,6 +16,6 @@ const { data: projects } = await useAsyncData(async () => {
     .only(['title', 'description', 'img', '_path', 'author'])
     .sort({ createdAt: 1 })
     .find();
-  return { projectsData }
+  return projectsData
 })
 </script>
