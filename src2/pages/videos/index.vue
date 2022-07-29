@@ -1,15 +1,15 @@
 <template>
   <div>
-    <div v-if="videoToPlay && latestVideos" class="video-player-container">
+    <div v-if="data.latestVideoEmbedIframeUrl && data.latestVideos" class="video-player-container">
       <div ref="videoPlayer" class="video-player-ribbon container">
         <div class="video-player">
-          <iframe v-if="videoToPlay" :src="videoToPlay" frameborder="0" allowfullscreen />
+          <iframe v-if="data.latestVideoEmbedIframeUrl" :src="data.latestVideoEmbedIframeUrl" frameborder="0" allowfullscreen />
         </div>
       </div>
     </div>
 
     <div class="container">
-      <VideoList :videos="latestVideos" :current-video="videoToPlay" @video-clicked="onChangeVideo" />
+      <VideoList :videos="data.latestVideos" :current-video="data.latestVideoEmbedIframeUrl" @video-clicked="onChangeVideo" />
     </div>
   </div>
 </template>
@@ -27,12 +27,9 @@ const { data } = await useAsyncData(async () => {
 })
 
 const videoPlayer = ref(null);
-const videoToPlay = ref(data.value.latestVideoEmbedIframeUrl);
-const latestVideos = ref(data.value.latestVideos);
 
 const onChangeVideo = (video) => {
-  console.log('changing video')
-  videoToPlay.value = video.iframeEmbedUrl
+  data.value.latestVideoEmbedIframeUrl = video.iframeEmbedUrl
   videoPlayer.value.scrollIntoView({ behavior: 'smooth' })
 }
 </script>
