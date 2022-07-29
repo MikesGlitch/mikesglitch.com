@@ -15,6 +15,9 @@
 
     <div class="container">
         {{ data }}
+        {{ blogArticles }}
+        {{ latestVideos }}
+        {{ projectArticles }}
       <!-- <div class="latest-articles">
         <h2>Latest Articles</h2>
         <div v-for="article of blogArticles" :key="article._path">
@@ -85,10 +88,10 @@ const { data } = await useAsyncData(async () => {
     return { blogArticlesData, projectArticlesData, latestVideosData }
 })
 
-console.log(data.value)
-blogArticles.value = data.value.blogArticlesData
-projectArticles.value = data.value.projectArticlesData
-latestVideos.value = data.value.latestVideosData
+// console.log(data.value)
+// blogArticles.value = data.value.blogArticlesData
+// projectArticles.value = data.value.projectArticlesData
+// latestVideos.value = data.value.latestVideosData
 </script>
 <style lang="scss" scoped>
 @use "assets/css/screen-breakpoints";
