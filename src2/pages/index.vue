@@ -3,7 +3,7 @@
     <div class="about-me-summary">
       <div class="about-me-summary__container container">
         <div class="about-me-summary__description">
-          <h1>Hi, I'm Mike.</h1>
+          <h1>Hi, I'm Mike. new version</h1>
           <p>I'm a full stack web developer from Glasgow, Scotland.</p>
           <p>Check out my <NuxtLink to="/blog">articles</NuxtLink>, <NuxtLink to="/videos">videos</NuxtLink> and <a href="https://www.youtube.com/channel/UCfx1yOrSVwlO-VwpKxvlqow" title="My Youtube channel">live streams!</a></p>
           <p>Feel free to take a look at my latest projects on <a href="https://github.com/MikesGlitch" title="My github" target="_blank">Github</a>.</p>
