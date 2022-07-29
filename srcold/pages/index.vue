@@ -3,7 +3,7 @@
     <div class="about-me-summary">
       <div class="about-me-summary__container container">
         <div class="about-me-summary__description">
-          <h1>Hi, I'm Mike. new version</h1>
+          <h1>Hi, I'm Mike.</h1>
           <p>I'm a full stack web developer from Glasgow, Scotland.</p>
           <p>Check out my <NuxtLink to="/blog">articles</NuxtLink>, <NuxtLink to="/videos">videos</NuxtLink> and <a href="https://www.youtube.com/channel/UCfx1yOrSVwlO-VwpKxvlqow" title="My Youtube channel">live streams!</a></p>
           <p>Feel free to take a look at my latest projects on <a href="https://github.com/MikesGlitch" title="My github" target="_blank">Github</a>.</p>
@@ -16,8 +16,8 @@
     <div class="container">
       <div class="latest-articles">
         <h2>Latest Articles</h2>
-        <div v-for="article of blogArticles" :key="article._path">
-          <NuxtLink :to="article._path">
+        <div v-for="article of blogArticles" :key="article.slug">
+          <NuxtLink :to="{ name: 'blog-slug', params: { slug: article.slug } }">
             <p>{{ article.title }}</p>
           </NuxtLink>
         </div>
@@ -34,8 +34,8 @@
 
       <div class="latest-projects">
         <h2>Latest Projects</h2>
-        <div v-for="article of projectArticles" :key="article._path">
-          <NuxtLink :to="article._path">
+        <div v-for="article of projectArticles" :key="article.slug">
+          <NuxtLink :to="{ name: 'projects-slug', params: { slug: article.slug } }">
             <p>{{ article.title }}</p>
           </NuxtLink>
         </div>
@@ -44,40 +44,42 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-const config = useRuntimeConfig()
-
-const { data: blogArticles } = await useAsyncData('home', () => queryContent('/blog')
-      .only(['title', 'description', '_path', 'tags', 'category', 'date'])
-      .sort({ 'date': -1 })
+<script>
+export default {
+  async asyncData ({ $content, params }) {
+    const blogArticlesPromise = $content('blog', params.slug)
+      .only(['title', 'description', 'slug', 'tags', 'category', 'date'])
+      .sortBy('date', 'desc')
       .limit(10)
-      .find()
-)
+      .fetch()
 
-const { data: projectArticles } = await useAsyncData('home', () => queryContent('/projects')
-      .only(['title', 'description', '_path', 'tags', 'category', 'date'])
-      .sort({ 'date': -1 })
+    const projectArticlesPromise = $content('projects', params.slug)
+      .only(['title', 'description', 'slug', 'tags', 'category', 'date'])
+      .sortBy('date', 'desc')
       .limit(10)
-      .find()
-)
+      .fetch()
 
-const { data: latestVideos } = await useAsyncData(async () => {
     const videosPromise = fetch(
-      `${config.public.apiBaseUrl}/youtube-videos`
+      `${process.env.NUXT_ENV_API_BASE_URL}/youtube-videos`
     )
       .then(res => res.json())
       .catch(() => null)
 
-    const [videosData] = await Promise.all([videosPromise])
-    let latestVideosData = []
-    if (videosData?.latestVideos) {
-      latestVideosData = videosData.latestVideos.slice(0, 10)
-    }
-    
-    return latestVideosData
-})
-</script>
+    const [blogArticles, projectArticles, videos] = await Promise.all([blogArticlesPromise, projectArticlesPromise, videosPromise])
 
+    let latestVideos = []
+    if (videos?.latestVideos) {
+      latestVideos = videos.latestVideos.slice(0, 10)
+    }
+
+    return {
+      blogArticles,
+      projectArticles,
+      latestVideos
+    }
+  }
+}
+</script>
 <style lang="scss" scoped>
 @use "assets/css/screen-breakpoints";
 @use "assets/css/global/variables";

@@ -10,12 +10,17 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-const { data: projects } = await useAsyncData(async () => {
-  const projectsData = await queryContent(`/projects`)
-    .only(['title', 'description', 'img', '_path', 'author'])
-    .sort({ createdAt: 1 })
-    .find();
-  return projectsData
-})
+<script>
+export default {
+  async asyncData ({ $content, params }) {
+    const projects = await $content('projects', params.slug)
+      .only(['title', 'description', 'img', 'slug', 'path', 'author'])
+      .sortBy('createdAt', 'asc')
+      .fetch()
+
+    return {
+      projects
+    }
+  }
+}
 </script>

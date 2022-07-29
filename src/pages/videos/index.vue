@@ -1,53 +1,43 @@
 <template>
   <div>
-    <div v-if="videoToPlay && latestVideos" class="video-player-container">
+    <div v-if="data.latestVideoEmbedIframeUrl && data.latestVideos" class="video-player-container">
       <div ref="videoPlayer" class="video-player-ribbon container">
         <div class="video-player">
-          <iframe
-            v-if="videoToPlay"
-            :src="videoToPlay"
-            frameborder="0"
-            allowfullscreen
-          />
+          <iframe v-if="data.latestVideoEmbedIframeUrl" :src="data.latestVideoEmbedIframeUrl" frameborder="0" allowfullscreen />
         </div>
       </div>
     </div>
 
     <div class="container">
-      <VideoList
-        :videos="latestVideos"
-        :current-video="videoToPlay"
-        :on-change-video="onChangeVideo"
-      />
+      <VideoList :videos="data.latestVideos" :current-video="data.latestVideoEmbedIframeUrl" @video-clicked="onChangeVideo" />
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  async asyncData () {
-    const response = await fetch(
-      `${process.env.NUXT_ENV_API_BASE_URL}/youtube-videos`
-    )
-      .then(res => res.json())
-      .catch(() => null)
-    return {
-      videoToPlay: response?.latestVideoEmbedIframeUrl,
-      latestVideos: response?.latestVideos
-    }
-  },
-  methods: {
-    onChangeVideo (video) {
-      this.videoToPlay = video.iframeEmbedUrl
-      this.$refs.videoPlayer.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
+<script lang="ts" setup>
+const config = useRuntimeConfig()
+const { data } = await useAsyncData(async () => {
+  const response = await fetch(
+    `${config.public.apiBaseUrl}/youtube-videos`
+  )
+    .then(res => res.json())
+    .catch(() => null)
+
+  return { latestVideoEmbedIframeUrl: response.latestVideoEmbedIframeUrl, latestVideos: response.latestVideos}
+})
+
+const videoPlayer = ref(null);
+
+const onChangeVideo = (video) => {
+  data.value.latestVideoEmbedIframeUrl = video.iframeEmbedUrl
+  videoPlayer.value.scrollIntoView({ behavior: 'smooth' })
 }
 </script>
 
 <style lang="scss" scoped>
 @use "assets/css/screen-breakpoints";
 @use "assets/css/global/variables";
+
 .light-theme {
   .video-player-container {
     background-color: variables.$light-grey;
@@ -71,7 +61,8 @@ export default {
   .video-player {
     /* falls back to 16/9, but otherwise uses ratio from HTML */
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 56.25%;
+    /* 16:9 */
     height: 0;
 
     iframe {
