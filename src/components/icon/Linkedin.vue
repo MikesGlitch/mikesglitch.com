@@ -12,13 +12,13 @@
 </template>
 
 <style lang="scss" scoped>
-.dark-theme {
+.dark {
   svg {
     fill: white;
   }
 }
 
-.light-theme {
+.light {
   svg {
     fill: #0e76a8;
   }

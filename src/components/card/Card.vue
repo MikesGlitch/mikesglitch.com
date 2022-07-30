@@ -48,7 +48,7 @@ export default {
   }
 }
 
-.dark-theme{
+.dark{
   .card {
     background-color: variables.$dark-theme-secondary-background-color;
     color: white;

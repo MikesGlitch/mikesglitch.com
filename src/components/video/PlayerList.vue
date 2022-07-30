@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dark-theme {
+.dark {
   .video {
     color: white;
 

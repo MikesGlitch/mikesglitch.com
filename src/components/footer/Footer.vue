@@ -32,7 +32,7 @@
   }
 }
 
-.dark-theme{
+.dark{
   footer {
     background-color: variables.$dark-theme-body-background-color;
 

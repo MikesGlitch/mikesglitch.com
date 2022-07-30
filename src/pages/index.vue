@@ -3,7 +3,7 @@
     <div class="about-me-summary">
       <div class="about-me-summary__container container">
         <div class="about-me-summary__description">
-          <h1>Hi, I'm Mike. new version</h1>
+          <h1>Hi, I'm Mike.</h1>
           <p>I'm a full stack web developer from Glasgow, Scotland.</p>
           <p>
             Check out my <NuxtLink to="/blog">
@@ -88,13 +88,13 @@ const { data: latestVideos } = await useAsyncData(async () => {
 @use "assets/css/screen-breakpoints";
 @use "assets/css/global/variables";
 
-.light-theme {
+.light {
   .about-me-summary {
     background-color: variables.$light-grey;
   }
 }
 
-.dark-theme {
+.dark {
   .about-me-summary {
     background-color: variables.$dark-theme-secondary-background-color;
   }

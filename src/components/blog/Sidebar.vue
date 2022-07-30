@@ -55,8 +55,8 @@ export default {
 
 <style lang="scss" scoped>
 
-.light-theme,
-.dark-theme {
+.light,
+.dark {
   .tag {
     background-color: white;
     color: black;

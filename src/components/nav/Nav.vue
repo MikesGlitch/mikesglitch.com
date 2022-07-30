@@ -78,8 +78,8 @@ export default {
   padding-bottom: variables.$gutter-y;
 }
 
-.light-theme,
-.dark-theme {
+.light,
+.dark {
   color: white;
 
   svg {

@@ -1,67 +1,66 @@
 <template>
-  <div class="default-layout" :class="{ 'dark-theme': !isLightTheme, 'light-theme': isLightTheme }">
-    <Nav :on-toggle-theme="onToggleTheme" :is-light-theme="isLightTheme" />
-    <div class="container-wrapper">
+  <div v-show="theme !== undefined" class="default-layout font-body">
+    <Nav :on-toggle-theme="onToggleTheme" :is-light-theme="theme === 'light'" />
+    <div class="container-wrapper bg-white text-gray-medium dark:bg-gray-dark dark:text-white">
       <slot />
     </div>
     <Footer />
   </div>
 </template>
 
-<script>
-export default {
-  data () {
-    return {
-      isLightTheme: true
+<script lang="ts" setup>
+const theme = ref<'light' | 'dark' | undefined>(undefined)
+
+onMounted(() => {
+  const preferredTheme = window.localStorage.getItem('theme-preference')
+  if (preferredTheme) {
+    switch (preferredTheme) {
+      case 'light':
+        document.documentElement.classList.remove('dark')
+        theme.value = 'light'
+        break
+      case 'dark':
+        document.documentElement.classList.add('dark')
+        theme.value = 'dark'
+        break
+      case 'auto':
+        setupAutoTheme()
+        break
     }
-  },
-  mounted () {
-    // const hasThemeSupport = window.matchMedia
-    const preferredTheme = window.localStorage.getItem('theme-preference')
-    if (preferredTheme) {
-      switch (preferredTheme) {
-        case 'light':
-          this.isLightTheme = true
-          break
-        case 'dark':
-          this.isLightTheme = false
-          break
-        case 'auto':
-          this.setupAutoTheme()
-          break
-      }
-    } else {
-      this.setupAutoTheme()
-    }
-  },
-  methods: {
-    setupAutoTheme () {
-      const hasThemeSupport = window.matchMedia
+  } else {
+    setupAutoTheme()
+  }
+})
+const setupAutoTheme = () => {
+  const hasThemeSupport = window.matchMedia
 
-      if (hasThemeSupport && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        this.isLightTheme = false
-      } else {
-        this.isLightTheme = true
-      }
+  if (hasThemeSupport && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.documentElement.classList.add('dark')
+    theme.value = 'dark'
+  } else {
+    document.documentElement.classList.remove('dark')
+    theme.value = 'light'
+  }
 
-      if (hasThemeSupport) {
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-          const isDarkTheme = e.matches
-          this.isLightTheme = !isDarkTheme
-        })
-      }
+  if (hasThemeSupport) {
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+      const isDarkTheme = e.matches
+      theme.value = isDarkTheme ? 'dark' : 'light'
+    })
+  }
 
-      window.localStorage.setItem('theme-preference', 'auto')
-    },
-    onToggleTheme () {
-      this.isLightTheme = !this.isLightTheme
+  window.localStorage.setItem('theme-preference', 'auto')
+}
 
-      if (this.isLightTheme) {
-        window.localStorage.setItem('theme-preference', 'light')
-      } else {
-        window.localStorage.setItem('theme-preference', 'dark')
-      }
-    }
+const onToggleTheme = () => {
+  if (theme.value === 'dark') {
+    document.documentElement.classList.remove('dark')
+    window.localStorage.setItem('theme-preference', 'light')
+    theme.value = 'light'
+  } else {
+    document.documentElement.classList.add('dark')
+    window.localStorage.setItem('theme-preference', 'dark')
+    theme.value = 'dark'
   }
 }
 </script>
@@ -70,22 +69,6 @@ export default {
 @use './../assets/css/global/variables';
 
 .default-layout {
-  &.dark-theme {
-    background-color: variables.$dark-theme-body-background-color;
-
-    .container-wrapper {
-      background-color: variables.$dark-theme-body-background-color;
-    }
-  }
-
-  &.light-theme {
-    background-color: variables.$light-theme-body-background-color;
-
-    .container-wrapper {
-      background-color: variables.$light-theme-body-background-color;
-    }
-  }
-
   height: 100%;
   display: flex;
   flex-direction: column;

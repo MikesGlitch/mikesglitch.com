@@ -38,13 +38,13 @@ const onChangeVideo = (video) => {
 @use "assets/css/screen-breakpoints";
 @use "assets/css/global/variables";
 
-.light-theme {
+.light {
   .video-player-container {
     background-color: variables.$light-grey;
   }
 }
 
-.dark-theme {
+.dark {
   .video-player-container {
     background-color: variables.$dark-theme-secondary-background-color;
   }

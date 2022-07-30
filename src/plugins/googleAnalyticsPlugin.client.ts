@@ -1,16 +1,17 @@
-import { Vue } from 'vue'
 import VueGtag from 'vue-gtag'
 
-export default (ctx) => {
+export default defineNuxtPlugin((nuxtApp) => {
   const config = useRuntimeConfig()
   if (config.public.googleAnalyticsId) {
-    Vue.use(VueGtag, {
+    const router = useRouter()
+
+    nuxtApp.vueApp.use(VueGtag, {
       config: {
         id: config.public.googleAnalyticsId
       },
       appName: 'mikesglitch',
       pageTrackerScreenviewEnabled: true,
       enabled: true
-    }, ctx.app.router)
+    }, router)
   }
-}
+})

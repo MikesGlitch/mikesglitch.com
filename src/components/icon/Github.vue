@@ -13,13 +13,13 @@
 
 <style lang="scss" scoped>
 @use 'assets/css/global/variables';
-.dark-theme {
+.dark {
   svg {
     color: variables.$dark-theme-body-text-color;
   }
 }
 
-.light-theme {
+.light {
   svg {
     color: variables.$light-theme-body-text-color;
   }
