@@ -28,12 +28,9 @@ defineProps({
   },
 })
 
-const emit = defineEmits<{e: 'video-clicked', video: any}>()
+const emit = defineEmits<{(e: 'video-clicked', video: any): void}>()
 
-const onVideoClicked = (video) => {
-  console.log('emitted')
-  emit('video-clicked', video)
-}
+const onVideoClicked = (video) => emit('video-clicked', video)
 </script>
 
 <style lang="scss" scoped>
