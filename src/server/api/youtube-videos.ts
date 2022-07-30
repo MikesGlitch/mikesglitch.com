@@ -11,7 +11,7 @@ const escapeHtmlCharacters = (html: string) => {
   return html.replace(/&quot;/g, '"')
 }
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
   const cacheClient = Client.create(config.memcachierServers, { password: config.memcachePassword, username: config.memcacheUsername })
   const cachedVideos = await cacheClient.get(CACHE_KEY).catch(() => null)
@@ -54,6 +54,7 @@ export default defineEventHandler(async (event) => {
 
     return JSON.parse(responseContent)
   } else {
+    console.error('Unable to call the youtube api')
     return createError({ statusCode: 503, data: 'Unable to call the youtube api' })
   }
 })

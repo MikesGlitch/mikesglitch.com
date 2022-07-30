@@ -1,5 +1,5 @@
 <template>
-  <div v-show="data">
+  <div v-if="data">
     <div v-if="data.latestVideoEmbedIframeUrl" class="video-player-container">
       <div ref="videoPlayer" class="video-player-ribbon container">
         <div class="video-player">
