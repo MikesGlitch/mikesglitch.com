@@ -7,9 +7,9 @@
           <span v-if="article.date" class="blog-metadata__item"><span>Updated at:</span> {{ toHumanReadableDate(article.date) }}</span>
           <span v-if="article.timeToRead" class="blog-metadata__item"><span>Time to read:</span> {{ article.timeToRead }}</span>
         </div>
-        <hr />
+        <hr>
         <article>
-          <ContentDoc :path="path"/>
+          <ContentDoc :path="path" />
         </article>
       </div>
       <!-- Dunno what to do with this sidebar - maybe just make another one.  Otherwise i'll have to pass in tags etc -->
@@ -20,16 +20,16 @@
 
 <script lang="ts" setup>
 import { toHumanReadableDate } from './../../utils/dateUtils'
-const article = ref();
+const article = ref()
 const route = useRoute()
-const path = ref(route.params.slug);
+const path = ref(route.params.slug)
 await useAsyncData(async () => {
-  article.value = await queryContent(`/blog/${route.params.slug}`).findOne();
+  article.value = await queryContent(`/blog/${route.params.slug}`).findOne()
 })
 
 </script>
 
-<!-- 
+<!--
 <script>
 import { toHumanReadableDate } from './../../utils/dateUtils'
 

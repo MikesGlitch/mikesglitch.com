@@ -23,10 +23,10 @@ const { data } = await useAsyncData(async () => {
     .then(res => res.json())
     .catch(() => null)
 
-  return { latestVideoEmbedIframeUrl: response.latestVideoEmbedIframeUrl, latestVideos: response.latestVideos}
+  return { latestVideoEmbedIframeUrl: response.latestVideoEmbedIframeUrl, latestVideos: response.latestVideos }
 })
 
-const videoPlayer = ref(null);
+const videoPlayer = ref(null)
 
 const onChangeVideo = (video) => {
   data.value.latestVideoEmbedIframeUrl = video.iframeEmbedUrl

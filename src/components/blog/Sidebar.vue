@@ -2,16 +2,24 @@
   <div class="blog-sidebar">
     <div class="about-me-summary">
       <img class="about-me-summary__image" src="/avatar.png" alt="Picture of me">
-      <h4 class="about-me-summary__title">About me</h4>
-      <p class="about-me-summary__description">Small paragraph about who I am and what I'm using the blog for</p>
+      <h4 class="about-me-summary__title">
+        About me
+      </h4>
+      <p class="about-me-summary__description">
+        Small paragraph about who I am and what I'm using the blog for
+      </p>
     </div>
     <div class="search-site">
-      <h4 class="search-site__title">Search site</h4>
-      <input type="search" />
+      <h4 class="search-site__title">
+        Search site
+      </h4>
+      <input type="search">
       <button>Search</button>
     </div>
     <div class="tags-filters">
-      <h4 class="tags-filters__title">Tags</h4>
+      <h4 class="tags-filters__title">
+        Tags
+      </h4>
       <div class="tags-filters__tags">
         <!-- <a class="tag active" href="javascript:void(0)">All</a> -->
         <a v-for="(tag, index) in tags" :key="index" class="tag">{{ tag }}</a>
@@ -26,7 +34,9 @@
       </div>
     </div> -->
     <div class="rss-feed">
-      <h4 class="rss-feed__title">RSS Feed</h4>
+      <h4 class="rss-feed__title">
+        RSS Feed
+      </h4>
     </div>
   </div>
 </template>

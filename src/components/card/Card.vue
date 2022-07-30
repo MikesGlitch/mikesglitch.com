@@ -8,7 +8,9 @@
       <slot name="image-label" />
     </div>
     <div class="card__content">
-      <h5 class="card__title">{{ title }}</h5>
+      <h5 class="card__title">
+        {{ title }}
+      </h5>
       <slot />
     </div>
   </div>

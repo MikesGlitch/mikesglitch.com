@@ -1,7 +1,11 @@
 <template>
   <div class="card-tabs">
-    <div class="tab--active"><span><IconLightningBolt class="icon" /> Latest</span></div>
-    <div class="tab"><span><IconHeart class="icon" /> Popular</span></div>
+    <div class="tab--active">
+      <span><IconLightningBolt class="icon" /> Latest</span>
+    </div>
+    <div class="tab">
+      <span><IconHeart class="icon" /> Popular</span>
+    </div>
   </div>
 </template>
 

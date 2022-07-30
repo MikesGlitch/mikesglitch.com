@@ -25,12 +25,12 @@ defineProps({
     type: String,
     required: false,
     default: null
-  },
+  }
 })
 
 const emit = defineEmits<{(e: 'video-clicked', video: any): void}>()
 
-const onVideoClicked = (video) => emit('video-clicked', video)
+const onVideoClicked = video => emit('video-clicked', video)
 </script>
 
 <style lang="scss" scoped>

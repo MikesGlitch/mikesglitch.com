@@ -12,10 +12,10 @@
 
 <script lang="ts" setup>
 const { data: projects } = await useAsyncData(async () => {
-  const projectsData = await queryContent(`/projects`)
+  const projectsData = await queryContent('/projects')
     .only(['title', 'description', 'img', '_path', 'author'])
     .sort({ createdAt: 1 })
-    .find();
+    .find()
   return projectsData
 })
 </script>

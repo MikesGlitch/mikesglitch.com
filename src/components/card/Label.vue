@@ -1,6 +1,6 @@
 <template>
   <div class="card__image-label">
-    <div class="background"></div>
+    <div class="background" />
     <span>
       {{ label }}
     </span>

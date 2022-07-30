@@ -2,7 +2,7 @@
   <div class="default-layout" :class="{ 'dark-theme': !isLightTheme, 'light-theme': isLightTheme }">
     <Nav :on-toggle-theme="onToggleTheme" :is-light-theme="isLightTheme" />
     <div class="container-wrapper">
-    <slot />
+      <slot />
     </div>
     <Footer />
   </div>

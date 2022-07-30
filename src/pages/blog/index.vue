@@ -11,19 +11,19 @@
 
 <script lang="ts" setup>
 const { data } = await useAsyncData(async () => {
-  const articlesData = await queryContent("/blog")
-    .only(["title", "description", "img", "_path", "tags", "category", "date"])
+  const articlesData = await queryContent('/blog')
+    .only(['title', 'description', 'img', '_path', 'tags', 'category', 'date'])
     .sort({ date: -1 })
-    .find();
+    .find()
 
-  const onlyUnique = (value, index, self) => self.indexOf(value) === index;
-  const tagsData = articlesData.map((article) => article.tags).filter(onlyUnique); // currently only support 1
+  const onlyUnique = (value, index, self) => self.indexOf(value) === index
+  const tagsData = articlesData.map(article => article.tags).filter(onlyUnique) // currently only support 1
   return { tags: tagsData, articles: articlesData, filteredArticles: articlesData }
-});
+})
 
 const filterByTag = (tag) => {
-  data.value.filteredArticles = data.value.articles.filter((x) => x.tags === tag); // currently only filter by one
-};
+  data.value.filteredArticles = data.value.articles.filter(x => x.tags === tag) // currently only filter by one
+}
 </script>
 
 <style lang="scss" scoped>

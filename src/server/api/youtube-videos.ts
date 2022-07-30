@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
-import { IGetYoutubeVideosResponse, IYouTubeVideo } from 'interfaces/Api'
 import axios from 'axios'
 import { Client } from 'memjs'
 import { createError } from 'h3'
+import { IGetYoutubeVideosResponse, IYouTubeVideo } from 'interfaces/Api'
 
 const CACHE_KEY = 'latestYoutubeVideos'
 const getYoutubeEmbedUrl = (videoId: string) => `https://youtube.com/embed/${videoId}?max-results=1&controls=1&showinfo=1&rel=0`
@@ -56,4 +56,4 @@ export default defineEventHandler(async (event) => {
   } else {
     return createError({ statusCode: 503, data: 'Unable to call the youtube api' })
   }
-});
+})

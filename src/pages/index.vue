@@ -5,7 +5,13 @@
         <div class="about-me-summary__description">
           <h1>Hi, I'm Mike. new version</h1>
           <p>I'm a full stack web developer from Glasgow, Scotland.</p>
-          <p>Check out my <NuxtLink to="/blog">articles</NuxtLink>, <NuxtLink to="/videos">videos</NuxtLink> and <a href="https://www.youtube.com/channel/UCfx1yOrSVwlO-VwpKxvlqow" title="My Youtube channel">live streams!</a></p>
+          <p>
+            Check out my <NuxtLink to="/blog">
+              articles
+            </NuxtLink>, <NuxtLink to="/videos">
+              videos
+            </NuxtLink> and <a href="https://www.youtube.com/channel/UCfx1yOrSVwlO-VwpKxvlqow" title="My Youtube channel">live streams!</a>
+          </p>
           <p>Feel free to take a look at my latest projects on <a href="https://github.com/MikesGlitch" title="My github" target="_blank">Github</a>.</p>
         </div>
         <AvatarMe class="about-me-summary__image" />
@@ -48,33 +54,33 @@
 const config = useRuntimeConfig()
 
 const { data: blogArticles } = await useAsyncData('home', () => queryContent('/blog')
-      .only(['title', 'description', '_path', 'tags', 'category', 'date'])
-      .sort({ 'date': -1 })
-      .limit(10)
-      .find()
+  .only(['title', 'description', '_path', 'tags', 'category', 'date'])
+  .sort({ date: -1 })
+  .limit(10)
+  .find()
 )
 
 const { data: projectArticles } = await useAsyncData('home', () => queryContent('/projects')
-      .only(['title', 'description', '_path', 'tags', 'category', 'date'])
-      .sort({ 'date': -1 })
-      .limit(10)
-      .find()
+  .only(['title', 'description', '_path', 'tags', 'category', 'date'])
+  .sort({ date: -1 })
+  .limit(10)
+  .find()
 )
 
 const { data: latestVideos } = await useAsyncData(async () => {
-    const videosPromise = fetch(
+  const videosPromise = fetch(
       `${config.public.apiBaseUrl}/youtube-videos`
-    )
-      .then(res => res.json())
-      .catch(() => null)
+  )
+    .then(res => res.json())
+    .catch(() => null)
 
-    const [videosData] = await Promise.all([videosPromise])
-    let latestVideosData = []
-    if (videosData?.latestVideos) {
-      latestVideosData = videosData.latestVideos.slice(0, 10)
-    }
-    
-    return latestVideosData
+  const [videosData] = await Promise.all([videosPromise])
+  let latestVideosData = []
+  if (videosData?.latestVideos) {
+    latestVideosData = videosData.latestVideos.slice(0, 10)
+  }
+
+  return latestVideosData
 })
 </script>
 
