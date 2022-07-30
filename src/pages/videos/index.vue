@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="video-player-container">
-      <div ref="videoPlayer" class="video-player-ribbon container">
-        <div v-if="data.latestVideoEmbedIframeUrl" class="video-player">
+    <div ref="videoPlayer" class="video-player-container">
+      <div v-if="data.latestVideoEmbedIframeUrl" class="video-player-ribbon container">
+        <div class="video-player">
           <ClientOnly>
             <iframe class="border-none" title="Watch me code!" :src="data.latestVideoEmbedIframeUrl" allowfullscreen />
           </ClientOnly>
