@@ -3,7 +3,7 @@
 .container {
   max-width: variables.$container-max;
   margin: 0 auto;
-  padding-right: variables.$gutter-x;
-  padding-left: variables.$gutter-x;
+  // padding-right: variables.$gutter-x;
+  // padding-left: variables.$gutter-x;
   overflow-wrap: anywhere;
 }

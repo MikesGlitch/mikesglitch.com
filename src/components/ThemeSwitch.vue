@@ -10,7 +10,7 @@
       >
         <div class="flex gap-2 align-middle justify-center">
           <IconMoon class="w-4 h-4 my-auto fill-yellow" />
-          <span>{{ isLightTheme ? "Light" : "Dark" }}</span>
+          <span style="width: 5ch">{{ isLightTheme ? "Light" : "Dark" }}</span>
         </div>
       </button>
     </ClientOnly>
