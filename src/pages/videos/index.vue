@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-if="data.latestVideoEmbedIframeUrl" class="video-player-container">
+    <div class="video-player-container">
       <div ref="videoPlayer" class="video-player-ribbon container">
-        <div class="video-player">
+        <div v-if="data.latestVideoEmbedIframeUrl" class="video-player">
           <ClientOnly>
             <iframe class="border-none" title="Watch me code!" :src="data.latestVideoEmbedIframeUrl" allowfullscreen />
           </ClientOnly>
@@ -28,7 +28,6 @@ const { data } = await useAsyncData(() => {
 const videoPlayer = ref(null)
 
 const onChangeVideo = (video: IYouTubeVideo) => {
-  console.log('changing video')
   data.value.latestVideoEmbedIframeUrl = video.iframeEmbedUrl
   videoPlayer.value.scrollIntoView({ behavior: 'smooth' })
 }

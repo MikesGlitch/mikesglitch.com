@@ -32,18 +32,17 @@ export default defineEventHandler(async () => {
   })
 
   if (response) {
-    const latestVideos: IYouTubeVideo[] = response.items.map((video: any) => {
+    let latestVideos: IYouTubeVideo[] = response.items.map((video: any) => {
       return {
         id: video.id.videoId,
         publishedAt: video.snippet.publishedAt,
         thumbnail: video.snippet.thumbnails.medium.url,
         title: escapeHtmlCharacters(video.snippet.title),
         description: escapeHtmlCharacters(video.snippet.description),
-        // iframeEmbedUrl: getYoutubeEmbedUrl(video.id.videoId)
-        iframeEmbedUrl: ''
+        iframeEmbedUrl: getYoutubeEmbedUrl(video.id.videoId)
       }
     })
-
+    latestVideos = latestVideos.splice(0, 10)
     const video: IGetYoutubeVideosResponse = {
       latestVideoEmbedIframeUrl: latestVideos[0].iframeEmbedUrl,
       latestVideos
