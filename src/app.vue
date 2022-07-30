@@ -13,8 +13,7 @@ useHead({
   meta: [
     { charset: 'utf-8' },
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-    { hid: 'description', name: 'description', content: 'Michael is a software developer focused on the delivery of highly scalable, efficient and tested applications.' },
-    { charset: 'utf-8' },
+    { name: 'description', content: 'Michael is a software developer focused on the delivery of highly scalable, efficient and tested applications.' },
 
     // Facebook
     { property: 'og:url', content: 'https://mikesglitch.com' },

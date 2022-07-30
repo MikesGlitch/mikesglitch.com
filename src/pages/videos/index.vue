@@ -3,7 +3,7 @@
     <div v-if="data.latestVideoEmbedIframeUrl && data.latestVideos" class="video-player-container">
       <div ref="videoPlayer" class="video-player-ribbon container">
         <div class="video-player">
-          <iframe v-if="data.latestVideoEmbedIframeUrl" :src="data.latestVideoEmbedIframeUrl" frameborder="0" allowfullscreen />
+          <iframe v-if="data.latestVideoEmbedIframeUrl" class="border-none" title="Watch me code!" :src="data.latestVideoEmbedIframeUrl" allowfullscreen />
         </div>
       </div>
     </div>
