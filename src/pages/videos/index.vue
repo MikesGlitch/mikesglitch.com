@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data">
+  <div>
     <div v-if="data.latestVideoEmbedIframeUrl && data.latestVideos" class="video-player-container">
       <div ref="videoPlayer" class="video-player-ribbon container">
         <div class="video-player">
@@ -20,9 +20,7 @@
 import { IGetYoutubeVideosResponse, IYouTubeVideo } from '~/interfaces/Api'
 
 const config = useRuntimeConfig()
-const { data } = await useAsyncData(() => {
-  return $fetch<IGetYoutubeVideosResponse>(`${config.public.apiBaseUrl}/youtube-videos`)
-})
+const { data } = await useFetch<IGetYoutubeVideosResponse>(`${config.public.apiBaseUrl}/youtube-videos`)
 
 const videoPlayer = ref(null)
 
