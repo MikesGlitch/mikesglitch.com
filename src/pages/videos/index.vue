@@ -20,11 +20,15 @@
 import { IGetYoutubeVideosResponse, IYouTubeVideo } from '~/interfaces/Api'
 
 const config = useRuntimeConfig()
-const { data } = await useFetch<IGetYoutubeVideosResponse>(`${config.public.apiBaseUrl}/youtube-videos`)
+
+const { data } = await useAsyncData(() => {
+  return $fetch<IGetYoutubeVideosResponse>(`${config.public.apiBaseUrl}/youtube-videos`)
+})
 
 const videoPlayer = ref(null)
 
 const onChangeVideo = (video: IYouTubeVideo) => {
+  console.log('changing video')
   data.value.latestVideoEmbedIframeUrl = video.iframeEmbedUrl
   videoPlayer.value.scrollIntoView({ behavior: 'smooth' })
 }
