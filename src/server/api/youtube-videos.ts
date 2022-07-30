@@ -39,12 +39,9 @@ export default defineEventHandler(async () => {
         thumbnail: video.snippet.thumbnails.medium.url,
         title: escapeHtmlCharacters(video.snippet.title),
         description: escapeHtmlCharacters(video.snippet.description),
-        iframeEmbedUrl: getYoutubeEmbedUrl(video.id.videoId)
+        // iframeEmbedUrl: getYoutubeEmbedUrl(video.id.videoId)
+        iframeEmbedUrl: ''
       }
-    })
-
-    latestVideos.forEach((video) => {
-      video.iframeEmbedUrl = ''
     })
 
     const video: IGetYoutubeVideosResponse = {
