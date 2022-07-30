@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="data.latestVideoEmbedIframeUrl && data.latestVideos" class="video-player-container">
+    <div v-show="data.latestVideoEmbedIframeUrl" class="video-player-container">
       <div ref="videoPlayer" class="video-player-ribbon container">
         <div class="video-player">
           <ClientOnly>
