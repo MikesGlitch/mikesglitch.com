@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-const { data } = await useAsyncData(async () => {
+const { data } = await useAsyncData('allBlogPosts', async () => {
   const articlesData = await queryContent('/blog')
     .only(['title', 'description', 'img', '_path', 'tags', 'category', 'date'])
     .sort({ date: -1 })

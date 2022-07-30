@@ -17,7 +17,7 @@
     <div class="container">
       <div class="latest-articles">
         <h2>Latest Articles</h2>
-        <div v-for="article of blogArticles" :key="article._path">
+        <div v-for="article of data.blogArticles" :key="article._path">
           <NuxtLink :to="article._path">
             {{ article.title }}
           </NuxtLink>
@@ -26,7 +26,7 @@
 
       <div class="latest-videos">
         <h2>Latest Videos</h2>
-        <div v-for="video of latestVideos" :key="video.id">
+        <div v-for="video of data.latestVideos" :key="video.id">
           <NuxtLink to="/videos">
             {{ video.title }}
           </NuxtLink>
@@ -35,7 +35,7 @@
 
       <div class="latest-projects">
         <h2>Latest Projects</h2>
-        <div v-for="article of projectArticles" :key="article._path">
+        <div v-for="article of data.projectArticles" :key="article._path">
           <NuxtLink :to="article._path">
             {{ article.title }}
           </NuxtLink>
@@ -48,52 +48,38 @@
 <script lang="ts" setup>
 const config = useRuntimeConfig()
 
-const { data: blogArticles } = await useAsyncData('home', () => queryContent('/blog')
-  .only(['title', 'description', '_path', 'tags', 'category', 'date'])
-  .sort({ date: -1 })
-  .limit(10)
-  .find()
-)
+const { data } = await useAsyncData('homePageInit', async () => {
+  const blogArticlesPromise = queryContent('/blog')
+    .only(['title', 'description', '_path', 'tags', 'category', 'date'])
+    .sort({ date: -1 })
+    .limit(10)
+    .find()
 
-const { data: projectArticles } = await useAsyncData('home', () => queryContent('/projects')
-  .only(['title', 'description', '_path', 'tags', 'category', 'date'])
-  .sort({ date: -1 })
-  .limit(10)
-  .find()
-)
+  const projectArticlesPromise = queryContent('/projects')
+    .only(['title', 'description', '_path', 'tags', 'category', 'date'])
+    .sort({ date: -1 })
+    .limit(10)
+    .find()
 
-const { data: latestVideos } = await useAsyncData(async () => {
-  const videosPromise = fetch(
+  const videosDataPromise = fetch(
       `${config.public.apiBaseUrl}/youtube-videos`
   )
     .then(res => res.json())
     .catch(() => null)
 
-  const [videosData] = await Promise.all([videosPromise])
-  let latestVideosData = []
+  const [blogArticles, projectArticles, videosData] = await Promise.all([blogArticlesPromise, projectArticlesPromise, videosDataPromise])
+  let latestVideos = []
   if (videosData?.latestVideos) {
-    latestVideosData = videosData.latestVideos.slice(0, 10)
+    latestVideos = videosData.latestVideos.slice(0, 10)
   }
 
-  return latestVideosData
+  return { latestVideos, projectArticles, blogArticles }
 })
 </script>
 
 <style lang="scss" scoped>
 @use "assets/css/screen-breakpoints";
 @use "assets/css/global/variables";
-
-// .light {
-//   .about-me-summary {
-//     background-color: variables.$light-grey;
-//   }
-// }
-
-// .dark {
-//   .about-me-summary {
-//     background-color: variables.$dark-theme-secondary-background-color;
-//   }
-// }
 
 .about-me-summary {
   &__container {
