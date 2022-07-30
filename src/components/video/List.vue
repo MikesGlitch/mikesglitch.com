@@ -17,7 +17,7 @@ import { IYouTubeVideo } from '../../interfaces/Api'
 
 defineProps({
   videos: {
-    type: Array,
+    type: Array<IYouTubeVideo>,
     required: false,
     default: () => [] as IYouTubeVideo[]
   },

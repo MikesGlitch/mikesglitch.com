@@ -3,7 +3,9 @@
     <div v-if="data.latestVideoEmbedIframeUrl && data.latestVideos" class="video-player-container">
       <div ref="videoPlayer" class="video-player-ribbon container">
         <div class="video-player">
-          <iframe v-if="data.latestVideoEmbedIframeUrl" class="border-none" title="Watch me code!" :src="data.latestVideoEmbedIframeUrl" allowfullscreen />
+          <ClientOnly>
+            <iframe v-if="data.latestVideoEmbedIframeUrl" class="border-none" title="Watch me code!" :src="data.latestVideoEmbedIframeUrl" allowfullscreen />
+          </ClientOnly>
         </div>
       </div>
     </div>
@@ -15,7 +17,7 @@
 </template>
 
 <script lang="ts" setup>
-import { IGetYoutubeVideosResponse } from '~/interfaces/Api'
+import { IGetYoutubeVideosResponse, IYouTubeVideo } from '~/interfaces/Api'
 
 const config = useRuntimeConfig()
 const { data } = await useAsyncData(() => {
@@ -24,7 +26,7 @@ const { data } = await useAsyncData(() => {
 
 const videoPlayer = ref(null)
 
-const onChangeVideo = (video) => {
+const onChangeVideo = (video: IYouTubeVideo) => {
   data.value.latestVideoEmbedIframeUrl = video.iframeEmbedUrl
   videoPlayer.value.scrollIntoView({ behavior: 'smooth' })
 }
