@@ -43,6 +43,10 @@ export default defineEventHandler(async () => {
       }
     })
 
+    latestVideos.forEach((video) => {
+      video.iframeEmbedUrl = ''
+    })
+
     const video: IGetYoutubeVideosResponse = {
       latestVideoEmbedIframeUrl: latestVideos[0].iframeEmbedUrl,
       latestVideos
