@@ -42,10 +42,12 @@ export default defineEventHandler(async () => {
         iframeEmbedUrl: getYoutubeEmbedUrl(video.id.videoId)
       }
     })
-    latestVideos = latestVideos.splice(0, 1)
+
     const video: IGetYoutubeVideosResponse = {
-      latestVideoEmbedIframeUrl: latestVideos[0].iframeEmbedUrl,
-      latestVideos
+      // latestVideoEmbedIframeUrl: latestVideos[0].iframeEmbedUrl,
+      // latestVideos
+      latestVideoEmbedIframeUrl: '',
+      latestVideos: []
     }
 
     const responseContent = JSON.stringify(video)
