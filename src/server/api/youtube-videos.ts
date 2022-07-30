@@ -32,7 +32,7 @@ export default defineEventHandler(async () => {
   })
 
   if (response) {
-    let latestVideos: IYouTubeVideo[] = response.items.map((video: any) => {
+    const latestVideos: IYouTubeVideo[] = response.items.map((video: any) => {
       return {
         id: video.id.videoId,
         publishedAt: video.snippet.publishedAt,
@@ -44,10 +44,8 @@ export default defineEventHandler(async () => {
     })
 
     const video: IGetYoutubeVideosResponse = {
-      // latestVideoEmbedIframeUrl: latestVideos[0].iframeEmbedUrl,
-      // latestVideos
-      latestVideoEmbedIframeUrl: '',
-      latestVideos: []
+      latestVideoEmbedIframeUrl: latestVideos[0].iframeEmbedUrl,
+      latestVideos
     }
 
     const responseContent = JSON.stringify(video)
