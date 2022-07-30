@@ -4,7 +4,7 @@
       <NuxtLink class="text-xl" to="/">
         <span class="text-white">Mikes</span><span class="text-hotpink">Glitch</span>
       </NuxtLink>
-      <div class="flex flex-row gap-4 items-center">
+      <div class="flex flex-row gap-6 items-center">
         <NuxtLink class="text-white hover:text-hotpink" to="/projects">
           Projects
         </NuxtLink>
@@ -14,7 +14,7 @@
         <NuxtLink class="text-white hover:text-hotpink" to="/videos">
           Videos
         </NuxtLink>
-        <div class="hidden sm:flex flex-row gap-4 items-center">
+        <div class="hidden sm:flex flex-row gap-6 items-center">
           <a
             title="Check out my Github"
             href="https://github.com/mikesglitch"

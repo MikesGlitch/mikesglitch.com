@@ -15,13 +15,11 @@
 </template>
 
 <script lang="ts" setup>
+import { IGetYoutubeVideosResponse } from '~~/interfaces/Api'
+
 const config = useRuntimeConfig()
 const { data } = await useAsyncData(async () => {
-  const response = await fetch(
-    `${config.public.apiBaseUrl}/youtube-videos`
-  )
-    .then(res => res.json())
-    .catch(() => null)
+  const response = await $fetch<IGetYoutubeVideosResponse>(`${config.public.apiBaseUrl}/youtube-videos`)
 
   return { latestVideoEmbedIframeUrl: response.latestVideoEmbedIframeUrl, latestVideos: response.latestVideos }
 })

@@ -4,33 +4,28 @@
   </div>
 </template>
 
-<script>
-export default {
-  layout: 'empty',
-  data () {
-    return {
-      currentGif: '',
-      gifInterval: null
-    }
-  },
+<script setup lang="ts">
+const currentGif = ref('')
+const gifInterval = ref(null)
 
-  mounted () {
-    this.getGif()
-    this.getGifOnInterval()
-  },
-  beforeDestroy  () {
-    clearInterval(this.gifInterval)
-  },
-  methods: {
-    async getGif () {
-      const response = await fetch(`${process.env.NUXT_ENV_API_BASE_URL}/gif`).then(res => res.json())
-      this.currentGif = response.gif
-    },
-    getGifOnInterval () {
-      this.gifInterval = setInterval(async () => await this.getGif(), 8000)
-    }
-  }
+onMounted(() => {
+  getGif()
+  getGifOnInterval()
+})
+
+onBeforeUnmount(() => {
+  clearInterval(gifInterval.value)
+})
+
+const config = useRuntimeConfig()
+const getGif = async () => {
+  const response = await $fetch<{ gif: string }>(`${config.public.apiBaseUrl}/gif`)
+  currentGif.value = response.gif
 }
+const getGifOnInterval = () => {
+  gifInterval.value = setInterval(async () => await getGif(), 8000)
+}
+
 </script>
 
 <style lang="scss" scoped>

@@ -46,6 +46,8 @@
 </template>
 
 <script lang="ts" setup>
+import { IGetYoutubeVideosResponse } from '~~/interfaces/Api';
+
 const config = useRuntimeConfig()
 
 const { data } = await useAsyncData('homePageInit', async () => {
@@ -61,11 +63,7 @@ const { data } = await useAsyncData('homePageInit', async () => {
     .limit(10)
     .find()
 
-  const videosDataPromise = fetch(
-      `${config.public.apiBaseUrl}/youtube-videos`
-  )
-    .then(res => res.json())
-    .catch(() => null)
+  const videosDataPromise = $fetch<IGetYoutubeVideosResponse>(`${config.public.apiBaseUrl}/youtube-videos`)
 
   const [blogArticles, projectArticles, videosData] = await Promise.all([blogArticlesPromise, projectArticlesPromise, videosDataPromise])
   let latestVideos = []
