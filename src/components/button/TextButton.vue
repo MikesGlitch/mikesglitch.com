@@ -4,12 +4,12 @@
     type="button"
     @click="onClick"
   >
-    <slot></slot>
+    <slot />
   </button>
 </template>
 
 <script lang="ts" setup>
-const emit = defineEmits<{ (e: "click"): void }>();
+const emit = defineEmits<{(e: 'click'): void }>()
 
-const onClick = () => emit("click");
+const onClick = () => emit('click')
 </script>
