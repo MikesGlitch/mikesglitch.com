@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <div v-show="data.latestVideoEmbedIframeUrl" class="video-player-container">
+  <div v-show="data">
+    <div v-if="data.latestVideoEmbedIframeUrl" class="video-player-container">
       <div ref="videoPlayer" class="video-player-ribbon container">
         <div class="video-player">
           <ClientOnly>
-            <iframe v-if="data.latestVideoEmbedIframeUrl" class="border-none" title="Watch me code!" :src="data.latestVideoEmbedIframeUrl" allowfullscreen />
+            <iframe class="border-none" title="Watch me code!" :src="data.latestVideoEmbedIframeUrl" allowfullscreen />
           </ClientOnly>
         </div>
       </div>
