@@ -21,9 +21,9 @@ const { data } = await useAsyncData(async () => {
   return { tags: tagsData, articles: articlesData, filteredArticles: articlesData }
 })
 
-const filterByTag = (tag) => {
-  data.value.filteredArticles = data.value.articles.filter(x => x.tags === tag) // currently only filter by one
-}
+// const filterByTag = (tag) => {
+//   data.value.filteredArticles = data.value.articles.filter(x => x.tags === tag) // currently only filter by one
+// }
 </script>
 
 <style lang="scss" scoped>

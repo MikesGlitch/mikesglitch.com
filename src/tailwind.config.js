@@ -1,4 +1,4 @@
-// const colors = require('tailwindcss/colors')
+const colors = require('tailwindcss/colors')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -12,14 +12,20 @@ module.exports = {
       // slate: colors.slate,
       gray: {
         light: '#f1f4f8',
-        medium: '#333',
+        medium: {
+          default: '#333',
+          2: '#2d2d31'
+        },
         dark: '#1f2022'
       },
+      yellow: colors.yellow[400],
       white: 'white',
       black: 'black',
       hotpink: 'hotpink'
     },
     extend: {}
   },
-  plugins: []
+  plugins: [
+    require('@tailwindcss/typography')
+  ]
 }

@@ -1,7 +1,7 @@
 <template>
-  <div v-show="theme !== undefined" class="default-layout font-body">
-    <Nav :on-toggle-theme="onToggleTheme" :is-light-theme="theme === 'light'" />
-    <div class="container-wrapper bg-white text-gray-medium dark:bg-gray-dark dark:text-white">
+  <div v-show="theme !== undefined" class="h-full flex flex-col font-body">
+    <Nav :is-light-theme="theme === 'light'" @toggle-theme="onToggleTheme" />
+    <div class="flex-1 p-0 pb-3 w-full bg-white text-gray-medium dark:bg-gray-dark dark:text-white">
       <slot />
     </div>
     <Footer />
@@ -64,20 +64,3 @@ const onToggleTheme = () => {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@use './../assets/css/global/variables';
-
-.default-layout {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-
-  .container-wrapper {
-      flex: 1;
-      padding: 0;
-      padding-bottom: variables.$gutter-y;
-      width: 100%;
-  }
-}
-</style>

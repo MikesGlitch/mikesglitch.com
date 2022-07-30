@@ -1,21 +1,16 @@
 <template>
-  <div>
-    <div class="about-me-summary">
+  <div class="prose dark:prose-invert max-w-none prose-a:text-hotpink">
+    <div class="about-me-summary bg-gray-light dark:bg-gray-medium-2">
       <div class="about-me-summary__container container">
         <div class="about-me-summary__description">
           <h1>Hi, I'm Mike.</h1>
           <p>I'm a full stack web developer from Glasgow, Scotland.</p>
           <p>
-            Check out my <NuxtLink to="/blog">
-              articles
-            </NuxtLink>, <NuxtLink to="/videos">
-              videos
-            </NuxtLink> and <a href="https://www.youtube.com/channel/UCfx1yOrSVwlO-VwpKxvlqow" title="My Youtube channel">live streams!</a>
+            Check out my <NuxtLink to="/blog">articles</NuxtLink>, <NuxtLink to="/videos">videos</NuxtLink> and <a href="https://www.youtube.com/channel/UCfx1yOrSVwlO-VwpKxvlqow" title="My Youtube channel">live streams!</a>
           </p>
           <p>Feel free to take a look at my latest projects on <a href="https://github.com/MikesGlitch" title="My github" target="_blank">Github</a>.</p>
         </div>
         <AvatarMe class="about-me-summary__image" />
-        <!-- <img class="about-me-summary__image" src="/avatar.png" alt="Picture of me"> -->
       </div>
     </div>
 
@@ -24,7 +19,7 @@
         <h2>Latest Articles</h2>
         <div v-for="article of blogArticles" :key="article._path">
           <NuxtLink :to="article._path">
-            <p>{{ article.title }}</p>
+            {{ article.title }}
           </NuxtLink>
         </div>
       </div>
@@ -33,7 +28,7 @@
         <h2>Latest Videos</h2>
         <div v-for="video of latestVideos" :key="video.id">
           <NuxtLink to="/videos">
-            <p>{{ video.title }}</p>
+            {{ video.title }}
           </NuxtLink>
         </div>
       </div>
@@ -42,7 +37,7 @@
         <h2>Latest Projects</h2>
         <div v-for="article of projectArticles" :key="article._path">
           <NuxtLink :to="article._path">
-            <p>{{ article.title }}</p>
+            {{ article.title }}
           </NuxtLink>
         </div>
       </div>
@@ -88,17 +83,17 @@ const { data: latestVideos } = await useAsyncData(async () => {
 @use "assets/css/screen-breakpoints";
 @use "assets/css/global/variables";
 
-.light {
-  .about-me-summary {
-    background-color: variables.$light-grey;
-  }
-}
+// .light {
+//   .about-me-summary {
+//     background-color: variables.$light-grey;
+//   }
+// }
 
-.dark {
-  .about-me-summary {
-    background-color: variables.$dark-theme-secondary-background-color;
-  }
-}
+// .dark {
+//   .about-me-summary {
+//     background-color: variables.$dark-theme-secondary-background-color;
+//   }
+// }
 
 .about-me-summary {
   &__container {

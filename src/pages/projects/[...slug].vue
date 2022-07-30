@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <article>
+    <article class="prose dark:prose-invert max-w-none">
       <h1>{{ project.title }}</h1>
       <p>{{ project.description }}</p>
       <ContentDoc :path="path" />
@@ -9,11 +9,10 @@
 </template>
 
 <script lang="ts" setup>
-const project = ref()
 const route = useRoute()
 const path = ref(route.params.slug)
-await useAsyncData(async () => {
-  project.value = await queryContent(`/projects/${route.params.slug}`).findOne()
+const { data: project } = await useAsyncData(() => {
+  return queryContent(`/projects/${route.params.slug}`).findOne()
 })
 
 </script>

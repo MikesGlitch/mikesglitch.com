@@ -2,13 +2,12 @@
   <div class="blog-page container">
     <div class="blog-post">
       <div class="blog-post__content">
-        <h1>{{ article.title }}</h1>
-        <div class="blog-metadata">
-          <span v-if="article.date" class="blog-metadata__item"><span>Updated at:</span> {{ toHumanReadableDate(article.date) }}</span>
-          <span v-if="article.timeToRead" class="blog-metadata__item"><span>Time to read:</span> {{ article.timeToRead }}</span>
-        </div>
-        <hr>
-        <article>
+        <article class="prose dark:prose-invert max-w-none">
+          <h1>{{ article.title }}</h1>
+          <div class="blog-metadata">
+            <span v-if="article.date" class="blog-metadata__item"><span>Updated at:</span> {{ toHumanReadableDate(article.date) }}</span>
+            <span v-if="article.timeToRead" class="blog-metadata__item"><span>Time to read:</span> {{ article.timeToRead }}</span>
+          </div>
           <ContentDoc :path="path" />
         </article>
       </div>
@@ -20,29 +19,13 @@
 
 <script lang="ts" setup>
 import { toHumanReadableDate } from './../../utils/dateUtils'
-const article = ref()
 const route = useRoute()
 const path = ref(route.params.slug)
-await useAsyncData(async () => {
-  article.value = await queryContent(`/blog/${route.params.slug}`).findOne()
+const { data: article } = await useAsyncData(async () => {
+  return await queryContent(`/blog/${route.params.slug}`).findOne()
 })
 
 </script>
-
-<!--
-<script>
-import { toHumanReadableDate } from './../../utils/dateUtils'
-
-export default {
-  async asyncData ({ $content, params }) {
-    const article = await $content('blog', params.slug).fetch()
-    return { article }
-  },
-  methods: {
-    toHumanReadableDate
-  }
-}
-</script> -->
 
 <style lang="scss" scoped>
 @use 'assets/css/screen-breakpoints';

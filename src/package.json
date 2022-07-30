@@ -13,6 +13,7 @@
     "@nuxtjs/eslint-config-typescript": "^10.0.0",
     "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/tailwindcss": "^5.3.1",
+    "@tailwindcss/typography": "^0.5.4",
     "@types/memjs": "^1.2.4",
     "eslint": "^8.20.0",
     "eslint-plugin-vue": "^9.3.0",

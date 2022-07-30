@@ -43,43 +43,43 @@ a {
   border-width: 0;
 }
 
-// Themes
-.dark {
-  color: variables.$dark-theme-body-text-color;
+// // Themes
+// .dark {
+//   color: variables.$dark-theme-body-text-color;
 
-  a {
-    color: variables.$dark-theme-link-color;
+//   a {
+//     color: variables.$dark-theme-link-color;
 
-    &:visited {
-      color: variables.$dark-theme-link-color;
-    }
+//     &:visited {
+//       color: variables.$dark-theme-link-color;
+//     }
 
-    &:active {
-      color: variables.$dark-theme-link-color;
-    }
+//     &:active {
+//       color: variables.$dark-theme-link-color;
+//     }
 
-    &:hover {
-      color: variables.$dark-theme-link-hover-color;
-    }
-  }
-}
+//     &:hover {
+//       color: variables.$dark-theme-link-hover-color;
+//     }
+//   }
+// }
 
-.light {
-  color: variables.$light-theme-body-text-color;
+// .light {
+//   color: variables.$light-theme-body-text-color;
 
-  a {
-    color: variables.$light-theme-link-color;
+//   a {
+//     color: variables.$light-theme-link-color;
 
-    &:visited {
-      color: variables.$light-theme-link-color;
-    }
+//     &:visited {
+//       color: variables.$light-theme-link-color;
+//     }
 
-    &:active {
-      color: variables.$light-theme-link-color;
-    }
+//     &:active {
+//       color: variables.$light-theme-link-color;
+//     }
 
-    &:hover {
-      color: variables.$light-theme-link-hover-color;
-    }
-  }
-}
+//     &:hover {
+//       color: variables.$light-theme-link-hover-color;
+//     }
+//   }
+// }
