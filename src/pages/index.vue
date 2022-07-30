@@ -46,7 +46,7 @@
 </template>
 
 <script lang="ts" setup>
-import { IGetYoutubeVideosResponse } from '~~/interfaces/Api';
+import { IGetYoutubeVideosResponse } from '~/interfaces/Api'
 
 const config = useRuntimeConfig()
 
