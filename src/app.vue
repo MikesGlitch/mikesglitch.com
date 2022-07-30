@@ -10,9 +10,9 @@ useHead({
   htmlAttrs: {
     lang: 'en'
   },
+  charset: 'utf-8',
+  viewport: 'width=device-width, initial-scale=1, maximum-scale=1',
   meta: [
-    { charset: 'utf-8' },
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     { name: 'description', content: 'Michael is a software developer focused on the delivery of highly scalable, efficient and tested applications.' },
 
     // Facebook
