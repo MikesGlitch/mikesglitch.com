@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-import { CardData } from '~/components/card'
+import { CardData } from '~/components/card/CardList.vue'
 
 const { data } = await useAsyncData('projects', () => {
   return queryContent<CardData>('/projects')

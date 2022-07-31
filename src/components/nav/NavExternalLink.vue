@@ -4,11 +4,11 @@
     :href="href"
     target="_blank"
     rel="noopener"
-    class="flex gap-2 items-center hover:text-hotpink hover:underline hover:underline-offset-4"
+    class="group flex gap-2 items-center"
   >
     <slot name="icon" />
-    <span>{{ text }}</span>
-    <IconExternalLink class="h-4 w-4 text-white" />
+    <span class="group-hover:text-hotpink group-hover:underline group-hover:underline-offset-4">{{ text }}</span>
+    <IconExternalLink class="h-4 w-4 text-auto min-w-[1rem] group-hover:text-hotpink" />
   </a>
 </template>
 

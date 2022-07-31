@@ -8,7 +8,8 @@
 </template>
 
 <script lang="ts" setup>
-import { CardData } from '~/components/card'
+import { CardData } from '~/components/card/CardList.vue'
+
 interface BlogPostData extends CardData {
   tags: string[]
 }

@@ -17,7 +17,13 @@
 </template>
 
 <script setup lang="ts">
-import { CardData } from '~~/components/card'
+export interface CardData {
+    _path: string
+    title: string
+    img: string
+    category: string
+    description: string
+}
 
 const props = defineProps({
   data: {
