@@ -11,7 +11,7 @@
 <script lang="ts" setup>
 const route = useRoute()
 const path = ref(route.params.slug)
-const { data: project } = await useAsyncData(() => {
+const { data: project } = await useAsyncData('projectPost', () => {
   return queryContent(`/projects/${route.params.slug}`).findOne()
 })
 

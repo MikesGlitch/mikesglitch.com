@@ -4,7 +4,7 @@
       <!-- Client-only because the value of the themes are set in onmounted (client side).
     There will always be a mismatch between client and server render -->
       <button
-        class="p-2 border rounded border-white bg-gray-dark hover:bg-gray-medium text-white"
+        class="p-2 border rounded border-white hover:border-hotpink bg-gray-dark hover:bg-gray-medium-default text-white"
         type="button"
         @click="onToggle"
       >

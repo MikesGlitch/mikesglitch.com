@@ -24,7 +24,7 @@ $height: 1.25rem;
 $paddingTopBottom: 0.5rem;
 $heightAndPadding: $height + ($paddingTopBottom * 2);
 $adjustedPosition: -$heightAndPadding;
-$backgroundWidth: 40%;
+$backgroundWidth: 50%;
 
 .card__image-label {
   position: relative;

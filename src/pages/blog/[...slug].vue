@@ -21,7 +21,7 @@
 import { toHumanReadableDate } from './../../utils/dateUtils'
 const route = useRoute()
 const path = ref(route.params.slug)
-const { data: article } = await useAsyncData(async () => {
+const { data: article } = await useAsyncData('blogPost', async () => {
   return await queryContent(`/blog/${route.params.slug}`).findOne()
 })
 
