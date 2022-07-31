@@ -1,7 +1,7 @@
 <template>
   <div v-show="theme !== undefined" class="h-full flex flex-col font-body">
     <Nav :is-light-theme="theme === 'light'" @toggle-theme="onToggleTheme" />
-    <div class="flex-1 p-0 pb-3 w-full bg-white text-gray-medium dark:bg-gray-dark dark:text-white">
+    <div class="flex-1 p-0 pb-3 w-full bg-white text-gray-medium dark:bg-gray-medium-2 dark:text-white">
       <slot />
     </div>
     <Footer />

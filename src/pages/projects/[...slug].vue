@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container py-4">
     <article class="prose dark:prose-invert max-w-none">
       <h1>{{ project.title }}</h1>
       <p>{{ project.description }}</p>

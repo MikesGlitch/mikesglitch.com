@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-white dark:bg-gray-dark font-bold text-black dark:text-white py-12 px-1">
+  <footer class="bg-white dark:bg-gray-medium-2 font-bold text-black dark:text-white py-12 px-1">
     <div class="container">
       <div class="flex flex-col w-full h-full items-center justify-center">
         <a class="hover:text-hotpink flex gap-2 items-center" target="_blank" href="mailto:mclarkgb@gmail.com?subject=Hi%20Mike!">

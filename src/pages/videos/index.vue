@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div ref="videoPlayer" class="video-player-container">
+    <div ref="videoPlayer" class="video-player-container bg-gray-light dark:bg-gray-medium-default">
       <div v-if="data.latestVideoEmbedIframeUrl" class="video-player-ribbon container">
         <div class="video-player">
           <iframe class="border-none" title="Watch me code!" :src="data.latestVideoEmbedIframeUrl" allowfullscreen />
@@ -34,17 +34,17 @@ const onChangeVideo = (video: IYouTubeVideo) => {
 @use "assets/css/screen-breakpoints";
 @use "assets/css/global/variables";
 
-.light {
-  .video-player-container {
-    background-color: variables.$light-grey;
-  }
-}
+// .light {
+//   .video-player-container {
+//     background-color: variables.$light-grey;
+//   }
+// }
 
-.dark {
-  .video-player-container {
-    background-color: variables.$dark-theme-secondary-background-color;
-  }
-}
+// .dark {
+//   .video-player-container {
+//     background-color: variables.$dark-theme-secondary-background-color;
+//   }
+// }
 
 .video-player-container {
   margin-bottom: 2rem;

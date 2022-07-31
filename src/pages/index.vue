@@ -1,6 +1,6 @@
 <template>
   <div class="prose dark:prose-invert max-w-none prose-a:text-hotpink">
-    <div class="about-me-summary bg-gray-light dark:bg-gray-medium-2">
+    <div class="about-me-summary bg-gray-light dark:bg-gray-medium-default">
       <div class="about-me-summary__container container">
         <div class="about-me-summary__description">
           <h1>Hi, I'm Mike.</h1>
