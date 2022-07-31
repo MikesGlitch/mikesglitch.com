@@ -6,16 +6,17 @@
     <!-- <h3>Upcoming projects</h3> -->
     <!-- <h3>Projects</h3> -->
 
-    <CardList :data="projects" />
+    <CardList :data="data" />
   </div>
 </template>
 
 <script lang="ts" setup>
-const { data: projects } = await useAsyncData('projects', async () => {
-  const projectsData = await queryContent('/projects')
-    .only(['title', 'description', 'img', '_path', 'author'])
+import { CardData } from '~/components/card'
+
+const { data } = await useAsyncData('projects', () => {
+  return queryContent<CardData>('/projects')
+    .only(['title', 'description', 'img', '_path'])
     .sort({ createdAt: 1 })
     .find()
-  return projectsData
 })
 </script>

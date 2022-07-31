@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="bg-gray-light dark:bg-gray-medium-default hover:text-hotpink h-full">
     <div class="card__tabs">
       <slot name="tabs" />
     </div>
@@ -7,8 +7,8 @@
       <slot name="image" />
       <slot name="image-label" />
     </div>
-    <div class="card__content">
-      <h5 class="card__title">
+    <div class="p-4">
+      <h5 class="font-bold">
         {{ title }}
       </h5>
       <slot />
@@ -27,68 +27,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-@use 'assets/css/global/variables';
-.light-theme{
-  .card {
-    background-color: variables.$light-theme-secondary-background-color;
-
-    color: black;
-
-    &:hover {
-      color: hotpink;
-    }
-
-    &__image {
-      &-label {
-        color: white;
-      }
-    }
-  }
-}
-
-.dark{
-  .card {
-    background-color: variables.$dark-theme-secondary-background-color;
-    color: white;
-
-    &:hover {
-      color: hotpink;
-    }
-
-    &__image {
-      &-label {
-        color: white;
-      }
-    }
-  }
-}
-
-.card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  height: 100%;
-
-  /* On mouse-over, add a deeper shadow */
-  &:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  }
-
-  &__title {
-    margin: 0;
-    font-size: 1rem;
-  }
-
-  &__image {
-    img {
-      vertical-align: bottom;
-    }
-  }
-
-  &__content {
-    padding: 1rem;
-  }
-}
-</style>
