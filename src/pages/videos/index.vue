@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data">
+  <div>
     <div ref="videoPlayer" class="video-player-container">
       <div v-if="data.latestVideoEmbedIframeUrl" class="video-player-ribbon container">
         <div class="video-player">
@@ -23,8 +23,6 @@ const videoPlayer = ref(null)
 const { data } = await useAsyncData('youtubevideos', () => {
   return $fetch<IGetYoutubeVideosResponse>(`${config.public.apiBaseUrl}/youtube-videos`)
 })
-
-console.log('videos page data:', data.value)
 
 const onChangeVideo = (video: IYouTubeVideo) => {
   data.value.latestVideoEmbedIframeUrl = video.iframeEmbedUrl
