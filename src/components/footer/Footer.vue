@@ -1,7 +1,7 @@
 <template>
   <footer class="bg-white dark:bg-gray-medium-2 font-bold text-black dark:text-white py-12 px-1">
     <div class="container">
-      <div class="flex gap-6 w-full h-full items-center justify-center">
+      <div class="flex flex-col sm:flex-row gap-6 w-full h-full items-center justify-center">
         <NavExternalLink title="Contact me" href="mailto:mclarkgb@gmail.com?subject=Hi%20Mike!" text="Contact me">
           <template #icon>
             <IconMail class="h-4 w-4 text-black dark:text-white" />

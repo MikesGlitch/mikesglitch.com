@@ -16,10 +16,10 @@
 
     <div class="container flex flex-col gap-8 mt-8">
       <div class="flex flex-col gap-2">
-        <div class="flex justify-between">
+        <div class="flex justify-between items-center mb-2">
           <TextHeading heading="Latest Articles" />
           <NuxtLink v-slot="{ navigate }" custom to="/blog">
-            <Button label="View All" @click="navigate" />
+            <Button class="hidden sm:block" label="View All" @click="navigate" />
           </NuxtLink>
         </div>
         <div v-for="article of data.blogArticles" :key="article._path">
@@ -30,10 +30,10 @@
       </div>
 
       <div class="flex flex-col gap-2">
-        <div class="flex justify-between">
+        <div class="flex justify-between items-center mb-2">
           <TextHeading heading="Latest Videos" />
           <NuxtLink v-slot="{ navigate }" custom to="/videos">
-            <Button label="View All" @click="navigate" />
+            <Button class="hidden sm:block" label="View All" @click="navigate" />
           </NuxtLink>
         </div>
         <div v-for="video of data.latestVideos" :key="video.id">
@@ -44,10 +44,10 @@
       </div>
 
       <div class="flex flex-col gap-2">
-        <div class="flex justify-between">
+        <div class="flex justify-between items-center mb-2">
           <TextHeading heading="Latest Projects" />
           <NuxtLink v-slot="{ navigate }" custom to="/projects">
-            <Button label="View All" @click="navigate" />
+            <Button class="hidden sm:block" label="View All" @click="navigate" />
           </NuxtLink>
         </div>
         <div v-for="article of data.projectArticles" :key="article._path">
