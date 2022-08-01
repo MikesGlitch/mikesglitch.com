@@ -1,14 +1,7 @@
 import { defineNuxtConfig } from 'nuxt'
 
-// https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   target: 'server',
-
-  // render: {
-  //   fallback: {
-  //     dist: false
-  //   }
-  // },
 
   css: [
     '~/assets/css/global.scss'
@@ -18,10 +11,6 @@ export default defineNuxtConfig({
   ],
 
   components: true,
-
-  // content: {
-  //   liveEdit: false
-  // },
 
   modules: [
     '@nuxt/content',

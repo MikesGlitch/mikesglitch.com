@@ -1,8 +1,8 @@
 <template>
-  <div class="prose dark:prose-invert max-w-none prose-a:text-hotpink">
+  <div class="">
     <div class="about-me-summary bg-gray-light dark:bg-gray-medium-default">
       <div class="about-me-summary__container container">
-        <div class="about-me-summary__description">
+        <div class="about-me-summary__description prose dark:prose-invert max-w-none prose-a:text-hotpink">
           <h1>Hi, I'm Mike.</h1>
           <p>I'm a full stack web developer from Glasgow, Scotland.</p>
           <p>
@@ -14,29 +14,44 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="latest-articles">
-        <h2>Latest Articles</h2>
+    <div class="container flex flex-col gap-8 mt-8">
+      <div class="flex flex-col gap-2">
+        <div class="flex justify-between">
+          <TextHeading heading="Latest Articles" />
+          <NuxtLink v-slot="{ navigate }" custom to="/blog">
+            <Button label="View All" @click="navigate" />
+          </NuxtLink>
+        </div>
         <div v-for="article of data.blogArticles" :key="article._path">
-          <NuxtLink :to="article._path">
+          <NuxtLink class="text-hotpink" :to="article._path">
             {{ article.title }}
           </NuxtLink>
         </div>
       </div>
 
-      <div class="latest-videos">
-        <h2>Latest Videos</h2>
+      <div class="flex flex-col gap-2">
+        <div class="flex justify-between">
+          <TextHeading heading="Latest Videos" />
+          <NuxtLink v-slot="{ navigate }" custom to="/videos">
+            <Button label="View All" @click="navigate" />
+          </NuxtLink>
+        </div>
         <div v-for="video of data.latestVideos" :key="video.id">
-          <NuxtLink to="/videos">
+          <NuxtLink class="text-hotpink" to="/videos">
             {{ video.title }}
           </NuxtLink>
         </div>
       </div>
 
-      <div class="latest-projects">
-        <h2>Latest Projects</h2>
+      <div class="flex flex-col gap-2">
+        <div class="flex justify-between">
+          <TextHeading heading="Latest Projects" />
+          <NuxtLink v-slot="{ navigate }" custom to="/projects">
+            <Button label="View All" @click="navigate" />
+          </NuxtLink>
+        </div>
         <div v-for="article of data.projectArticles" :key="article._path">
-          <NuxtLink :to="article._path">
+          <NuxtLink class="text-hotpink" :to="article._path">
             {{ article.title }}
           </NuxtLink>
         </div>

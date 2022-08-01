@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
-      <a v-for="video in videos" :key="video.id" @click="onVideoClicked(video)">
+      <a v-for="video in videos" :key="video.id" class="cursor-pointer" @click="onVideoClicked(video)">
         <Card :title="video.title" :class="{ 'text-hotpink': currentVideo == video.iframeEmbedUrl }" @click="onVideoClicked(video)">
           <template #image>
             <img class="hidden sm:block object-conver w-full" :src="video.thumbnail" alt="Thumbnail">
