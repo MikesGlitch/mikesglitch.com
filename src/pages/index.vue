@@ -6,9 +6,9 @@
           <h1>Hi, I'm Mike.</h1>
           <p>I'm a full stack web developer from Glasgow, Scotland.</p>
           <p>
-            Check out my <NuxtLink to="/blog">articles</NuxtLink>, <NuxtLink to="/videos">videos</NuxtLink> and <a href="https://www.youtube.com/channel/UCfx1yOrSVwlO-VwpKxvlqow" title="My Youtube channel">live streams!</a>
+            Check out my <LinkInternal to="/blog" text="articles" />, <LinkInternal to="/videos" text="videos" /> and <LinkExternal href="https://www.youtube.com/channel/UCfx1yOrSVwlO-VwpKxvlqow" title="My Youtube channel" text="live streams!" />
           </p>
-          <p>Feel free to take a look at my latest projects on <a href="https://github.com/MikesGlitch" title="My github" target="_blank">Github</a>.</p>
+          <p>Feel free to take a look at my latest projects on <LinkExternal href="https://github.com/MikesGlitch" title="My Github" text="Github" />.</p>
         </div>
         <AvatarMe class="about-me-summary__image" />
       </div>
@@ -18,42 +18,30 @@
       <div class="flex flex-col gap-2">
         <div class="flex justify-between items-center mb-2">
           <TextHeading heading="Latest Articles" />
-          <NuxtLink v-slot="{ navigate }" custom to="/blog">
-            <Button class="hidden sm:block" label="View All" @click="navigate" />
-          </NuxtLink>
+          <LinkButtonInternal to="/blog" class="hidden sm:block" text="View All" />
         </div>
         <div v-for="article of data.blogArticles" :key="article._path">
-          <NuxtLink class="text-hotpink" :to="article._path">
-            {{ article.title }}
-          </NuxtLink>
+          <LinkInternal :to="article._path" :text="article.title" />
         </div>
       </div>
 
       <div class="flex flex-col gap-2">
         <div class="flex justify-between items-center mb-2">
           <TextHeading heading="Latest Videos" />
-          <NuxtLink v-slot="{ navigate }" custom to="/videos">
-            <Button class="hidden sm:block" label="View All" @click="navigate" />
-          </NuxtLink>
+          <LinkButtonInternal to="/videos" class="hidden sm:block" text="View All" />
         </div>
         <div v-for="video of data.latestVideos" :key="video.id">
-          <NuxtLink class="text-hotpink" to="/videos">
-            {{ video.title }}
-          </NuxtLink>
+          <LinkInternal to="/videos" :text="video.title" />
         </div>
       </div>
 
       <div class="flex flex-col gap-2">
         <div class="flex justify-between items-center mb-2">
           <TextHeading heading="Latest Projects" />
-          <NuxtLink v-slot="{ navigate }" custom to="/projects">
-            <Button class="hidden sm:block" label="View All" @click="navigate" />
-          </NuxtLink>
+          <LinkButtonInternal to="/projects" class="hidden sm:block" text="View All" />
         </div>
         <div v-for="article of data.projectArticles" :key="article._path">
-          <NuxtLink class="text-hotpink" :to="article._path">
-            {{ article.title }}
-          </NuxtLink>
+          <LinkInternal :to="article._path" :text="article.title" />
         </div>
       </div>
     </div>
@@ -62,7 +50,6 @@
 
 <script lang="ts" setup>
 import { IGetYoutubeVideosResponse } from '~/interfaces/Api'
-
 const config = useRuntimeConfig()
 
 const { data } = await useAsyncData('homePageInit', async () => {

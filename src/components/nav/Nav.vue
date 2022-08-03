@@ -6,26 +6,20 @@
           <span class="text-white">Mikes</span><span class="text-hotpink">Glitch</span>
         </NuxtLink>
         <div class="flex flex-row flex-wrap gap-6 items-center w-full">
-          <NuxtLink class="hover:text-hotpink hover:underline hover:underline-offset-4" to="/projects">
-            Projects
-          </NuxtLink>
-          <NuxtLink class="hover:text-hotpink hover:underline hover:underline-offset-4" to="/blog">
-            Blog
-          </NuxtLink>
-          <NuxtLink class="hover:text-hotpink hover:underline hover:underline-offset-4" to="/videos">
-            Videos
-          </NuxtLink>
+          <LinkInternal to="/projects" text="Projects" />
+          <LinkInternal to="/blog" text="Blog" />
+          <LinkInternal to="/videos" text="Videos" />
           <div class="hidden xl:flex flex-row gap-6">
-            <NavExternalLink title="Check out my GitHub" href="https://github.com/mikesglitch" text="GitHub">
+            <LinkExternal title="Check out my GitHub" href="https://github.com/mikesglitch" text="GitHub">
               <template #icon>
                 <IconGithub class="min-w-[1rem]" />
               </template>
-            </NavExternalLink>
-            <NavExternalLink title="Check out my LinkedIn" href="https://www.linkedin.com/in/mikesglitch" text="LinkedIn">
+            </LinkExternal>
+            <LinkExternal title="Check out my LinkedIn" href="https://www.linkedin.com/in/mikesglitch" text="LinkedIn">
               <template #icon>
                 <IconLinkedin class="fill-white min-w-[1rem]" />
               </template>
-            </NavExternalLink>
+            </LinkExternal>
           </div>
         </div>
       </div>
