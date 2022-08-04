@@ -1,10 +1,10 @@
 <template>
   <div class="container py-4">
-    <article class="prose dark:prose-invert max-w-none">
+    <TextProse>
       <h1>{{ project.title }}</h1>
       <p>{{ project.description }}</p>
       <ContentDoc :path="path" />
-    </article>
+    </TextProse>
   </div>
 </template>
 

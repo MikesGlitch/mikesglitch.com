@@ -2,13 +2,15 @@
   <div class="">
     <div class="about-me-summary bg-gray-light dark:bg-gray-medium-default">
       <div class="about-me-summary__container container">
-        <div class="about-me-summary__description prose dark:prose-invert max-w-none prose-a:text-hotpink">
+        <div class="about-me-summary__description">
+        <TextProse>
           <h1>Hi, I'm Mike.</h1>
           <p>I'm a full stack web developer from Glasgow, Scotland.</p>
           <p>
             Check out my <LinkInternal to="/blog" text="articles" />, <LinkInternal to="/videos" text="videos" /> and <LinkExternal href="https://www.youtube.com/channel/UCfx1yOrSVwlO-VwpKxvlqow" title="My Youtube channel" text="live streams!" />
           </p>
           <p>Feel free to take a look at my latest projects on <LinkExternal href="https://github.com/MikesGlitch" title="My Github" text="Github" />.</p>
+        </TextProse>
         </div>
         <AvatarMe class="about-me-summary__image" />
       </div>
