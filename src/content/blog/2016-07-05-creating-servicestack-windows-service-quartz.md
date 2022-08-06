@@ -19,14 +19,15 @@ If you're using the library, all you need to do to register your Quartz with Ser
 
 ```csharp
 //// Add the using
+
 using ServiceStack.Funq.Quartz;
- 
+
 //// This method scans the assembly for the Jobs
 container.RegisterQuartzScheduler(typeof(HelloJob));
- 
+
 //// Resolve the Quartz Scheduler as normal
 var scheduler = container.Resolve<IScheduler>();
- 
+
 //// Start Quartz Scheduler
 scheduler.Start();
 ```

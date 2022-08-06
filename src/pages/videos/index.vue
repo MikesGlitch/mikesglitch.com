@@ -17,6 +17,7 @@
 <script lang="ts" setup>
 import { IGetYoutubeVideosResponse, IYouTubeVideo } from '~/interfaces/Api'
 
+useHead({ title: 'Videos' })
 const config = useRuntimeConfig()
 const videoPlayer = ref(null)
 
@@ -33,18 +34,6 @@ const onChangeVideo = (video: IYouTubeVideo) => {
 <style lang="scss" scoped>
 @use "assets/css/screen-breakpoints";
 @use "assets/css/global/variables";
-
-// .light {
-//   .video-player-container {
-//     background-color: variables.$light-grey;
-//   }
-// }
-
-// .dark {
-//   .video-player-container {
-//     background-color: variables.$dark-theme-secondary-background-color;
-//   }
-// }
 
 .video-player-container {
   margin-bottom: 2rem;

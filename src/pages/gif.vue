@@ -5,6 +5,8 @@
 </template>
 
 <script setup lang="ts">
+useHead({ title: 'Gif' })
+
 const currentGif = ref('')
 const gifInterval = ref(null)
 

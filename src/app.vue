@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 useHead({
-  title: 'MikesGlitch.com | Delivering highly scalable, efficient and tested apps',
+  titleTemplate: (titleChunk: string) => titleChunk ? `MikesGlitch | ${titleChunk}` : 'MikesGlitch',
   htmlAttrs: {
     lang: 'en'
   },

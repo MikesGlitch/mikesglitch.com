@@ -13,6 +13,8 @@
 <script lang="ts" setup>
 import { CardData } from '~/components/card/CardList.vue'
 
+useHead({ title: 'Projects' })
+
 const { data } = await useAsyncData('projects', () => {
   return queryContent<CardData>('/projects')
     .only(['title', 'description', 'img', '_path'])
