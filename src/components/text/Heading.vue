@@ -1,5 +1,5 @@
 <template>
-  <h2 class="text-xl font-bold">
+  <h2 class="text-2xl font-bold">
     {{ heading }}
   </h2>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-light dark:bg-gray-medium-default hover:text-hotpink h-full">
+  <div class="bg-gray-light dark:bg-gray-dark group h-full">
     <div class="card__tabs">
       <slot name="tabs" />
     </div>
@@ -7,23 +7,27 @@
       <slot name="image" />
       <slot name="image-label" />
     </div>
-    <div class="p-4">
-      <h5 class="font-bold">
+    <div class="p-4 h-full">
+      <h5 v-if="title" class="font-bold group-hover:underline underline-offset-4 group-hover:text-hotpink">
         {{ title }}
       </h5>
+      <span v-if="description" class="text-sm">{{ description }}</span>
       <slot />
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    title: {
-      type: String,
-      required: false,
-      default: null
-    }
+<script lang="ts" setup>
+defineProps({
+  title: {
+    type: String,
+    required: false,
+    default: undefined
+  },
+  description: {
+    type: String,
+    required: false,
+    default: undefined
   }
-}
+})
 </script>

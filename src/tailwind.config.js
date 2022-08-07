@@ -13,13 +13,13 @@ module.exports = {
       '2xl': '1024px'
     },
     container: {
-      center: true
+      center: true,
+      padding: '1rem'
     },
     fontFamily: {
       body: ['Roboto Mono', 'monospace']
     },
     colors: {
-      // slate: colors.slate,
       gray: {
         light: '#f1f4f8',
         medium: {

@@ -1,9 +1,9 @@
 <template>
   <div>
-    <div ref="videoPlayer" class="video-player-container bg-gray-light dark:bg-gray-medium-default">
-      <div v-if="data.latestVideoEmbedIframeUrl" class="video-player-ribbon container">
+    <div ref="videoPlayer" class="video-player-container bg-gray-light dark:bg-gray-medium-default mb-8">
+      <div v-if="data.latestVideoEmbedIframeUrl" class="container py-4">
         <div class="video-player">
-          <iframe class="border-none" title="Watch me code!" :src="data.latestVideoEmbedIframeUrl" allowfullscreen />
+          <iframe class="border-none w-full aspect-video" title="Watch me code!" :src="data.latestVideoEmbedIframeUrl" allowfullscreen />
         </div>
       </div>
     </div>
@@ -30,33 +30,3 @@ const onChangeVideo = (video: IYouTubeVideo) => {
   videoPlayer.value.scrollIntoView({ behavior: 'smooth' })
 }
 </script>
-
-<style lang="scss" scoped>
-@use "assets/css/screen-breakpoints";
-@use "assets/css/global/variables";
-
-.video-player-container {
-  margin-bottom: 2rem;
-
-  .video-player-ribbon {
-    padding: 1rem 0;
-    margin: 0 auto;
-  }
-
-  .video-player {
-    /* falls back to 16/9, but otherwise uses ratio from HTML */
-    position: relative;
-    padding-bottom: 56.25%;
-    /* 16:9 */
-    height: 0;
-
-    iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-</style>

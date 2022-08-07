@@ -15,5 +15,5 @@ Have a look at the source code at [my GitHub repository](https://github.com/Mike
 
 You can watch me build this program [here](https://youtu.be/GkkEfTrumYI):  
 <center>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/GkkEfTrumYI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/GkkEfTrumYI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </center>
