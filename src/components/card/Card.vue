@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-light dark:bg-gray-dark group h-full">
+  <div class="bg-gray-light dark:bg-gray-dark group h-full flex flex-col">
     <div class="card__tabs">
       <slot name="tabs" />
     </div>
@@ -7,7 +7,7 @@
       <slot name="image" />
       <slot name="image-label" />
     </div>
-    <div class="p-4 h-full">
+    <div class="p-4 flex-1">
       <h5 v-if="title" class="font-bold group-hover:underline underline-offset-4 group-hover:text-hotpink">
         {{ title }}
       </h5>
