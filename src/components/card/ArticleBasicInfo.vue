@@ -8,7 +8,7 @@
     <Card>
       <div class="flex flex-col justify-between gap-2 h-full">
         <span v-if="date" class="text-sm italic">{{ toHumanReadableDate(date) }}</span>
-        <div class="flex flex-col gap-2">
+        <div class="flex flex-col gap-2 flex-1">
           <h5 class="font-bold group-hover:underline underline-offset-4 group-hover:text-hotpink">
             {{ title }}
           </h5>
