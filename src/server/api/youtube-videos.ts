@@ -25,35 +25,37 @@ export default defineEventHandler(async () => {
 
   // This doesn't page yet - it just takes 50.  I might want to add paging when I have more videos
   const requestUrl = `https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=${myChannelId}&type=video&maxResults=50&key=${config.serverGoogleApiKey}`
-  const response = await $fetch(requestUrl).then((res: { data: any }) => res.data).catch((err) => {
-    console.error('Error getting response from youtube api', err)
-    return null
-  })
 
-  if (response) {
-    const latestVideos: IYouTubeVideo[] = response.items.map((video: any) => {
-      return {
-        id: video.id.videoId,
-        publishedAt: video.snippet.publishedAt,
-        thumbnail: video.snippet.thumbnails.medium.url,
-        title: escapeHtmlCharacters(video.snippet.title),
-        description: escapeHtmlCharacters(video.snippet.description),
-        iframeEmbedUrl: getYoutubeEmbedUrl(video.id.videoId)
+  try {
+    const response = await $fetch<any>(requestUrl)
+    if (response) {
+      const latestVideos: IYouTubeVideo[] = response.items.map((video: any) => {
+        return {
+          id: video.id.videoId,
+          publishedAt: video.snippet.publishedAt,
+          thumbnail: video.snippet.thumbnails.medium.url,
+          title: escapeHtmlCharacters(video.snippet.title),
+          description: escapeHtmlCharacters(video.snippet.description),
+          iframeEmbedUrl: getYoutubeEmbedUrl(video.id.videoId)
+        }
+      })
+
+      const video: IGetYoutubeVideosResponse = {
+        latestVideoEmbedIframeUrl: latestVideos[0].iframeEmbedUrl,
+        latestVideos
       }
-    })
 
-    const video: IGetYoutubeVideosResponse = {
-      latestVideoEmbedIframeUrl: latestVideos[0].iframeEmbedUrl,
-      latestVideos
+      const responseContent = JSON.stringify(video)
+      await cacheClient.set(CACHE_KEY, responseContent, { expires: 3600 }).catch(err => console.error(err)) // 1 hour
+      console.log('cached the youtube response')
+
+      return JSON.parse(responseContent)
+    } else {
+      console.error('Unable to call the youtube api')
+      return createError({ statusCode: 503, data: 'Unable to call the youtube api' })
     }
-
-    const responseContent = JSON.stringify(video)
-    await cacheClient.set(CACHE_KEY, responseContent, { expires: 3600 }).catch(err => console.error(err)) // 1 hour
-    console.log('cached the youtube response')
-
-    return JSON.parse(responseContent)
-  } else {
-    console.error('Unable to call the youtube api')
-    return createError({ statusCode: 503, data: 'Unable to call the youtube api' })
+  } catch (error) {
+    console.error('Error getting response from youtube api', error)
+    return null
   }
 })
