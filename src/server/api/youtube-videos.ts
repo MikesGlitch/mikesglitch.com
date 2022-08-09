@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-import axios from 'axios'
 import { Client } from 'memjs'
 import { createError } from 'h3'
 import { IGetYoutubeVideosResponse, IYouTubeVideo } from 'interfaces/Api'
@@ -26,7 +25,7 @@ export default defineEventHandler(async () => {
 
   // This doesn't page yet - it just takes 50.  I might want to add paging when I have more videos
   const requestUrl = `https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=${myChannelId}&type=video&maxResults=50&key=${config.serverGoogleApiKey}`
-  const response = await axios(requestUrl).then((res: { data: any }) => res.data).catch((err) => {
+  const response = await $fetch(requestUrl).then((res: { data: any }) => res.data).catch((err) => {
     console.error('Error getting response from youtube api', err)
     return null
   })

@@ -3,6 +3,7 @@ title: Spotify current song
 description: A program that gets the users current Spotify song and writes it to a text file. The text file can be easily read by OBS.
 alt: Spotify current song
 timeToRead: 5 minutes
+repoName: spotify-current-song
 ---
 
 The majority of music artists allowing free access to their music require only one thing - Attribution.  

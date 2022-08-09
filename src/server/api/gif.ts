@@ -1,6 +1,4 @@
-import axios from 'axios'
-
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
   const tags = [
     'programming',
@@ -15,9 +13,10 @@ export default defineEventHandler(async (event) => {
   const requestUrl = `https://api.giphy.com/v1/gifs/random?api_key=${
     config.serverGiphyApiKey
   }&tag=${tags.join(' ')}`
-  const response = await axios(requestUrl).then(res => res.data)
+
+  const response = await $fetch(requestUrl).then((res: { data: any }) => res.data)
 
   return {
-    gif: response.data.images.downsized_large.url
+    gif: response.images.downsized_large.url
   }
 })

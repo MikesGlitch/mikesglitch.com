@@ -24,6 +24,7 @@ export default defineNuxtConfig({
     memcacheUsername: 'unset',
     memcachePassword: 'unset',
     sendgridApiKey: 'unset',
+    githubPat: 'unset',
     public: {
       googleAnalyticsId: 'unset',
       apiBaseUrl: 'unset'

@@ -11,3 +11,15 @@ export interface IGetYoutubeVideosResponse {
   latestVideoEmbedIframeUrl: string;
   latestVideos: IYouTubeVideo[];
 }
+
+export interface IProject {
+  id: string;
+  name: string;
+  description: string;
+  stars: number;
+  url: string;
+}
+
+export interface IGetProjectsResponse {
+  projects: IProject[];
+}
