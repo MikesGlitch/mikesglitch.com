@@ -11,17 +11,28 @@
 <script lang="ts" setup>
 const theme = ref<'light' | 'dark' | undefined>(undefined)
 
+const toggleThemeClasses = (themeToChangeto: 'light' | 'dark') => {
+  document.documentElement.classList.remove('dark')
+  if (themeToChangeto === 'dark') {
+    document.documentElement.classList.add('dark')
+    document.documentElement.style.colorScheme = 'dark'
+  } else {
+    document.documentElement.classList.remove('dark')
+    document.documentElement.style.colorScheme = 'light'
+  }
+
+  theme.value = themeToChangeto
+}
+
 onMounted(() => {
   const preferredTheme = window.localStorage.getItem('theme-preference')
   if (preferredTheme) {
     switch (preferredTheme) {
       case 'light':
-        document.documentElement.classList.remove('dark')
-        theme.value = 'light'
+        toggleThemeClasses('light')
         break
       case 'dark':
-        document.documentElement.classList.add('dark')
-        theme.value = 'dark'
+        toggleThemeClasses('dark')
         break
       case 'auto':
         setupAutoTheme()
@@ -35,17 +46,17 @@ const setupAutoTheme = () => {
   const hasThemeSupport = window.matchMedia
 
   if (hasThemeSupport && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    document.documentElement.classList.add('dark')
-    theme.value = 'dark'
+    toggleThemeClasses('dark')
   } else {
-    document.documentElement.classList.remove('dark')
-    theme.value = 'light'
+    toggleThemeClasses('light')
   }
 
   if (hasThemeSupport) {
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
       const isDarkTheme = e.matches
-      theme.value = isDarkTheme ? 'dark' : 'light'
+      const newtheme = isDarkTheme ? 'dark' : 'light'
+      toggleThemeClasses(newtheme)
+      theme.value = newtheme
     })
   }
 
@@ -54,13 +65,11 @@ const setupAutoTheme = () => {
 
 const onToggleTheme = () => {
   if (theme.value === 'dark') {
-    document.documentElement.classList.remove('dark')
+    toggleThemeClasses('light')
     window.localStorage.setItem('theme-preference', 'light')
-    theme.value = 'light'
   } else {
-    document.documentElement.classList.add('dark')
+    toggleThemeClasses('dark')
     window.localStorage.setItem('theme-preference', 'dark')
-    theme.value = 'dark'
   }
 }
 </script>
