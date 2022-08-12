@@ -6,10 +6,15 @@
     <!-- <h3>Upcoming projects</h3> -->
     <!-- <h3>Projects</h3> -->
 
-    {{ error }}
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 auto-rows-fr">
-      <div v-for="project of data" :key="project.id">
-        <CardProject :to="project.url" :title="project.name" :description="project.description" :stars="project.stars" :article="project.article" />
+      <div v-for="project of data" :key="project.to">
+        <CardProject
+          :to="project.to"
+          :title="project.title"
+          :description="project.description"
+          :stars="project.stars"
+          :article="project.article"
+        />
       </div>
     </div>
     <!-- <CardList :data="data" /> -->
@@ -17,16 +22,13 @@
 </template>
 
 <script lang="ts" setup>
-import { IGetProjectsResponse, IProject } from '~~/interfaces/Api'
-
-interface IProjectCard extends IProject {
-  article: string;
-}
+import { IProjectCardProps } from '~~/components/card/Project.vue'
+import { IGetProjectsResponse } from '~~/interfaces/Api'
 
 useHead({ title: 'Projects' })
 
 const config = useRuntimeConfig()
-const { data, error } = await useAsyncData('projectsPage', async () => {
+const { data } = await useAsyncData('projectsPage', async () => {
   const projectsResponsePromise = $fetch<IGetProjectsResponse>(`${config.public.apiBaseUrl}/projects`)
   const projectsMarkdownPromise = queryContent('/projects')
     .only(['title', 'repoName', 'description', '_path'])
@@ -35,12 +37,16 @@ const { data, error } = await useAsyncData('projectsPage', async () => {
 
   const [githubProjects, articles] = await Promise.all([projectsResponsePromise, projectsMarkdownPromise])
 
-  const projectCards = githubProjects.projects.map((project): IProjectCard => {
+  const projectCards = githubProjects.projects.sort((a, b) => b.stars - a.stars).map((project): IProjectCardProps => {
     const articleData = articles.find(article => article.repoName === project.name)
 
     return {
-      ...project,
-      article: articleData ? articleData._path : undefined
+      to: project.url,
+      title: project.name,
+      description: project.description,
+      stars: project.stars,
+      article: articleData ? articleData._path : undefined,
+      lastCommittedAt: project.lastComittedAt
     }
   })
 

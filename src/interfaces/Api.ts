@@ -18,6 +18,7 @@ export interface IProject {
   description: string;
   stars: number;
   url: string;
+  lastComittedAt: string;
 }
 
 export interface IGetProjectsResponse {

@@ -37,7 +37,8 @@ export default defineEventHandler(async () => {
           name: project.name,
           description: project.description,
           stars: project.stargazers_count,
-          url: project.html_url
+          url: project.html_url,
+          lastComittedAt: project.pushed_at
         }
       })
     }

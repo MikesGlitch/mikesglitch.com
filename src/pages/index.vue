@@ -53,8 +53,14 @@
           <LinkButtonInternal to="/projects" class="hidden sm:block" text="View All" />
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 auto-rows-fr">
-          <div v-for="article of data.projectArticles" :key="article._path">
-            <CardArticleBasicInfo :to="article._path" :title="article.title" :description="article.description" />
+          <div v-for="project of data.projectCards" :key="project.to">
+            <CardProject
+              :to="project.to"
+              :title="project.title"
+              :description="project.description"
+              :stars="project.stars"
+              :article="project.article"
+            />
           </div>
         </div>
       </div>
@@ -63,7 +69,8 @@
 </template>
 
 <script lang="ts" setup>
-import { IGetYoutubeVideosResponse } from '~/interfaces/Api'
+import { IGetProjectsResponse, IGetYoutubeVideosResponse } from '~/interfaces/Api'
+import { IProjectCardProps } from '~~/components/card/Project.vue'
 const config = useRuntimeConfig()
 
 const { data } = await useAsyncData('homePageInit', async () => {
@@ -73,20 +80,35 @@ const { data } = await useAsyncData('homePageInit', async () => {
     .limit(6)
     .find()
 
-  const projectArticlesPromise = queryContent('/projects')
-    .only(['title', 'description', '_path', 'tags', 'category', 'date'])
-    .sort({ date: -1 })
-    .limit(3)
+  const projectsResponsePromise = $fetch<IGetProjectsResponse>(`${config.public.apiBaseUrl}/projects`)
+  const projectsMarkdownPromise = queryContent('/projects')
+    .only(['title', 'repoName', 'description', '_path'])
+    .sort({ createdAt: 1 })
     .find()
 
   const videosDataPromise = $fetch<IGetYoutubeVideosResponse>(`${config.public.apiBaseUrl}/youtube-videos`)
 
-  const [blogArticles, projectArticles, videosData] = await Promise.all([blogArticlesPromise, projectArticlesPromise, videosDataPromise])
+  const [blogArticles, githubProjects, projectArticles, videosData] = await Promise.all([blogArticlesPromise, projectsResponsePromise, projectsMarkdownPromise, videosDataPromise])
+
+  const top3Projects = githubProjects.projects.sort((a, b) => Date.parse(b.lastComittedAt) - Date.parse(a.lastComittedAt)).slice(0, 3)
+  const projectCards = top3Projects.map((project): IProjectCardProps => {
+    const articleData = projectArticles.find(article => article.repoName === project.name)
+
+    return {
+      to: project.url,
+      title: project.name,
+      description: project.description,
+      stars: project.stars,
+      article: articleData ? articleData._path : undefined,
+      lastCommittedAt: project.lastComittedAt
+    }
+  })
+
   let latestVideos = []
   if (videosData?.latestVideos) {
     latestVideos = videosData.latestVideos.slice(0, 3)
   }
 
-  return { latestVideos, projectArticles, blogArticles }
+  return { latestVideos, projectCards, blogArticles }
 })
 </script>

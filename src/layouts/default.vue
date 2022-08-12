@@ -1,6 +1,6 @@
 <template>
-  <div v-show="theme !== undefined" class="h-full flex flex-col font-body">
-    <Nav :is-light-theme="theme === 'light'" @toggle-theme="onToggleTheme" />
+  <div v-show="theme !== undefined" class="h-full flex flex-col font-body pt-28 md:pt-[66px]">
+    <Nav :is-light-theme="theme === 'light'" class="fixed h-28 md:h-[66px] top-0 w-full z-10" @toggle-theme="onToggleTheme" />
     <div class="flex-1 p-0 pb-3 w-full bg-white text-gray-medium dark:bg-gray-medium-2 dark:text-white">
       <slot />
     </div>

@@ -14,6 +14,7 @@
             {{ title }}
           </h5>
           <span v-if="description" class="text-sm">{{ description }}</span>
+          <span v-if="lastCommittedAt" class="text-sm">Last updated: {{ toHumanReadableDate(lastCommittedAt) }}</span>
         </div>
       </NuxtLink>
       <LinkButtonInternal v-if="article" :to="article" :title="title" text="Article" />
@@ -21,30 +22,17 @@
   </Card>
 </template>
 
-<script type="ts" setup>
-defineProps({
-  to: {
-    type: String,
-    required: true
-  },
-  title: {
-    type: String,
-    required: false,
-    default: undefined
-  },
-  description: {
-    type: String,
-    required: false,
-    default: undefined
-  },
-  stars: {
-    type: Number,
-    required: true
-  },
-  article: {
-    type: String,
-    required: false,
-    default: undefined
-  }
-})
+<script lang="ts" setup>
+import { toHumanReadableDate } from '~/utils/dateUtils'
+
+export interface IProjectCardProps {
+  to: string;
+  title?: string;
+  description?: string;
+  stars: number;
+  article?: string;
+  lastCommittedAt?: string;
+}
+
+defineProps<IProjectCardProps>()
 </script>
