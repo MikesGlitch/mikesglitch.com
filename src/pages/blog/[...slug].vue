@@ -3,8 +3,8 @@
     <TextProse>
       <h1>{{ article.title }}</h1>
       <div class="flex flex-col gap-2">
-        <span v-if="article.date" class="flex gap-1"><span>Updated at: </span> {{ toHumanReadableDate(article.date) }}</span>
-        <span v-if="article.timeToRead" class="flex gap-1"><span>Time to read: </span> {{ article.timeToRead }}</span>
+        <span v-if="article.date"><span>Updated at: </span> {{ toHumanReadableDate(article.date) }}</span>
+        <span v-if="article.timeToRead"><span>Time to read: </span> {{ article.timeToRead }}</span>
       </div>
       <ContentDoc />
     </TextProse>
