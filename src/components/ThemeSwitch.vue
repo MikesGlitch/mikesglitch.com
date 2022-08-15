@@ -2,9 +2,9 @@
   <div>
     <ClientOnly>
       <!-- Client-only because the value of the themes are set in onmounted (client side).
-    There will always be a mismatch between client and server render -->
+      There will always be a mismatch between client and server render -->
       <button
-        class="p-2 border rounded border-white hover:border-hotpink bg-gray-dark hover:bg-gray-medium-default text-white"
+        class="py-1.5 px-4 border rounded border-white hover:border-hotpink bg-gray-dark hover:bg-gray-medium-default text-white"
         type="button"
         @click="onToggle"
       >

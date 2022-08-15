@@ -1,7 +1,7 @@
 <template>
-  <div class="bg-gray-dark py-3">
-    <nav class="container flex flex-col sm:flex-row items-center justify-between text-white">
-      <div class="flex flex-col md:flex-row gap-6 mx-auto md:mx-0">
+  <div class="bg-gray-dark py-2">
+    <nav class="container h-full flex flex-col sm:flex-row items-center justify-between text-white">
+      <div class="flex flex-col md:flex-row gap-2 sm:gap-6 mx-auto md:mx-0">
         <NuxtLink class="text-2xl font-bold nav-logo text-center md:mr-4" to="/">
           <span class="text-white">Mikes</span><span class="text-hotpink">Glitch</span>
         </NuxtLink>

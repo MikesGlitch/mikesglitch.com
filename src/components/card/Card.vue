@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-light dark:bg-gray-dark h-full flex flex-col" :class="{ 'group': title || description }">
+  <div class="rounded bg-gray-light dark:bg-gray-dark h-full flex flex-col" :class="{ 'group': title || description }">
     <div class="card__tabs">
       <slot name="tabs" />
     </div>
