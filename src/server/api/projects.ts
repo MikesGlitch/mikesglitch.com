@@ -50,6 +50,6 @@ export default defineEventHandler(async () => {
     return response
   } catch (error) {
     console.error(error)
-    return createError({ statusCode: 503, data: 'Unable to call the github api' })
+    return createError({ statusCode: 500, data: 'Unable to call the github api' })
   }
 })

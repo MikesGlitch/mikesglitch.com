@@ -52,7 +52,7 @@ export default defineEventHandler(async () => {
       return JSON.parse(responseContent)
     } else {
       console.error('Unable to call the youtube api')
-      return createError({ statusCode: 503, data: 'Unable to call the youtube api' })
+      return createError({ statusCode: 500, data: 'Unable to call the youtube api' })
     }
   } catch (error) {
     console.error('Error getting response from youtube api', error)

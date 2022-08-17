@@ -24,3 +24,8 @@ export interface IProject {
 export interface IGetProjectsResponse {
   projects: IProject[];
 }
+
+export interface IGetLastDeploymentResponse {
+  lastDeployedAt: string;
+  commitSha: string;
+}
