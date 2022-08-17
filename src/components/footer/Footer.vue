@@ -1,7 +1,7 @@
 <template>
   <footer class="bg-white dark:bg-gray-medium-2 font-bold text-black dark:text-white py-8 px-1 text-sm">
     <div class="container">
-      <hr class="mb-4 text-gray-light">
+      <hr class="mb-4 text-gray-medium-2 dark:text-gray-light">
       <div class="flex flex-col gap-2.5 w-full h-full">
         <div class="flex gap-2 align-middle items-center">
           <span class="w-8 text-2xl pb-[2px] leading-4">©</span>
