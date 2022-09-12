@@ -12,7 +12,7 @@
             <p>Feel free to take a look at my latest projects on <LinkExternal href="https://github.com/MikesGlitch" title="My Github" text="Github" />.</p>
           </TextProse>
         </div>
-        <AvatarMe class="hidden sm:block ml-auto align-middle w-[300px] h-[300px]" />
+        <AvatarMeImage class="hidden sm:block ml-auto align-middle w-[300px] h-[300px]" />
       </div>
     </div>
 
