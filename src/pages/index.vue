@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <div class="container flex flex-col gap-10 mt-10">
+    <div v-if="data" class="container flex flex-col gap-10 mt-10">
       <div class="flex flex-col gap-5">
         <div class="flex justify-between items-center">
           <TextHeading heading="Latest Articles" />
@@ -29,7 +29,7 @@
         </div>
       </div>
 
-      <div class="flex flex-col gap-5">
+      <div v-if="data" class="flex flex-col gap-5">
         <div class="flex justify-between items-center">
           <TextHeading heading="Latest Videos" />
           <LinkButtonInternal to="/videos" class="hidden sm:block" text="View All" />
@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <div class="flex flex-col gap-5">
+      <div v-if="data" class="flex flex-col gap-5">
         <div class="flex justify-between items-center">
           <TextHeading heading="Latest Projects" />
           <LinkButtonInternal to="/projects" class="hidden sm:block" text="View All" />
@@ -69,7 +69,7 @@
 </template>
 
 <script lang="ts" setup>
-import { IGetProjectsResponse, IGetYoutubeVideosResponse } from '~/interfaces/Api'
+import { IGetProjectsResponse, IGetYoutubeVideosResponse, IYouTubeVideo } from '~/interfaces/Api'
 import { IProjectCardProps } from '~~/components/card/Project.vue'
 const config = useRuntimeConfig()
 
@@ -104,7 +104,7 @@ const { data } = await useAsyncData('homePageInit', async () => {
     }
   })
 
-  let latestVideos = []
+  let latestVideos: IYouTubeVideo[] = []
   if (videosData?.latestVideos) {
     latestVideos = videosData.latestVideos.slice(0, 3)
   }
