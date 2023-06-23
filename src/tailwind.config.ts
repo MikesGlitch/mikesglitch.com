@@ -1,7 +1,8 @@
-const colors = require('tailwindcss/colors')
+import tailwindTypography from '@tailwindcss/typography'
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss'
+
+export default <Partial<Config>> {
   darkMode: 'class',
   content: [],
   theme: {
@@ -28,14 +29,12 @@ module.exports = {
         },
         dark: '#1f2022'
       },
-      yellow: colors.yellow[400],
+      yellow: '#facc15',
       white: 'white',
       black: 'black',
       hotpink: 'hotpink'
     },
     extend: {}
   },
-  plugins: [
-    require('@tailwindcss/typography')
-  ]
+  plugins: [tailwindTypography]
 }
