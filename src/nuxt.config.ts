@@ -1,7 +1,5 @@
-import { defineNuxtConfig } from 'nuxt'
-
 export default defineNuxtConfig({
-  target: 'server',
+  // target: 'server',
 
   css: [
     '~/assets/css/global.scss'
