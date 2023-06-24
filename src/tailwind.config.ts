@@ -17,9 +17,6 @@ export default <Partial<Config>> {
       center: true,
       padding: '1rem'
     },
-    fontFamily: {
-      body: ['Roboto Mono', 'monospace']
-    },
     colors: {
       gray: {
         light: '#f1f4f8',

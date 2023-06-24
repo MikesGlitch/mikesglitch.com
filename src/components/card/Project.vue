@@ -9,7 +9,7 @@
         target="_blank"
       >
         <span class="text-sm italic">⭐ {{ stars }} stars</span>
-        <div class="flex flex-col gap-2 flex-1">
+        <div class="flex flex-col gap-4 flex-1 mt-3">
           <span class="flex gap-2 items-center">
             <h5 class="font-bold group-hover:underline underline-offset-4 group-hover:text-hotpink">
               {{ title }}

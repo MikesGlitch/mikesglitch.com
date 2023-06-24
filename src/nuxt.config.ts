@@ -1,6 +1,4 @@
 export default defineNuxtConfig({
-  // target: 'server',
-
   css: [
     '~/assets/css/global.scss'
   ],

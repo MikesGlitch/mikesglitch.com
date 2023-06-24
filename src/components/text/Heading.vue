@@ -1,6 +1,7 @@
 <template>
-  <h2 class="text-2xl font-bold">
+  <h2 class="font-bold" :class="sizeClass">
     {{ heading }}
+    <slot />
   </h2>
 </template>
 
@@ -10,6 +11,11 @@ defineProps({
     type: String,
     required: false,
     default: ''
+  },
+  sizeClass: {
+    type: String,
+    required: false,
+    default: 'text-2xl'
   }
 })
 </script>
