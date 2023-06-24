@@ -35,18 +35,14 @@
     <div class="container flex flex-col gap-24 mt-12">
       <div class="flex flex-col gap-8">
         <div>
-          <TextHeading>Recent <span class="text-hotpink">Clients</span></TextHeading>
+          <TextHeading>More <span class="text-hotpink">About Me</span></TextHeading>
         </div>
-        <p class="text-center">
-          I have had the privilege of working with these outstanding companies in recent years.
-        </p>
-
-        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 auto-rows-fr items-center">
-          <img class="object-cover mx-auto" src="/clients/isometrix-logo.png" alt="IsoMetrix">
-          <img class="object-cover mx-auto" src="/clients/aggreko-logo.svg" alt="Aggreko">
-          <img class="object-cover mx-auto" src="/clients/sword-logo.webp" alt="Sword">
-          <img class="object-cover mx-auto" src="/clients/CBRE-logo.png" alt="CBRE">
-          <img class="object-cover mx-auto" src="/clients/canada-life-logo.svg" alt="Canada Life">
+        <div class="flex flex-col gap-4">
+          <p>
+            Software development isn't just my job, it's my hobby. Some people complain about having to learn new things every few years, but I think that's the best part of our field. There's always something new to explore and amazing people to learn from. The only problem is finding the time to do it all.
+          </p>
+          <p>Maybe I should quit my job and become a full-time hobbyist. 😁</p>
+          <p>Outside of software development, I'm starting to appreciate travel. I believe traveling is not only a fun thing to do, but also can broaden my horizons and make me a better person.  I'm looking to do a lot more of it in the near future. 🚀</p>
         </div>
       </div>
 
@@ -67,7 +63,27 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-col gap-10">
+
+      <div class="flex flex-col gap-8">
+        <div>
+          <TextHeading>Recent <span class="text-hotpink">Clients</span></TextHeading>
+        </div>
+
+        <Card class="py-8">
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 auto-rows-fr items-center">
+            <img class="object-cover mx-auto" src="/clients/isometrix-logo.png" alt="IsoMetrix">
+            <img class="object-cover mx-auto" src="/clients/aggreko-logo.svg" alt="Aggreko">
+            <img class="object-cover mx-auto" src="/clients/sword-logo.webp" alt="Sword">
+            <img class="object-cover mx-auto" src="/clients/CBRE-logo.png" alt="CBRE">
+            <img class="object-cover mx-auto" src="/clients/canada-life-logo.svg" alt="Canada Life">
+          </div>
+          <p class="text-center italic mt-8">
+            I have had the privilege of working with these outstanding companies in recent years.
+          </p>
+        </Card>
+      </div>
+
+      <div class="flex flex-col gap-10 mb-24">
         <div class="flex justify-between items-center">
           <TextHeading>Get In <span class="text-hotpink">Contact</span></TextHeading>
         </div>
