@@ -23,7 +23,8 @@ export default defineNuxtConfig({
     githubPat: 'unset',
     public: {
       googleAnalyticsId: 'unset',
-      apiBaseUrl: 'unset'
+      apiBaseUrl: 'unset',
+      web3formsAccessKey: 'unset'
     }
   },
 

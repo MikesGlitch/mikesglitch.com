@@ -15,7 +15,7 @@ defineProps({
   sizeClass: {
     type: String,
     required: false,
-    default: 'text-2xl'
+    default: 'text-3xl'
   }
 })
 </script>

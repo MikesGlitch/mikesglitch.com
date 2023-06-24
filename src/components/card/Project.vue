@@ -8,15 +8,17 @@
         :external="true"
         target="_blank"
       >
-        <span class="text-sm italic">⭐ {{ stars }} stars</span>
         <div class="flex flex-col gap-4 flex-1 mt-3">
-          <span class="flex gap-2 items-center">
-            <h5 class="text-lg font-bold group-hover:underline underline-offset-4 group-hover:text-hotpink">
-              {{ title }}
-            </h5>
-            <IconExternalLink class="h-4 w-4 text-auto min-w-[1rem] group-hover:text-hotpink" />
-          </span>
-          <span v-if="description" class="text-sm">{{ description }}</span>
+          <div class="flex justify-between flex-wrap">
+            <span class="flex gap-2 items-center">
+              <h5 class="text-lg font-bold group-hover:underline underline-offset-4 group-hover:text-hotpink">
+                {{ title }}
+              </h5>
+              <IconExternalLink class="h-4 w-4 text-auto min-w-[1rem] group-hover:text-hotpink" />
+            </span>
+            <span class="text-md italic">⭐ {{ stars }} stars</span>
+          </div>
+          <span v-if="description" class="text-md">{{ description }}</span>
           <span v-if="lastCommittedAt" class="text-sm">Last updated: {{ toHumanReadableDate(lastCommittedAt) }}</span>
         </div>
       </NuxtLink>
