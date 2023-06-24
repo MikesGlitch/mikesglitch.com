@@ -109,18 +109,18 @@
               </NuxtLink>
             </div> -->
           </div>
-          <form class="w-2/3 mx-auto" @submit.prevent="sendContactForm">
-            <div class="grid grid-cols-2 gap-5">
+          <form class="w-full sm:w-2/3 mx-auto" @submit.prevent="sendContactForm">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div class="w-full">
                 <label class="block font-bold mb-2" for="fullName">
-                  Full Name
+                  Name
                 </label>
                 <input
                   id="fullName"
                   v-model="contactForm.name"
                   :disabled="contactFormDisabled"
                   name="fullName"
-                  class="appearance-none block w-full border focus:border-hotpink rounded py-3 px-4 mb-3 leading-tight focus:outline-none"
+                  class="appearance-none block w-full border focus:border-hotpink rounded py-3 px-4 leading-tight focus:outline-none"
                   type="text"
                   :required="true"
                 >
@@ -139,7 +139,7 @@
                   type="email"
                 >
               </div>
-              <div class="w-full col-span-2">
+              <div class="w-full sm:col-span-2">
                 <label class="block font-bold mb-2" for="message">
                   Message
                 </label>
@@ -149,36 +149,16 @@
                   rows="10"
                   :disabled="contactFormDisabled"
                   name="message"
-                  class="appearance-none block w-full text-gray-700 border focus:border-hotpink rounded py-3 px-4 mb-3 leading-tight focus:outline-none"
+                  class="appearance-none block w-full text-gray-700 border focus:border-hotpink rounded py-3 px-4 leading-tight focus:outline-none"
                   placeholder="Say hi!"
                 />
               </div>
+              <div class="sm:col-span-2 w-full text-center">
+                <Button class="text-2xl px-8" type="submit" title="Send" :disabled="contactFormDisabled" :label="sendButtonLabel" />
+              </div>
             </div>
-            <Button class="text-lg" type="submit" title="Send" :disabled="contactFormDisabled" :label="sendButtonLabel" />
           </form>
         </div>
-
-        <!-- <div class="flex gap-5">
-          <div class="flex flex-col gap-4 text-lg">
-            <p>
-              If you want to chat with me, feel free to send me a message. I love meeting new people and networking. If you are looking for someone to help you with your next project, I'm also available for hire.
-            </p>
-            <p>
-              You can ping me on
-              <LinkExternal title="Message me on LinkedIn" href="https://www.linkedin.com/in/mikesglitch" text="LinkedIn" />
-              or
-              <LinkExternal title="Message me on Discord" href="https://discord.com/users/425717708663947265" text="Discord" /> and I'll get back to you.
-            </p>
-          </div>
-          <div class="ml-auto flex gap-4 items-center">
-            <NuxtLink to="https://www.linkedin.com/in/mikesglitch" title="Check out my LinkedIn" target="_blank" rel="noopener">
-              <IconLinkedin class="w-8 fill-[#0a66c2] dark:fill-white hover:opacity-70" />
-            </NuxtLink>
-            <NuxtLink to="https://discord.com/users/425717708663947265" title="Message me on Discord" target="_blank" rel="noopener">
-              <IconDiscord class="w-[2.5rem] fill-[#5865f2] dark:fill-white hover:opacity-70" />
-            </NuxtLink>
-          </div>
-        </div> -->
       </div>
     </div>
   </div>
