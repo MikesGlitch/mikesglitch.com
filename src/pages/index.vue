@@ -42,7 +42,8 @@
             Software development isn't just my job, it's my hobby. Some people complain about having to learn new things every few years, but I think that's the best part of our field. There's always something new to explore and amazing people to learn from. The only problem is finding the time to do it all.
           </p>
           <p>Maybe I should quit my job and become a full-time hobbyist. 😁</p>
-          <p>Outside of software development, I'm starting to appreciate travel. Traveling is not only a fun thing to do, but also broadens my horizons and make me a better person.  I'd like to tour every country in Europe one day on my motorbike. 🏍</p>
+          <p>I don't believe in the "Jack of all trades, master of none" saying. It's possible to be an excellent frontend/backend developer, and have a high level of business knowledge at the same time.</p>
+          <p>Outside of software development, I appreciate travel. Traveling is not only a fun thing to do but also broadens my horizons.  I'd like to tour every country in Europe one day on my motorbike. 🏍</p>
         </div>
       </div>
 
@@ -99,15 +100,6 @@
               or
               <LinkExternal title="Message me on Discord" href="https://discord.com/users/425717708663947265" text="Discord" />  or fill in the form below and I'll get back to you.
             </p>
-
-            <!-- <div class="flex gap-4">
-              <NuxtLink to="https://www.linkedin.com/in/mikesglitch" title="Check out my LinkedIn" target="_blank" rel="noopener">
-                <IconLinkedin class="w-8 fill-[#0a66c2] dark:fill-white hover:opacity-70" />
-              </NuxtLink>
-              <NuxtLink to="https://discord.com/users/425717708663947265" title="Message me on Discord" target="_blank" rel="noopener">
-                <IconDiscord class="w-[2.5rem] fill-[#5865f2] dark:fill-white hover:opacity-70" />
-              </NuxtLink>
-            </div> -->
           </div>
           <form class="w-full sm:w-2/3 mx-auto" @submit.prevent="sendContactForm">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
