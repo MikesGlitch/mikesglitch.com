@@ -42,7 +42,6 @@
             Software development isn't just my job, it's my hobby. Some people complain about having to learn new things every few years, but I think that's the best part of our field. There's always something new to explore and amazing people to learn from. The only problem is finding the time to do it all.
           </p>
           <p>Maybe I should quit my job and become a full-time hobbyist. 😁</p>
-          <p>I don't believe in the "Jack of all trades, master of none" saying. It's possible to be an excellent frontend/backend developer, and have a high level of business knowledge at the same time.</p>
           <p>Outside of software development, I appreciate travel. Traveling is not only a fun thing to do but also broadens my horizons.  I'd like to tour every country in Europe one day on my motorbike. 🏍</p>
         </div>
       </div>
