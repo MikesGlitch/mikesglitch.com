@@ -46,24 +46,6 @@
         </div>
       </div>
 
-      <div v-if="data" class="flex flex-col gap-5">
-        <div class="flex justify-between items-center">
-          <TextHeading>Latest <span class="text-hotpink">Projects</span></TextHeading>
-          <LinkButtonInternal to="/projects" class="hidden sm:block" text="View All Projects" />
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 auto-rows-fr">
-          <div v-for="project of data.projectCards" :key="project.to">
-            <CardProject
-              :to="project.to"
-              :title="project.title"
-              :description="project.description"
-              :stars="project.stars"
-              :article="project.article"
-            />
-          </div>
-        </div>
-      </div>
-
       <div class="flex flex-col gap-5">
         <div>
           <TextHeading>Recent <span class="text-hotpink">Clients</span></TextHeading>
@@ -83,6 +65,24 @@
         </Card>
       </div>
 
+      <div v-if="data" class="flex flex-col gap-5">
+        <div class="flex justify-between items-center">
+          <TextHeading>Latest <span class="text-hotpink">Projects</span></TextHeading>
+          <LinkButtonInternal to="/projects" class="hidden sm:block" text="View All Projects" />
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 auto-rows-fr">
+          <div v-for="project of data.projectCards" :key="project.to">
+            <CardProject
+              :to="project.to"
+              :title="project.title"
+              :description="project.description"
+              :stars="project.stars"
+              :article="project.article"
+            />
+          </div>
+        </div>
+      </div>
+
       <div class="flex flex-col gap-5 mb-24">
         <div class="flex justify-between items-center">
           <TextHeading>Get In <span class="text-hotpink">Contact</span></TextHeading>
@@ -90,7 +90,7 @@
         <div class="grid gap-5">
           <div class="flex flex-col gap-4 text-lg">
             <p>
-              If you want to chat with me, feel free to send me a message. I love meeting new people and networking. If you are looking for someone to help you with your next project, I'm also available for hire.
+              I am currently taking new clients. If you are looking for someone to help you with your next project, or you want to chat, feel free to send me a message.
             </p>
             <p>
               You can ping me on
@@ -99,7 +99,7 @@
               <LinkExternal title="Message me on Discord" href="https://discord.com/users/425717708663947265" text="Discord" />  or fill in the form below and I'll get back to you.
             </p>
           </div>
-          <form class="w-full sm:w-2/3 mx-auto" @submit.prevent="sendContactForm">
+          <form class="w-full lg:w-2/3 mx-auto" @submit.prevent="sendContactForm">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div class="w-full">
                 <label class="block font-bold mb-2" for="fullName">
@@ -140,7 +140,6 @@
                   :disabled="contactFormDisabled"
                   name="message"
                   class="appearance-none block w-full text-gray-700 border focus:border-hotpink rounded py-3 px-4 leading-tight focus:outline-none"
-                  placeholder="Say hi!"
                 />
               </div>
               <div class="sm:col-span-2 w-full text-center">
