@@ -88,7 +88,6 @@
           <TextHeading>Get In <span class="text-hotpink">Contact</span></TextHeading>
         </div>
         <div class="grid gap-5">
-
           <div class="flex flex-col gap-4 text-lg">
             <p>
               If you want to chat with me, feel free to send me a message. I love meeting new people and networking. If you are looking for someone to help you with your next project, I'm also available for hire.
