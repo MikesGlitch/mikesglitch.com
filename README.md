@@ -1,3 +1,3 @@
 # MikesGlitch.com
 
-My personal blog
+My personal website
