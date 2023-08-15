@@ -1,6 +1,6 @@
 <template>
   <button
-    class="py-1.5 px-4 border rounded focus:outline-none dark:border-white active:dark:border-hotpink focus:dark:border-hotpink active:border-hotpink focus:border-hotpink hover:border-hotpink dark:hover:border-hotpink dark:bg-gray-dark bg-gray-dark dark:hover:bg-gray-medium text-white"
+    class="py-1.5 px-4 border rounded border-gray-dark focus:outline-none dark:border-white active:dark:border-hotpink focus:dark:border-hotpink active:border-hotpink focus:border-hotpink hover:border-hotpink dark:hover:border-hotpink dark:bg-gray-dark bg-gray-dark dark:hover:bg-gray-medium text-white"
     type="button"
     @click="onClick"
   >

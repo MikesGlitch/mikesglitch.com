@@ -1,4 +1,6 @@
 // Work on completely removing this file
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
 html {
   font-size: 100%;
   height: 100%;
@@ -8,8 +10,9 @@ body
 {
   height:100%;
   margin: 0;
-  /* Show scrollbars so there's no layout inconsistency (due to the width of the scrollbar) */
+  /* Show scrollbars so there's no dlayout inconsistency (due to the width of the scrollbar) */
   overflow-y: scroll;
+  font-family: 'Karla', sans-serif;
 }
 
 #__nuxt,
@@ -17,39 +20,3 @@ body
 {
   height:100%;
 }
-
-// // Breakpoints
-// $container-max: 992px; // standard "upper" size xl screens  (in bootstrap and tailwind)
-// $screen-sm-min: 576px; // Small tablets and large smartphones (landscape view)
-// $screen-md-min: 768px; // Small tablets (portrait view)
-// $screen-lg-min: 992px; // Tablets and small desktops
-// $screen-xl-min: 1200px; // Large tablets and desktops
-
-// $gutter-x: .75rem;
-// $gutter-y: .75rem;
-
-// $dark-theme-body-background-color: #1f2022;
-// $light-theme-body-background-color: white;
-
-// $dark-theme-secondary-background-color: #2d2d31;
-// $light-theme-secondary-background-color: white;
-
-// $dark-theme-body-text-color: white;
-// $light-theme-body-text-color: #333;
-
-// $dark-theme-link-color: hotpink;
-// $light-theme-link-color: hotpink;
-
-// $dark-theme-link-hover-color: white;
-// $light-theme-link-hover-color: black;
-
-// $dark-theme-logo-start-color: white;
-// $light-theme-logo-start-color: black;
-
-// $light-theme-logo-end-color: hotpink;
-// $dark-theme-logo-end-color: hotpink;
-
-// $hover-background-color: rgba(0, 0, 0, 0.04);
-
-// // some colors here: https://materializecss.com/color.html
-// $light-grey: #f1f4f8;
