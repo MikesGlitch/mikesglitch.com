@@ -1,3 +1,4 @@
 # MikesGlitch.com
 
-My personal blog
+
+[MikesGlitch.com](MikesGlitch.com)
