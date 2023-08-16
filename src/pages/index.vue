@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="bg-gray-light dark:bg-gray-medium-default">
-      <div class="container flex py-4 sm:py-24">
+      <div class="container flex py-16 sm:py-24">
         <div class="flex flex-col justify-center gap-6">
           <div class="flex flex-col gap-4">
             <TextHeading :size-class="'text-5xl'">
@@ -43,16 +43,16 @@
       </div>
     </div>
 
-    <div class="container flex py-4 sm:py-24">
+    <div class="container flex py-16 sm:py-24">
       <div class="flex flex-col sm:flex-row gap-10">
-        <div class="min-w-[300px]">
+        <div class="hidden sm:block min-w-[300px]">
           <TextHeading size-class="text-lg">
             It's nice to meet you!
           </TextHeading>
           <TextHeading class="mt-2">
             <span class="text-hotpink">Michael Clark</span>
           </TextHeading>
-          <TextHeading :size-class="'text-lg'" class="mt-2">
+          <TextHeading :size-class="'text-lg'" class="mt-2 hidden sm:block">
             Web Developer
           </TextHeading>
           <ButtonPrimary class="mt-4 px-10" title="Let's talk" label="Let's talk" @click="onScrollToContactForm()" />
@@ -73,18 +73,18 @@
     </div>
     <div class="flex flex-col gap-24 mt-24">
       <div class="bg-gray-light dark:bg-gray-medium-default">
-        <div class="container flex py-4 sm:py-24">
+        <div class="container flex py-16 sm:py-24">
           <div class="flex flex-col gap-5 w-full">
             <div>
               <TextHeading>Recent <span class="text-hotpink">Client Work</span></TextHeading>
             </div>
-            <p class="text-center italic my-8">
+            <p class="text-center italic mt-8 mb-5">
               I have had the privilege of working with these outstanding companies in recent years.
             </p>
             <div class="grid sm:grid-cols-2 gap-5">
-              <div v-for="(client, idx) of clients" :key="idx" class="w-full dark:bg-gray-dark bg-white rounded-md border-gray-light px-16 py-11 shadow-lg">
+              <div v-for="(client, idx) of clients" :key="idx" class="w-full dark:bg-gray-dark bg-white rounded-md border-gray-light px-6 py-4 md:px-16 md:py-11 shadow-lg">
                 <div class="flex flex-col gap-4">
-                  <div class="flex items-center justify-between">
+                  <div class="flex flex-col md:flex-row items-center justify-between">
                     <h3 class="text-xl font-bold">
                       {{ client.title }}
                     </h3>
@@ -102,7 +102,7 @@
       <div v-if="data" class="container flex flex-col gap-5">
         <div class="flex justify-between items-center">
           <TextHeading>Latest <span class="text-hotpink">Projects</span></TextHeading>
-          <LinkPrimaryButtonInternal to="/projects" class="hidden sm:block" text="View All Projects" />
+          <LinkButtonInternal to="/projects" class="hidden sm:block" text="View All Projects" />
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 auto-rows-fr">
           <div v-for="project of data.projectCards" :key="project.to">
@@ -123,7 +123,7 @@
 
     <div ref="contactFormEl" class="flex flex-col gap-24 mt-24 ">
       <div class="bg-gray-light dark:bg-gray-medium-default">
-        <div class="container flex flex-col gap-5 py-4 sm:py-24">
+        <div class="container flex flex-col gap-5 py-16 sm:py-24">
           <div class="flex justify-between items-center">
             <TextHeading>Get In <span class="text-hotpink">Contact</span></TextHeading>
           </div>
@@ -214,20 +214,26 @@ import { IGetProjectsResponse } from '~/interfaces/Api'
 import { IProjectCardProps } from '~~/components/card/Project.vue'
 const config = useRuntimeConfig()
 
+// Pull this from Nuxt Content and have a dedicated section on the website for it (like projects)
 const clients = [
   {
-    name: 'IsoMetrix',
+    name: 'Screenmedia',
     title: '.NET & Vue Developer',
+    description: 'Working with Screenmedia to deliver an update to the DrinkAware.co.uk website.'
+  },
+  {
+    name: 'IsoMetrix',
+    title: 'Frontend Developer',
     description: 'Responsible for developing features for a greenfield Environmental, Social & Governance (ESG) web app. I drove the reporting, dashboards, and UX development effort.'
   },
   {
     name: 'Aggreko',
-    title: '.NET & Vue Developer',
+    title: 'Full Stack Developer',
     description: 'Architected and developed a customer facing order and asset management web app. This app enables customers to track and change orders, monitor assets, report on efficiency and more...'
   },
   {
-    name: 'Sword IT Solutions',
-    title: 'Web Developer',
+    name: 'Sword ITS',
+    title: '.NET & React Developer',
     description: 'Corresponded with CBRE to create a web app for managing safety in data centres. I directed the user interface development with a focus on rebranding and adding new features.'
   }
 ]
