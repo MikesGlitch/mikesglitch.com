@@ -45,7 +45,7 @@
 
     <div class="container flex py-16 sm:py-24">
       <div class="flex flex-col sm:flex-row gap-10">
-        <div class="hidden sm:block min-w-[300px] mx-auto">
+        <div class="hidden sm:block min-w-[300px] my-auto">
           <TextHeading size-class="text-lg">
             It's nice to meet you!
           </TextHeading>
