@@ -66,7 +66,7 @@
           <p>Maybe I should quit my job and become a full-time hobbyist. 😁</p>
           <p>
             Outside of software development, I appreciate travel. Traveling is not only a fun thing to do but also
-            broadens my horizons. I'd like to tour every country in Europe one day on my motorbike. 🏍
+            broadens my horizons. I'd like to tour every country in Europe one day on my motorbike. 🌍
           </p>
         </div>
       </div>
@@ -81,17 +81,26 @@
             <p class="text-center italic mt-8 mb-5">
               I have had the privilege of working with these outstanding companies in recent years.
             </p>
-            <div class="grid sm:grid-cols-2 gap-5">
-              <div v-for="(client, idx) of clients" :key="idx" class="w-full dark:bg-gray-dark bg-white rounded-md border-gray-light px-6 py-4 md:px-16 md:py-11 shadow-lg">
-                <div class="flex flex-col gap-4">
-                  <div class="flex flex-col md:flex-row items-center justify-between">
-                    <h3 class="text-xl font-bold">
-                      {{ client.title }}
-                    </h3>
-                    <span class="italic dark:text-white text-gray-medium-2">@{{ client.name }}</span>
+            <div v-if="data" class="grid sm:grid-cols-2 gap-5">
+              <div v-for="(client, idx) of data.clientsMarkdown" :key="idx" class="w-full dark:bg-gray-dark bg-white rounded-md border-gray-light px-6 py-4 md:px-16 md:py-11 shadow-lg group">
+                <NuxtLink
+                  class="group flex-1"
+                  :to="client._path"
+                  title="title"
+                  :external="false"
+                >
+                  <div class="flex flex-col gap-4">
+                    <div class="flex flex-col md:flex-row items-center justify-between">
+                      <span class="inline-flex gap-2 items-center">
+                        <h3 class="text-xl font-bold group-hover:text-hotpink">
+                          {{ client.title }}
+                        </h3>
+                      </span>
+                      <span class="italic dark:text-white text-gray-medium-2">@{{ client.name }}</span>
+                    </div>
+                    <div><p>{{ client.description }}</p></div>
                   </div>
-                  <div><p>{{ client.description }}</p></div>
-                </div>
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -214,30 +223,6 @@ import { IGetProjectsResponse } from '~/interfaces/Api'
 import { IProjectCardProps } from '~~/components/card/Project.vue'
 const config = useRuntimeConfig()
 
-// Pull this from Nuxt Content and have a dedicated section on the website for it (like projects)
-const clients = [
-  {
-    name: 'Screenmedia',
-    title: '.NET & Vue Developer',
-    description: 'Working with Screenmedia to deliver an update to the DrinkAware.co.uk website.'
-  },
-  {
-    name: 'IsoMetrix',
-    title: 'Frontend Developer',
-    description: 'Responsible for developing features for a greenfield Environmental, Social & Governance (ESG) web app. I drove the reporting, dashboards, and UX development effort.'
-  },
-  {
-    name: 'Aggreko',
-    title: 'Full Stack Developer',
-    description: 'Architected and developed a customer facing order and asset management web app. This app enables customers to track and change orders, monitor assets, report on efficiency and more...'
-  },
-  {
-    name: 'Sword ITS',
-    title: '.NET & React Developer',
-    description: 'Corresponded with CBRE to create a web app for managing safety in data centres. I directed the user interface development with a focus on rebranding and adding new features.'
-  }
-]
-
 const contactFormEl = ref<HTMLElement>()
 const projectsEl = ref<HTMLElement>()
 
@@ -248,7 +233,13 @@ const { data } = await useAsyncData('homePageInit', async () => {
     .sort({ createdAt: 1 })
     .find()
 
-  const [githubProjects, projectArticles] = await Promise.all([projectsResponsePromise, projectsMarkdownPromise])
+  const clientsMarkdownPromise = queryContent('/clients')
+    .only(['title', 'description', 'name', '_path'])
+    .sort({ createdAt: 1 })
+    .limit(4)
+    .find()
+
+  const [githubProjects, projectArticles, clientsMarkdown] = await Promise.all([projectsResponsePromise, projectsMarkdownPromise, clientsMarkdownPromise])
 
   const top3Projects = githubProjects.projects.sort((a, b) => Date.parse(b.lastComittedAt) - Date.parse(a.lastComittedAt)).slice(0, 3)
   const projectCards = top3Projects.map((project): IProjectCardProps => {
@@ -264,7 +255,7 @@ const { data } = await useAsyncData('homePageInit', async () => {
     }
   })
 
-  return { projectCards }
+  return { projectCards, clientsMarkdown }
 })
 
 const contactForm = ref({
