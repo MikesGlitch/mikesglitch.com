@@ -1,8 +1,8 @@
 <template>
   <div class="container py-4">
     <TextProse>
-      <h1>{{ project.title }}</h1>
-      <p>{{ project.description }}</p>
+      <h1>{{ project?.title }}</h1>
+      <p>{{ project?.description }}</p>
       <ContentDoc />
     </TextProse>
   </div>
@@ -14,6 +14,6 @@ const { data: project } = await useAsyncData(route.path, () => {
   return queryContent(route.path).findOne()
 })
 
-useHead({ title: project.value.title })
+useHead({ title: project.value?.title })
 
 </script>

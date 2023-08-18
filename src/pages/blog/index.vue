@@ -1,6 +1,6 @@
 <template>
   <div class="container py-4">
-    <div>
+    <div v-if="data">
       <CardList :data="data.filteredArticles" />
       <!-- <BlogSidebar :tags="tags" /> -->
     </div>
@@ -19,9 +19,8 @@ const { data } = await useAsyncData('allBlogPosts', async () => {
     .sort({ date: -1 })
     .find()
 
-  const onlyUnique = (value, index, self) => self.indexOf(value) === index
-  const tagsData = articlesData.map(article => article.tags).filter(onlyUnique) // currently only support 1
-  return { tags: tagsData, articles: articlesData, filteredArticles: articlesData }
+  const tagsData = articlesData.map(article => article.tags).filter((value, index, self) => self.indexOf(value) === index) // currently only support 1
+  return { tags: tagsData, articles: articlesData, filteredArticles: articlesData as unknown as BlogPostData[] }
 })
 
 useHead({ title: 'Blog' })

@@ -8,7 +8,7 @@
 useHead({ title: 'Gif' })
 
 const currentGif = ref('')
-const gifInterval = ref(null)
+const gifInterval = ref<NodeJS.Timer>()
 
 onMounted(() => {
   getGif()
@@ -16,7 +16,9 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
-  clearInterval(gifInterval.value)
+  if (gifInterval.value) {
+    clearInterval(gifInterval.value)
+  }
 })
 
 const config = useRuntimeConfig()

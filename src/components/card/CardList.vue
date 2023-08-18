@@ -35,7 +35,10 @@ const props = defineProps({
     default: '/blog-assets/placeholder.webp'
   }
 })
-const replaceByDefault = (e) => {
-  e.target.src = props.defaultImageSrc
+const replaceByDefault = (e: Event) => {
+  if (e.target) {
+    const imageEl = e.target as HTMLImageElement
+    imageEl.src = props.defaultImageSrc
+  }
 }
 </script>
