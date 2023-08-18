@@ -82,14 +82,14 @@
               I have had the privilege of working with these outstanding companies in recent years.
             </p>
             <div v-if="data" class="grid sm:grid-cols-2 gap-5">
-              <div v-for="(client, idx) of data.clientsMarkdown" :key="idx" class="w-full dark:bg-gray-dark bg-white rounded-md border-gray-light px-6 py-4 md:px-16 md:py-11 shadow-lg group">
+              <div v-for="(client, idx) of data.clientsMarkdown" :key="idx" class="w-full dark:bg-gray-dark bg-white rounded-md border-gray-light shadow-lg group">
                 <NuxtLink
-                  class="group flex-1"
+                  class="group block h-full w-full"
                   :to="client._path"
                   title="title"
                   :external="false"
                 >
-                  <div class="flex flex-col gap-4">
+                  <div class="flex flex-col gap-4 px-6 py-4 md:px-16 md:py-11">
                     <div class="flex flex-col md:flex-row items-center justify-between">
                       <span class="inline-flex gap-2 items-center">
                         <h3 class="text-xl font-bold group-hover:text-hotpink">
