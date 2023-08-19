@@ -8,7 +8,10 @@
               Hi, I'm <span class="text-hotpink">Mike</span> 👋
             </TextHeading>
             <TextHeading :size-class="'text-2xl'">
-              I'm a Web Developer
+              I'm a
+              <span :class="{ typewriter: runningTypewriter }">
+                {{ descriptionText }}
+              </span>
             </TextHeading>
             <TextHeading :size-class="'text-2xl'">
               Based in Glasgow
@@ -228,6 +231,61 @@ const config = useRuntimeConfig()
 const contactFormEl = ref<HTMLElement>()
 const projectsEl = ref<HTMLElement>()
 
+const descriptions = ref(['Product Oriented', 'Full Stack', 'Web Developer'])
+const currentDescriptionPos = {
+  index: 0,
+  charIndex: 0,
+  reversing: false
+}
+const descriptionText = ref('')
+const runningTypewriter = ref(true)
+
+const stopTypewriter = () => {
+  runningTypewriter.value = false
+  clearInterval(descriptionTextInterval.value)
+}
+
+const getNewDescriptionText = () => {
+  const currentDescription = descriptions.value[currentDescriptionPos.index]
+  const lastDescription = currentDescriptionPos.index === descriptions.value.length - 1
+  if (lastDescription && currentDescriptionPos.charIndex === currentDescription.length) {
+    // last description and we're completed, so clear the interval
+    stopTypewriter()
+    return
+  }
+
+  if (currentDescriptionPos.reversing) {
+    // move back to beginning of last word
+    if (currentDescriptionPos.charIndex === 0) {
+      currentDescriptionPos.reversing = false
+      return
+    }
+
+    currentDescriptionPos.charIndex--
+    descriptionText.value = descriptions.value[currentDescriptionPos.index - 1].substring(0, currentDescriptionPos.charIndex)
+    return
+  }
+
+  if (currentDescriptionPos.charIndex >= currentDescription.length) {
+    // move onto the next word
+    currentDescriptionPos.reversing = true
+    currentDescriptionPos.index++
+    return
+  }
+
+  // in every other case we move the character position forward
+  currentDescriptionPos.charIndex++
+  descriptionText.value = currentDescription.substring(0, currentDescriptionPos.charIndex)
+}
+
+const descriptionTextInterval = ref<NodeJS.Timer>(setInterval(async () => await getNewDescriptionText(), 150))
+
+onBeforeUnmount(() => {
+  if (descriptionTextInterval.value) {
+    stopTypewriter()
+  }
+})
+
 const { data } = await useAsyncData('homePageInit', async () => {
   const projectsResponsePromise = $fetch<IGetProjectsResponse>(`${config.public.apiBaseUrl}/projects`)
   const projectsMarkdownPromise = queryContent('/projects')
@@ -313,3 +371,42 @@ async function sendContactForm () {
 }
 
 </script>
+
+<style lang="scss" scoped>
+.typewriter {
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: .15em solid black;
+  padding-right: 3px;
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  animation:
+    typing 3.5s steps(30, end),
+    blink-caret 1s step-end infinite;
+}
+
+.dark {
+  .typewriter {
+    border-right: .15em solid white;
+    animation:
+      typing 3.5s steps(30, end),
+      dark-blink-caret 1s step-end infinite;
+  }
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: black}
+}
+
+@keyframes dark-blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white}
+}
+</style>

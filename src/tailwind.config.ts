@@ -30,8 +30,7 @@ export default <Partial<Config>> {
       white: 'white',
       black: 'black',
       hotpink: 'hotpink'
-    },
-    extend: {}
+    }
   },
   plugins: [tailwindTypography]
 }
