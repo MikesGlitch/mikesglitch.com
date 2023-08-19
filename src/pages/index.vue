@@ -82,23 +82,25 @@
               I have had the privilege of working with these outstanding companies in recent years.
             </p>
             <div v-if="data" class="grid sm:grid-cols-2 gap-5">
-              <div v-for="(client, idx) of data.clientsMarkdown" :key="idx" class="w-full dark:bg-gray-dark bg-white rounded-md border-gray-light shadow-lg group">
+              <div v-for="(client, idx) of data.clientsMarkdown" :key="idx" class="w-full dark:bg-gray-dark bg-white rounded-md group">
                 <NuxtLink
-                  class="group block h-full w-full"
+                  class="block h-full w-full shadow-sm hover:shadow-xl transition-shadow duration-200 ease-in border border-gray-light dark:border-gray-dark dark:group-hover:border-hotpink"
                   :to="client._path"
-                  title="title"
+                  :title="client.name"
                   :external="false"
                 >
-                  <div class="flex flex-col gap-4 px-6 py-4 md:px-16 md:py-11">
+                  <div class="flex flex-col gap-4 px-6 py-4 md:px-16 md:py-11 content-between h-full">
+                    <h3 class="text-xl font-bold flex-1">
+                      {{ client.description }}
+                    </h3>
                     <div class="flex flex-col md:flex-row items-center justify-between">
                       <span class="inline-flex gap-2 items-center">
-                        <h3 class="text-xl font-bold group-hover:text-hotpink">
+                        <p>
                           {{ client.title }}
-                        </h3>
+                        </p>
                       </span>
-                      <span class="italic dark:text-white text-gray-medium-2">@{{ client.name }}</span>
+                      <span class="italic text-xl text-hotpink">@{{ client.name }}</span>
                     </div>
-                    <div><p>{{ client.description }}</p></div>
                   </div>
                 </NuxtLink>
               </div>
@@ -234,8 +236,8 @@ const { data } = await useAsyncData('homePageInit', async () => {
     .find()
 
   const clientsMarkdownPromise = queryContent('/clients')
-    .only(['title', 'description', 'name', '_path'])
-    .sort({ createdAt: 1 })
+    .only(['order', 'title', 'description', 'name', '_path'])
+    .sort({ order: -1 })
     .limit(4)
     .find()
 
@@ -244,7 +246,6 @@ const { data } = await useAsyncData('homePageInit', async () => {
   const top3Projects = githubProjects.projects.sort((a, b) => Date.parse(b.lastComittedAt) - Date.parse(a.lastComittedAt)).slice(0, 3)
   const projectCards = top3Projects.map((project): IProjectCardProps => {
     const articleData = projectArticles.find(article => article.repoName === project.name)
-
     return {
       to: project.url,
       title: project.name,

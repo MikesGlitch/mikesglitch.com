@@ -1,8 +1,8 @@
 <template>
   <div class="container py-4">
     <TextProse>
-      <h1>{{ project?.title }}</h1>
-      <p>{{ project?.description }}</p>
+      <TextHeading class="my-8 text-center text-5xl"><span class="text-hotpink">{{ project?.name }}</span></TextHeading>
+      <hr>
       <ContentDoc />
     </TextProse>
   </div>
