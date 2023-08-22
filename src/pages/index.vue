@@ -9,9 +9,7 @@
             </TextHeading>
             <TextHeading :size-class="'text-2xl'">
               I'm a
-              <span :class="{ typewriter: runningTypewriter }">
-                {{ descriptionText }}
-              </span>
+              <TextTypewriter />
             </TextHeading>
             <TextHeading :size-class="'text-2xl'">
               Based in Glasgow
@@ -118,7 +116,7 @@
           <TextHeading>Latest <span class="text-hotpink">Projects</span></TextHeading>
           <LinkButtonInternal to="/projects" class="hidden sm:block" text="View All Projects" />
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 auto-rows-fr">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-4 auto-rows-fr">
           <div v-for="project of data.projectCards" :key="project.to">
             <CardProject
               :to="project.to"
@@ -231,61 +229,6 @@ const config = useRuntimeConfig()
 const contactFormEl = ref<HTMLElement>()
 const projectsEl = ref<HTMLElement>()
 
-const descriptions = ref(['Product Oriented', 'Full Stack', 'Web Developer'])
-const currentDescriptionPos = {
-  index: 0,
-  charIndex: 0,
-  reversing: false
-}
-const descriptionText = ref('')
-const runningTypewriter = ref(true)
-
-const stopTypewriter = () => {
-  runningTypewriter.value = false
-  clearInterval(descriptionTextInterval.value)
-}
-
-const getNewDescriptionText = () => {
-  const currentDescription = descriptions.value[currentDescriptionPos.index]
-  const lastDescription = currentDescriptionPos.index === descriptions.value.length - 1
-  if (lastDescription && currentDescriptionPos.charIndex === currentDescription.length) {
-    // last description and we're completed, so clear the interval
-    stopTypewriter()
-    return
-  }
-
-  if (currentDescriptionPos.reversing) {
-    // move back to beginning of last word
-    if (currentDescriptionPos.charIndex === 0) {
-      currentDescriptionPos.reversing = false
-      return
-    }
-
-    currentDescriptionPos.charIndex--
-    descriptionText.value = descriptions.value[currentDescriptionPos.index - 1].substring(0, currentDescriptionPos.charIndex)
-    return
-  }
-
-  if (currentDescriptionPos.charIndex >= currentDescription.length) {
-    // move onto the next word
-    currentDescriptionPos.reversing = true
-    currentDescriptionPos.index++
-    return
-  }
-
-  // in every other case we move the character position forward
-  currentDescriptionPos.charIndex++
-  descriptionText.value = currentDescription.substring(0, currentDescriptionPos.charIndex)
-}
-
-const descriptionTextInterval = ref<NodeJS.Timer>(setInterval(async () => await getNewDescriptionText(), 150))
-
-onBeforeUnmount(() => {
-  if (descriptionTextInterval.value) {
-    stopTypewriter()
-  }
-})
-
 const { data } = await useAsyncData('homePageInit', async () => {
   const projectsResponsePromise = $fetch<IGetProjectsResponse>(`${config.public.apiBaseUrl}/projects`)
   const projectsMarkdownPromise = queryContent('/projects')
@@ -301,8 +244,8 @@ const { data } = await useAsyncData('homePageInit', async () => {
 
   const [githubProjects, projectArticles, clientsMarkdown] = await Promise.all([projectsResponsePromise, projectsMarkdownPromise, clientsMarkdownPromise])
 
-  const top3Projects = githubProjects.projects.sort((a, b) => Date.parse(b.lastComittedAt) - Date.parse(a.lastComittedAt)).slice(0, 3)
-  const projectCards = top3Projects.map((project): IProjectCardProps => {
+  const top4Projects = githubProjects.projects.sort((a, b) => Date.parse(b.lastComittedAt) - Date.parse(a.lastComittedAt)).slice(0, 4)
+  const projectCards = top4Projects.map((project): IProjectCardProps => {
     const articleData = projectArticles.find(article => article.repoName === project.name)
     return {
       to: project.url,

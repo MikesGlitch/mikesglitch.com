@@ -7,7 +7,7 @@
       <slot name="image" />
       <slot name="image-label" />
     </div>
-    <div class="p-5 flex-1">
+    <div class="px-6 py-4 md:px-16 md:py-11 flex-1">
       <h5 v-if="title" class="font-bold group-hover:underline underline-offset-4 group-hover:text-hotpink">
         {{ title }}
       </h5>

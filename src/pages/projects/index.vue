@@ -6,7 +6,7 @@
     <!-- <h3>Upcoming projects</h3> -->
     <!-- <h3>Projects</h3> -->
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 auto-rows-fr">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 auto-rows-fr">
       <div v-for="project of data" :key="project.to">
         <CardProject
           :to="project.to"
