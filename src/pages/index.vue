@@ -24,21 +24,6 @@
             <Button title="Got a project?" label="Got a project?" @click="onScrollToProjects" />
             <ButtonPrimary class="px-10" title="Let's talk" label="Let's talk" @click="onScrollToContactForm()" />
           </div>
-
-          <div class="flex gap-4 flex-row items-center">
-            <NuxtLink to="https://github.com/mikesglitch" title="Check out my GitHub" target="_blank" rel="noopener">
-              <IconGithub class="w-8 hover:opacity-70" />
-            </NuxtLink>
-            <NuxtLink to="https://www.linkedin.com/in/mikesglitch" title="Check out my LinkedIn" target="_blank" rel="noopener">
-              <IconLinkedin class="w-8 fill-[#0a66c2] dark:fill-white hover:opacity-70" />
-            </NuxtLink>
-            <NuxtLink to="https://discord.com/users/425717708663947265" title="Message me on Discord" target="_blank" rel="noopener">
-              <IconDiscord class="w-[2rem] fill-[#5865f2] dark:fill-white hover:opacity-70" />
-            </NuxtLink>
-            <NuxtLink to="https://www.youtube.com/@MikesGlitch" title="Check out my YouTube" target="_blank" rel="noopener">
-              <IconYoutube class="w-12 hover:opacity-70" />
-            </NuxtLink>
-          </div>
         </div>
         <img class="hidden sm:block ml-3 max-w-full h-auto my-auto" src="/avatar_new.png" alt="Avatar">
       </div>
@@ -56,7 +41,21 @@
           <TextHeading :size-class="'text-lg'" class="mt-2 hidden sm:block">
             Web Developer
           </TextHeading>
-          <ButtonPrimary class="mt-4 px-10" title="Let's talk" label="Let's talk" @click="onScrollToContactForm()" />
+
+          <div class="mt-2 flex gap-4 flex-row items-center">
+            <NuxtLink to="https://github.com/mikesglitch" title="Check out my GitHub" target="_blank" rel="noopener">
+              <IconGithub class="w-8 hover:opacity-70" />
+            </NuxtLink>
+            <NuxtLink to="https://www.linkedin.com/in/mikesglitch" title="Check out my LinkedIn" target="_blank" rel="noopener">
+              <IconLinkedin class="w-8 fill-[#0a66c2] dark:fill-white hover:opacity-70" />
+            </NuxtLink>
+            <NuxtLink to="https://discord.com/users/425717708663947265" title="Message me on Discord" target="_blank" rel="noopener">
+              <IconDiscord class="w-[2rem] fill-[#5865f2] dark:fill-white hover:opacity-70" />
+            </NuxtLink>
+            <NuxtLink to="https://www.youtube.com/@MikesGlitch" title="Check out my YouTube" target="_blank" rel="noopener">
+              <IconYoutube class="w-12 hover:opacity-70" />
+            </NuxtLink>
+          </div>
         </div>
         <div class="flex flex-col gap-4 text-lg">
           <p>
