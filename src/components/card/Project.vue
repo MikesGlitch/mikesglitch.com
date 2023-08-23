@@ -3,7 +3,7 @@
     <Card class="dark:group-hover:border-hotpink">
       <div class="flex flex-col justify-between gap-2 h-full">
         <NuxtLink
-          class="flex-1"
+          class="flex-1 -mx-6 -my-4 md:-mx-16 md:-my-11 px-6 py-4 md:px-16 md:py-11"
           :to="to"
           :title="title"
           :external="true"
