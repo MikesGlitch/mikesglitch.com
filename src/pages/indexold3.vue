@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="bg-gray-light dark:bg-gray-medium-default">
-      <div class="container grid grid-cols-1 sm:grid-cols-2 py-16 sm:py-24">
+      <div class="container flex py-16 sm:py-24">
         <div class="flex flex-col justify-center gap-6">
           <div class="flex flex-col gap-4">
             <TextHeading :size-class="'text-5xl'">
@@ -40,7 +40,7 @@
             </NuxtLink>
           </div>
         </div>
-        <img class="hidden sm:block ml-3 max-w-full h-auto my-auto" src="/avatar_new.png" alt="Avatar">
+        <AvatarMeImage class="hidden sm:block ml-3 align-middle w-[300px] h-[300px]" />
       </div>
     </div>
 
