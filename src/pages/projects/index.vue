@@ -35,20 +35,23 @@ const { data } = await useAsyncData('projectsPage', async () => {
     .sort({ createdAt: 1 })
     .find()
 
-  const [githubProjects, articles] = await Promise.all([projectsResponsePromise, projectsMarkdownPromise])
+  const [githubProjectsResult, projectArticlesResult] = await Promise.allSettled([projectsResponsePromise, projectsMarkdownPromise])
 
-  const projectCards = githubProjects.projects.sort((a, b) => b.stars - a.stars).map((project): IProjectCardProps => {
-    const articleData = articles.find(article => article.repoName === project.name)
+  let projectCards: IProjectCardProps[] = []
+  if (githubProjectsResult.status === 'fulfilled' && projectArticlesResult.status === 'fulfilled') {
+    projectCards = githubProjectsResult.value.projects.sort((a, b) => b.stars - a.stars).map((project): IProjectCardProps => {
+      const articleData = projectArticlesResult.value.find(article => article.repoName === project.name)
 
-    return {
-      to: project.url,
-      title: project.name,
-      description: project.description,
-      stars: project.stars,
-      article: articleData ? articleData._path : undefined,
-      lastCommittedAt: project.lastComittedAt
-    }
-  })
+      return {
+        to: project.url,
+        title: project.name,
+        description: project.description,
+        stars: project.stars,
+        article: articleData ? articleData._path : undefined,
+        lastCommittedAt: project.lastComittedAt
+      }
+    })
+  }
 
   return projectCards
 })

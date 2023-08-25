@@ -71,7 +71,7 @@
         </div>
       </div>
     </div>
-    <div class="flex flex-col gap-24 mt-24">
+    <div class="flex flex-col gap-24">
       <div class="bg-gray-light dark:bg-gray-medium-default">
         <div class="container flex py-16 sm:py-24">
           <div class="flex flex-col gap-5 w-full">
@@ -109,7 +109,7 @@
         </div>
       </div>
     </div>
-    <div ref="projectsEl" class="pt-24">
+    <div ref="projectsEl" class="py-16 sm:py-24">
       <div v-if="data" class="container flex flex-col gap-5">
         <div class="flex justify-between items-center">
           <TextHeading>Latest <span class="text-hotpink">Projects</span></TextHeading>
@@ -132,7 +132,7 @@
       </div>
     </div>
 
-    <div ref="contactFormEl" class="flex flex-col gap-24 mt-24 ">
+    <div ref="contactFormEl" class="flex flex-col gap-24">
       <div class="bg-gray-light dark:bg-gray-medium-default">
         <div class="container flex flex-col gap-5 py-16 sm:py-24">
           <div class="flex justify-between items-center">
@@ -221,6 +221,7 @@
 </template>
 
 <script lang="ts" setup>
+import { ParsedContent } from '@nuxt/content/dist/runtime/types'
 import { IGetProjectsResponse } from '~/interfaces/Api'
 import { IProjectCardProps } from '~~/components/card/Project.vue'
 const config = useRuntimeConfig()
@@ -241,20 +242,25 @@ const { data } = await useAsyncData('homePageInit', async () => {
     .limit(4)
     .find()
 
-  const [githubProjects, projectArticles, clientsMarkdown] = await Promise.all([projectsResponsePromise, projectsMarkdownPromise, clientsMarkdownPromise])
+  const [githubProjectsResult, projectArticlesResult, clientsMarkdownResult] = await Promise.allSettled([projectsResponsePromise, projectsMarkdownPromise, clientsMarkdownPromise])
 
-  const top4Projects = githubProjects.projects.sort((a, b) => Date.parse(b.lastComittedAt) - Date.parse(a.lastComittedAt)).slice(0, 4)
-  const projectCards = top4Projects.map((project): IProjectCardProps => {
-    const articleData = projectArticles.find(article => article.repoName === project.name)
-    return {
-      to: project.url,
-      title: project.name,
-      description: project.description,
-      stars: project.stars,
-      article: articleData ? articleData._path : undefined,
-      lastCommittedAt: project.lastComittedAt
-    }
-  })
+  let projectCards: IProjectCardProps[] = []
+  let clientsMarkdown: Pick<ParsedContent, string>[] = []
+  if (githubProjectsResult.status === 'fulfilled' && projectArticlesResult.status === 'fulfilled' && clientsMarkdownResult.status === 'fulfilled') {
+    clientsMarkdown = clientsMarkdownResult.value
+    const top4Projects = githubProjectsResult.value.projects.sort((a, b) => Date.parse(b.lastComittedAt) - Date.parse(a.lastComittedAt)).slice(0, 4)
+    projectCards = top4Projects.map((project): IProjectCardProps => {
+      const articleData = projectArticlesResult.value.find(article => article.repoName === project.name)
+      return {
+        to: project.url,
+        title: project.name,
+        description: project.description,
+        stars: project.stars,
+        article: articleData ? articleData._path : undefined,
+        lastCommittedAt: project.lastComittedAt
+      }
+    })
+  }
 
   return { projectCards, clientsMarkdown }
 })
