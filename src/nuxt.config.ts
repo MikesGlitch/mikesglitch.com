@@ -29,6 +29,10 @@ export default defineNuxtConfig({
     }
   },
 
+  app: {
+    pageTransition: { name: 'page', mode: 'out-in' }
+  },
+
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
     analyze: false
