@@ -52,7 +52,11 @@ const getNewDescriptionText = () => {
   descriptionText.value = currentDescription.substring(0, currentDescriptionPos.charIndex)
 }
 
-const descriptionTextInterval = ref<NodeJS.Timer>(setInterval(async () => await getNewDescriptionText(), 100))
+const descriptionTextInterval = ref<NodeJS.Timer>()
+
+onMounted(() => {
+  descriptionTextInterval.value = setInterval(async () => await getNewDescriptionText(), 100)
+})
 
 onBeforeUnmount(() => {
   if (descriptionTextInterval.value) {

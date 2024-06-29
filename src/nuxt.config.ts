@@ -8,10 +8,7 @@ export default defineNuxtConfig({
 
   components: true,
 
-  modules: [
-    '@nuxt/content',
-    '@nuxtjs/tailwindcss'
-  ],
+  modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@nuxt/image'],
 
   runtimeConfig: {
     serverGiphyApiKey: 'unset',

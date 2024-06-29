@@ -221,9 +221,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ParsedContent } from '@nuxt/content/dist/runtime/types'
-import { IGetProjectsResponse } from '~/interfaces/Api'
-import { IProjectCardProps } from '~~/components/card/Project.vue'
+import type { ParsedContent } from '@nuxt/content'
+import type { IGetProjectsResponse } from '~/interfaces/Api'
+import type { IProjectCardProps } from '~/components/card/Project.vue'
 const config = useRuntimeConfig()
 
 const contactFormEl = ref<HTMLElement>()

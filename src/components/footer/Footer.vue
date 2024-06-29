@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import { IGetLastDeploymentResponse } from '~/interfaces/Api'
+import type { IGetLastDeploymentResponse } from '~/interfaces/Api'
 import { toHumanReadableDate } from '@/utils/dateUtils'
 const config = useRuntimeConfig()
 
