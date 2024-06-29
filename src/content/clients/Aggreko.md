@@ -3,7 +3,7 @@ layout: post
 order: 2
 title:  "Full Stack Developer"
 name: "Aggreko"
-description:  "Building Bridges with Code: Crafting the Ultimate Customer Experience"
+description:  "Building Bridges with Code"
 ---
 
 ## Building Bridges with Code: Crafting the Ultimate Customer Experience

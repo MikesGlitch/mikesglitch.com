@@ -3,7 +3,7 @@ layout: post
 order: 1
 title:  ".NET & React Developer"
 name: "Sword ITS"
-description:  "Navigating Challenges and Triumphs: My Journey with Sword ITS"
+description:  "Navigating Challenges and Triumphs"
 ---
 
 # Navigating Challenges and Triumphs: My Journey with Sword ITS

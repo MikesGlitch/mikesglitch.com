@@ -3,7 +3,7 @@ layout: post
 order: 3
 title:  "Developer"
 name: "IsoMetrix"
-description:  "Excellence in Action: Crafting Innovative Solutions"
+description:  "Crafting Innovative Solutions"
 ---
 # **Excellence in Action: Crafting Innovative Solutions**
 
