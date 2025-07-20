@@ -1,20 +1,96 @@
 <template>
-  <footer class="bg-white dark:bg-gray-medium-2 text-black dark:text-white py-8 px-1 text-sm">
-    <div class="container">
-      <div class="flex flex-col gap-2.5 w-full h-full">
-        <div class="flex flex-col sm:flex-row gap-2 align-middle items-center">
-          <span class="flex gap-2">
-            <span class="hidden sm:block w-8 text-xl leading-4">©</span>
-            <span><span class="font-bold">Made by</span> <LinkExternal title="Message me" href="https://www.linkedin.com/in/mikesglitch" text="Michael Clark" /></span>
-          </span>
-          2020 – present
+  <footer
+    class="bg-neutral-50 dark:bg-neutral-900 border-t border-neutral-200/50 dark:border-neutral-700/50 py-12"
+  >
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+        <!-- Logo & Copyright -->
+        <div class="flex flex-col items-center md:items-start gap-3">
+          <div class="flex items-center gap-2">
+            <span class="text-lg font-bold">
+              <span class="text-neutral-800 dark:text-neutral-200">Mike</span
+              ><span class="gradient-text">Glitch</span>
+            </span>
+          </div>
+          <p
+            class="text-sm text-neutral-600 dark:text-neutral-400 text-center md:text-left"
+          >
+            © 2020 – {{ new Date().getFullYear() }} Michael Clark
+          </p>
         </div>
-        <div class="flex flex-col sm:flex-row gap-2 align-middle items-center">
-          <span class="flex gap-2"><span class="hidden sm:block w-8">🔨</span><span class="font-bold">Built with</span></span> <span><link-external title="Vue" href="https://vuejs.org/" text="Vue" /> & <link-external title="Nuxt" href="https://v3.nuxtjs.org/" text="Nuxt" /> on <link-external title="Vercel" href="https://vercel.com/" text="Vercel" /></span>
+
+        <!-- Tech Stack -->
+        <div class="flex flex-col items-center gap-3">
+          <p class="text-sm font-medium text-neutral-700 dark:text-neutral-300">
+            Built with ❤️ using
+          </p>
+          <div class="flex items-center gap-4 text-sm">
+            <a
+              href="https://vuejs.org/"
+              target="_blank"
+              rel="noopener"
+              class="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            >
+              Vue.js
+            </a>
+            <span class="text-neutral-400">•</span>
+            <a
+              href="https://nuxt.com/"
+              target="_blank"
+              rel="noopener"
+              class="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            >
+              Nuxt 3
+            </a>
+            <span class="text-neutral-400">•</span>
+            <a
+              href="https://vercel.com/"
+              target="_blank"
+              rel="noopener"
+              class="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            >
+              Vercel
+            </a>
+          </div>
         </div>
-        <div v-if="data?.lastDeployment" class="flex flex-col sm:flex-row gap-2 align-middle items-center">
-          <span class="flex gap-2"><span class="hidden sm:block w-8">🚀</span> <span class="font-bold">Last build</span></span>
-          <link-external :title="toHumanReadableDate(data.lastDeployment.lastDeployedAt)" :href="`https://github.com/MikesGlitch/mikesglitch.com/commit/${data.lastDeployment.commitSha}`" :text="toHumanReadableDate(data.lastDeployment.lastDeployedAt)" />
+
+        <!-- Last Deployment -->
+        <div class="flex flex-col items-center md:items-end gap-3">
+          <div v-if="data?.lastDeployment" class="text-center md:text-right">
+            <p
+              class="text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1"
+            >
+              Last updated
+            </p>
+            <a
+              :href="`https://github.com/MikesGlitch/mikesglitch.com/commit/${data.lastDeployment.commitSha}`"
+              target="_blank"
+              rel="noopener"
+              class="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              :title="`Deployed on ${toHumanReadableDate(
+                data.lastDeployment.lastDeployedAt
+              )}`"
+            >
+              {{ toHumanReadableDate(data.lastDeployment.lastDeployedAt) }}
+            </a>
+          </div>
+          <div class="flex items-center gap-3">
+            <a
+              href="https://github.com/MikesGlitch/mikesglitch.com"
+              target="_blank"
+              rel="noopener"
+              class="flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                  fill-rule="evenodd"
+                  d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span>View Source</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -22,16 +98,19 @@
 </template>
 
 <script lang="ts" setup>
-import type { IGetLastDeploymentResponse } from '~/interfaces/Api'
-import { toHumanReadableDate } from '@/utils/dateUtils'
-const config = useRuntimeConfig()
+import type { IGetLastDeploymentResponse } from "~/interfaces/Api";
+import { toHumanReadableDate } from "@/utils/dateUtils";
+const config = useRuntimeConfig();
 
-const { data } = await useAsyncData('last-deployment', async () => {
+const { data } = await useAsyncData("last-deployment", async () => {
   try {
-    const lastDeployment = await $fetch<IGetLastDeploymentResponse>(`${config.public.apiBaseUrl}/last-deployment`)
-    return { lastDeployment }
+    const lastDeployment = await $fetch<IGetLastDeploymentResponse>(
+      `${config.public.apiBaseUrl}/last-deployment`
+    );
+    return { lastDeployment };
   } catch (error) {
-    console.error(error)
+    // Silently handle deployment info fetch error
+    return null;
   }
-})
+});
 </script>

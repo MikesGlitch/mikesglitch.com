@@ -1,5 +1,8 @@
 <template>
-  <div class="bg-white rounded-md border-gray-light shadow-lg border dark:bg-gray-dark h-full flex flex-col" :class="{ 'group': title || description }">
+  <div
+    class="modern-card h-full flex flex-col group"
+    :class="{ 'cursor-pointer': title || description }"
+  >
     <div class="card__tabs">
       <slot name="tabs" />
     </div>
@@ -7,11 +10,19 @@
       <slot name="image" />
       <slot name="image-label" />
     </div>
-    <div class="px-6 py-4 md:px-16 md:py-11 flex-1">
-      <h5 v-if="title" class="font-bold group-hover:underline underline-offset-4 group-hover:text-hotpink">
+    <div class="p-6 md:p-8 flex-1 flex flex-col">
+      <h5
+        v-if="title"
+        class="text-xl font-bold text-neutral-800 dark:text-neutral-200 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors mb-3"
+      >
         {{ title }}
       </h5>
-      <span v-if="description" class="text-sm">{{ description }}</span>
+      <p
+        v-if="description"
+        class="text-neutral-600 dark:text-neutral-400 leading-relaxed flex-1"
+      >
+        {{ description }}
+      </p>
       <slot />
     </div>
   </div>
@@ -22,12 +33,12 @@ defineProps({
   title: {
     type: String,
     required: false,
-    default: undefined
+    default: undefined,
   },
   description: {
     type: String,
     required: false,
-    default: undefined
-  }
-})
+    default: undefined,
+  },
+});
 </script>

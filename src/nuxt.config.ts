@@ -1,43 +1,40 @@
 export default defineNuxtConfig({
-  css: [
-    '~/assets/css/global.scss'
-  ],
+  css: ["~/assets/css/global.scss"],
 
-  plugins: [
-  ],
+  plugins: [],
 
   components: true,
-
-  modules: ['@nuxt/content', '@nuxtjs/tailwindcss', '@nuxt/image'],
+  compatibilityDate: "2025-07-20",
+  modules: ["@nuxt/content", "@nuxtjs/tailwindcss", "@nuxt/image"],
 
   runtimeConfig: {
-    serverGiphyApiKey: 'unset',
-    serverGoogleApiKey: 'unset',
-    memcachierServers: 'unset',
-    memcacheUsername: 'unset',
-    memcachePassword: 'unset',
-    sendgridApiKey: 'unset',
-    githubPat: 'unset',
+    serverGiphyApiKey: "unset",
+    serverGoogleApiKey: "unset",
+    memcachierServers: "unset",
+    memcacheUsername: "unset",
+    memcachePassword: "unset",
+    sendgridApiKey: "unset",
+    githubPat: "unset",
     public: {
-      googleAnalyticsId: 'unset',
+      googleAnalyticsId: "unset",
       useClarityAnalytics: false,
-      apiBaseUrl: 'unset',
-      web3formsAccessKey: 'unset'
-    }
+      apiBaseUrl: "unset",
+      web3formsAccessKey: "unset",
+    },
   },
 
   app: {
-    pageTransition: { name: 'page', mode: 'out-in' }
+    pageTransition: { name: "page", mode: "out-in" },
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-    analyze: false
+    analyze: false,
   },
 
   content: {
     markdown: {
-      anchorLinks: false
-    }
-  }
-})
+      anchorLinks: false,
+    },
+  },
+});

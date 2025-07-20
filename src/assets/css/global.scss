@@ -1,22 +1,194 @@
-// Work on completely removing this file
-@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+// Modern, polished global styles
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+
+:root {
+  --color-primary: 14 138 255; /* #0e8aff */
+  --color-secondary: 164 120 255; /* #a478ff */
+  --color-accent: 243 77 67; /* #f34d43 */
+  --color-surface: 248 250 252; /* #f8fafc */
+  --color-surface-dark: 30 41 59; /* #1e293b */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 html {
   font-size: 100%;
   height: 100%;
+  scroll-behavior: smooth;
 }
 
-body
-{
-  height:100%;
+body {
+  height: 100%;
   margin: 0;
-  /* Show scrollbars so there's no dlayout inconsistency (due to the width of the scrollbar) */
-  overflow-y: scroll;
-  font-family: 'Karla', sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  background-color: #ffffff;
+  color: #334155;
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background-color: #0f172a;
+  color: #e2e8f0;
 }
 
 #__nuxt,
-#__layout
-{
-  height:100%;
+#__layout {
+  height: 100%;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #a478ff, #0e8aff);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #9050ff, #006cd8);
+}
+
+/* Custom selection */
+::selection {
+  background: rgba(164, 120, 255, 0.2);
+  color: #0f172a;
+}
+
+.dark ::selection {
+  background: rgba(255, 215, 0, 0.3); /* Gold selection for high contrast */
+  color: #ffffff;
+}
+
+/* High contrast improvements for dark mode */
+.dark {
+  /* Ensure minimum contrast ratios for accessibility */
+  --text-primary: #ffffff;
+  --text-secondary: #e5e5e5;
+  --text-muted: #cccccc;
+  --border-primary: #555555;
+  --border-accent: #ffd700;
+}
+
+/* Focus styles */
+*:focus-visible {
+  outline: 2px solid rgba(164, 120, 255, 0.6);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Glass morphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(15, 23, 42, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  background: linear-gradient(135deg, #0e8aff, #a478ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Modern card styles */
+.modern-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(255, 255, 255, 0.7) 100%
+  );
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark .modern-card {
+  background: linear-gradient(
+    145deg,
+    rgba(30, 41, 59, 0.9) 0%,
+    rgba(51, 65, 85, 0.7) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.modern-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15),
+    0 4px 8px rgba(164, 120, 255, 0.2);
+}
+
+.dark .modern-card:hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(164, 120, 255, 0.3);
+}
+
+/* Button animations */
+.btn-modern {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-modern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.btn-modern:hover::before {
+  left: 100%;
+}
+
+/* Page transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-20px);
 }

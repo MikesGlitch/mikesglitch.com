@@ -1,30 +1,56 @@
 <template>
-  <div class="bg-gray-dark py-2">
-    <nav class="container h-full flex flex-col sm:flex-row items-center justify-between text-white">
-      <div class="flex flex-col md:flex-row gap-2 sm:gap-6 mx-auto md:mx-0">
-        <NuxtLink class="text-2xl font-bold nav-logo text-center md:mr-4" to="/">
-          <span class="text-white">Mikes</span><span class="text-hotpink">Glitch</span>
-        </NuxtLink>
-      </div>
-      <div class="flex flex-row flex-wrap gap-6 items-center w-full justify-center sm:justify-end">
-        <!-- <LinkInternal to="/projects" text="Projects" />
-          <LinkInternal to="/blog" text="Blog" />
-          <LinkInternal to="/videos" text="Videos" /> -->
-        <div class="flex flex-row gap-6">
-          <LinkExternal title="Check out my GitHub" href="https://github.com/mikesglitch" text="GitHub">
-            <template #icon>
-              <IconGithub class="min-w-[1rem]" />
-            </template>
-          </LinkExternal>
-          <LinkExternal title="Check out my LinkedIn" href="https://www.linkedin.com/in/mikesglitch" text="LinkedIn">
-            <template #icon>
-              <IconLinkedin class="fill-white min-w-[1rem]" />
-            </template>
-          </LinkExternal>
+  <div
+    class="fixed top-0 w-full z-50 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-lg border-b border-neutral-200/50 dark:border-neutral-700/50"
+  >
+    <nav class="container mx-auto px-6 h-16 flex items-center justify-between">
+      <!-- Logo -->
+      <NuxtLink class="nav-logo group" to="/">
+        <div class="flex items-center gap-2">
+          <span class="text-xl font-bold">
+            <span
+              class="text-neutral-800 dark:text-neutral-200 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors"
+              >Mikes</span
+            ><span class="gradient-text">Glitch</span>
+          </span>
         </div>
-        <div class="hidden md:flex items-center">
-          <ThemeSwitch :is-light-theme="isLightTheme" @toggle-theme="onToggleTheme" />
+      </NuxtLink>
+
+      <!-- Navigation Links (Hidden for now, can be uncommented later) -->
+      <!-- <div class="hidden md:flex items-center gap-8">
+        <NuxtLink to="/projects" class="nav-link">Projects</NuxtLink>
+        <NuxtLink to="/blog" class="nav-link">Blog</NuxtLink>
+        <NuxtLink to="/videos" class="nav-link">Videos</NuxtLink>
+      </div> -->
+
+      <!-- Right Side -->
+      <div class="flex items-center gap-4">
+        <!-- Social Links -->
+        <div class="hidden sm:flex items-center gap-3">
+          <a
+            href="https://github.com/mikesglitch"
+            title="GitHub"
+            target="_blank"
+            rel="noopener"
+            class="p-2 text-neutral-700 dark:text-neutral-200 hover:text-primary-600 dark:hover:text-yellow-400 transition-colors"
+          >
+            <IconGithub class="w-5 h-5" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/mikesglitch"
+            title="LinkedIn"
+            target="_blank"
+            rel="noopener"
+            class="p-2 text-neutral-700 dark:text-neutral-200 hover:text-[#0a66c2] dark:hover:text-yellow-400 transition-colors"
+          >
+            <IconLinkedin class="w-5 h-5" />
+          </a>
         </div>
+
+        <!-- Theme Toggle -->
+        <ThemeSwitch
+          :is-light-theme="isLightTheme"
+          @toggle-theme="onToggleTheme"
+        />
       </div>
     </nav>
   </div>
@@ -35,20 +61,21 @@ defineProps({
   isLightTheme: {
     type: Boolean,
     required: true,
-    default: false
-  }
-})
+    default: false,
+  },
+});
 
-const emit = defineEmits<{(e: 'toggle-theme'): void }>()
+const emit = defineEmits<{ (e: "toggle-theme"): void }>();
 
-const onToggleTheme = () => emit('toggle-theme')
+const onToggleTheme = () => emit("toggle-theme");
 </script>
 
 <style lang="scss" scoped>
-.router-link-exact-active {
-  &:not(.nav-logo) {
-    @apply underline underline-offset-4 text-hotpink;
+.nav-link {
+  @apply text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors;
+}
 
-  }
+.router-link-exact-active.nav-link {
+  @apply text-primary-600 dark:text-primary-400;
 }
 </style>
