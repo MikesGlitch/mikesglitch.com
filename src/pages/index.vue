@@ -32,8 +32,7 @@
               />
               <span
                 class="text-sm font-medium text-neutral-700 dark:text-neutral-300"
-                >Available for hire</span
-              >
+              >Available for hire</span>
             </div>
 
             <!-- Main Heading -->
@@ -56,16 +55,11 @@
               class="text-xl leading-relaxed text-neutral-600 dark:text-neutral-300 max-w-2xl"
             >
               I'm a product-oriented web developer passionate about creating
-              <span class="font-semibold text-primary-600 dark:text-primary-400"
-                >reliable</span
-              >,
+              <span class="font-semibold text-primary-600 dark:text-primary-400">reliable</span>,
               <span
                 class="font-semibold text-secondary-600 dark:text-secondary-400"
-                >scalable</span
-              >, and
-              <span class="font-semibold text-accent-600 dark:text-accent-400"
-                >tested applications</span
-              >
+              >scalable</span>, and
+              <span class="font-semibold text-accent-600 dark:text-accent-400">tested applications</span>
               that make a difference.
             </p>
 
@@ -115,8 +109,7 @@
             <div class="flex items-center gap-6 pt-8">
               <span
                 class="text-sm font-medium text-neutral-500 dark:text-neutral-400"
-                >Connect with me</span
-              >
+              >Connect with me</span>
               <div class="flex gap-4">
                 <NuxtLink
                   to="https://github.com/mikesglitch"
@@ -178,7 +171,7 @@
                   class="w-full h-auto rounded-2xl shadow-2xl"
                   src="/avatar_new.png"
                   alt="Mike Clark - Web Developer"
-                />
+                >
               </div>
             </div>
           </div>
@@ -214,8 +207,7 @@
             >
               <span
                 class="text-sm font-medium text-primary-700 dark:text-primary-300"
-                >About Me</span
-              >
+              >About Me</span>
             </div>
             <h2 class="text-4xl md:text-5xl font-bold mb-6">
               Nice to meet you! I'm
@@ -239,7 +231,7 @@
                     class="w-48 h-48 rounded-2xl object-cover shadow-lg"
                     src="/avatar_new.png"
                     alt="Michael Clark"
-                  />
+                  >
                   <div class="mt-4 text-center">
                     <h3
                       class="text-xl font-bold text-neutral-800 dark:text-neutral-200"
@@ -265,13 +257,11 @@
                   Software development isn't just my job, it's my
                   <span
                     class="font-semibold text-primary-600 dark:text-primary-400"
-                    >passion</span
-                  >. While some people complain about having to learn new
+                  >passion</span>. While some people complain about having to learn new
                   technologies every few years, I think that's the
                   <span
                     class="font-semibold text-secondary-600 dark:text-secondary-400"
-                    >best part</span
-                  >
+                  >best part</span>
                   of our field.
                 </p>
 
@@ -286,13 +276,11 @@
                   Beyond coding, I'm passionate about
                   <span
                     class="font-semibold text-accent-600 dark:text-accent-400"
-                    >travel</span
-                  >
+                  >travel</span>
                   and adventure. Exploring new places doesn't just satisfy my
                   wanderlust—it broadens my perspective and influences how I
                   approach problem-solving. My dream is to tour every country in
                   Europe on my motorbike.
-                  <span class="text-2xl">🏍️ 🌍</span>
                 </p>
               </div>
 
@@ -306,20 +294,16 @@
                 <div class="flex flex-wrap gap-3">
                   <span
                     class="px-4 py-2 bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/30 text-primary-700 dark:text-primary-300 rounded-xl border border-primary-200 dark:border-primary-700 text-sm font-medium"
-                    >Vue.js</span
-                  >
+                  >Vue.js</span>
                   <span
                     class="px-4 py-2 bg-gradient-to-r from-secondary-50 to-secondary-100 dark:from-secondary-900/30 dark:to-secondary-800/30 text-secondary-700 dark:text-secondary-300 rounded-xl border border-secondary-200 dark:border-secondary-700 text-sm font-medium"
-                    >Nuxt.js</span
-                  >
+                  >React</span>
                   <span
                     class="px-4 py-2 bg-gradient-to-r from-accent-50 to-accent-100 dark:from-accent-900/30 dark:to-accent-800/30 text-accent-700 dark:text-accent-300 rounded-xl border border-accent-200 dark:border-accent-700 text-sm font-medium"
-                    >TypeScript</span
-                  >
+                  >Node.js</span>
                   <span
                     class="px-4 py-2 bg-gradient-to-r from-primary-50 to-primary-100 dark:from-primary-900/30 dark:to-primary-800/30 text-primary-700 dark:text-primary-300 rounded-xl border border-primary-200 dark:border-primary-700 text-sm font-medium"
-                    >.NET</span
-                  >
+                  >.NET</span>
                 </div>
               </div>
             </div>
@@ -338,8 +322,7 @@
           >
             <span
               class="text-sm font-medium text-secondary-700 dark:text-secondary-300"
-              >Client Work</span
-            >
+            >Client Work</span>
           </div>
           <h2 class="text-4xl md:text-5xl font-bold mb-6">
             Trusted by <span class="gradient-text">Outstanding Companies</span>
@@ -447,8 +430,7 @@
           >
             <span
               class="text-sm font-medium text-accent-700 dark:text-accent-300"
-              >Recent Work</span
-            >
+            >Recent Work</span>
           </div>
           <h2 class="text-4xl md:text-5xl font-bold mb-6">
             Latest <span class="gradient-text">Projects</span>
@@ -532,8 +514,7 @@
                     </svg>
                     <span
                       class="text-sm font-medium text-neutral-600 dark:text-neutral-400"
-                      >{{ project.stars }}</span
-                    >
+                    >{{ project.stars }}</span>
                   </div>
 
                   <!-- Last Updated -->
@@ -641,8 +622,7 @@
             >
               <span
                 class="text-sm font-medium text-primary-700 dark:text-primary-300"
-                >Let's Connect</span
-              >
+              >Let's Connect</span>
             </div>
             <h2 class="text-4xl md:text-5xl font-bold mb-6">
               Get In <span class="gradient-text">Touch</span>
@@ -799,7 +779,7 @@
                         required
                         class="w-full px-4 py-3 bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 rounded-xl text-neutral-900 dark:text-neutral-100 placeholder-neutral-500 dark:placeholder-neutral-400 focus:border-primary-500 dark:focus:border-primary-400 focus:ring-2 focus:ring-primary-500/20 dark:focus:ring-primary-400/20 transition-all duration-200"
                         placeholder="your.email@example.com"
-                      />
+                      >
                     </div>
                   </div>
                   <div>
@@ -846,128 +826,128 @@
 </template>
 
 <script lang="ts" setup>
-import type { ParsedContent } from "@nuxt/content";
-import type { IGetProjectsResponse } from "~/interfaces/Api";
-import type { IProjectCardProps } from "~/components/card/Project.vue";
-import { toHumanReadableDate } from "~/utils/dateUtils";
+import type { ParsedContent } from '@nuxt/content'
+import type { IGetProjectsResponse } from '~/interfaces/Api'
+import type { IProjectCardProps } from '~/components/card/Project.vue'
+import { toHumanReadableDate } from '~/utils/dateUtils'
 
-const config = useRuntimeConfig();
+const config = useRuntimeConfig()
 
-const contactFormEl = ref<HTMLElement>();
-const projectsEl = ref<HTMLElement>();
+const contactFormEl = ref<HTMLElement>()
+const projectsEl = ref<HTMLElement>()
 
-const { data } = await useAsyncData("homePageInit", async () => {
+const { data } = await useAsyncData('homePageInit', async () => {
   const projectsResponsePromise = $fetch<IGetProjectsResponse>(
     `${config.public.apiBaseUrl}/projects`
-  );
-  const projectsMarkdownPromise = queryContent("/projects")
-    .only(["title", "repoName", "description", "_path"])
+  )
+  const projectsMarkdownPromise = queryContent('/projects')
+    .only(['title', 'repoName', 'description', '_path'])
     .sort({ createdAt: 1 })
-    .find();
+    .find()
 
-  const clientsMarkdownPromise = queryContent("/clients")
-    .only(["order", "title", "description", "name", "_path"])
+  const clientsMarkdownPromise = queryContent('/clients')
+    .only(['order', 'title', 'description', 'name', '_path'])
     .sort({ order: -1 })
     .limit(4)
-    .find();
+    .find()
 
   const [githubProjectsResult, projectArticlesResult, clientsMarkdownResult] =
     await Promise.allSettled([
       projectsResponsePromise,
       projectsMarkdownPromise,
-      clientsMarkdownPromise,
-    ]);
+      clientsMarkdownPromise
+    ])
 
-  let projectCards: IProjectCardProps[] = [];
-  let clientsMarkdown: Pick<ParsedContent, string>[] = [];
+  let projectCards: IProjectCardProps[] = []
+  let clientsMarkdown: Pick<ParsedContent, string>[] = []
   if (
-    githubProjectsResult.status === "fulfilled" &&
-    projectArticlesResult.status === "fulfilled" &&
-    clientsMarkdownResult.status === "fulfilled"
+    githubProjectsResult.status === 'fulfilled' &&
+    projectArticlesResult.status === 'fulfilled' &&
+    clientsMarkdownResult.status === 'fulfilled'
   ) {
-    clientsMarkdown = clientsMarkdownResult.value;
+    clientsMarkdown = clientsMarkdownResult.value
     const top4Projects = githubProjectsResult.value.projects
       .sort(
         (a, b) => Date.parse(b.lastComittedAt) - Date.parse(a.lastComittedAt)
       )
-      .slice(0, 4);
+      .slice(0, 4)
     projectCards = top4Projects.map((project): IProjectCardProps => {
       const articleData = projectArticlesResult.value.find(
-        (article) => article.repoName === project.name
-      );
+        article => article.repoName === project.name
+      )
       return {
         to: project.url,
         title: project.name,
         description: project.description,
         stars: project.stars,
         article: articleData ? articleData._path : undefined,
-        lastCommittedAt: project.lastComittedAt,
-      };
-    });
+        lastCommittedAt: project.lastComittedAt
+      }
+    })
   }
 
-  return { projectCards, clientsMarkdown };
-});
+  return { projectCards, clientsMarkdown }
+})
 
 const contactForm = ref({
-  name: "",
-  email: "",
-  message: "",
+  name: '',
+  email: '',
+  message: '',
   sending: false,
-  state: "" as "sent" | "failed" | "",
-});
+  state: '' as 'sent' | 'failed' | ''
+})
 
 const sendButtonLabel = computed(() => {
   if (contactForm.value.sending) {
-    return "Sending...";
+    return 'Sending...'
   }
-  if (contactForm.value.state === "failed") {
-    return "Failed to send 😢";
+  if (contactForm.value.state === 'failed') {
+    return 'Failed to send 😢'
   }
-  if (contactForm.value.state === "sent") {
-    return "Sent! ✔";
+  if (contactForm.value.state === 'sent') {
+    return 'Sent! ✔'
   }
-  return "Send 💌";
-});
+  return 'Send 💌'
+})
 
-function onScrollToContactForm() {
-  contactFormEl.value?.scrollIntoView({ behavior: "smooth" });
+function onScrollToContactForm () {
+  contactFormEl.value?.scrollIntoView({ behavior: 'smooth' })
 }
 
-function onScrollToProjects() {
-  projectsEl.value?.scrollIntoView({ behavior: "smooth" });
+function onScrollToProjects () {
+  projectsEl.value?.scrollIntoView({ behavior: 'smooth' })
 }
 
 const contactFormDisabled = computed(
-  () => contactForm.value.sending || contactForm.value.state === "sent"
-);
+  () => contactForm.value.sending || contactForm.value.state === 'sent'
+)
 
-async function sendContactForm() {
+async function sendContactForm () {
   // class="w-full" action="https://api.web3forms.com/submit" method="POST"
-  contactForm.value.sending = true;
-  const response = await fetch("https://api.web3forms.com/submit", {
-    method: "POST",
+  contactForm.value.sending = true
+  const response = await fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+      'Content-Type': 'application/json',
+      Accept: 'application/json'
     },
     body: JSON.stringify({
       access_key: config.public.web3formsAccessKey,
-      subject: "New Contact Form from MikesGlitch.com",
-      from_name: "MikesGlitch.com",
+      subject: 'New Contact Form from MikesGlitch.com',
+      from_name: 'MikesGlitch.com',
       name: contactForm.value.name,
       email: contactForm.value.email,
-      message: contactForm.value.message,
-    }),
-  });
-  const result = await response.json();
+      message: contactForm.value.message
+    })
+  })
+  const result = await response.json()
   if (result.success) {
-    contactForm.value.state = "sent";
+    contactForm.value.state = 'sent'
   } else {
-    contactForm.value.state = "failed";
+    contactForm.value.state = 'failed'
   }
 
-  contactForm.value.sending = false;
+  contactForm.value.sending = false
 }
 </script>
 
