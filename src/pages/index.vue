@@ -32,7 +32,7 @@
               />
               <span
                 class="text-sm font-medium text-neutral-700 dark:text-neutral-300"
-              >Available for hire</span>
+              >Available for contract engagements</span>
             </div>
 
             <!-- Main Heading -->
